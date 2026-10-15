@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel='stylesheet' type='text/css' href='css/aerolab.css'>
+		<!-- 				<link rel='stylesheet' type='text/css' href='onMouseoverAnimate.css'/>
+		-->
+
+		<title>HTML, CSS &amp; Javascript: An Overview</title>
+	</head>
+	<body>
+
+		<header>
+			<!--              Web Page Begins                -->
+			<h1>HTML, CSS &amp; Javascript: An Overview</h1>
+
+		</header>
+		<section id="reveal">
+			<br>
+			<p>
+				All but the most basic webpages are constructed using a combination of HTML, CSS &amp; Javascript.<sup><a href="#fn1" id="r1">[1]</a></sup> This webpage will give you
+				an overview of these "tools."
+			</p>
+			<h2>Introduction</h2>
+			<a name="Introduction"><h3>HTML, CSS &amp; Javascript: An Overview</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						To ensure that all browsers show webpages in a consistent way, there are standards/rules that creators of webpages follow.
+					</p>
+					<p>
+						HTML provides the standard for the <em>structure</em> of a webpage, CSS provides the standard for the <em>presentation/style</em> of a webpage,
+						and Javascript provides	the standard for <em>actions</em> that can be taken on a webpage.
+					</p>
+					<p>
+						HTML, CSS &amp; Javascript are written in simple plain text.<sup><a href="#fn1" id="r2">[2]</a></sup> They are scripts that interact to tell a computer how
+						to compose a webpage, and what actions can be performed on that webpage.
+					</p>
+					<p>
+						The most basic way to view HTML is as a set of "tags" that designate where each part of your page should reside. It turns out that these "tags" are
+						actually <em>Objects</em> that provide developers of webpages extraordinary control over a webpage (explaining this sentence is one of the key goals of this webpage).
+						Thus, to be exact, we can say: The <em>structure</em> of a webpage provided by HTML is based on the Document Object Model (DOM). <sup><a href="#fn1" id="r3">[3]</a></sup>
+					</p>
+					<p>
+						The <em>presentation/style</em> of CSS involves using the tags/Objects of HTML, in combination with short-hand instructions, to tell the browser how to format
+						those elements (including, occasionally, where to position elements of a webpage).
+					</p>
+					<p>
+						Javascript provides the <em>actions</em> that you can perform on a webpage. A Javascript program does this by accessing the tags/Objects of HTML (and,
+						occasionally, interacting with CSS).
+					</p>
+				</div>
+			</article>
+			<h2></h2>
+			<h2>HTML, CSS &amp; Javascript: How They Work</h2>
+			<p>
+				The web browser that you are using to view this page is an application that interprets plain text files that it downloads from the web. The standards developed allow your
+				browser	to display webpages in consistent ways - that is, the page that you are looking at will look exactly the same to someone else (even if they are using a different
+				browser and/or a different operating system).
+			</p>
+
+			<a name="html"><h3>HTML</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						By accessing the console window of your browser ("command+option+u", on a mac, or F12 on a windows computer), you can see the structure of this webpage. Initially
+						it looks like a complicated mess of odd notation. Once you get used to it, you will see that it is a very structured set of symbols (with shorthand that is
+						intuitive and easy to follow).<sup><a href="#fn1" id="r4">[4]</a></sup>
+					</p>
+					<p>
+						For example, the viewable part of a webpage is written between a pair of <span class="code"> &lt;body&gt; ... content here ... &lt;/body&gt;</span> tags. Where
+						the "/" signifies the "closing" tag. Also, you can signify different "sections" of your webpage by placing the content between a pair of
+						<span class="code"> &lt;section&gt; ... this section's content here ... &lt;/section&gt;</span> tags. I am currently writing this paragraph between a
+						pair of <span class="code"> &lt;p&gt; ... this paragraph's content here ... &lt;/p&gt;</span> tags ("p" for paragraph). Image files are placed
+						in an <span class="code"> &lt;image src="images/image.jpg"&gt;</span> tag. Media files can be placed
+						between <span class="code"> &lt;media&gt; ... audio/video content here ... &lt;/media&gt;</span> tags. And so on. Each of these
+						tags (<span class="code"> &lt;body&gt;, &lt;section&gt;, &lt;img&gt;, &lt;media&gt; &amp; &lt;p&gt; </span>) are examples of the 
+						standard HTML code used in every webpage.
+					</p>
+				</div>
+			</article>
+			<a name="css"><h3>CSS</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						CSS is used to "style" a webpage.
+					</p>
+					<p>
+						You can "style" your entire webpage by writing CSS for the <em>Body</em> of your webpage. In which you can specify: the font to be used, the background color
+						(or image), the text color, the size of the margins around the page, and so on. To do this, your CSS file would look like this:
+					</p>
+					<pre>
+     body {
+        font-family: 'Quattrocento Sans', sans-serif;
+        background-color: white;
+        color: black;
+        margin: 5em 10em 5em 10em;
+        padding: 0em;
+     }
+						</pre>
+					<p>
+						"body" tells your browser that you want to style the body, the "{" encloses the style options, and then you list the options. That's all.
+					</p>
+					<p>
+						Obviously, you can have more complex styling. If, for example, you want a particular part of your webpage to be styled differently from the rest of the page
+						you can use "id" or "class" attributes in your HTML	tags. For example: <span class="code"> &lt;p id='id1' class='class1' &gt; ... this paragraph's content
+							here ... &lt;/p&gt;</span>, tells your browser that this paragraph has an id of 'id1' and a class name of 'class1'.<sup><a href="#fn1" id="r5">[5]</a></sup>
+						You would then add to your CSS file the specific styles that you want to apply to that particular part (or parts) of your webpage. Like so:
+					</p>
+					<pre>
+     p.class1 {
+        background-color: black;
+        color: white;
+     }
+     					</pre>
+					<p>
+						Where the "p" signifies "paragraph tag" and the ".class1" signifies the paragraphs with the "class1" attribute (p#id1 would be used if you wanted
+						to style the paragraph with the "id1" id - that is, "." for classes and "#" for ids).<sup><a href="#fn1" id="r6">[6]</a></sup>.
+					</p>
+					<p>
+						Every feature of a webpage that is placed between tags, i.e. all features of a webpage, can be styled by CSS in this way.
+					</p>
+					<p></p>
+				</div>
+			</article>
+			<a name="javascript"><h3>Javascript</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						Javascript is a true programming language. Whereas HTML &amp; CSS are scripts that provide shorthand to give instructions to a computer's browser,
+						Javascript, despite its name, is a fully featured programming language (it started life as a programming language for browsers but can be used for programs that
+						are independent of browsers).<sup><a href="#fn1" id="r7">[7]</a></sup>
+					</p>
+					<p>
+						As with any programming language, Javascript is written in a text file and forms a list of instructions. Those instructions are <em>interpreted</em> by your
+						browser.<sup><a href="#fn1" id="r8">[8]</a></sup>
+					</p>
+					<p>
+						The most obvious question to ask is: What can Javascript instruct a browser to do? The answer to this is provided by
+						the answer to another, related question: What features of a webpage can Javascript operate on? The answer is provided by HTML's Document Object Model. That is,
+						Javascript provides intructions to your browser that allows you to extend the functionality of a webpage by operating on the Objects of a HTML document.
+					</p>
+					<p>
+						So far we have seen HTML's Document Object Model merely as a list of tags that gives structure to a webpage - both in terms of placement of the various
+						parts of a webpage and as demarcation areas for CSS to style. Javascript allows us to dig a little deeper to see the real power of this model. Let's being
+						with an example, one that involves an Object from HTML5 called a "canvas". Move your mouse over the bordered white-space below (click on it to reset it). Then
+						click and drag the same space.
+					</p>
+					<p>
+						<div class= "draggable0">
+							<div id="tgt0">
+								<canvas id='canvasDraw' class="myCanvasClass1" width="640" height="80"></canvas>
+							</div>
+						</div>
+					</p>
+					<p></p>
+				</div>
+			</article>
+			<a name="conclusion"><h3>6: Conclusion</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+				</div>
+			</article>
+
+		</section>
+		<section id = footnotes>
+			<p id="fn1">
+				<a href="#r1">[1]</a> The most basic webpages can be written using HTML alone. More complicated webpages use extra "tools" (for example, a webpage that uses
+				databases will, typically, also use php and mySQL).
+				<br>
+				<br>
+				<a href="#r1">[2]</a> The HTML, CSS, &amp; Javascript for a particular webpage are usually written in seperate text files. The HTML page will then contain links
+				to the CSS &amp; Javascript files and process them. This is all done in the background, without you doing anything or even being aware that it is happening.
+				<br>
+				<br>
+				Both CSS &amp; Javascript code can be included directly in the HTML page but it is not the typical approach. CSS can be included directly on a page by placing it
+				between &lt;style&gt; <em>css code here</em> &lt;/style&gt; tags. The same is true of Javascript code -	except that Javascript code written directly in a HTML
+				page is placed in "script" tags, like this: &lt;script&gt; <em>javascript code here</em> &lt;/script&gt;.
+				<br>
+				<br>
+				To get your browser to link my CSS file to this HTML file, I have this statement in the <em>head</em> of this page that you are
+				reading: &lt;link rel='stylesheet' type='text/css' href='css/gameDesignIntroduction.css'&gt;. Similarly, I provide a link to the Javascript file, this time
+				just before the <em>closing "body"</em> tag, like so: &lt;script src="js/gameDesignIntroduction.js"&gt;&lt;/script&gt;
+				<br>
+				<br>
+
+				<a href="#r1">[3]</a> To see the structure of this webpage, i.e. the HTML used, you can view it directly using "command+shift+u", on a mac, or F12 on a windows computer. This
+				brings up the "console" window of your brower. Different browsers have different setups for their console windows. They all have a feature called "Inspect" or "Inspector".
+				Using this feature, if you double-click on part of the webpage it will: a) highlight that part of the webpage, and b) show you where that part of the webpage is in the
+				"source code." Another feature of console windows is a tool that allows you to type commands or to see hidden	output of a webpage. We will use this
+				console window repeatedly, as it allows you to see, directly, the components of a webpage that I am explaining.
+				<br>
+				<br>
+				<a href="#r1">[4]</a>  One reason that the Inspector component of the console window is more useful than looking directly at the source code itself (i.e. the text file
+				containing the HTML for this page) is that you can see	clearly that the "tags" of HTML are more than just placeholders. Each tag in the inspector has a small grey "arrow"
+				beside it. Clicking on those arrows opens the tag. Which, typically, reveals a range of other tags embedded in the original tag that you "opened". These "tags", as I
+				mentioned before, are the Objects of the Document Object Model that provides the structure of a webpage. We will explore other features of these Objects later, which
+				will allow you see the enormous amount of work that a browser does behind the scenes using these Objects (and the amazing control that these Objects give webpage
+				designers over a webpage).
+				<br>
+				<br>
+				<a href="#r1">[5]</a> You choose the names that you use for your ids and class names, and it is best to choose names that remind you why you are singling a section of
+				the webpage out for special treatment. "id"s are unique identifiers whereas "classes" are used to indentify a group. So, if you want a style to be applied to one
+				single part of your webpage you would use an "id", if you wanted a style to be applied to a broad range of your webpage contents, say all paragraphs in the first
+				section, then you would give all of your paragraphs in the first section the same classname.
+				<br>
+				<br>
+				<a href="#r1">[6]</a> To be clear, here are the most important options:
+				<br>
+				<br>
+			</p>
+			1) Style ALL paragraphs (just use "p" alone):
+			<pre>
+     p {
+        background-color: black;
+        color: white;
+     }
+     			</pre>									
+     			2) Style paragraphs with a particular class attribute (use "p" dot "classname"):
+ 			<pre>
+     p.class1 {
+        background-color: black;
+        color: white;
+     }
+     			</pre>																	
+     			3) Style A paragraph with a particular id attribute (use "p" hash "id"):
+ 			<pre>
+     p#id1 {
+        background-color: black;
+        color: white;
+     }
+     			</pre>																																			
+ 
+ <br>
+			<br>
+			<p>
+				<a href="#r1">[7]</a> Javascript is currently the most popular programming language, mainly due to its fundamental role in developing webpages with a range of functionality.
+				<br>
+				<a href="#r1">[8]</a> This is another example of a feature of all browsers that happens "behind the scenes", without you doing anything or even being aware of it. All browsers
+				have this ability to "interpret/run" Javascript code, a powerful programming language, extending the functionality of webpages, all the while appearing as if all that it is doing
+				is opening a webpage in a window.
+				<br>
+				<!-- 					<a href="#r1">[9]</a>
+				<br>
+				<a href="#r10">[10]</a>
+				<br>
+				<a href="#r11">[11]</a>
+				<br>
+				<a href="#r12">[12]</a>
+				<br>
+				<a href="#r13">[13]</a>
+				<br>
+				<a href="#r14">[14]</a>
+				<br>
+				<a href="#r15">[15]</a>
+				<br>
+				<a href="#r16">[16]</a>
+				<br>
+				<a href="#r17">[17]</a>
+				<br>
+				<a href="#r18">[18]</a>
+				<br>
+				<a href="#r19">[19]</a>
+				<br>
+				<a href="#r20">[20]</a>
+				<br>
+				<a href="#r21">[21]</a>
+				<br>
+				<a href="#r22">[22]</a>
+				<br>
+				<a href="#r23">[23]</a>
+				<br>
+				<a href="#r24">[24]</a>
+				<br>
+				<a href="#r25">[25]</a>
+				<br>
+				<a href="#r26">[26]</a>
+				-->
+			</p>
+		</section>
+
+		<script src="js/jquery-2.1.3.min.js"></script>
+
+		<script src="js/canvasDrawing.js"></script>
+
+		<script src="js/clickNDrag.js"></script>
+
+		<script src="js/aerolab.js"></script>
+
+		<script src="js/addSideBarOverview.js"></script>
+		<script src="js/fadeInAndOut.js"></script>
+		<!-- fades in and out the h1 tag -->
+	</body>
+</html>
+

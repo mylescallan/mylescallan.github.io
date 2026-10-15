@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel='stylesheet' type='text/css' href='css/overview.css'>
+		<!-- 				<link rel='stylesheet' type='text/css' href='onMouseoverAnimate.css'/>
+		-->
+		<link href="/codePrettify/src/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="/codePrettify/src/prettify.js"></script>
+
+		<title>HTML, CSS &amp; Javascript: An Overview</title>
+	</head>
+	<body id='bodyBack' onload="prettyPrint(); init();">
+		<!-- onload for EaselJS -->
+
+		<header>
+			<!--              Web Page Begins                -->
+			<h1>HTML, CSS &amp; Javascript: An Overview</h1>
+
+		</header>
+		<section class="container" id="reveal">
+			<section class="main">
+				<br>
+				<p>
+					All but the most basic webpages are constructed using a combination of HTML, CSS &amp; Javascript.<sup><a href="#fn1" id="r1">[1]</a></sup> This webpage will give you
+					an overview of these "tools."
+				</p>
+				<h2>Introduction</h2>
+				<a name="Introduction"><h3>1. HTML, CSS &amp; Javascript: An Overview</h3></a>
+				<article class="hiddenDiv">
+					<p>
+						To ensure that all browsers show webpages in a consistent way, there are standards/rules that creators of webpages follow.
+					</p>
+					<p>
+						HTML provides the standard for the <em>structure</em> of a webpage, CSS provides the standard for the <em>presentation/style</em> of a webpage,
+						and Javascript provides	the standard for <em>actions</em> that can be taken on a webpage.
+					</p>
+					<p>
+						HTML, CSS &amp; Javascript are written in simple plain text.<sup><a href="#fn2" id="r2">[2]</a></sup> They are scripts that interact to tell a computer how
+						to compose a webpage, and what actions can be performed on that webpage.
+					</p>
+					<p>
+						The most basic way to view HTML is as a set of "tags" that designate where each part of your page should reside. It turns out that these "tags" are
+						actually <em>Objects</em> that provide developers of webpages extraordinary control over a webpage (explaining this sentence is one of the key goals of this
+						webpage). Thus, to be exact, we can say: The <em>structure</em> of a webpage provided by HTML is based on the Document Object Model
+						(DOM).<sup><a href="#fn3" id="r3">[3]</a></sup>
+					</p>
+					<p>
+						<em>The links to the drop-down menus on the left allow you to see: 1) The "tags"/HTML Objects used on this page; 2) The properties of some of the
+						HTML Objects used on this page; and 3) The number of tasks that your browser (as an interpreter of Javascript) can perform  in a second.
+						Many of the properties of the HTML Objects are Methods (functions) that allow a web developer to control or perform actions with or on the Objects
+						(typically using Javascript, and at an incredible speed).</em>
+					</p>
+					<p>
+						The <em>presentation/style</em> of CSS involves using the tags/Objects of HTML, in combination with short-hand instructions, to tell the browser how to format
+						those elements (including, occasionally, where to position elements of a webpage).
+					</p>
+					<p>
+						Javascript provides the <em>actions</em> that you can perform on a webpage. A Javascript program does this by accessing the tags/Objects of HTML (and,
+						occasionally, interacting with CSS).
+					</p>
+				</article>
+				<h2></h2>
+				<h2>HTML, CSS &amp; Javascript: How They Work</h2>
+				<p>
+					The web browser that you are using to view this page is an application that interprets plain text files that it downloads from the web. The standards developed allow your
+					browser	to display webpages in consistent ways - that is, the page that you are looking at will look exactly the same to someone else (even if they are using a different
+					browser and/or a different operating system).
+				</p>
+
+				<a name="html"><h3>2. HTML</h3></a>
+				<article class="hiddenDiv">
+					<p>
+						By accessing the inspector component of the console window of your browser ("command+option+i", on a mac, or F12 on a windows computer), you can see the structure of this webpage. Initially
+						it looks like a complicated mess of odd notation. Once you get used to it, you will see that it is a very structured set of symbols (with shorthand that is
+						intuitive and easy to follow).<sup><a href="#fn4" id="r4">[4]</a></sup>
+					</p>
+					<p>
+						For example, the viewable part of a webpage is written between a pair of <span class="code"> &lt;body&gt; ... content here ... &lt;/body&gt;</span> tags. Where
+						the "/" signifies the "closing" tag. Also, you can signify different "sections" of your webpage by placing the content between a pair of
+						<span class="code"> &lt;section&gt; ... this section's content here ... &lt;/section&gt;</span> tags. I am currently writing this paragraph between a
+						pair of <span class="code"> &lt;p&gt; ... this paragraph's content here ... &lt;/p&gt;</span> tags ("p" for paragraph). Image files are placed
+						in an <span class="code"> &lt;image src="images/image.jpg"&gt;</span> tag. Media files can be placed
+						between <span class="code"> &lt;media&gt; ... audio/video content here ... &lt;/media&gt;</span> tags. And so on. Each of these
+						tags (<span class="code"> &lt;body&gt;, &lt;section&gt;, &lt;img&gt;, &lt;media&gt; &amp; &lt;p&gt; </span>) are examples of the
+						standard HTML code used in every webpage.
+					</p>
+				</article>
+				<a name="css"><h3>3. CSS</h3></a>
+				<article class="hiddenDiv">
+					<p>
+						CSS is used to "style" a webpage.
+					</p>
+					<p>
+						You can "style" your entire webpage by writing CSS for the <em>Body</em> of your webpage. In which you can specify: the font to be used, the background color
+						(or image), the text color, the size of the margins around the page, and so on. To do this, your CSS file would look like this:
+					</p>
+					<pre class="prettyprint">
+     body {
+        font-family: 'Quattrocento Sans', sans-serif;
+        background-color: white;
+        color: black;
+        margin: 5em 10em 5em 10em;
+        padding: 0em;
+     }
+						</pre>
+					<p>
+						"body" tells your browser that you want to style the body, the "{" encloses the style options, and then you list the options. That's all.
+					</p>
+					<p>
+						Obviously, you can have more complex styling. If, for example, you want a particular part of your webpage to be styled differently from the rest of the page
+						you can use "id" or "class" attributes in your HTML	tags. For example: <span class="code"> &lt;p id='id1' class='class1' &gt; ... this paragraph's content
+							here ... &lt;/p&gt;</span>, tells your browser that this paragraph has an id of 'id1' and a class name of 'class1'.<sup><a href="#fn5" id="r5">[5]</a></sup>
+						You would then add to your CSS file the specific styles that you want to apply to that particular part (or parts) of your webpage. Like so:
+					</p>
+					<pre class="prettyprint">
+     p.class1 {
+        background-color: black;
+        color: white;
+     }
+     					</pre>
+					<p>
+						Where the "p" signifies "paragraph tag" and the ".class1" signifies the paragraphs with the "class1" attribute (p#id1 would be used if you wanted
+						to style the paragraph with the "id1" id - that is, "." for classes and "#" for ids).<sup><a href="#fn6" id="r6">[6]</a></sup>.
+					</p>
+					<p>
+						Every feature of a webpage that is placed between tags, i.e. all features of a webpage, can be styled by CSS in this way.
+					</p>
+					<p></p>
+				</article>
+				<a name="javascript"><h3>4. Javascript</h3></a>
+				<article class="hiddenDiv">
+					<p>
+						Javascript is a true programming language. Whereas HTML &amp; CSS are scripts that provide shorthand to give instructions to a computer's browser,
+						Javascript, despite its name, is a fully featured programming language (it started life as a programming language for browsers but can be used for programs that
+						are independent of browsers).<sup><a href="#fn7" id="r7">[7]</a></sup>
+					</p>
+					<p>
+						As with any programming language, Javascript is written in a text file and forms a list of instructions. Those instructions are <em>interpreted</em> by your
+						browser.<sup><a href="#fn8" id="r8">[8]</a></sup>
+					</p>
+					<p>
+						The most obvious question to ask is: What can Javascript instruct a browser to do? The answer to this is provided by
+						the answer to another, related question: What features of a webpage can Javascript operate on? The answer is provided by HTML's Document Object Model. That is,
+						Javascript provides intructions to your browser that allows you to extend the functionality of a webpage by operating on the Objects of a HTML document.
+					</p>
+					<p>
+						So far we have seen HTML's Document Object Model merely as a list of tags that gives structure to a webpage - both in terms of placement of the various
+						parts of a webpage and as demarcation areas for CSS to style. Javascript allows us to dig a little deeper to see the real power of this model. Let's being
+						with a simple example, one where you change the background of this webpage by clicking on an area, or moving your mouse over an area:
+					</p>
+				</article>
+				<div class= "divBackGrnd" id='divBack0'>
+					<em>Click Here:</em> To see what you can do with Javascript
+				</div>
+				<p>
+					or
+				</p>
+				<div class= "divBackGrnd" id='divBack'>
+					<em>Mouseover Here:</em> To see what you can do with Javascript
+				</div>
+
+				<article class="hiddenDiv">
+					<div class= "divRevealOuter" id='divOuter'>
+						<em>Click Here:</em> To see the Javascript for this example (Click again to hide).<sup><a href="#fn9" id="r9">[9]</a></sup>
+						<div class= 'divRevealInner' id='divReveal'>
+							<pre class="prettyprint">
+ /* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*   The Event Handler For Background Change
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+var toggle = false;
+var divMouse = document.getElementById('divBack');
+
+function makeClickHandler() {
+    "use strict";
+    if (toggle) {
+        divMouse.style.color = 'black';
+        divMouse.innerHTML = '&lt;em&gt;Click Here:&lt;/em&gt; To see what you can do with Javascript';
+        divMouse.style.opacity = "1";
+        document.getElementById('bodyBack').setAttribute("class", 'nowHidden');
+        toggle = !toggle;
+    } else {
+        divMouse.style.color = 'white';
+        divMouse.innerHTML = "&lt;em&gt;Click Again&lt;/em&gt;: Okay, you've seen it";
+        divMouse.style.opacity = "0.5";
+        document.getElementById('bodyBack').setAttribute("class", 'unHidden');
+        toggle = !toggle;
+    }
+    // NOTE: Change innerHTML
+}
+
+divMouse.addEventListener("click", makeClickHandler, false);
+							</pre>
+						</div>
+					</div>
+				</article>
+				<article class="hiddenDiv">
+					<p>
+						Here's another example, one that involves an Object from HTML5 called a "canvas". Click and drag the daisies.  You'll see that you can move them where you
+						want to on the canvas.
+					</p>
+
+					<div class= "draggable0">
+						<div id="tgt1">
+							<canvas id='testCanvas' class="myCanvasClass" width="1000" height="80"></canvas>
+							<!-- for EaselJS flower picking -->
+						</div>
+					</div>
+					<div class= "divRevealOuter" id='divOuter1'>
+						<em>Click Here:</em> To see the Javascript for this example (Click again to hide).
+						<div class= 'divRevealInner' id='divReveal1'>
+							<em>Code:</em>
+						</div>
+					</div>
+
+					<p>
+						Here's a more complicated example, that again involves a "canvas". Click on the bordered white-space below
+						(to reset it), then move your mouse around it. Another trick is that you can also click and drag this "canvas", and put it wherever you like on the page
+						(and continue to draw on it if you wish).
+					</p>
+
+					<div class= "draggable0">
+						<div id="tgt0">
+							<canvas id='canvasDraw' class="myCanvasClass1" width="640" height="80"></canvas>
+						</div>
+					</div>
+					<div class= "divRevealOuter" id='divOuter1'>
+						<em>Click Here:</em> To see the Javascript for this example (Click again to hide).
+						<div class= 'divRevealInner' id='divReveal1'>
+							<em>Code:</em>
+						</div>
+					</div>
+
+					<p></p>
+				</article>
+				<a name="conclusion"><h3>5: Conclusion</h3></a>
+				<article class="hiddenDiv">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+				</article>
+
+				<section id="footnotes">
+					<a name="footnotes"><h3>6: Footnotes</h3></a><em>
+					<p id="fn1">
+						<a href="#r1" title="Jump back to the main text.">[1]</a> The most basic webpages can be written using HTML alone. More complicated webpages use extra "tools" (for example, a webpage that uses
+						databases will, typically, also use php and mySQL). NOTE: This webpage is designed to give you an overview of HTML, CSS &amp; Javascript, so you will not learn
+						many of the details of how to use these tools (I leave that for later in this series). You should, however, get a very good sense of the big picture.
+						<br>
+						<br>
+						p.s. footnotes on this webpage are bi-directional, clicking on the link in the footnote takes you back to the source of that footnote.
+						<br>
+						<br>
+
+					</p>
+					<p id="fn2">
+						<a href="#r2" title="Jump back to the main text.">[2]</a> The HTML, CSS, &amp; Javascript for a particular webpage are usually written in seperate text files. The HTML page will then contain links
+						to the CSS &amp; Javascript files and process them. This is all done in the background, without you doing anything or even being aware that it is happening.
+						<br>
+						<br>
+						Both CSS &amp; Javascript code can be included directly in the HTML page but it is not the typical approach. CSS can be included directly on a page by placing it
+						between &lt;style&gt; <em>css code here</em> &lt;/style&gt; tags. The same is true of Javascript code -	except that Javascript code written directly in a HTML
+						page is placed in "script" tags, like this: &lt;script&gt; <em>javascript code here</em> &lt;/script&gt;.
+						<br>
+						<br>
+						To get your browser to link my CSS file to this HTML file, I have this statement in the <em>head</em> of this page that you are
+						reading: &lt;link rel='stylesheet' type='text/css' href='css/overview.css'&gt;. Similarly, I provide a link to the Javascript file, this time
+						just before the <em>closing "body"</em> tag, like so: &lt;script src="js/overview.js"&gt;&lt;/script&gt;
+						<br>
+						<br>
+					</p>
+					<p id="fn3">
+						<a href="#r3" title="Jump back to the main text.">[3]</a> To see the structure of this webpage, i.e. the HTML used, you can view it directly using "command+option+u", on a mac, or F12 on a windows computer. This
+						brings up the "console" window of your brower. Different browsers have different setups for their console windows. They all have a feature called "Inspect" or "Inspector".
+						Using this feature, if you double-click on part of the webpage it will: a) highlight that part of the webpage, and b) show you where that part of the webpage is in the
+						"source code." Another feature of console windows is a tool that allows you to type commands or to see hidden	output of a webpage. We will use this
+						console window repeatedly, as it allows you to see, directly, the components of a webpage that I am explaining.
+						<br>
+						<br>
+					</p>
+					<p id="fn4">
+						<a href="#r4" title="Jump back to the main text.">[4]</a>  One reason that the Inspector component of the console window is more useful than looking directly at the source code itself (i.e. the text file
+						containing the HTML) is that you can see clearly that the "tags" of HTML are more than just placeholders. Each tag in the inspector has a small grey "arrow"
+						beside it. Clicking on those arrows opens the tag (which, typically, reveals a range of other tags embedded in the original tag that you "opened"). These "tags", as I
+						mentioned before, are the Objects of the Document Object Model that provides the structure of a webpage. We will explore other features of these Objects later, which
+						will allow you see the enormous amount of work that a browser does behind the scenes (and the amazing control that these Objects give webpage
+						designers over a webpage).
+						<br>
+						<br>
+					</p>
+					<p id="fn5">
+						<a href="#r5" title="Jump back to the main text.">[5]</a> You choose the names that you use for your ids and class names, and it is best to choose names that remind you why you are singling a section of
+						the webpage out for special treatment. "id"s are unique identifiers whereas "class"es are used to indentify a group. So, if you want a style to be applied to one
+						single part of your webpage you would use an "id". if you wanted a style to be applied to a broad range of your webpage contents, say all paragraphs in the first
+						section, then you would give all of your paragraphs in the first section the same "class" name.
+						<br>
+						<br>
+					</p>
+					<p id="fn6">
+						<a href="#r6" title="Jump back to the main text.">[6]</a> To be clear, here are the most important options:
+						<br>
+						<br>
+					</p> 1) Style ALL paragraphs (just use "p" alone): 					<pre class="prettyprint">
+     p {
+        background-color: black;
+        color: white;
+     }
+     			</pre> 2) Style paragraphs with a particular class attribute (use "p" dot "classname"): 					<pre class="prettyprint">
+     p.class1 {
+        background-color: black;
+        color: white;
+     }
+     			</pre> 3) Style A paragraph with a particular id attribute (use "p" hash "id"): 					<pre class="prettyprint">
+     p#id1 {
+        background-color: black;
+        color: white;
+     }
+     			</pre>
+					<br>
+					<br>
+					<p id="fn7">
+						<a href="#r7" title="Jump back to the main text.">[7]</a> Javascript is currently the most popular programming language, mainly due to its fundamental role in developing webpages with a range of functionality.
+						<br>
+					</p>
+					<p id="fn8">
+						<a href="#r8" title="Jump back to the main text.">[8]</a> This is another example of a feature of all browsers that happens "behind the scenes", without you doing anything or even being aware of it. All browsers
+						have this ability to "interpret/run" Javascript code, a powerful programming language, extending the functionality of webpages, all the while appearing as if all that it is doing
+						is opening a webpage in a window.
+						<br>
+					</p>
+					<p id="fn9">
+						<a href="#r1" title="Jump back to the main text.">[9]</a> Note: Revealing hidden text areas like this is also a Javascript trick, I explain this feature in detail <a href="http://www.mylescallan.com/gameDesign/gameDesignIntroduction.html" target="_blank">here</a>
+						<br>
+						<!--
+						</p>
+						<p id="fn9"><a href="#r10" title="Jump back to the main text.">[10]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r11" title="Jump back to the main text.">[11]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r12" title="Jump back to the main text.">[12]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r13" title="Jump back to the main text.">[13]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r14" title="Jump back to the main text.">[14]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r15" title="Jump back to the main text.">[15]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r16" title="Jump back to the main text.">[16]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r17" title="Jump back to the main text.">[17]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r18" title="Jump back to the main text.">[18]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r19" title="Jump back to the main text.">[19]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r20" title="Jump back to the main text.">[20]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r21" title="Jump back to the main text.">[21]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r22" title="Jump back to the main text.">[22]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r23" title="Jump back to the main text.">[23]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r24" title="Jump back to the main text.">[24]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r25" title="Jump back to the main text.">[25]</a>
+						<br>
+						</p>
+						<p id="fn9"><a href="#r26" title="Jump back to the main text.">[26]</a>
+
+						-->
+					</em>
+					</p>
+				</section>
+			</section>
+			<section class="aside1">
+				<!-- ###### Tabs/Links See tabDivs.html for info -->
+				<div id="tabs" class="noPadding">
+					<div id="first" class="noPadding">
+						<a href="javascript:void(0);" onclick="seediv('tags')">Tags</a>
+					</div>
+					<div id="second" class="noPadding">
+						<a href="javascript:void(0);" onclick="seediv('objects')">Objects</a>
+					</div>
+					<div id="third" class="noPadding">
+						<a href="javascript:void(0);" onclick="seediv('tasks')">Tasks</a>
+					</div>
+				</div>
+				<!-- ###### Divs Holding Content -->
+				<div class="noPadding" id="tags" style="display:block;">
+					<form id="myForm0" class="noPadding">
+						<select id="mySelect0" class="noPadding" onchange="formChanged0();">
+							<option value="">Show "Tags"</option>
+							<option value="showObjects">"Tags"</option>
+							<option value="clear">Clear List</option>
+						</select>
+					</form>
+					<p class="noPadding" id="tagsHere"></p>
+					<script>
+                        function formChanged0() {
+                            var selectBox0 = document.getElementById("mySelect0");
+                            var selectedValue0 = selectBox0.options[selectBox0.selectedIndex].value;
+                            var objValue0 = window[selectedValue0];
+                            var tag0 = document.getElementById("tagsHere");
+                            var all = document.getElementsByTagName("*");
+                            if (selectedValue0 === "clear") {
+                                tag0.innerHTML = " ";
+
+                            } else {
+                                tag0.innerHTML = getAllTags(all);
+                            }
+                        }
+					</script>
+				</div>
+				<div class="noPadding" id="objects" style="display:none;">
+					<form id="myForm" class="noPadding">
+						<select id="mySelect" class="noPadding" onchange="formChanged();">
+							<option value="">Select Object</option>
+							<option value="testCanvas">Canvas</option>
+							<option value="window">Window</option>
+							<option value="myForm">Form</option>
+							<option value="divBack">Div</option>
+							<option value="document">Document</option>
+							<option value="clear">Clear List</option>
+						</select>
+					</form>
+					<p  class="noPadding" id="objectsHere"></p>
+					<script>
+                        function formChanged() {
+                            var selectBox = document.getElementById("mySelect");
+                            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                            var obj = document.getElementById("objectsHere");
+                            if (selectedValue === "clear") {
+                                obj.innerHTML = " ";
+
+                            } else {
+                                var objValue = window[selectedValue];
+
+                                obj.innerHTML = getAllPropertiesToHTML(objValue);
+                            }
+                        }
+					</script>
+				</div>
+				<div class="noPadding" id="tasks" style="display:none;">
+					<form id="myForm1" class="noPadding">
+						<select id="mySelect1" class="noPadding" onchange="formChanged1();">
+							<option value="">Tasks Performed in 1 Second</option>
+							<option value="tasks">Start, wait a second</option>
+							<option value="clear">Clear List</option>
+						</select>
+					</form>
+					<p  class="noPadding" id="resultHere"></p>
+					<script>
+                        function formChanged1() {
+                            var selectBox1 = document.getElementById("mySelect1");
+                            var selectedValue1 = selectBox1.options[selectBox1.selectedIndex].value;
+                            var obj1 = document.getElementById("resultHere");
+                            if (selectedValue1 === "clear") {
+                                obj1.innerHTML = " ";
+
+                            } else {
+                                var objValue1 = window[selectedValue1];
+
+                                obj1.innerHTML = measureJSLoopSpeed();
+                            }
+                        }
+					</script>
+				</div>
+				<!-- ###### JavaScript function to handle the action -- see tabDivs.html for info
+				-->
+				<script>
+                    function seediv(whichdiv) {
+
+                        // ###### Hides all the content DIVs first
+                        document.getElementById('tags').style.display = 'none';
+                        document.getElementById('objects').style.display = 'none';
+                        document.getElementById('tasks').style.display = 'none';
+
+                        // ###### Then displays only the one that was called
+                        document.getElementById(whichdiv).style.display = 'block';
+                    }
+				</script>
+			</section>
+
+		</section>
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/getAllPropertiesToHTML.js"></script>
+		<script src="js/getAllTags.js"></script>
+		<script src="js/measureJSLoopSpeed.js"></script>
+
+		<!-- Easel JS scripts for flower picking -->
+		<script src="EaselJS/_assets/js/examples.js"></script>
+		<script src="EaselJS/lib/easeljs-NEXT.combined.js"></script>
+		<script src="js/EaselJSDragAndDrop.js"></script>
+
+		<!-- Canvas Drawing scripts for Drawing -->
+		<script src="js/canvasDrawing.js"></script>
+
+		<script src="js/overview.js"></script>
+		<script src="js/overviewReveal.js"></script>
+
+		<script src="js/addSideBarOverview.js"></script>
+		<script src="js/fadeInAndOut.js"></script>
+		<!-- fades in and out the h1 tag -->
+	</body>
+</html>
+

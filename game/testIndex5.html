@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+	<head>
+
+		<!-- title and meta -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta name="description" content="Slide and push menus that are initially hidden off screen, and transition into view with CSS transitions." />
+
+		<title>Canvas: A New Child Of The DOM</title>
+
+		<!-- css -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="slidePushMenuCSS/font-awesome/font-awesome.css">
+		<link rel="stylesheet" href="slidePushMenuCSS/base.css" />
+		<link rel="stylesheet" href="slidePushMenuCSS/style.css" />
+
+		<link rel='stylesheet' type='text/css' href='css/slidingSideBars.css'/>
+	</head>
+
+	<body>
+		<nav class="menu push-menu-left">
+			<ul>
+				<li>
+					<button class="close-menu">
+						&larr; Close
+					</button></li>
+				<li><a href="#Introduction">Introduction</a></li>
+				<li><a href="#ObjectsI">Objects: Overview</a></li>
+				<li><a href="#ObjectsII">Objects: The Details</a></li>
+				<li><a href="#Types">Types</a></li>
+				<li><a href="#GamesI">Games: Overview</a></li>
+				<li><a href="#GamesII">Games: Methods</a></li>
+			</ul>
+		</nav><!-- /push menu left -->
+
+		<div id="wrapper">
+
+			<div class="info-bar">
+				<div class="container">
+					<a href="http://www.callmenick.com/?p=458" class="icon fa fa-home" data-title="Back To Tutorial"></a>
+					<a href="http://callmenick.com/tutorial-demos/image-caption-reveal-on-hover/" class="icon fa fa-arrow-left" data-title="Pevious Demo"></a>
+					<!-- <a href="" class="icon fa fa-arrow-right" data-title="Next Demo"></a> -->
+					<a href="http://callmenick.com/tutorial-demos/slide-push-menus/slide-push-menus.zip" class="icon fa fa-download" data-title="Download Source"></a>
+					<a href="http://www.callmenick.com/tutorials" class="icon fa fa-folder-open" data-title="Tutorial Archives"></a>
+				</div>
+			</div><!-- /.info-bar -->
+
+			<header>
+				<div class="site-title">
+					<div class="container">
+						<div class="buttons">
+							<button id="thisOne" class="nav-toggler toggle-push-left">
+								Menu
+							</button>
+						</div>
+						<!-- /buttons -->
+						<h1>Canvas: A New Child Of The DOM</h1>
+					</div>
+				</div>
+			</header>
+
+			<div id="main">
+				<div class="container">
+
+					<!-- Slide Out Feedback Form  -->
+					<div id="slideout">
+						Feedback
+						<div id="slideout_inner">
+							<form action="https://www.ipower.com/scripts/formsender.html" enctype="application/x-www-form-urlencoded" method="post">
+								<input type="hidden" name="feedback@mylescallan.com" value="feedback@mylescallan.com">
+								<label></label>
+								<input name="name" required="required" placeholder="Your Name">
+								<label></label>
+								<input name="email" type="email" required="required" placeholder="Your Email">
+								<label></label>
+								<textarea name="message" cols="20" rows="5" required="required" placeholder="Message"></textarea>
+								<input id="form_id" type="hidden" name="form_id" value="201186"/>
+								<input id="cancel" name="cancel" value="Cancel" />
+								<input id="submit" name="submit" type="submit" value="Submit">
+								<!--				<form action="mailto:feedback@mylescallan.com" method="post">
+								<input type="email" name="email" value="Email Required">
+								<textarea></textarea>
+								<input type="submit" value="Post feedback">
+								-->
+							</form>
+						</div>
+					</div>
+
+					<!-- Slide Out Menu -->
+					<div id="menuout">
+						Menu
+						<div id="menuout_inner">
+							<ul>
+								<li><a href="#Introduction">Introduction</a></li>
+								<li><a href="#ObjectsI">Objects: Overview</a></li>
+								<li><a href="#ObjectsII">Objects: The Details</a></li>
+								<li><a href="#Types">Types</a></li>
+								<li><a href="#GamesI">Games: Overview</a></li>
+								<li><a href="#GamesII">Games: Methods</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!--              Web Page Begins                -->
+					<section id="reveal">
+						<a name="Introduction"><h3>Introduction</h3></a>
+						<article class="hiddenDiv">
+							<div class="hidden">
+								<p>
+									Games are created by Javascript in HTML5 by using the &lt;Canvas&gt; Object.
+								</p>
+
+								<p>
+									&lt;Canvas&gt;, like &lt;h1&gt;, &lt;ul&gt;, ..., etc, is a child of the DOM.
+								</p>
+
+								<p>
+									You can give &lt;Canvas&gt; an id and class, and, as an element of the DOM, it is an <em>Object</em> of the Document. Here is a small &lt;Canvas&gt;,
+									which I have given the id "myCanvas":
+								</p>
+								<p>
+									<div id="tgt">
+										<canvas id="myCanvas" class="myCanvasClass" width="640" height="40"></canvas>
+									</div>
+								</p>
+								<p>
+									Objects have <em>Properties</em> and <em>Methods</em> (values and functions) built in. It is the Methods built into &lt;Canvas&gt;
+									that make it suitable for building games.
+								</p>
+								<p>
+									Understanding how to build games with Javascript in HTML5 is equivalent to understanding how to use Objects. So, for most of this overview,
+									I will be focusing on explaining Objects.
+								</p>
+							</div>
+						</article>
+						<h2>Objects: Properties and Methods</h2>
+						<a name="ObjectsI"><h3>Objects: The Straightforward Part</h3></a>
+
+						<article class="hiddenDiv">
+							<div class="hidden">
+								<p>
+									Creating your own Object is straightforward, and it is the first thing that you do (in Javascript) when you create a game (see ref. pp. ).
+								</p>
+								<pre>            
+        	// Create a Game Object
+        	var Game = {
+        		canvas : undefined,
+        		canvasContext : undefined,
+        		rectanglePosition : 0
+        	};
+        </pre>
+								<p>
+									This is the <em>Object Literal</em> way of creating an Object. Simply put, you create the Properties of the Object by <em>literally</em> writing out
+									the "name:value" pairs.
+								</p>
+								<p>
+									As above, you can store variables in the Object, which are called Properties, but you can also write functions and store them in the Object,
+									which are called Methods of the Object (which you do by simply naming a function within the code block when creating an Object).
+								</p>
+								<p class="sideNote">
+									Side note: For reasons to be explained later, it is typical to create a Method in an Object, using the <em>Object Literal</em> approach, by using "this" instead of
+									the name of the Object. Like so:
+									<br>
+									this.methodName: function () {
+									<br>
+									//do stuff
+									<br>
+									}
+									<br>
+								</p>
+								<p>
+									The DOM, as its name suggests, is replete with Objects. Javascript is an Object-oriented language and comes with its own store of Objects.
+									Knowing what Objects are available, nevermind knowing what Properties and Methods are associated with those Objects, only comes with experience.
+									There are too many Objects to learn straight off, and each of those Objects have Properties and Methods to learn ... which will surely fry your brain.
+								</p>
+							</div>
+						</article>
+						<a name="ObjectsII"><h3>Objects: The "My Brain Hurts" Part</h3></a>
+						<article class="hiddenDiv">
+							<div class="hidden">
+								<p>
+									That part is straightforward: There are Objects available to you, they have Properties and Methods, and you will learn them (and learn which are best to use in
+									various contexts) over time.
+								</p>
+								<p>
+									By "straightforward" here I mean linear and logical.
+								</p>
+								<p>
+									What is not straightforward, i.e. is nonlinear, is that you can (and will) make the Methods and Properties of the pre-created Objects, of the DOM and Javascript,
+									Methods and Properties of your Game Object. For example, you are going to exploit the Methods of the &lt;Canvas&gt; Object to draw (and redraw) your game.
+									Once you make your &lt;Canvas&gt; Object part of your Game Object, the Game Object inherits the Methods and properites of &lt;Canvas&gt;. And that,
+									literally, is the only potential source of confusion (i.e. there will be so many inherited Methods (some of which will be inherited from other inherited Methods)
+									and Properties that it will be difficult to keep track).
+								</p>
+								<p>
+									Below is a perfect example of what I am talking about. In this example, we create a Method for the Object "Game" called "Game.start" (that is (a) we create a function and
+									(b) associate this function with the Game Object <em>simply</em> by giving the function the name "Game.something" - the "Object.Method" naming will now, and forever more,
+									associate the new function with the Object as a Method of that Object).
+								</p>
+								<pre>            
+        	// Create a Game Method called "start"
+        	Game.start = function() {
+        		Game.canvas = document.getElementById("myCanvas");
+        		Game.canvasContext = Game.canvas.getContext("2d");
+        		Game.mainLoop();
+        	}; 
+        </pre>																																																																												
+		</p>		
+
+
+
+
+
+
+
+
+
+
+
+								<p>
+									But the example that I use above does more. Inside the new Method that we have created for our Game Object, Game.start, we create/inherit other Methods
+									for our Game Object:
+									<ul>
+										<li>											<pre>Game.canvas = document.getElementById("myCanvas");</pre></li>
+										<li>											<pre>Game.canvasContext = Game.canvas.getContext("2d");</pre></li>
+									</ul>
+								<p>
+									At the start, I mentioned that I had given my &lt;Canvas&gt; Object the id "myCanvas". We can see that the "Game.start" Method creates a "Game.canvas"
+									Method which is simply the &lt;Canvas&gt; that I created. And so "Game.canvas" now inherits all of the Properties and Methods of the HTML5 &lt;Canvas&gt; Object.
+								</p>
+								<p>
+									In fact, the next line exploits this: In the next statement, we see that there is a reference to the "canvas.getContext()" Method, a default Method of the &lt;Canvas&gt;
+									Object of the DOM. So now, this new Method that we have created (Game.start) is in fact, in part, a way to allow our Game Object to inherit the canvas.getContext() Method.
+								</p>
+								<p>
+									Here it is again, go through each line and note how we inherit Methods (initially it may appear to be a little circular - inside a Method we are creating, we are creating other
+									Methods ... and those other Methods inherit properties from pre-created Objects - but it will become second nature very quickly):
+								</p>
+								<p>
+									<pre>            
+        	// Create a Game Method called "start"
+        	Game.start = function() {
+        		Game.canvas = document.getElementById("myCanvas");
+        		Game.canvasContext = Game.canvas.getContext("2d");
+        		Game.mainLoop();
+        	}; 
+        </pre>
+								</p>
+							</div>
+						</article>
+						<a name="Types"><h3>Objects By Any Other Name: Types</h3></a>
+						<article class="hiddenDiv">
+							<div class="hidden">
+								<p>
+									"Type" is the generic name given to "strings", "integers", "arrays", ... etc. What is important here is that (a) they have Properties and Methods, and so behave
+									like Objects, and (b) there is an Image Type that we use to import graphics for our game. The Properties of the Image Type include i) source (src), ii) position, ...
+									amongst others, and there are Methods that allow us to do interesting things with our images. As games are "image-heavy", we can use this Type/Object in our Game Object
+									to do some of the heavy lifting (by getting our Game Object to inherit the Properties and Methods of the Image Type).
+								</p>
+								<p class="sideNote">
+									Side note: 1) Image Types are called simply by:
+									<br>
+									<b>Game.gameImage = new Image();</b>
+									<br>
+									Which gives you access to a Method to set the source of this image. Once you set the source, the browser automatically begins loading the file <em>and</em> fills
+									in the data for the width and height variables (which it extracts from the source file, which saves you having to specify that information):
+									<br>
+									<b>Game.gameImage.src = "../images/gameImage1.jpg";</b>
+									<br>
+									<br>
+									2) Images in games are typically referred to as 'sprites'.
+									<br>
+									<br>
+									3) As images take time to load, it is advisable to set a wait time, or write code whose only job is to tell your program that all of the "game's assets" have loaded.
+									More on that later.
+
+								</p>
+							</div>
+						</article>
+						<h2>Games</h2>
+						<a name="GamesI"><h3>Overview</h3></a>
+						<article class="hiddenDiv">
+							<div class="hidden">
+								<p>
+									Games themselves are simple concepts. If we storyboard any game we will always come up with two simple concepts: draw and update. That is, we need to be able to display (draw)
+									all of the aspect of the game (including the game background, features, characters, scores, etc). And, we need to be able to update all of those features (and also to update
+									other features that may not be visible (score history, levels that we have attained, etc)). Obviously, draw and update have to be linked (as any update - a player action like
+									moving the mouse, for example - has to be drawn). So we draw and update the game features in a "main loop". These are the three features of any game: <em>draw, update, main
+									loop</em>.
+								</p>
+								<p>
+									Simple! The only complicated part is <em>'how do we avail ourselves of the Objects in the DOM and Javascript to facilitate the elements of our game?'</em>
+									(for example, cursor position, buttons pressed, changes in images (to signify a 'hit' for example)). It turns out that the DOM and Javascript, together, have more than
+									enough features to create any game that you can imagine ... including in 3d.
+								</p>
+								<p>
+									Here is how we begin: We create the mainLoop Method for our Game Object and in it we include the update and draw Methods, so that they occur in the same time frame. And finally, we
+									use a Method from the DOM to update our Game every so often (specified in milliseconds).
+								</p>
+								<p>
+									<pre>
+        	// Create a Game Method called "mainLoop"
+        	Game.mainLoop = function() {
+        		Game.clearCanvas();
+        		Game.update();
+        		Game.draw();
+        		window.setTimeout(Game.mainLoop, 1000 / 60); // refreshes the page 60 times a second by reloading "mainLoop"
+        	};
+        	</pre>
+								</p>
+								<p class="sideNote">
+									Side note: 1) <em>We are using the mainLoop Method inside the specification of the mainLoop Method</em> ... initially that may look odd (how can we use the mainLoop Method
+									inside the place where we are defining the mainLoop Method?) but this is a pretty standard trick in programming called <b>recursion</b>. When you think about it,
+									it is actually the most sensible place to ensure that mainLoop loops - read the code line-by-line and follow the instructions one step at a time, you'll see that
+									you'll be in a loop that continues forever (alternatively, we could put the window.setTimeout in a loop (outside of the mainLoop Method code block) and there would be no
+									difference in outcome (but it would be more of a pain to write)).
+									<br>
+									It is important here to elaborate on this point as the answer to the vital question:
+									<em>How does the Game update/refresh?</em> is given by this one line of code, and this one line of code does this by <b>recursion.</b>
+									<br>
+									<br>
+									2) The Game.clearCanvas() Method does as its name suggests, it clears the canvas. In fact, it is clearing the canvas that gives the appearance of motion!! We clear and
+									redraw the canvas 60 times a second, say, and it looks like things are moving ... which is identical to how movies work, the more (static) frames per second, the more
+									realistic the movie appears. (Current TV standards are NTSC and PAL which have a 29.97 fps (frames per second) rate and a 25 fps rate, respectively. So 60 fps, as in the
+									Game.mainLoop is more than sufficient to project realism.)
+								</p>
+							</div>
+						</article>
+						<a name="GamesII"><h3>Tools (Methods) For Games Available in the DOM and Javascript.</h3></a>
+						<article class="hiddenDiv">
+							<div class="hidden">
+								<p>
+									Let's begin by listing some of the key Methods used in most games. This approach should prove useful because it - by listing <em>just a few of the Methods</em> of the DOM
+									and Javascript used in a typical game - should: a) give you a sense of the possibilities, and b) make it easier to understand the various key Methods (as many, if not most,
+									of the details of a Game program, while essential, are there simply to organize your code). As we have seen, the actual structure of a game is relatively simple but
+									organizing each of the details (loading images and sounds ("assets" of the game), changing images and sounds in response to players actions ("events"), and so on) takes
+									considerable organization. On first blush, in the midst of all of the code that organizes the game, you can miss the essential features that create the game.
+								</p>
+								<p>
+									<ol>
+										<li><b>Define Your Game Object:</b> A DOM Method 											<pre>
+        	// Create a Game Object
+    		var Game = {
+    			canvas : undefined,
+    			canvasContext : undefined,
+    			other parts : undefined
+    		};
+					        </pre> We set up our game Object by simply defining the parts using the Object Literal approach. Once we have our basic game Object, we can, later, define Methods of the game.
+											<br>
+											<br>
+										</li>
+										<li><b>Define Your Game Methods:</b> A DOM Method 											<pre>Game.start, Game.draw, Game.update, & Game.mainLoop</pre> These are the 4 key components of any game. Where Game.start contains the basic building blocks, such as defining your canvas: <span style="white-space: nowrap;">Game.canvas = document.getElementById("myCanvas");</span>.
+											<br>
+											<br>
+										</li>
+										<li><b>Motion:</b> A DOM Method 											<pre>window.setTimeout(Game.mainLoop, 1000 / 60);</pre> As we have seen, this refreshes the page 60 times a second by reloading the "mainLoop" Method by recursion.
+											<br>
+											<br>
+										</li>
+										<li><b>Draw Image (on screen) &amp; Image Position:</b> A DOM (&lt;Canvas&gt;) Method 											<pre>Game.canvasContext.drawImage(gameImage, 0, 0 gameImage.width, gameImage.height, 0, 0, gameImage.width, gameImage.height);</pre> We saw earlier that we made our Game Object inherit the Canvas Object's getContext Method, which we called Game.canvasContext. Now we see that this Method
+											allows us to a) draw the image, and b) set its position. (All positional data are set with a reference point that is the top left of the <b>canvas (NOTE: not the screen)</b>, which is
+											position 0, 0 (in terms of width and height, in that order)).
+											<br>
+											We see that the drawImage Method takes nine parameters: The name that we gave the image followed by <span style="white-space: nowrap;">"0, 0 gameImage.width, gameImage.height"</span> written twice.
+											<br>
+											Think of the space occupied by the image as a rectangle. So the second set of positional data gives the image a space on canvas that begins at the top
+											left of the canvas, with the rectangle dimensions given by the width and height of the image.
+											<br>
+											The first reference to "0, 0 gameImage.width, gameImage.height" simply tells your browser how much of the image to draw. Here, we draw the full image. <i>These first 4 co-ordinates are optional. If you omit them, the full image will draw.</i>
+											<br>
+											Order Matters! One of the images that you are going to draw is the background to your game. When you draw the background, you have to draw it before you draw
+											all of the other images. Otherwise, you will be drawing your background over some of your other images.
+											<br>
+											<p class="sideNote">
+												Side note: There are two <em>vital</em> point to note here, that help to clarify the use of Objects in building games (or simply writing Javascript):
+												<br>
+												1) <em>Inheritance:</em> We are using a &lt;Canvas&gt; Object Method but we are calling a Game Object Method. Which we can do because of an earlier pair of
+												instructions:
+												<br>
+												Game.canvas = document.getElementById("myCanvas");
+												<br>
+												Game.canvasContext = Game.canvas.getContext("2d");
+												<br>
+												<br>
+												2) <em>Conciseness:</em> This one instruction embodies a whole host of inner instructions (that you don't have to write out because you are using Objects):
+												We inherited the Methods of another Object; The Method that we inherited allows us to both draw the image and set its position; The use of the Image Type
+												means that we didn't have to specify the image's width and height, we just use the Image.width and Image.height Methods, and so on.
+												The only cost is that we now have all of those instructions in one statement, which requires the investment of time in learning which Objects exist and what
+												Properties and Methods those Objects have.
+												<br>
+
+											</p>
+											<br>
+										</li>
+										<li><b>Image Motion:</b> : A DOM (&lt;Canvas&gt;) Method
+											<br>
+											Moving an image again uses one of the Methods of the (&lt;Canvas&gt;) Object, called "translate" (in the "getContext()" method).
+											By ensuring that the Game Object has inherited these methods, we can use: 											<pre>Game.canvasContext.translate(Game.gameImagePosition.x, Game.gameImagePosition.y);</pre> The Game.gameImagePosition.x and Game.gameImagePosition.y are the x, y co-ordinates of where we want to move/translate the image to. First we have to create these
+											co-ordinates (at an initial position), which we do as part of the Game Object (using the Object Literal approach): 											<pre>
+        	        var Game = { ...
+                	gameImagePosition : {x : 0, y : 50},
+                        ...
+                        }
+                    </pre> Obviously, these coordinates are fixed, so how do we supply motion? One way is to use the Date Object (which is part of the DOM, and has a Method "getTime"
+											that measures the time in milliseconds since the 1st of January 1970). As time is constantly moving forward, we can use this Date Object to generate
+											constantly moving co-ordinates.
+											<br>
+											Once we have generated these constantly moving co-ordinates, we can redraw the image in the "update" part of our game. So how do we do this? 											<pre>
+                   	var d = new Date();
+                	Game.gameImagePosition.x = d.getTime() % Game.canvas.width;	
+                    </pre> Firstly, we are only changing the "x" coordinate (so the image will move horizontally across the page). If we move both, by adding
+											"Game.gameImagePosition.y = d.getTime() % Game.canvas.height;", then the image will move diagonally.
+											<br>
+											Secondly, as the number of milliseconds since 01.01.1970 is a huge number (currently 1428514411081), that will be no use as a co-ordinate. So we use the
+											modulus operator (%, which is built into Javascript). This gives us the remainder when our huge number is divided by the width of the canvas (this remainder has to be, by
+											definition, somewhere between 0 and the width of the canvas). Now the image position, when updated, is constantly moving (as the remainder is constantly changing) - as
+											you can see on the canvas below.
+											<div id="tgt2">
+												<canvas id="myCanvas1" class="myCanvasClass" width="640" height="40"></canvas>
+											</div>
+											<br>
+											<br>
+										</li>
+										<li id='deirdre'><b>Image Motion Based On An Event:</b> : A DOM Method
+											<br>
+											In the case above, the motion of the image was independent of events occuring in the game. Obviously, that has its uses in a game but we also need to be
+											able to move images by keystrokes or mouse movements - otherwise it is not a game. Fortunately, this is a simple extension of what we did in the previous example.
+											This time we are going to rely on elements of the DOM to record keystrokes or mouse movements and then use these to update the positions of our images. Again we
+											use: 											<pre>Game.canvasContext.translate(Game.gameImagePosition.x, Game.gameImagePosition.y);</pre> We intialize the image positions as before, but now we want to change the position of the image based on movements of the mouse. Fortunately, the DOM has a simple
+											Method to do just this, called "document.onmousemove". 											<pre>
+	                // Mouse position information. NOTE: We use clientX and client Y instead of pageX and pageY
+	                // in case the canvas is on a part of the page that the user has to scroll too.
+	                
+	                function getMousePos(evt) {
+	                	Game.mousePos = { x : evt.clientX, y : evt.clientY};
+	                }
+	                // For touchscreens: Finger position information
+	                function getTouchPos(evt) {
+	                	Game.mousePos = {x : evt.clientX, y : evt.clientY};
+	                	evt.preventDefault(); // Allows for touch events in areas where there may be links
+	                }                   	
+	                
+	                // Call the mouse/finger position event handlers, checking whether you are using a browser or iPhone or iPad in Game.start Object
+	                
+	                if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+	                	Game.canvas.addEventListener('touchmove', getTouchpos);
+	                } else {
+	                	Game.canvas.addEventListener('mousemove', getMousepos);
+	                }
+	                
+	                // Move the image with the mouse, used in the Game.draw Object
+	                
+	                Game.gameImagePosition = {x: Game.mousePos.x, y: Game.mousePos.y};
+	                </pre> clientX and clientY are Methods (of the "event" Object stored in "Game.canvas.onmousemove") that return the x, y co-ordinates of the mouse's position.
+											As before, we include "Game.gameImagePosition" in the "draw" Object which is updated in the "update" Object, but now the image will move with the position of the mouse.
+											Which you can see if you move your mouse over the canvas below.
+											<br>
+											There are similar methods for other events, such as key strokes. More on those later.
+											<div id="tgt3">
+												<canvas id="myCanvas2" class="myCanvasClass" width="640" height="80"></canvas>
+											</div>
+											<br>
+											<p class="sideNote">
+												Side note:
+												Canvas Position:
+												<br>
+												If your canvas is not positioned at {x : 0, y : 0}, i.e. the top left, of your document, then you have to adjust your mouse position to be relative to the
+												canvas, and not the page as a whole. This is because all of the other positions within the game, image position, background position, etc, are relative to the canvas.
+												Fortunately, this is simply done.
+												<br>
+												function getMousePos(canvas, evt) {
+												<br>
+												var rect = canvas.getBoundingClientRect();
+												<br>
+												return {x : evt.clientX - rect.left, y : evt.clientY - rect.top};
+												<br>
+												}
+												<br>
+												"getBounding" is a canvas Method that calculates the position of the canvas (and more besides). Scroll over the canvas below and you can see the difference between the
+												pointer coordinates measured in pixels from the corner of the canvas and the corner of the document, respectively (watch how only one changes as you scroll
+												up and down the page).
+												<br>
+												<div id="tgt4">
+													<canvas id="myCanvas3" class="myCanvasClass" width="640" height="80"></canvas>
+												</div>
+												<br>
+												<br>
+										</li>
+										<li id='deirdre_rotate'><b>Image Rotation Based On An Event:</b> : A DOM Method
+											<br>
+											In the case above, the motion of the image was independent of events occuring in the game. Obviously, that has its uses in a game but we also need to be
+											able to move images by keystrokes or mouse movements - otherwise it is not a game. Fortunately, this is a simple extension of what we did in the previous example.
+											This time we are going to rely on elements of the DOM to record keystrokes or mouse movements and then use these to update the positions of our images. Again we
+											use: 											<pre>Game.canvasContext.translate(Game.gameImagePosition.x, Game.gameImagePosition.y);</pre> We intialize the image positions as before, but now we want to change the position of the image based on movements of the mouse. Fortunately, the DOM has a simple
+											Method to do just this, called "document.onmousemove". 											<pre>
+	                // Mouse position information. NOTE: We use clientX and client Y instead of pageX and pageY
+	                // in case the canvas is on a part of the page that the user has to scroll too.
+	                
+	                function handleMouseMove(evt) {
+	                	Game.mousePosition = { x : evt.clientX, y : evt.clientY};
+	                }
+	                // For touchscreens: Finger position information
+	                function handleTouchMove(evt) {
+	                	Game.mousePosition = {x : evt.clientX, y : evt.clientY};
+	                	evt.preventDefault(); // Allows for touch events in areas where there may be links
+	                }                   	
+	                
+	                // Call the mouse/finger position event handlers, checking whether you are using a browser or iPhone or iPad in Game.start Object
+	                
+	                if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+	                	Game.canvas.addEventListener('touchmove', handleTouchMove);
+	                } else {
+	                	Game.canvas.onmousemove = handleMouseMove;
+	                }
+	                
+	                // Move the image with the mouse, used in the Game.draw Object
+	                
+	                Game.gameImagePosition = {x: Game.mousePosition.x, y: Game.mousePosition.y};
+	                </pre> clientX and clientY are Methods (of the "event" Object stored in "Game.canvas.onmousemove") that return the x, y co-ordinates of the mouse's position.
+											As before, we include "Game.gameImagePosition" in the "draw" Object which is updated in the "update" Object, but now the image will move with the position of the mouse.
+											<br>
+											There are similar methods for other events, such as key strokes. More on those later.
+											<div id="tgt5">
+												<canvas id="myCanvas4" class="myCanvasClass" width="640" height="160"></canvas>
+											</div>
+											<br>
+											<br>
+										</li>
+										<li><b>Image Source:</b>											<pre>Game.canvasContext = Game.canvas.getContext("2d"); // Game Object inherits the Canvas Object's getContext Method</pre></li>
+										<li><b>Image Source:</b>											<pre>Game.canvasContext = Game.canvas.getContext("2d"); // Game Object inherits the Canvas Object's getContext Method</pre></li>
+										<li><b>Image Source:</b>											<pre>Game.canvasContext = Game.canvas.getContext("2d"); // Game Object inherits the Canvas Object's getContext Method</pre></li>
+										<li><b>Image Source:</b>											<pre>Game.canvasContext = Game.canvas.getContext("2d"); // Game Object inherits the Canvas Object's getContext Method</pre></li>
+										<li><b>Image Source:</b>											<pre>Game.canvasContext = Game.canvas.getContext("2d"); // Game Object inherits the Canvas Object's getContext Method</pre></li>
+										<li><b>Image Source:</b>											<pre>Game.canvasContext = Game.canvas.getContext("2d"); // Game Object inherits the Canvas Object's getContext Method</pre></li>
+							</div>
+						</article>
+					</section>
+				</div>
+			</div>
+			<!-- #main -->
+
+			<footer>
+				<div class="container">
+					<div class="clearfix">
+						<aside>
+							<ul>
+								<li><a href="http://www.callmenick.com/">Welcome</a></li>
+								<li><a href="http://www.callmenick.com/category/tutorials">Tutorials</a></li>
+								<li><a href="http://www.callmenick.com/category/snippets">Snippets</a></li>
+								<li><a href="http://www.callmenick.com/category/articles">Articles</a></li>
+								<li><a href="http://www.callmenick.com/category/resources">Resources</a></li>
+							</ul>
+						</aside>
+						<aside>
+							<ul>
+								<li><a href="http://www.callmenick.com/about">About</a></li>
+								<li><a href="http://www.callmenick.com/contact">Contact</a></li>
+								<li><a href="http://www.callmenick.com/subscribe">Subscribe</a></li>
+							</ul>
+						</aside>
+						<aside class="logo">
+							<a href="http://www.callmenick.com/"> <img src="img/logo.png" alt="Tutorials, Snippets, Resources, and Articles for Web Design and Web Development"> </a>
+						</aside>
+					</div>
+					<div class="copyright">
+						<span> &copy; 2014, Nick Salloum
+							<br>
+							<a href="http://callmenick.com" target="_blank">callmenick.com</a> </span>
+					</div>
+				</div>
+			</footer>
+			<!-- /footer -->
+
+		</div><!-- /#wrapper -->
+
+		<script src="js/jquery-2.1.3.min.js"></script>
+
+		<!-- slidePushMenu js -->
+		<script src="slidePushMenuJS/classie.js"></script>
+		<script src="slidePushMenuJS/nav1.js"></script>
+		<script src="slidePushMenuJS/fixedHeader.js"></script>
+
+		<!--
+		<script src="sequentiallyReveal.js"></script>
+		requires reveal tag in games.css to be uncommented -->
+		<!--
+		<script src="showOnMouseover.js"></script>
+		-->
+		<script src="js/clickNDrag.js"></script>
+		<script src="js/games.js"></script>
+		<script src="js/games1.js"></script>
+		<script src="js/games2.js"></script>
+		<script src="js/games3.js"></script>
+		<script src="js/games4.js"></script>
+
+		<!-- TRACKER
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-34160351-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
+		+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+		})();
+		</script>
+		-->
+	</body>
+</html>

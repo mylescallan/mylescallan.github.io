@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<link rel='stylesheet' type='text/css' href='css/video.css'>
+		<script src="../js/jquery-2.1.3.min.js"></script>
+
+		<!-- <script src="js/video.js"></script>
+
+		<link rel='stylesheet' type='text/css' href='onMouseoverAnimate.css'/>
+		-->
+
+		<title>Murmuration</title>
+	</head>
+	<body>
+
+		<video autoplay  poster="assets/images/murmuration_cornwall.jpg" id="bgvid" loop class="stopfade" preload="auto">
+			<!-- WCAG general accessibility recommendation is that media such as background
+			video play through only once. Loop turned on for the purposes of illustration; if
+			removed, the end of the video will fade in the same way created by pressing the
+			"Pause" button -->
+			<source src="assets/video/murmuration_cornwall.mp4" type="video/mp4">
+			<source src="assets/video/murmuration_cornwall.webm" type="video/webm">
+		</video>
+		<div>
+			<div id="menuout0" class="menuout">
+				<p class="myText">
+					Myles Callan
+				</p>
+				<div class="menuout_inner">
+					<p class="innerText">
+						Welcome To My Site
+					</p>
+
+				</div>
+			</div>
+
+			<div id="menuout1" class="menuout">
+				<p class="myText">
+					Work In Progress
+				</p>
+				<div class="menuout_inner">
+					<p class="innerText">
+
+					<p class="fragment roll-in">
+						For an overview of HTML, CSS &amp; Javascript: <a href="../../game/overview.html" target="_blank">click here</a>.
+					</p>
+					<p class="fragment roll-in">
+						For a more detailed overview of Javascript and CSS: <a href="../../gameDesign/gameDesignIntroduction.html" target="_blank">click here</a>.
+					</p>
+					<p class="fragment roll-in">
+						For an overview of game objects in HTML5: <a href="../../game/index.html" target="_blank">click here</a>.
+					</p>
+					<p class="fragment roll-in">
+						To play a game: <a href="../../game/paint/PainterFinal/index.html" target="_blank">click here</a>.
+					</p>
+					<p class="fragment roll-in">
+						For an introduction to Drupal 7: <a href="../../eloquent/drupal/drupalNotes.html" target="_blank">click here</a>.
+					</p>
+					<p class="fragment roll-in">
+						Murmurations: <a href="../../game/murmuration/" target="_blank">click here</a>.
+					</p>
+					<p class="fragment roll-in">
+						Or for a tribute to Steven Gerrard: <a href="../../game/video/" target="_blank">click here</a>.
+					</p>
+					</p>
+
+				</div>
+			</div>
+
+			<div id="menuout2" class="menuout">
+				<p class="myText">
+					Awards
+				</p>
+				<div class="menuout_inner">
+					<p class="innerText">
+
+						•	Ballon d'Or Bronze Award (1): 2005
+						<br>
+						•	UEFA Club Footballer of the Year (1): 2005
+						<br>
+						•	FWA Footballer of the Year (1): 2009
+						<br>
+						•	FWA Tribute Award (1): 2013
+						<br>
+						•	PFA Players' Player of the Year (1): 2006
+						<br>
+						•	PFA Young Player of the Year (1): 2001
+						<br>
+						•	PFA Fans' Player of the Year (2): 2001, 2009
+						<br>
+						•	England Player of the Year Award (2): 2007, 2012
+						<br>
+						•	PFA Team of the Year (8): 2001, 2004, 2005, 2006, 2007, 2008, 2009, 2014
+						<br>
+						•	Liverpool Top Goalscorer (3): 2004–05, 2005–06, 2008–09
+						<br>
+						•	UEFA Euro Team of the Tournament (1): 2012
+						<br>
+						•	UEFA Team of the Year (3): 2005, 2006, 2007
+						<br>
+						•	FIFA/FIFPro World XI (3): 2007, 2008, 2009
+						<br>
+						•	ESM Team of the Year (1): 2008–09
+						<br>
+						•	Goal of the Season (1): 2006
+						<br>
+						•	UEFA Champions League Final Man of the Match (1): 2005
+						<br>
+						•	FA Cup Final Man of the Match (1): 2006
+						<br>
+						•	Premier League Player of the Month Award (6): March 2001, March 2003, December 2004, April 2006, March 2009, March 2014
+						<br>
+						•	ECHO Sports Personality of the Year Award (1): 2014
+						<br>
+						•	Member of the Order of the British Empire: 2007
+						<br>
+						•	Honorary Fellowship from Liverpool John Moores University: 2008
+						<br>
+						•	BBC Sports Personality of the Year Award – 3rd Place: 2005
+						<br>
+						•	IFFHS World's Most Popular Footballer: 2006
+					</p>
+
+				</div>
+			</div>
+
+			<div id="menuout3" class="menuout">
+				<p class="myText">
+					Other Stuff
+				</p>
+				<div class="menuout_inner">
+					<p class="innerText">
+
+						Some Stuff Here
+					</p>
+
+				</div>
+			</div>
+			<div id="myFooter">
+				<div id="footerButton">
+					<div id="vidpause">
+						<span class="icon icon-mid"><span class="icon-pause"
+						id="vidpause1"></span></span><!-- icons from cssIconsSizeable.css -->
+					</div>
+					<div id="vidmute">
+						<span class="icon icon-mid"><span class="icon-sound-mute" id="vidmute1"></span></span>
+					</div>
+				</div>
+				<div id="footerCopy">
+					&copy; Myles Callan 2015
+				</div>
+			</div>
+		</div>
+		<script>
+            var vid = document.getElementById("bgvid");
+            var pauseButton = document.getElementById("vidpause1");
+            var muteButton = document.getElementById("vidmute1");
+
+            function vidFade() {
+                vid.classList.add("stopfade");
+            }
+
+
+            vid.addEventListener('ended', function() {
+                // only functional if "loop" is removed
+                vid.pause();
+                // to capture IE10
+                vidFade();
+            });
+
+            pauseButton.addEventListener("mousedown", function() {
+                vid.classList.toggle("stopfade");
+                if (vid.paused) {
+                    vid.play();
+                    pauseButton.className = "icon-pause";
+                } else {
+                    vid.pause();
+                    pauseButton.className = "icon-play";
+                }
+            }, false);
+
+            muteButton.addEventListener('mousedown', function(e) {
+                e = e || window.event;
+
+                if (vid.muted === false) {
+                    // Mute the video
+                    vid.muted = true;
+
+                    // Update the button text
+                    muteButton.className = "icon-sound-loud";
+                } else {
+                    // Unmute the video
+                    vid.muted = false;
+
+                    // Update the button text
+                    muteButton.className = "icon-sound-mute";
+                }
+                e.preventDefault();
+            }, false);
+		</script>
+
+	</body>
+</html>

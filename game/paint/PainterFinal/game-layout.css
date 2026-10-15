@@ -1,0 +1,17 @@
+html, body {
+	background-color:#000000;
+	margin-top: auto;	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#canvas-container {
+   width: 100%;
+   text-align:center;
+}
+
+
+canvas{
+   display: block;
+    margin: auto;
+}

@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    background: #000;
+}
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background: url('../murmuration/assets/images/starlings_murmuration.jpg') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+    opacity: .5;
+}
+.stopfade {
+    opacity: .6;
+}
+
+@media screen and (max-width: 500px) {
+    div {
+        width: 70%;
+    }
+}
+@media screen and (max-device-width: 800px) {
+    html {
+        background: url(../murmuration/assets/images/starlings_murmuration.jpg) #000 no-repeat center center fixed;
+    }
+    #bgvid {
+        display: none;
+    }
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* footer - to hide watermarks if needed
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+#myFooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    line-height: 3;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-family: sans-serif;
+    background-color: rgba(218,165,32,0.0); /* rgb for "GoldenRod" with an opacity measure */
+    z-index: 20;
+    /*   text-shadow: 0 1px 0 #DAA520;
+     box-shadow: 0 0 15px #FF8E25;*/
+}
+
+#myFooter #footerButton {
+    position: relative;
+    float: left;
+    margin: -40px 75px 0px 100px; /* negative to move play and mute icons up */
+}
+
+#myFooter #footerCopy {
+    float: right;
+    margin: 0px 100px 0px 0px;
+}
+div #vidpause {
+    position: absolute;
+    float: left;
+    margin: 0px 40px 0px 0px;
+}
+
+div #vidmute {
+    position: absolute;
+    float: right;
+    margin: 0px 0px 0px 40px;
+}
+
+/* Generals */
+.icon {
+    /* don't change width and height in order to change the size of the icon,
+    you can control the size with font-size for different class(es) - below */
+    line-height: 100%;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    display: block;
+    float: left;
+}
+/* Button like icons */
+.icon-square,
+.icon-rounded {
+    border: .75em solid rgb(242, 242, 242); /* #f2f2f2 */
+    background-color: rgb(242, 242, 242); /* #f2f2f2 */
+    margin: 0 .5em .5em 0;
+    /* for browsers that supports */
+    -webkit-box-shadow: 0 0 0 .0625em rgb(226, 226, 226); /* #e2e2e2 */
+    -moz-box-shadow: 0 0 0 .0625em rgb(226, 226, 226); /* #e2e2e2 */
+    box-shadow: 0 0 0 .0625em rgb(226, 226, 226); /* #e2e2e2 */
+}
+.icon-rounded {
+    border-radius: 1.5em;
+}
+/*
+ * Sizes
+ *
+ * 5 preset sizes, simply change the font-size or add your custom class.
+ *
+ */
+.icon-small {
+    font-size: 1em;
+}
+.icon-mid {
+    font-size: 2em;
+}
+.icon-large {
+    font-size: 4em;
+}
+.icon-extra-large {
+    font-size: 8em;
+}
+.icon-huge {
+    font-size: 12em;
+}
+
+/* Player controls */
+/* Play */
+.icon-play {
+    position: absolute;
+    top: 0;
+    left: .1875em;
+    width: 0;
+    height: 0;
+    border-width: .5em .625em;
+    border-style: solid;
+    border-color: transparent transparent transparent rgb(38,139,210); /* #268BD2 color of theme */ 
+}
+
+/* Pause */
+.icon-pause,
+.icon-pause:after {
+    position: absolute;
+    width: .25em;
+    height: .875em;
+    background-color: rgb(38,139,210); /* #268BD2 */
+}
+.icon-pause {
+    top: .0625em;
+    left: .21875em;
+}
+.icon-pause:after {
+    content: "";
+    top: 0;
+    left: .3125em;
+}
+
+/* Sound */
+.icon-sound-mute,
+.icon-sound-normal,
+.icon-sound-loud {
+    position: absolute;
+    top: .375em;
+    left: .09375em;
+    width: .25em;
+    height: .25em;
+    background-color: rgb(38,139,210);
+}
+.icon-sound-mute:before,
+.icon-sound-normal:before,
+.icon-sound-loud:before {
+    content: "";
+    position: absolute;
+    top: -.3125em;
+    left: -.3125em;
+    width: .375em;
+    height: .375em;
+    border-width: .25em;
+    border-style: solid;
+    border-color: transparent rgb(38,139,210) transparent transparent;
+}
+.icon-sound-normal:after,
+.icon-sound-loud:after {
+    content: "";
+    position: absolute;
+    top: -.125em;
+    left: .625em;
+    width: .0625em;
+    height: .53125em;
+    border-style: solid;
+    border-color: rgb(38,139,210);
+}
+.icon-sound-normal:after {
+    border-width: 0 0 0 .0625em;
+}
+.icon-sound-loud:after {
+    border-width: 0 .0625em;
+}

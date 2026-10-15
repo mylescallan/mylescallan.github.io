@@ -1,0 +1,288 @@
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*          ********** Import Fonts ****************            *|
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+@import url(http://fonts.googleapis.com/css?family=Jacques+Francois);
+@import url(http://fonts.googleapis.com/css?family=Quattrocento+Sans);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* CSS Reset
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1
+}
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	color: #666;
+	font-weight: normal;
+}
+h1, h2 {
+	text-align: center;
+}
+ol, ul {
+	list-style: none
+}
+blockquote {
+	quotes: none
+}
+blockquote:before, blockquote:after {
+	content: '';
+	content: none;
+}
+del {
+	text-decoration: line-through
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a img {
+	border: none
+}
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* Globals
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	background-color: #DAA520;
+	color: #505050;
+	font-family: 'Jacques Francois', serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.8;
+}
+
+p {
+	font-family: 'Quattrocento Sans', sans-serif;
+	line-height: 1.4em;
+	text-align: justify;
+}
+
+li {
+	font-family: 'Quattrocento Sans', sans-serif;
+	line-height: 1.4em;
+	text-align: justify;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+}
+h2 {
+	text-align: center;
+	color: #666;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	font-size: 130%;
+	line-height: 1em;
+	padding: 20px 0px 0px 20px;
+}
+h3 {
+	color: #666;
+	font-size: 110%;
+	letter-spacing: 0.2em;
+}
+a {
+	text-decoration: none;
+	color: #DAA520; /* GoldenRod */
+}
+a:hover {
+	color: #FF8000
+}
+/* clear floated divs */
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* Template
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+#wrapper {
+	width: 100%;
+	margin: 0 auto;
+}
+#main {
+	background-color: #fff;
+	padding: 30px 0;
+}
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* Info Bar
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+#info-bar {
+	background-color: #40a2c5
+}
+#info-bar a {
+	color: white;
+	font-size: 14px;
+	text-transform: uppercase;
+	display: inline-block;
+	margin: 0;
+	padding: 10px;
+}
+#info-bar a:hover {
+	background-color: #FF8000
+}
+span.all-tutorials, span.back-to-tutorial {
+	display: block;
+	width: 50%;
+}
+span.all-tutorials {
+	float: left;
+	text-align: left;
+}
+span.back-to-tutorial {
+	float: right;
+	text-align: right;
+}
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* Header
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+header {
+	height: 110px;
+	padding: 0px 0;
+	 z-index :10;
+}
+#title {
+	text-align: center
+}
+header h1 {
+	color: #fff;
+	font-size: 30px;
+	margin-bottom: 0px;
+}
+#title h2 {
+	color: #b5dbe9;
+	font-size: 20px;
+}
+
+header.fixed-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* Footer
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+footer {
+	padding: 30px 0;
+	text-align: center;
+}
+footer span {
+	color: #fff
+}
+footer span a {
+	color: #b5dbe9
+}
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* Media Queries
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+@media all and (max-width: 600px) {
+	#info-bar a {
+		display: block
+	}
+	span.all-tutorials, span.back-to-tutorial {
+		width: 100%
+	}
+	span.all-tutorials, span.back-to-tutorial {
+		float: none;
+		text-align: center;
+	}
+	span.all-tutorials {
+		border-bottom: solid 1px #FF8000
+	}
+	#title h1 {
+		font-size: 20px
+	}
+	#title h2 {
+		font-size: 16px
+	}
+}
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ | *********************** MY ADDITIONS **************************|
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+/* Changes cursor to an image */
+/*
+ *
+ #deirdre {
+ cursor: url(spr_deirdreHead.png) 25 15, auto;
+ }
+
+ article .hiddenDiv {
+ display : none;
+ }
+
+ article:hover .activeDiv{
+ display : block;
+ }
+ */
+pre {
+	font-family: 'PT Mono', sans-serif;
+	margin: auto;
+	white-space: pre-wrap; /* CSS 3 */
+	overflow: auto;
+	color: goldenrod;
+	font-family: 'Quattrocento Sans', sans-serif;
+	line-height: 1.5em;
+}
+
+p.sideNote {
+	color: white;
+	padding: 10px 10px 10px 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	background-color: goldenrod;
+}
+
+canvas.myCanvasClass {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	background-color: yellow;
+}
+
+/* for sequentiallyReveal.js
+ #reveal div {opacity: 0; }*/
+
