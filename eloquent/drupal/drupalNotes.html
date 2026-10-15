@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel='stylesheet' type='text/css' href='../css/base.css'>
+		<!-- 				<link rel='stylesheet' type='text/css' href='onMouseoverAnimate.css'/>
+		-->
+
+		<title>Drupal 7: The Essentials, by Johan Falk</title>
+	</head>
+	<body>
+
+		<header>
+			<!--              Web Page Begins                -->
+			<h1>Drupal 7: The Essentials, by Johan Falk</h1>
+
+		</header>
+		<section id="reveal">
+			<br>
+			<p>
+				This book provides an "abc" of the implementation of Drupal. Two resources that standout in this book are: The use of <em>Screenshots</em>;
+				and, the <em>Example Implementations</em> that follow each chapter. Working through the latter, using the step by step guides, should prove an invaluable tool.
+			</p>
+			<p>
+				This webpage gives a summary of the topics covered in each chapter (primarily by quoting key features of each chapter, with some additional comments). This book, in
+				combination with <a href="https://www.cms2cms.com/blog/5-must-watch-video-tutorials-drupal-beginners/" target="_blank">these introductory videos</a>,
+				should provide a good overview of implementing a Drupal site.
+			</p>
+			<h2>“Part A: Drupal Core Basics”</h2>
+			<a name="Introduction"><h3>1. Introduction</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						After first installing Drupal, “there are no less than three links to add new content – one in the <em>sidebar</em>, one in the <em>shortcuts at the top of the page</em>,
+						and one right in the <em>middle of the page</em>."
+					</p>
+					<p>
+						Clicking on any of those 3 options allows you to create an Article or a Basic page. “Articles and Basic pages are <em>two node types or types of content</em>.
+						Clicking on any of the type names will give you a form used to build a content of that type. This is called the node form.” (pp. 23)<sup><a href="#fn1" id="r1">[1]</a></sup>
+						Once you have added a node, Drupal has sophisticated <em>revisions</em> capabilites that allows you to archive old versions, restore older versions, compare version
+						, etc. (pp. 25).
+					</p>
+					<p>
+						“When visiting the page for a node, you will usually see all of its content. When the node is listed on the front page, only parts of it are displayed.” These are
+						the <em>full page</em> and <em>teaser</em> view modes. “The internal path for nodes is always in the form 'node/NN', where NN is a unique ID number for the node.”
+						There is an option, URL path settings, in the (editing) node form, that allows you to give the node an external URL. (There are also options to add Menu Settings,
+						turn on and off Commenting sections, change Authoring information, and Publishing options (incl, promote to front page, stick to the top, etc)).
+					</p>
+
+					<p>
+						“In the administration toolbar ... there is an item called <em>Structure</em>. The links named Manage Fields and Manage Display ... have their very own chapters
+						[Chap. 6: <em>Fields and View Modes</em>, and Chap. 8: <em>Field Display</em>.] The edit link is used to set the most basic properties for a node type.” Name,
+						Description, Submission Form Settings, Publishing Options (includes changing default publishing and revision settings), Display Settings, Comment Setting, &amp; Menu
+						Settings (pp. 32).
+					</p>
+					<p>
+						“ The administration toolbar's Content option provides a list of all nodes on a website, along with some useful tools (see figure 1.9) including: Filters ..., Links
+						to see, edit, and delete each node, Options for performing mass updates on nodes ...” (pp. 33) “The <em>Views Bulk Operations</em> module offers an alternative
+						administration page for content, with more options and greater flexibility.”
+					</p>
+				</div>
+			</article>
+			<h2></h2>
+			<a name="Users"><h3>2. Users and Permissions</h3></a>
+
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“This chapter will show you how to manage users, divide them into groups, and decide the things that each group of users will be allowed to do on your website.”
+					</p>
+					<p>
+						“The administration toolbar's people link provides you with a list of all user accounts registered on your website.” (pp. 49) When adding or editing an account,
+						the options given are: Username, Current Password, E-mail address, Password/Confirm Password, Status, Roles (i.e. <em>Permission roles for user</em>),
+						etc.<sup><a href="#fn2" id="r2">[2]</a></sup> (pp. 51)
+
+					</p>
+					<p>
+						“The first account created on a Drupal site, user 1, <em>has permission to do everything on the site</em>. But what about other users?” The permission that
+						others have can be seen in "permissions" under the "people" tab.(pp. 54) “The Roles subtab, visible on the permissions list, shows you a list of all
+						permission roles available on the website.” (pp. 55) “Assigning roles to users is done in one of two ways – you can either edit each user account you
+						want to change, or you can make mass updates from the user list.”<sup><a href="#fn3" id="r3">[3]</a></sup>
+					</p>
+					<p >
+						“Selecting the Configuration link from the toolbar and then Account Settings in the People block on the Configuration Page will show you a few more
+						user settings ... ” Including: Administrator role, Registration and cancellation (how new accounts should be created, how content and accounts should
+						be treated when an account is cancelled, etc. Personalization – signatures, E-mails (e-mail templates).
+					</p>
+					<p >
+						That is the end of Chapter 2, following which there are some exercises.<sup><a href="#fn4" id="r4">[4]</a></sup>
+					</p>
+				</div>
+			</article>
+			<a name="Blocks"><h3>3. Blocks</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“Both the main content and the other elements are displayed as blocks, placed in one of the regions of the website. These blocks can be moved around,
+						and there are basic, as well as more sophisticated, ways of adding new blocks to your website.” (pp. 63) “The Demonstrate block regions link on the
+						administration page for blocks gives an overview of the regions available in your current theme.” “You can reach a list of all available blocks
+						on the site by using the administration toolbar to select Structure and then Blocks.”
+					</p>
+					<p>
+						“You can move blocks to a new region by using the select list of region names, or by simply clicking on a block's sorting arrow and dragging it to another
+						region's subheader. Above the list of blocks is the link Demonstrate block regions. It leads to a page where all regions are printed clearly on an empty
+						site template, making it easy to get an overview of the available regions.” (pp. 65)<sup><a href="#fn5" id="r5">[5]</a></sup>
+					</p>
+					<p>
+						“Block settings: In the block list, there is a configure link available for each block. Each link leads to a page where you may change the settings for the block
+						(pp. 68). Settings available are: Block Title (ex. To hide the title, enter
+						<none>
+							), Region settings (moving the block between regions), Visibility settings, Pages,
+							Content types, Roles (ex. show the block only to users with the selected roles), Users (allows users to determine if the block should be visible or not)”
+					</p>
+					<p>
+						“Complements and alternatives to blocks: <em>Block management can quickly become a mess on large and complex Drupal sites.</em> A number of modules have been created ...”
+						“ ... Context: ... this module helps set visibility rules for blocks in a more flexible way. Panels and Page manager (part of Chaos tools suite): These
+						modules replace the regular block system with panel panes. Compared to blocks, <em>these panes make it far easier to access and use contextual information...</em>” <sup><a href="#fn6" id="r6">[6]</a></sup>
+					</p>
+				</div>
+			</article>
+			<a name="Menus"><h3>4. Menus</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“By default, content on a Drupal site is not automatically placed in any particular structure... The most direct way of bringing structure to
+						your Drupal site is to use menus. These are links collected in a tree structure.”
+					</p>
+					<p>
+						“A standard installation of Drupal has four initial menus: main menu, management, navigation and user menu. There are, in principle, two ways of displaying menus:
+						... Each menu on the site has its own block, which can be placed in a region just like any block; and The theme on the site can (but does not always) have two
+						places where menus are displayed in a special format – main links and secondary links. ”
+					</p>
+					<p>
+						“Which menus should be used for main links and secondary links can be changed at the toolbar's Structure link, in the Menu and Settings tabs.” (pp. 79)
+					</p>
+				</div>
+			</article>
+			<a name="Other"><h3>5. Other Basic Drupal Core Settings<sup><a href="#fn7" id="r7">[7]</a></sup></h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“There are a number of shortcuts and nifty tools enabled in a standard Drupal installation, all with the purpose of making site administration easier.
+						They are summarized below.
+						<ul>
+							<li> The black toolbar at the top on Drupal pages is provided by the Toolbar module. It contains links to the top-level items in the menu management. </li>
+							<li> The administrative overlay, the frame that appears when clicking on administration links, is provided by the Overlay module.
+								One of its points is to make it easier to find the page you were on when starting your administration. </li>
+							<li> The Contextual links module adds a number of links in drop-down menus at various elements on your Drupal site.
+								The menu is accessed by clicking on the gear icon that appears when hovering over elements that have contextual links – such as blocks. </li>
+							<li> The Dashboard module makes it easier to build a collection of blocks on one single administration page (found under the dashboard link in the toolbar). </li>
+							<li> The gray list just below the black toolbar is provided by the Shortcut module, which also provides links (marked with plus signs) to add default shortcuts.
+								The latter are used to add links to the former, which is a handy way to always have your most-visited administration pages one click away.
+								It is possible to create different sets of shortcuts. From the toolbar, select Configuration, Shortcuts.
+								Users with relevant permissions may select which shortcut sets to use on a separate tab on their user pages.
+								Note that while shortcuts remind us of menus, they are technically separated.” </li>
+						</ul>
+
+				</div>
+			</article>
+			<h2>“Part B: Information Structure In Drupal”</h2>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“An important factor in Drupal's success as a publishing system is the ability to quickly and flexibly create information structures.
+						This functionality stems from Drupal's way of handling information fields, combined with the <em>Views</em> module.”
+					</p>
+				</div>
+			</article>
+			<a name="Fields"><h3>6. Fields</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“Articles and basic pages are both <em>node types</em>, but they hold different information – while basic pages only store header and body,
+						articles may also have images and tags. Another difference between the two node types is that they have <em>different fields</em>.
+					</p>
+					<p>
+						In short, fields work like this:
+						<br>
+						<ol>
+							<li><em>Node types</em> have a number of <em>fields</em> attached to them, which are used to store text, images or other data.
+								The kind of data stored is determined by the <em>field type</em>.</li>
+							<li>When creating or editing a node, you can enter data into each field attached to that type of node.
+								How data is entered is determined by the field's widget, and includes select lists, text fields and file uploads. </li>
+							<li>Each field has settings that determine how the field data should be displayed when viewing the saved node.
+								Examples include which image size should be used, or if text should be displayed in its trimmed or full version. Field data can also be hidden. </li>
+							<li>Administrators may add, remove and change settings for fields, thereby customizing the kind of information that could be stored on the website. </li>
+							<li>Other parts of Drupal, particularly the Views module, may access and use field data to filter, sort,
+								display and process content on your site in different ways.” </li>
+						</ol>
+					</p>
+					<p>
+						“To get an overview of the fields a node type contains, click on the toolbar Structure, Content types, and the link <em>Manage fields</em> for the node type
+						you wish to inspect.” (pp. 100)
+					</p>
+					<p>
+						“The settings available for a field depend on its field type and its widget. Usually the help texts explain quite well how the different settings are used.”
+					</p>
+					<p>
+						“At the bottom of the field list for a node type is a row used to add new fields. Each field requires a label, a machine name, a field type, and finally also
+						a widget that matches the selected field type. When adding a new field, you are automatically redirected to the pages for configuring the field and its widget.”
+						(pp. 104) See pp. 105 for field types in a standard Drupal installation.
+					</p>
+
+					<p>
+						“An important part of building an information structure is to create <em>relations between nodes</em>, and also between other entities. For example, this fact box
+						belongs to that article, this press release relates to those products, and so on. In Drupal, these relations are created with <em>reference fields or relation
+						fields.</em> These are fields connecting entities on your site.” (The <em>Relation module</em> extends this capability).
+					</p>
+					<p>
+						<em>Note:</em> See pp. 115 for “Example implementations of fields.”
+					</p>
+					<p></p>
+					<p></p>
+				</div>
+			</article>
+			<a name="Taxonomy"><h3>7: Taxonomy</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“Taxonomy is the word used by Drupalistas ... when talking about categorizing.” This is one of the more esoteric parts of the Drupal world (in that
+						it involves learning to speak "Drupal" - i.e. use words in non-standard ways).
+					</p>
+					<p>
+						“<em>Taxonomy</em> is the framework for categorizing – the practice of classifying things. A <em>vocabulary</em> is a set of categories, used
+						to separate different kinds of categories. An example vocabulary could be cities. <em>Terms</em> [tags] are the actual category words, such as Miami or Mumbai.
+						Each term belongs to exactly one vocabulary.”
+					</p>
+					<p>
+						“Under the toolbar option Structure, Taxonomy is a list of all the vocabularies on your website. In a standard Drupal installation you will only see tags.
+						(pp. 135) Each vocabulary is presented along with some management links for editing the vocabulary settings, listing existing terms, and adding new terms.”
+						See pp. 141 for examples of implementing taxonomy.
+					</p>
+
+				</div>
+			</article>
+			<a name="View"><h3>8: View Modes and Field Display</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“How a node is displayed depends on the context in which it is viewed, such as the difference between full nodes and teasers. On the page for
+						<em>field display management</em> there are extra settings under the label custom display settings.”
+					</p>
+					<p>
+						“The following view modes are available: <em>Full content</em>: This is normally used only when visiting the URL for a particular node; <em>Teaser</em>:
+						This is used on two list types – the front page and taxonomy term lists; <em>RSS</em>: These settings are used when including the node in RSS
+						feeds; <em>Search index</em>: This is used when Drupal's Search module indexes content on the site. Fields that are hidden in this view mode will not be
+						searchable; <em>Search result</em>: This is used when presenting search results on the website.”
+					</p>
+					<p>
+						“Drupal has built-in functionality to automatically scale and resize images. This is managed by <em>image styles</em>.”<sup><a href="#fn8" id="r8">[8]</a></sup></h3></a>
+						(pp. 156) Found in the toolbar: Configuration, Media, Image styles.
+					</p>
+					<p>
+						“Example implementations of view modes and field displays” (pp. 159)
+					</p>
+
+				</div>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						“Technically, Views is a tool to fetch data, process data and display data .... in the simplest cases it is used to make lists of nodes, users,
+						files or other content on the website. In more complex cases Views could be used to: list titles of content related to an article, create image slideshows,
+						display a map marking latest news pieces published on the site, show a block with a calendar containing lessons related to the course a visitor is viewing,
+						create a page with a timeline containing all comments posted during the last 24 hours, etc.”
+					</p>
+					<p>
+						“Using Views in an efficient way is one of the most important skills a Drupal developer has to learn.... It is strongly encouraged that you look
+						closer at a few of the implementation examples and exercises to see how to use Views in real life.”<sup><a href="#fn9" id="r9">[9]</a></sup>
+					</p>
+					<p>
+						“The overview page for the Views module is found at the toolbar, Structure, Views.... At the right side of each view, there is a drop-down menu with some links....
+						used to enable/disable the view, edit it, clone it, export it and finally also delete it.”
+					</p>
+					<p>
+						“A good way of starting to use the module is to create a new view. This is done at the Views overview page, and the link add new view.... (pp. 173/4/5).
+						“The effort in creating and configuring views consists almost entirely of clicking and editing these settings [Views Main Panel]. The effort in learning Views
+						consists of learning what all the settings mean and how they interact. <em>All the buttons and options in the Views main panel may seem overwhelming,
+						especially the first hundred times you encounter them.</em> It is of little comfort that what you see in the Views main panel is the tip of an iceberg.
+						Configuring a view is usually a process of opening new settings by clicking somewhere in the main panel, which in turn open further settings and so on.
+						Learning to use Views efficiently takes time and effort. It is without doubt worth it.”
+					</p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+			</article>
+			<a name="ViewsBasics"><h3>9: Views basics</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+
+				</div>
+			</article>
+
+		</section>
+		<section id = footnotes>
+			<p id="fn1">
+				<a href="#r1" title="Jump back to the main text.">[1]</a> Note: Page references (pp.) are used solely to refer to useful screenshots in the book. (Also, Note: Footnotes are bi-directional, i.e. clicking on the
+				link in a footnote will bring you back to the source of the footnote).
+				<br>
+			</p>
+			<p id="fn2">
+				<a href="#r2" title="Jump back to the main text.">[2]</a> “TIP: Best practice dictates that you should not use the first user account as a personal account. The first user account bypasses all access
+				controls in Drupal, and should be available to pass on to new site managers.”
+				<br>
+			</p>
+			<p id="fn3">
+				<a href="#r3" title="Jump back to the main text.">[3]</a> “TIP: The permissions matrix is one of the busiest settings pages in Drupal, but fortunately, each permission is more or less
+				self-explanatory. Since new modules often add new permissions, it is common to wait until a project is nearly finished before setting all permissions.”
+				<br>
+			</p>
+			<p id="fn4">
+				<a href="#r4" title="Jump back to the main text.">[4]</a> “Videos for these exercises can be found <a href="http://nodeone.se/en/the-boss-exercise-suite" target="_blank"> here </a>
+				<br>
+			</p>
+			<p id="fn5">
+				<a href="#r5" title="Jump back to the main text.">[5]</a> “TIP: The theme your site uses will dictate which regions are available. (Themes dictate the presentation of Drupal sites –
+				see Appendix 1 for more details.)”
+				<br>
+			</p>
+			<p id="fn6">
+				<a href="#r6" title="Jump back to the main text.">[6]</a> Panels and Page manager are described in a little more detail in Chapter 13.
+				<br>
+			</p>
+			<p id="fn7">
+				<a href="#r7" title="Jump back to the main text.">[7]</a> “TIP: The modules Administration menu and Admin are popular complements to Drupal's built-in tools for administrators.
+				They both provide alternative, and in some aspects more user-friendly, administration menus.”
+				<br>
+			</p>
+			<p id="fn8">
+				<a href="#r8" title="Jump back to the main text.">[8]</a> “TIP: Image styles create image derivatives that are stored in the file system – but will never change the original images.”
+				<br>
+			</p>
+			<p id="fn9">
+				<a href="#r9" title="Jump back to the main text.">[9]</a> “TIP: Views has excellent support for the Advanced help module, providing help links in different parts of the graphical interface.”
+				<br>
+			</p>
+			<p id="fn10">
+				<!--				<a href="#r10" title="Jump back to the main text.">[10]</a>
+				<br></p>
+				<a href="#r11" title="Jump back to the main text.">[11]</a>
+				<br>
+				<a href="#r12" title="Jump back to the main text.">[12]</a>
+				<br>
+				<a href="#r13" title="Jump back to the main text.">[13]</a>
+				<br>
+				<a href="#r14" title="Jump back to the main text.">[14]</a>
+				<br>
+				<a href="#r15" title="Jump back to the main text.">[15]</a>
+				<br>
+				<a href="#r16" title="Jump back to the main text.">[16]</a>
+				<br>
+				<a href="#r17" title="Jump back to the main text.">[17]</a>
+				<br>
+				<a href="#r18" title="Jump back to the main text.">[18]</a>
+				<br>
+				<a href="#r19" title="Jump back to the main text.">[19]</a>
+				<br>
+				<a href="#r20" title="Jump back to the main text.">[20]</a>
+				<br>
+				<a href="#r21" title="Jump back to the main text.">[21]</a>
+				<br>
+				<a href="#r22" title="Jump back to the main text.">[22]</a>
+				<br>
+				<a href="#r23" title="Jump back to the main text.">[23]</a>
+				<br>
+				<a href="#r24" title="Jump back to the main text.">[24]</a>
+				<br>
+				<a href="#r25" title="Jump back to the main text.">[25]</a>
+				<br>
+				<a href="#r26" title="Jump back to the main text.">[26]</a> -->
+
+			</p>
+		</section>
+
+		<script src="../../game/js/jquery-2.1.3.min.js"></script>
+
+		<script src="../js/addSideBarJQDrupal.js"></script>
+		<script src="../js/addSideBarJQDrupal0.js"></script>
+		<script src="../../game/js/fadeInAndOut.js"></script>
+		<!-- fades in and out the h1 tag -->
+	</body>
+</html>
+

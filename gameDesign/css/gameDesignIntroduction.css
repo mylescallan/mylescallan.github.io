@@ -1,0 +1,354 @@
+@import url(http://fonts.googleapis.com/css?family=Jacques+Francois);
+@import url(http://fonts.googleapis.com/css?family=Quattrocento+Sans);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+
+body {
+    background-color: white;
+    color: black;
+    margin: 5em 10em 5em 10em;
+    padding: 0em;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0px 0;
+    z-index: 10;
+    background-color: #DAA520; /* GoldenRod */
+    color: white;
+}
+
+header h1 {
+    color: white;
+    font-size: 200%;
+}
+
+.page {
+    max-width: 640px;
+    margin: 0px auto 5px auto;
+}
+
+.panel {
+    background-color: #fff;
+    color: #666;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+
+/********** LOGO **********/
+
+/********** TYPOGRAPHY **********/
+body {
+    font-family: 'Jacques Francois', serif;
+}
+
+h1 {
+    color: #666;
+    text-align: center;
+    /*  width: 100px;
+     height: 50px;
+     margin: 10px auto 10px auto;
+     text-indent: 0%;
+     white-space: nowrap; */
+    overflow: visible;
+}
+
+h2, h3 {
+    font-weight: normal;
+    margin: 0em;
+}
+h2 {
+    text-align: center;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 130%;
+    line-height: 1em;
+    padding: 20px 0px 0px 20px;
+}
+h3 {
+    color: #666;
+    font-size: 110%;
+    letter-spacing: 0.2em;
+}
+
+p {
+    font-family: 'Quattrocento Sans', sans-serif;
+    line-height: 1.4em;
+    text-align: justify;
+}
+
+li {
+    font-family: 'Quattrocento Sans', sans-serif;
+    line-height: 1.4em;
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*                ********** MY ADDITIONS **********            *|
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+/* Changes cursor to an image */
+/*
+ *
+ #deirdre {
+ cursor: url(spr_deirdreHead.png) 25 15, auto;
+ }
+
+ article .hiddenDiv {
+ display : none;
+ }
+
+ article:hover .activeDiv{
+ display : block;
+ }
+ */
+
+span.code{
+        font-family: 'PT Mono', sans-serif;
+        color: #4D4D4D;
+    
+    
+}
+/*
+pre {
+    font-family: 'PT Mono', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: pre-wrap; 
+    overflow: auto;
+    background-color: white;
+    color: #DAA520;
+    line-height: 1.5em;
+    -webkit-border-radius: 10px 10px 10px 10px; 
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+*/
+p.sideNote {
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: #DAA520;
+}
+
+canvas.myCanvasClass {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: #DAA520;
+}
+
+canvas.myCanvasClass1 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: white;
+    border: 2px solid #DAA520;
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* draggable items
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+.draggable0 {
+    margin-right: 10em;
+    margin-left: 0;
+    width: auto;
+    height: 110px;
+}
+.draggable {
+    margin-left: 0;
+    margin-right: 10em;
+    width: auto;
+    height: 80px;
+}
+
+/* for sequentiallyReveal.js
+ #reveal div {opacity: 0; }*/
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* sliding Side Bar
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+#menuout {
+    position: fixed;
+    top: 150px;
+    right: 0;
+    width: 125px;
+    padding: 12px 0;
+    text-align: center;
+    color: white;
+    background: #DAA520;
+    z-index: 20;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    background: -webkit-linear-gradient(bottom, #DAA520, #FF8E25); /* gradient moves from bottom to top, between the two colors listed */
+    background: -moz-linear-gradient(bottom, #DAA520, #FF8E25);
+    background: linear-gradient(bottom, #DAA520, #FF8E25);
+    -webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+}
+/* "link area" */
+#menuout_inner {
+    position: fixed;
+    top: 150px;
+    right: -250px; /* Off screen */
+    color: white;
+    background: #DAA520;
+    width: 200px;
+    padding: 25px;
+    height: 275px;
+    z-index: 20;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    text-align: left;
+    -webkit-border-radius: 10px 0 0 10px; /* rounded corners */
+    -moz-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+    background: -webkit-linear-gradient(bottom, #DAA520, #FF8E25);
+    background: -moz-linear-gradient(bottom, #DAA520, #FF8E25);
+    background: linear-gradient(bottom, #DAA520, #FF8E25);
+    -webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+}
+
+#menuout_inner a {
+    color: white;
+    -webkit-transition: 0.1s linear 0s;
+    -moz-transition: 0.1s linear 0s;
+    -o-transition: 0.1s linear 0s;
+    transition: 0.1s linear 0s;
+}
+#menuout_inner a:hover {
+    color: #fff;
+    text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff; /* Glowing effect */
+}
+
+#menuout_inner textarea {
+    width: 200px;
+    height: 150px;
+    color: white;
+    margin-bottom: 6px;
+}
+#menuout:hover {
+    right: 225px;
+}
+#menuout:hover #menuout_inner {
+    right: 0; /* move from off screen -250 to on screen 0 */
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* details formating
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+article {
+    padding: 10px 10px;
+}
+
+details {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*   Style the HTML button using CSS
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+/* This style will apply to all buttons, I remove these styles from specific buttons later */
+
+button {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    cursor: pointer;
+    /* The groups of three below will, in years to come, be replaced by a single statement (the final statement, in each case).*\
+     \* Currently, they are necessary because each browser has its own name for these styles.                                   */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: -webkit-linear-gradient(top, #FF8E25, #000);
+    background: -moz-linear-gradient(top, #FF8E25, #000);
+    background: linear-gradient(top, #FF8E25, #000);
+    -webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    /*Transition "all effects" over "1 second" use the "ease-out" transition with a "delay" of 1 second*/
+    -webkit-transition: all 1s ease-out 1s;
+    -moz-transition: all 1s ease-out 1s;
+    transition: all 1s ease-out 1s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/*  For when the mouse "hovers" over the button */
+button:hover {
+    background: -webkit-linear-gradient(top, #DB6A02, #000);
+    background: -moz-linear-gradient(top, #DB6A02, #000);
+    background: linear-gradient(top, #DB6A02, #000);
+}
+
+/* For when the mouse "clicks" the button */
+button:active {
+    position: relative;
+    top: 1px;
+    background: -webkit-linear-gradient(top, #AC5300, #000);
+    background: -moz-linear-gradient(top, #AC5300, #000);
+    background: linear-gradient(top, #AC5300, #000);
+}
+
+/* By using the class attribute "noCSS", this style will apply only to buttons with that attribute  *\
+ \* That is, this is where I remove the styles from buttons with the "noCSS" class attribute */
+button.noCSS {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    border-spacing: 0;
+    color: #26589F;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.42 rem;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+}

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel='stylesheet' type='text/css' href='css/JSFunctions.css'>
+		<!-- 				<link rel='stylesheet' type='text/css' href='onMouseoverAnimate.css'/>
+		-->
+		<link href="/codePrettify/src/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="/codePrettify/src/prettify.js"></script>
+
+		<title>Functions in Javascript</title>
+	</head>
+	<body onload="prettyPrint();">
+		<!-- Left Column -->
+		<!-- Objects Pulldown Menu -->
+		<section id="function1" class="container">
+			<section class="aside1">
+				<form id="myForm">
+					<select id="mySelect" onChange="formChanged();">
+						<option value="">Select Object</option>
+						<option value="window">Window</option>
+						<option value="myForm">Form</option>
+						<option value="divBack">Div</option>
+						<option value="document">Document</option>
+						<option value="clear">Clear List</option>
+					</select>
+				</form>
+				<p id="objectsHere"></p>
+
+				<script>
+                    function formChanged() {
+                        var selectBox = document.getElementById("mySelect");
+                        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                        var obj = document.getElementById("objectsHere");
+                        if (selectedValue === "clear") {
+                            obj.innerHTML = " ";
+
+                        } else {
+                            var objValue = window[selectedValue];
+
+                            obj.innerHTML = getAllPropertiesToHTML(objValue);
+                        }
+                    }
+				</script>
+				<div class="expand">
+					Reveal Code
+					<details open class="reveal">
+						<pre class='prettyprint' class="small">
+   &lt;form id="myForm"&gt;
+      &lt;select id="mySelect" onChange="formChanged();"&gt;
+      	&lt;option value=""&gt;Select Object&lt;/option&gt;
+      	&lt;option value="window"&gt;Window&lt;/option&gt;
+      	&lt;option value="myForm"&gt;Form&lt;/option&gt;
+      	&lt;option value="function1"&gt;Div&lt;/option&gt;
+      	&lt;option value="document"&gt;Document&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/form&gt;
+   &lt;p id="demo"&gt;&lt;/p&gt;
+
+   &lt;script&gt;
+       function formChanged() {
+           var selectBox = document.getElementById("mySelect");
+           var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+           var objValue = window[selectedValue];
+           var demo = document.getElementById("demo");
+
+           demo.innerHTML = getAllPropertiesToHTML(objValue);
+       }
+   &lt;/script&gt;
+				</pre>
+					</details>
+				</div>
+			</section>
+			<!-- Center Column -->
+			<!-- Main Text -->
+
+			<section class="main">
+				<h2>Functions in Javascript</h2>
+				<a name="overview"><h3>Overview</h3></a>
+				<p>
+					In most programming languages, a function is a series of commands grouped together (occasionally given specific parameters/arguments, (x) say) and given a
+					name so that it	can be <em>called</em> when needed.
+				</p>
+				<div id="divBack" class="highlight">
+					<pre class='prettyprint'>
+						<code>
+   function(){                                    function(x){
+<span class="c1">     ... commands ...       OR                     ... commands ... </span>
+   }                                              }
+					</code></pre>
+				</div>
+				<p>
+					Functions are used to organize code - typically to group code into conceptual pieces and/or to avoid repeating the same code (also to manage <em>scope</em>
+					&amp; <em>closure</em> (two related but	separate concepts)).
+				</p>
+				<p>
+					The <em>keyword</em> for functions in Javascript is: <em>function</em>.
+				</p>
+				<p>
+					The main categories of functions in Javascript are: Function Expressions, Function Statements/Declarations, Higher-order Functions, &amp;
+					Immediately-Invoked Function Expressions (IIFE, pronouced <em>iffy</em>).
+				</p>
+				<p>
+					For a fuller understanding of the importance of these distinctions, an understanding of how your web browser processes Javascript is required.
+				</p>
+				<p>
+					JavaScript code is processed in two phases:
+					<ul>
+						<li><em>Phase 1: Compilation</em> - in this phase the code is compiled into a syntax tree (and bytecode or binary depending on the engine).
+							<br>
+							By default all <em>variables</em> created during this phase have the value of undefined (as it is presumed that some variables will require code to
+							be interpreted to assign a value to them) and all <em>declared functions</em> are compiled.</li>
+						<li><em>Phase 2: Execution</em> - the parsed code is then interpreted.
+							<br>
+							The parsed code is typically interpreted line by line (apart from calls to declared functions, loops, and other changes to flow).</li>
+					</ul>
+				</p>
+				<a name="catfunc"><h3>Categories of Functions</h3></a>
+				<p>
+					With this in mind, we can return to the categories of functions:
+					<ol>
+						<li><em>Function Expressions</em> create a function value:
+							<br>
+							<div class="highlight">
+								<pre class='prettyprint'>
+						<code>
+   var f = function(){
+<span class="c1">   	 .. function statements ...</span>
+   };
+					</code></pre>
+							</div> where <em>f</em> is the function value (Note: semi-colon).
+							<br>
+						</li>
+						<li><em>Function Declarations</em> declare a variable and give it a function as its value:
+							<br>
+							<div class="highlight">
+								<pre class='prettyprint'>
+						<code>
+   function g(){
+<span class="c1">   	 .. function statements ...</span>
+   	 }
+					</code></pre>
+							</div> where <em>g</em> is declared to be a function (Note: no semi-colon).
+							<br>
+							<br>
+							<p>
+								Note: Expressions, unlike declarations, are processed in the execution phase rather than the compilation phase. And because of this the order of expressions
+								matter.
+							</p>
+							<p>
+								That is, a function declaration can be called anywhere in your code, regardless of where the declaration is made - it is <em>hoisted</em> in the compilation
+								phase. However, in either case, what you end up with is an identifier for a function, that you can invoke by putting parens (parentheses, ()) after it,
+								like f(); or g();, in the cases above.
+							</p>
+							<br>
+							<br>
+						</li>
+						<li><em>Higher Order Function</em> creates functions within a function:
+							<br>
+							<div class="highlight">
+								<pre class='prettyprint'>
+						<code>
+   function h(){ 
+     var z = 5; 
+   	 function i(){
+<span class="c1">  	 ... i's function statements ...</span>
+     }
+<span class="c1"> 	 ... h's other function statements ...</span>
+   }
+					</code></pre>
+							</div> where the function <em>i</em> is a higher order function (which has access to <em>h's</em> local scope - in this case, <em>z</em>).
+							<br>
+						</li>
+						<li><em>Immediately-Invoked Function Expressions.</em> create a function value:
+							<br>
+							<div class="highlight">
+								<pre class='prettyprint'>
+						<code>
+   (function() {
+   	someFunction() <span class="c1">or</span> someStatments;
+   	}
+   	)();
+<span class="c1">   or   </span>
+   (function() {
+   	someFunction() <span class="c1">or</span> someStatments;
+   	}
+   	());
+   	</code></pre>
+							</div>
+							<p>
+								The point of the parens, i.e. parenthesis ( ), or <em>coercing operators,</em> is to differentiate between function expressions and function
+								declarations. The most widely accepted way to tell the parser to expect a function <em>expression</em> (and not a declaration) is just to wrap it in parens
+								because, in JavaScript, parens can’t contain statements. So, when the parser encounters the function keyword, it knows to parse it as a function
+								expression and not a function declaration. Therefore parens indicate that the function expression will be immediately invoked, and the variable will
+								contain <em>the result of the function, not the function itself.</em> Since the anonymous function within our IIFE is a function expression and is not
+								being assigned to a global variable, no global property is being created, and all of the properties created inside of the function expression are scoped
+								locally to the expression itself (which will be explained in more detail later).
+							</p>
+							<p>
+								So, what is the benefit of using IIFEs?
+							</p>
+							<p>
+								<em>Modularization!</em> This is simply an extension of the idea behind a function, which was, in part, to group statements together that have a
+								common context (and	to avail of local scope to avoid name collisions - which are likely to occur if you are using Javascript code from a range of
+								sources). <em>A module</em> is a collection of logically grouped functions. The primary	purpose of these modules is to hide the implementation
+								details of functions and to provide an entry point [or API] to provide an access these functions from outside.
+							</p></li>
+					</ol>
+				</p>
+				<a name="flowstack"><h3>Flow Control and Call Stack</h3></a>
+				<p>
+					A declared function is compiled during the compilation phase. It is not interpreted until it is called. Thus, when a declared function is called, the
+					interpreter "jumps" to the compiled function, interprets its statements, then jumps back to where it was called. This is an example of Flow Control.
+					The order of interpreted statements is managed by the Call Stack.
+				</p>
+				<p>
+					The following example of a simple program highlights this process. We see that there is a declared function, which is compiled in the first phase.
+					After the interpreter completes the <span class="code"> ... other statements ... </span>, the greet function is called: <span class="code">greet("Harry");</span>.
+					At which point, the interpreter moves to the compiled declared function and interprets its statements. Once completed, the interpreter moves
+					back to where the declared function was called. The interpreter does this by remembering where it was when it moved to the compiled function by noting it
+					in the Call Stack:
+				</p>
+				<br>
+				<div class="highlight">
+					<pre class='prettyprint'>
+						<code>
+   function greet(who) {
+      console.log("Hello " + who);
+   }
+<span class="c1">   ... other statements ... </span>
+
+   greet("Harry"); 
+   console.log("Bye");
+
+					</code></pre>
+				</div>
+
+				<p>
+					That is, the call to <em>greet</em> causes control to jump to the function. Then control moves to console.log in the greet function. Once that statement is
+					interpreted, control has reached the end of the function, so control is then returned to the place that called the function.
+				</p>
+				<p></p>
+				<a name="scope"><h3>Functions and Scope</h3></a>
+				<p>
+					Functions are unique in Javascript in that their block (of code) is the only place where local scope can be created.<sup><a href="#fn1" id="r1">[1]</a></sup>
+					We can think of "scope" as another word for "visible" or "accessible". So that, the variables created inside of function blocks, including their parameters, are local
+					(visible or accessible)	to that function alone. Wheras, all variables outside of local scope are visible globally.
+				</p>
+				<p>
+					That is, by default, all variables in Javascript have global scope except those created within functions
+				</p>
+				<p>
+					Understanding how scope is assigned brings us back to the two execution phases of a Javascript process. Scope is assigned by execution contexts:
+				</p>
+				<ul>
+					<li>Global context, created when a JavaScript process is launched</li>
+					<li>Local context, created when a function is invoked</li>
+				</ul>
+				<p>
+					Execution contexts are organized into a stack. At the bottom of the stack, there is always the global context, that is unique for each JavaScript program.
+					Each time a function is encountered, a new execution context is created and pushed onto the top of the stack. Once the function has finished executing,
+					its context is popped off the stack.
+				</p>
+				<p>
+					Within each execution context is a special object called a scope chain which is used to resolve variables - beginning with the most immediate context, ending
+					with the global context. More generally, scope can be thought of as the set of rules for storing variables in some location, and for finding those
+					variables at a later time. If variables	have local scope, they can only be "found" within the function that they are defined in.
+				</p>
+				<p>
+					The lookup operations we’ve described in this example, whether based on the prototype chain or the scope chain, are repeated every time a property or variable is accessed.
+					When this lookup occurs within loops or other intensive operations, it can have significant JavaScript performance ramifications, especially in light of the single-threaded
+					nature of the language which prevents multiple operations from happening concurrently.
+				</p>
+				<div class="highlight">
+					<pre class='prettyprint'>
+						<code>
+      var start = new Date().getTime();                                var start = new Date().getTime();
+      function timedFn() {                                             function timedFn() {
+      	var myObj1 = new myObject();                                      var myObj1 = new myObject();       
+      	var counter = 0;                                                  var counter = 0;
+                                                                          <span class="red1">var delta = myObj1.delta;</span><span class="c1"> //cache myObj1.delta in current scope</span>
+      	for(var i = 0; i &lt; 1000; i++) {                                for(var i = 0; i &lt; 1000; i++) {             
+<span class="red1">      		     counter += myObj1.delta;</span><span class="c1"> //call myObj1.delta each loop</span>                counter += delta; <span class="c1"> //no inheritance tree traversal needed!</span>
+      	}                                       <span class="c1">  ... OR ... </span>           } 
+      	console.log('Final result: ' + counter);                          console.log('Final result: ' + counter);                                                        
+      }                                                                }
+
+      timedFn();                                                       timedFn(); 
+      var end = new Date().getTime();                                  var end = new Date().getTime();           
+      var diff = end - start;                                          var diff = end - start;   
+      console.log('Total time: ' + diff + ' milliseconds');            console.log('Total time: ' + diff + ' milliseconds');                                 
+					</code></pre>
+				</div>
+				<p>
+					When we have higher order functions (functions within functions) we have nested scope. That is, the internal function has access to the outer function's local scope (and
+					all variables already interpreted, and so defined, with global scope) but has its own local scope that is not accessible outside it.
+				</p>
+
+				<div class="highlight">
+					<pre class='prettyprint'>
+						<code>
+<span class="c1">   // Scope A: Global scope out here</span>
+   function myFunction() {
+<span class="c1">   // Scope B: Local scope in here (for variables created in here)</span>
+   }
+
+<span class="c1">   // Scope A: Global scope out here</span>
+   function myFunction() {
+<span class="c1">      // Scope B: Local scope in here (for variables created in here)</span>
+      function myOtherFunction(){
+<span class="c1">      // Scope C: Nested Local scope in here (where Scope B is accessible) </span>
+<span class="c1">      // aka  <em>Lexical Scope or Closure</em></span>
+      }
+   }
+					</code></pre>
+				</div>
+				<p>
+
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+
+				</p>
+				<a name="footnotes"><h3>Footnotes</h3></a>
+				<section id = footnotes>
+					<p id="fn1">
+						<a href="#r1" title="Jump back to the main text.">[1]</a> In future versions of Javascript, a keyword, "let", will allow local scope in conditional blocks ("if"
+						and "switch" statements) and loop blocks.
+						<br>
+					</p>
+					<!--				<p id="fn2">
+					<a href="#r2" title="Jump back to the main text.">[2]</a> “TIP: Best practice
+					dictates that you should not use the first user account as a personal account.
+					The first user account bypasses all access
+					controls in Drupal, and should be available to pass on to new site managers.”
+					<br>
+					</p>
+					<p id="fn3">
+					<a href="#r3" title="Jump back to the main text.">[3]</a> “TIP: The permissions
+					matrix is one of the busiest settings pages in Drupal, but fortunately, each
+					permission is more or less
+					self-explanatory. Since new modules often add new permissions, it is common to
+					wait until a project is nearly finished before setting all permissions.”
+					<br>
+					</p>
+					<p id="fn4">
+					<a href="#r4" title="Jump back to the main text.">[4]</a> “Videos for these
+					exercises can be found <a href="http://nodeone.se/en/the-boss-exercise-suite"
+					target="_blank"> here </a>
+					<br>
+					</p>
+					<p id="fn5">
+					<a href="#r5" title="Jump back to the main text.">[5]</a> “TIP: The theme your
+					site uses will dictate which regions are available. (Themes dictate the
+					presentation of Drupal sites –
+					see Appendix 1 for more details.)”
+					<br>
+					</p>
+					<p id="fn6">
+					<a href="#r6" title="Jump back to the main text.">[6]</a> Panels and Page manager
+					are described in a little more detail in Chapter 13.
+					<br>
+					</p>
+					<p id="fn7">
+					<a href="#r7" title="Jump back to the main text.">[7]</a> “TIP: The modules
+					Administration menu and Admin are popular complements to Drupal's built-in tools
+					for administrators.
+					They both provide alternative, and in some aspects more user-friendly,
+					administration menus.”
+					<br>
+					</p>
+					<p id="fn8">
+					<a href="#r8" title="Jump back to the main text.">[8]</a> “TIP: Image styles
+					create image derivatives that are stored in the file system – but will never
+					change the original images.”
+					<br>
+					</p>
+					<p id="fn9">
+					<a href="#r9" title="Jump back to the main text.">[9]</a> “TIP: Views has
+					excellent support for the Advanced help module, providing help links in different
+					parts of the graphical interface.”
+					<br>
+					</p>
+					<p id="fn10">
+					<a href="#r10" title="Jump back to the main text.">[10]</a>
+					<br></p> -->
+				</section>
+				<!-- Right Column -->
+				<!-- Code onMouseClicks -->
+
+			</section>
+		</section>
+
+		<script src="../game/js/jquery-2.1.3.min.js"></script>
+
+		<script src="js/getAllPropertiesToHTML.js"></script>
+
+		<script src="js/addSideBarJSFunctions.js"></script>
+		<script src="js/functionsReveal.js"></script>
+		<script src="js/getAllProperties.js"></script>
+	</body>
+</html>
+

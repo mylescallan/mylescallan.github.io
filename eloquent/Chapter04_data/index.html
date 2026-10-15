@@ -1,0 +1,29 @@
+<!doctype html>
+<script src="jacques_journal.js"></script>
+<script src="loadJournal.js"></script>
+
+<body>
+
+	<script>
+        var correlations = gatherCorrelations(JOURNAL);
+
+        document.write("CORRELATIONS" + "<br>" + "<br>");
+
+        for (var event in correlations) {
+            console.log(event + ": " + correlations[event] + "\n");
+            document.write(event + ": " + correlations[event] + "<br>");
+        }
+
+        document.write("<br>" + "<br>" + "LARGE CORRELATIONS" + "<br>" + "<br>");
+
+        for (var event in correlations) {
+            var correlation = correlations[event];
+            if (correlation > 0.1 || correlation < -0.1)
+                document.write(event + ": " + correlation + "<br>");
+        }
+        // → brushed teeth: -0.3805211953
+        // → work:          -0.1371988681
+        // → reading:        0.1106828054
+	</script>
+
+</body>

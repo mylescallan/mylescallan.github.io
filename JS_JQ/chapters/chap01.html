@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+
+<body>
+    <h1>Chapter 1</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!! The page is simply a background image
+            with a "box" overlayed using "float: left;" CSS code, like this:
+            <pre>
+    
+    h1, p {
+    float: left;
+    clear: left;
+    width: 320px;
+    background-color: #fff;
+    color: #5a514c;
+    text-align: center;}
+    
+</pre>
+        </div>
+    </div><br class="clear">
+
+    <h2>Code for Chapter 1</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();         &lt;- Uses Global Object "Date"
+var hourNow = today.getHours(); &lt;- "today" inherits the properties of "Date"
+var greeting;
+
+if (hourNow &gt; 18) {             &lt;- Conditional Statement
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;');  &lt;- Uses Global Object
+                                                        "document" and its
+                                                        "write" method
+                                                        
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b> 
+<!--      Testing Javascript
+
+          <script>
+          var expandtag = ['div', 'pre'];
+          document.write(expandtag  + "<br>");
+          document.write(expandtag.length  + "<br>");
+
+// alert(expandtag[0]); 
+
+          var elements = new Array();
+for (var j = 0; j < expandtag.length; j++) {
+
+          elements[j] = document.getElementsByTagName(expandtag[j]);
+          document.write(elements[j]  + "<br>");
+          document.write(elements[j].length  + "<br>");
+          }         
+          </script>   
+-->
+        </div>
+    </div><br class="clear">
+</body>
+</html>

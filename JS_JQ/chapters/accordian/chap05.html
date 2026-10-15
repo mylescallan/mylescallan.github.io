@@ -1,0 +1,122 @@
+    <h1>Chapter 5</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c05/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code uses the DOM ('Document Object Model') to edit a shopping list (DOM is a form of API (Application Programming Interface)). And shows how to both:<br /> 1) Add or Remove items from the list; and<br /> 2) Change the 'attribute' ('id' or 'classname') of items.
+           <center> <img src="images/Dom_Tree.jpg" alt="Dom Tree" style="width:90%"></center>
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 5: Part 1</h2>
+      <div id="contain">  
+    <p class='wb1'>
+    <span class="head11">Access The Elements (Methods of DOM) </span><br />
+    <span class="head1">Select an Individual Element Node </span><br />
+    <i>node</i>.getElementById("tagname") <br />
+    <i>node</i>.querySelector("tagname") <br /> <br />
+    
+    <span class="head1">Select Multiple Elements (Nodelists) </span><br />
+    <i>node</i>.getElementsByClassName("tagname") <br />
+    <i>node</i>.getElementsByTagName("tagname") <br />
+    <i>node</i>.querySelectorAll("tagname") <br /> <br />
+    
+    <span class="head1">Moving Between Element Nodes </span><br />
+    <i>parentNode</i> <br />
+    <i>previousSibling/nextSibling</i> <br />
+    <i>firstChild/lastChild</i> <br /><br />
+    
+    <span class="head11">Work With The Elements (Properties of DOM) </span><br /> 
+    <span class="head1">Access/Update Text Nodes </span><br />
+    <i>nodeValue</i>: Access or update contents of a <i>text</i> node <br /> <br />
+    
+    <span class="head1">Access or Update HTML Content </span><br />
+    <i>textContent</i>: Access or update contents of a <i>text</i> node  <br />
+    <i>innerHTML</i>: Access of update contents of a <i>text</i> node or <i>child</i> elements <br /> <br />
+    
+    <span class="head1">Create New Nodes, Add or Remove Nodes </span><br />
+    <i>createElement()</i>: Access of update contents of a <i>text</i> node or <i>child</i> elements <br />
+    <i>createTextNode()</i>: Access of update contents of a <i>text</i> node or <i>child</i> elements <br />
+    <i>appendChild()/removeChild()</i>: Access of update contents of a <i>text</i> node or <i>child</i> elements <br /> <br />
+    
+    <span class="head1">Access or Update Attribute Values (className/id) </span><br />
+    <i>hasAttribute()</i>: Check if <i>attribute</i> exists <br />
+    <i>getAttribute()</i>: Get <i>attribute</i> value <br />
+    <i>setAttribute()</i>: Update <i>attribute</i> value <br />
+    <i>removeAttribute()</i>: Remove <i>attribute</i> <br /> <br />
+    </p>
+    </div>
+
+        <h2>Code for Chapter 5: Part 2</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+// ADDING ITEMS TO START AND END OF LIST
+var list = document.getElementsByTagName('ul')[0];     // Get the &lt;ul&gt; element
+
+// ADD NEW ITEM TO END OF LIST
+var newItemLast = document.createElement('li');        // Create element
+var newTextLast = document.createTextNode('cream');    // Create text node
+newItemLast.appendChild(newTextLast);                  // Add text node to element
+list.appendChild(newItemLast);                         // Add element end of list
+
+// ADD NEW ITEM START OF LIST
+var newItemFirst = document.createElement('li');       // Create element
+var newTextFirst = document.createTextNode('kale');    // Create text node
+newItemFirst.appendChild(newTextFirst);                // Add text node to element
+list.insertBefore(newItemFirst, list.firstChild);      // Add element to list
+
+
+
+var listItems = document.querySelectorAll('li');       // All &lt;li&gt; elements
+
+// ADD A CLASS OF COOL TO ALL LIST ITEMS
+var i;                                                 // Counter variable
+for (i = 0; i &lt; listItems.length; i++) {               // Loop through elements
+  listItems[i].className = 'cool';                     // Change class to cool
+}
+
+// ADD NUMBER OF ITEMS IN THE LIST TO THE HEADING
+var heading = document.querySelector('h2');            // h2 element
+var headingText = heading.firstChild.nodeValue;        // h2 text
+var totalItems = listItems.length;                     // No. of &lt;li&gt; elements
+var newHeading =  headingText + '&lt;span&gt;' + totalItems + '&lt;/span&gt;'; // Content
+heading.innerHTML = newHeading;                        // Update h2 using innerHTML 
+                                                       // (not textContent) 
+                                                       // because it contains markup
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+            <br />
+            <br />
+<p class='wb'>
+var list = document.getElementsByTagName(<span class="blue">'tagname'</span>); <br />
+Tagnames are <span class="blue">html, body, div, h1, h2, etc, ul, li, script, em </span><br />
+<br />
+// ADD NEW ITEM TO END OF LIST<br />
+var newItemLast = document.createElement(<span class="blue">'li'</span>);        <br />
+Create new list element<br />
+<br />
+var newTextLast = document.createTextNode(<span class="purple">'cream'</span>);    <br />
+Create text node<br />
+<br />
+newItemLast.appendChild(newTextLast);                  <br />
+Add text node to element<br />
+<br />
+list.appendChild(newItemLast);             <br />
+
+</p>
+        </div>
+    </div><br class="clear">
+ 

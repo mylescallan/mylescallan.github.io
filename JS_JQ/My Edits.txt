@@ -1,0 +1,9 @@
+Chapter 3 - Edit c03/example.js
+ /***************************************************************************************
+           The Script Is Placed Inside An Immediately Invoked Function Expression
+                       Which Helps Protect The Scope Of Variables, and Edited to:
+           1. Uses All 3 Ways of Creating Objects
+           2. Uses Global Methods .toFixed(), getTime(), getDay(), .getElementById(), etc
+           3. Uses Arrays
+           4. Is Used in ch03/example.html
+  ***************************************************************************************/

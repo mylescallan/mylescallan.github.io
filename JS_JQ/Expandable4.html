@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; Expandable Sections - Example</title>
+              <script language="Javascript" type="text/javascript" src="js/expandableSections4.js"></script>
+              <link rel="stylesheet" href="css/expandableSections4.css" /> 
+</head>
+<body>
+<center>
+<p class="header">
+   <a href="http://www.htmlandcssbook.com/" target="_blank"><img src="http://01eba9f59936628a9c10-a672e330d72d3d2e689cb64015c1f8c5.r97.cf2.rackcdn.com/html-and-css-book-thumb.jpg" alt="HTML and CSS Design and Build Websites" class="dropshadow" /></a> JavaScript & jQuery
+</p>      
+<ul id="mylist">
+    <li>
+    <h2>Chapter 1<a title="open this section">open this section</a></h2>
+    <div class="unblock">
+    <p class="chapter">
+    <iframe src="file:///Volumes/--Sports/Books/Javascript_JQuery%20-%20Jon%20Duckett/javascript-and-jquery-jul-2014/c01/add-content.html" name="targetframe" allowTransparency="true" frameborder="0" seamless width=80% height="300">
+    </iframe> <br />
+    The code changes the Greeting in <span style="color: #ff0000">Red</span>. But there is a whole heap of css that gets it to look so good!!
+    </p>
+    <h3>Code for Chapter 1</h3>
+ In folder c01, filename: <b><i>add-content.js</i></b>
+<pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+</div>
+</li>
+<li>
+<h2>Chapter 2<a title="open this section">open this section</a></h2>
+<div class="unblock">
+<p class="chapter">This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. </p>
+<h2>Code for Chapter 2</h2>
+<p class="code">This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. This is chapter 2. .</p>
+</div>
+</li>
+<li>
+<h2>Chapter 3<a title="open this section">open this section</a></h2>
+<div class="unblock">
+<p class="chapter">This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. </p>
+<h2>Code for Chapter 3</h2>
+<p class="code">This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. This is chapter 3. </p>
+</div>
+</li>
+</ul>
+</center>
+<!--     <script src="js/example.js"></script> -->
+  </body>
+</html>

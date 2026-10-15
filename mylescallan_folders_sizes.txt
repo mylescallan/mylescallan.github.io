@@ -1,0 +1,30 @@
+4.1G	.
+1.6G	./udacity
+991M	./game
+772M	./early_speech_video
+221M	./Football
+169M	./Deirdre
+162M	./images
+114M	./Xmas
+ 41M	./MyVoice
+ 39M	./torture
+ 27M	./Imager
+ 26M	./Panoramas
+ 23M	./gameDesign
+ 10M	./JS_JQ
+9.1M	./wordpress
+5.8M	./codePrettify
+4.4M	./Honda
+3.7M	./d3
+3.3M	./Hickory
+1.2M	./CSS3AnnotationOverlayEffect
+792K	./Javascript
+756K	./syntaxHighlighter
+668K	./eloquent
+540K	./webcam
+520K	./keith
+328K	./js
+292K	./axs
+232K	./books
+156K	./blog
+ 80K	./test

@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title>Paper, Rock, Scissors</title>
+	</head>
+	<body>
+	<center>
+		<h1 id="mainHeading">Paper, Rock, Scissors</h1>
+<div id="aPlace"></div><br>
+<div id="bPlace"></div><br>
+<div id="cPlace"></div><br>
+</center>
+<script>
+// Presents a dialogue box in order to obtain the users choice, and then stores this answer in a variable called userChoice.
+var userChoice = prompt('Do you choose rock, paper or scissors?');
+// Generates a random number between 0 and 1 and then stores this in a variable called computerChoice.
+var computerChoice = Math.random();
+// Displays in the console the result of Math.random ()
+console.log(computerChoice);
+// Converts the random number generated above into a computer choice of rock, paper or scissors.
+if (computerChoice < 0.34) {
+  computerChoice = 'rock';
+} 
+else if (computerChoice < 0.67) {
+  computerChoice = 'paper';
+} 
+else {
+  computerChoice = 'scissors';
+}
+// Shows to the user what their own selection was, and what the computers selection was.
+
+document.getElementById('aPlace').innerHTML='You have chosen' + ' ' + userChoice;
+document.getElementById('bPlace').innerHTML='The computer has chosen' + ' ' + computerChoice;
+// Creates the function which firsts checks if the result is a draw, and if it isn't then goes on to compute the winner of the game.
+var compare = function (choice1, choice2) {
+  if (choice1 === choice2) {
+    return document.getElementById('cPlace').innerHTML='The result is a draw.';
+  }
+  if (choice1 === 'rock') {
+    if (choice2 === 'scissors') {
+      return document.getElementById('cPlace').innerHTML='Rock blunts scissors. You win! :-)';
+    } 
+    else  {
+      return document.getElementById('cPlace').innerHTML='Paper wraps rock. You lose!';
+    }
+  } 
+  else if (choice1 === 'paper') {
+    if (choice2 === 'rock') {
+      return document.getElementById('cPlace').innerHTML='Paper wraps rock. You win!';
+    } 
+    else  {
+      return document.getElementById('cPlace').innerHTML='Scissors cuts paper. You lose!';
+    }
+  } 
+  else if (choice1 === 'scissors') {
+    if (choice2 === 'paper') {
+      return document.getElementById('cPlace').innerHTML='Scissors cut paper. You win!';
+    } 
+    else  {
+      return document.getElementById('cPlace').innerHTML='Rock blunts scissors. You loose!';
+    }
+  } 
+  else {
+    return document.getElementById('cPlace').innerHTML='Invalid selection. Valid choices are \'rock\', \'paper\', \'scissors\', \'lizard\' or \'spock\'. Please check your spelling and try again.';
+  }
+};
+compare(userChoice, computerChoice);
+
+</script>
+	</body>
+</html>

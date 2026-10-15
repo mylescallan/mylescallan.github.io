@@ -1,0 +1,39 @@
+
+<!-- ONE STEP TO INSTALL MUST VISIT FROM....:
+
+  1.  Copy the coding into the HEAD of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- MUST VISIT FROM....javascript code -->
+
+<!-- Begin
+var requiredfrom = "http://www.mylescallan.com/Medical.html"; //  required prev. page
+if (document.referrer.indexOf(requiredfrom) == -1) {
+alert("You must come to this page from " + requiredfrom);
+window.location=requiredfrom;
+}
+//  End -->
+</script>
+
+or 
+
+<!-- for multiple sites  -->
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- MUST VISIT FROM....javascript code -->
+
+<!-- Begin
+var requiredfrom = "http://www.mylescallan.com/Medical.html"; //  required prev. page
+var requiredfrom1 = "http://www.mylescallan.com/Medical/Overview.html"; //  required prev. page
+if ((document.referrer != requiredfrom ) && (document.referrer != requiredfrom1 )) {
+alert("You must come to this page from " + requiredfrom + " or " + requiredfrom1);
+window.location=requiredfrom;
+}
+//  End -->
+</script>
+

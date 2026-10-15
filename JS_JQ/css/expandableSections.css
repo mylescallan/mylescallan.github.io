@@ -1,0 +1,306 @@
+/* JavaScript & jQuery - Chapter 3: Functions, Methods & Programming */
+/* The book used a font called Eau Sans - the download examples use Open Sans */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+
+body {
+	background-color: #000;
+	font-family: 'Open+Sans', 'Futura', sans-serif;
+	margin: 0px; 
+	padding: 0px;}
+
+#page {
+	background-color: #403c3b;
+	margin: 0px auto 0px auto;}
+	/* Responsive page rules at bottom of style sheet */
+
+h1 {
+	text-align: center;
+	text-indent: -1000%;
+	height: 5px;
+	line-height: 15px;
+	width: 90%;
+	margin: 0px auto 0px auto;
+	padding: 10px 10px 10px 10px;}
+
+h3 {
+	color: #fff;
+	font-size: 24px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+	margin: 0px 0px 13px 0px;}
+
+h3 span {
+	border-radius: 50%;
+	background-color: #000;
+	font-size: 10px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    height: 18px;
+    width: 20px;
+    margin-left: 5px;
+    padding: 4px 0px 0px 4px;}
+
+ul {
+	background-color: #584f4d;
+	border:none;
+	padding: 0px;
+	margin: 0px;}
+
+ul.a {list-style-type: circle;}
+
+li {
+	background-color: #ec8b68;
+	color: #fff;
+	border-top: 1px solid #fe9772;
+	border-bottom: 1px solid #9f593f;
+	font-size: 24px;
+	letter-spacing: .05em;
+	list-style-type: none;
+	text-shadow: 2px 2px 1px #9f593f;
+	height: 50px;
+	padding-left: 1em;
+	padding-top: 10px;}
+
+.hot {
+	background-color: #d7666b;
+	color: #fff;
+	text-shadow: 2px 2px 1px #914141;
+	border-top: 1px solid #e99295;
+	border-bottom: 1px solid #914141;}
+
+.cool {
+	background-color: #6cc0ac;
+	color: #fff;
+	text-shadow: 2px 2px 1px #3b6a5e;
+	border-top: 1px solid #7ee0c9;
+	border-bottom: 1px solid #3b6a5e;}
+
+.complete {
+    background-color: #999;
+	color: #fff;
+	background-image: url("../images/icon-trash.png");
+	background-position: center right;
+	background-repeat: no-repeat;
+	text-shadow: 2px 2px 1px #ccc;
+	border-top: 1px solid #666;
+	text-shadow: 2px 2px 1px #333;}
+
+li a {
+	color: #fff;
+	text-decoration: none;
+	background-image: url("../images/icon-link.png");
+	background-position: center right;
+	background-repeat: no-repeat;
+    padding-right: 36px;}
+
+p {
+	color: #403c3b; 
+	background-color: #fff;
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px;
+	margin: 20px auto 20px auto;
+	min-width: 20%; 
+	max-width: 80%; }
+
+/* ################## Changes Table Width ####################### */
+
+#scriptResults {
+	padding-bottom: 10px;}
+
+    /* Small screen - acts like the app would */
+    @media only screen and (max-width: 100%;) {
+    	body {
+            background-color: #584f4d;
+    	}
+    	#page {
+    		max-width: 100%;
+    	}
+    }
+    @media only screen and (min-width: 501px) and (max-width: 767px) {
+    	#page {
+    		max-width: 100%;
+    		margin: 20px auto 20px auto;
+    	}
+    }
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+    	#page {
+    		max-width: 100%;
+    		margin: 20px auto 20px auto;
+    	}
+    }
+    /* Larger screens act like a demo for the app */
+    @media only screen and (min-width: 960px) {
+    	#page {
+    		max-width: 100%;
+    		margin: 20px auto 20px auto;
+   		}
+    }
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+		h1{
+			background-image: url(../images/2xkinglogo.png);
+			background-size: 72px 72px;
+		}
+	}
+/* ####################################################################### */
+/* ################## From Original Expandables.css####################### */
+/* ####################################################################### */
+
+a:link {
+    color: #adffda;
+    font-variant: small-caps;
+}
+
+/* visited link */
+a:visited {
+    color: #adffda;
+    font-variant: small-caps;
+}
+
+/* p {
+  background-color: #D0D0D0;
+  margin: 10;} */
+
+p.header {
+  background-color: #FFCC99;
+  font-size: 150%; 
+  border:1px solid #c3c3c3;
+  border-radius:10px;
+  width: 95%;
+  padding:10px;
+  margin: 10px;}
+    
+p.chapter {
+  background-color: #D0D0D0;
+  	border:1px solid #c3c3c3;
+  	border-radius:10px;
+    width: 90%;
+	padding:10px;
+    margin: 10px;}
+
+p.code {
+  background-color: #adffda;
+  	border:1px solid #c3c3c3;
+  	border-radius:20px;
+    width: 50%;
+	padding:30px;
+    margin: 20px;}
+    
+pre, code{
+	direction: ltr;
+	text-align: left;}
+
+pre {border: solid 1px blue;
+	font-size: 1.3 em; 
+ 	color: blue; 
+	margin: 10px; 
+	padding:10px;
+	width: 95%;
+	background: #FFFFB3}
+
+pre.code {  background-color: #adffda;
+  	border:1px solid #c3c3c3;
+  	border-radius:10px;
+    width: 90%;
+	padding:10px;
+    margin: 10px;}
+    
+p.wb {  background-color: #FFFFFF;
+    text-align: justify;
+    border:1px solid #c3c3c3;
+  	border-radius:10px;
+    width: 90%;
+	padding:10px;
+    margin: 10px;}
+
+p.wb1 {  background-color: #FFFFFF;
+    text-align: justify;
+    border:1px solid #c3c3c3;
+  	border-radius:10px;
+    width: 60%;
+	padding:10px;
+    margin: 10px;}
+
+    
+code {font-size:1.2em; 
+	color: #008099}
+	
+	#contain { background-color: #D0D0D0;
+	           overflow: hidden;
+  	           border:1px solid #c3c3c3;
+  	           border-radius:10px;
+  	           width: 98%;
+   	           height: 95%;
+  	           padding:10px;
+  	           margin: 10px;} 
+	
+	#leftdiv { width: 60%;
+   	           height: 95%;
+	           margin: 10px;
+	           text-align: justify;
+	           float: left;} 
+	
+	#rightdiv { width: 35%; 
+   	           height: 95%;
+	           margin: 10px;
+	           text-align: justify;
+	           float: left;} 
+	
+	.clear {clear:both;}
+	
+.blue { 
+/*  background-color: #fff;*/
+  color: #adffda; 
+  text-shadow: 2px 2px 1px #9f593f;
+  font-family:arial; 
+}
+
+.orange { 
+/*  background-color: #fff;*/
+  color: #FF9900; 
+  text-shadow: 2px 2px 1px #9f593f;
+  font-family:arial; 
+}
+
+.pink { 
+/*  background-color: #fff;*/
+  color: #CC33FF; 
+  text-shadow: 2px 2px 1px #9f593f;
+  font-family:arial; 
+}
+
+.purple { 
+/*  background-color: #fff;*/
+  color: #330066; 
+  text-shadow: 2px 2px 1px #9f593f;
+  font-family:arial; 
+}
+
+.head1 { 
+ /* text-shadow: 2px 2px 1px #9f593f; */
+  font-variant: small-caps;
+  font-size: 125%; 
+  color: #d7666b;
+  }
+  
+.head11 { 
+ /* text-shadow: 2px 2px 1px #9f593f; */
+  font-variant: small-caps;
+  font-size: 150%; 
+  text-align: center;
+  color: #d7666b;
+  }
+  
+  #horizontalList li /* Creates a Horizontal List */
+{
+display: inline;
+list-style-type: none;
+padding: 10%;
+}

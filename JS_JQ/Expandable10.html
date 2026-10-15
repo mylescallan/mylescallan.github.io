@@ -1,0 +1,20 @@
+<html>
+<head>
+<script type="text/javascript">
+ 
+function showHideDiv(linkObj, divID)
+{
+    var showDiv = (linkObj.innerHTML!='Hide div.');
+    document.getElementById(divID).style.display = (showDiv) ? 'block' : 'none';
+    linkObj.innerHTML = (showDiv) ? 'Hide div.' : 'Show div.';
+    return;
+}
+</script>
+</head>
+<body>
+ 
+<a href="#" onClick="showHideDiv(this, 'theDiv');">Show div.</a>
+<div id='theDiv' style='display:none;'>I'll be shown if you click it </div>
+ 
+</body>
+</html>

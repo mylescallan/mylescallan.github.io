@@ -1,0 +1,150 @@
+
+ body {
+ margin: 0;
+ font-family: "Lato", sans-serif;
+ height: 100%;
+ }
+ .project{
+ background-color: #681796;
+ color: white;
+ padding: 14px;
+ }
+ h4 {
+ margin-left: 10px;
+ padding: 1px 1px;
+ }
+ h3 {
+ margin-left: 200px;
+ padding: 1px 16px;
+ }
+ hr {
+ border: 2.5px solid green;
+ border-radius: 1px;
+ }
+ 
+ pre{
+    white-space:pre-wrap;
+}
+
+ /*******************************************************/
+ /* Side Bar */
+ /* The side bar with links */
+ /*******************************************************/
+ hr.sidehr {
+ border: 3px solid white;
+ border-radius: 5px;
+ }
+ .sidebar {
+ margin: 0;
+ padding: 0;
+ width: 200px;
+ background-color: #f1f1f1;
+ position: fixed;
+ height: 100%;
+ overflow: auto;
+ margin-top: 0px; /* Add a top margin to avoid content overlay */
+ }
+ .sidebar a {
+ display: block;
+ color: black;
+ padding: 14px;
+ text-decoration: none;
+ }
+ .sidebar a.active {
+ background-color: #4CAF50;
+ color: white;
+ box-shadow: 5px 10px #888888;
+ }
+ .sidebar a:hover:not(.active) {
+ background-color: #555;
+ color: white;
+ }
+ .btn {
+ border: none;
+ outline: none;
+ padding: 10px 16px;
+ background-color: #f1f1f1;
+ cursor: pointer;
+ font-size: 18px;
+ }
+ /* Style the active class, and buttons on mouse-over */
+ .btn:active, .btn:hover {
+ background-color: #666;
+ color: white;
+ }
+ /*******************************************************/
+ /* Navigation Bar */
+ /* The navigation bar */
+ /*******************************************************/
+ #navbar {
+ overflow: hidden;
+ background-color: #333;
+ position: fixed; /* Set the navbar to fixed position */
+ top: 0; /* Position the navbar at the top of the page */
+ width: 100%; /* Full width */
+ height: 75px;
+ }
+ /* Links inside the navbar */
+ #navbar a {
+ float: left;
+ display: block;
+ color: #f2f2f2;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ height: 75px;
+ }
+ #navbar a.activeSB {
+ background-color: #681796;
+ color: white;
+ }
+ /* Change background on mouse-over */
+ #navbar a:hover:not(.activeSB) {
+ background: #ddd;
+ color: black;
+ }
+ 
+  .btnSB {
+ border: none;
+ outline: none;
+ padding: 10px 16px;
+ cursor: pointer;
+ font-size: 14px;
+ }
+ /* Style the active class, and buttons on mouse-over */
+ .btnSB:active, .btn:hover {
+ color: white;
+ }
+ /*******************************************************/
+ /* Main content */
+ /*******************************************************/
+ .main {
+ margin-top: 100px; /* Add a top margin to avoid content overlay */
+ }
+ /*******************************************************/
+ /* Sections */
+ /*******************************************************/
+ div .mainbar {
+ margin-left: 200px;
+ padding-top: 75px;
+ padding-left:10px;
+ height: 90vh;
+ }
+ /*******************************************************/
+ /* responsiveness */
+ /*******************************************************/
+ @media screen and (max-width: 700px) {
+ .sidebar {
+ width: 100%;
+ height: auto;
+ position: relative;
+ }
+ .sidebar a {float: left;}
+ div.content {margin-left: 0;}
+ }
+ @media screen and (max-width: 400px) {
+ .sidebar a {
+ text-align: center;
+ float: none;
+ }
+ }

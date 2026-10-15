@@ -1,0 +1,47 @@
+    <h1>Chapter 11</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 11</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    

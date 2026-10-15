@@ -1,0 +1,675 @@
+<HTML> 
+<HEAD> 
+<TITLE>Determining Browser Type and Version with JavaScript</TITLE>
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- hide JavaScript from non-JavaScript browsers
+// Ultimate client-side JavaScript client sniff by Eric Krock. Thanks to JF!
+// (C) Netscape Communications 1998.  Permission granted to reuse and distribute.
+// Revised 20 April 98 to add is.nav4up and is.ie4up (see below).
+
+// Everything you always wanted to know about your JavaScript client
+// but were afraid to ask ... "Is" is the constructor function for "is" object, 
+// which has properties indicating:
+// (1) browser vendor:
+//     is.nav, is.ie, is.opera
+// (2) browser version number:
+//     is.major (integer indicating major version number: 2, 3, 4 ...)
+//     is.minor (float   indicating full  version number: 2.02, 3.01, 4.04 ...) 
+// (3) browser vendor AND major version number
+//     is.nav2, is.nav3, is.nav4, is.nav4up, is.ie3, is.ie4, is.ie4up
+// (4) JavaScript version number:
+//     is.js (float indicating full JavaScript version number: 1, 1.1, 1.2 ...)
+// (5) OS platform and version:
+//     is.win, is.win16, is.win32, is.win31, is.win95, is.winnt, is.win98
+//     is.os2
+//     is.mac, is.mac68k, is.macppc
+//     is.unix
+//        is.sun, is.sun4, is.sun5, is.suni86
+//        is.irix, is.irix5, is.irix6 
+//        is.hpux, is.hpux9, is.hpux10
+//        is.aix, is.aix1, is.aix2, is.aix3, is.aix4  
+//        is.linux, is.sco, is.unixware, is.mpras, is.reliant  
+//        is.dec, is.sinix, is.freebsd, is.bsd 
+//     is.vms
+//
+// See http://www.it97.de/JavaScript/JS_tutorial/obj_hierarchy/navobjFr.html
+// for a detailed list of userAgent strings.
+//
+// Note: you don't want your Nav4 or IE4 code to "turn off" or
+// stop working when Nav5 and IE5 (or later) are released, so
+// in conditional code forks, use is.nav4up ("Nav4 or greater")
+// and is.ie4up ("IE4 or greater") instead of is.nav4 or is.ie4
+// to check version in code which you want to work on future 
+// versions.
+
+function Is ()
+{   // convert all characters to lowercase to simplify testing
+    var agt=navigator.userAgent.toLowerCase()
+
+    // *** BROWSER VERSION ***
+    this.major = parseInt(navigator.appVersion)
+    this.minor = parseFloat(navigator.appVersion)
+
+    this.nav  = ((agt.indexOf('mozilla')!=-1) && ((agt.indexOf('spoofer')==-1)
+                && (agt.indexOf('compatible') == -1)))
+    this.nav2 = (this.nav && (this.major == 2))
+    this.nav3 = (this.nav && (this.major == 3))
+    this.nav4 = (this.nav && (this.major == 4))
+    this.nav4up = this.nav && (this.major >= 4)
+
+    this.navonly      = (this.nav && (agt.indexOf(";nav") != -1))
+
+    this.ie   = (agt.indexOf("msie") != -1)
+    this.ie3  = (this.ie && (this.major == 2))
+    this.ie4  = (this.ie && (this.major == 4))
+    this.ie4up  = this.ie  && (this.major >= 4)
+
+    this.opera = (agt.indexOf("opera") != -1)
+     
+    // *** JAVASCRIPT VERSION CHECK *** 
+    // Useful to workaround Nav3 bug in which Nav3 
+    // loads <SCRIPT LANGUAGE="JavaScript1.2">.
+    if (this.nav2 || this.ie3) this.js = 1.0
+    else if (this.nav3 || this.opera) this.js = 1.1
+    else if (this.nav4 || this.ie4) this.js = 1.2
+    // NOTE: In the future, update this code when newer versions of JS 
+    // are released. For now, we try to provide some upward compatibility 
+    // so that future versions of Nav and IE will show they are at 
+    // *least* JS 1.2 capable. Always check for JS version compatibility 
+    // with > or >=.
+    else if ((this.nav && (this.minor > 4.05)) || (this.ie && (this.major > 4))) 
+         this.js = 1.2
+    else this.js = 0.0 // HACK: always check for JS version with > or >=
+
+    // *** PLATFORM ***
+    this.win   = ( (agt.indexOf("win")!=-1) || (agt.indexOf("16bit")!=-1) )
+    // NOTE: On Opera 3.0, the userAgent string includes "Windows 95/NT4" on all
+    //        Win32, so you can't distinguish between Win95 and WinNT.
+    this.win95 = ((agt.indexOf("win95")!=-1) || (agt.indexOf("windows 95")!=-1))
+
+    // is this a 16 bit compiled version?
+    this.win16 = ((agt.indexOf("win16")!=-1)
+               || (agt.indexOf("16bit")!=-1) || (agt.indexOf("windows 3.1")!=-1)
+               || (agt.indexOf("windows 16-bit")!=-1) )  
+
+    this.win31 = (agt.indexOf("windows 3.1")!=-1) || (agt.indexOf("win16")!=-1) ||
+                 (agt.indexOf("windows 16-bit")!=-1)
+
+    // NOTE: Reliable detection of Win98 may not be possible. It appears that:
+    //       - On Nav 4.x and before you'll get plain "Windows" in userAgent.
+    //       - On Mercury client, the 32-bit version will return "Win98", but
+    //         the 16-bit version running on Win98 will still return "Win95".
+    this.win98 = ((agt.indexOf("win98")!=-1)||(agt.indexOf("windows 98")!=-1))
+    this.winnt = ((agt.indexOf("winnt")!=-1)||(agt.indexOf("windows nt")!=-1))
+    this.win32 = this.win95 || this.winnt || this.win98 || 
+                 ((this.major >= 4) && (navigator.platform == "Win32")) ||
+                 (agt.indexOf("win32")!=-1) || (agt.indexOf("32bit")!=-1)
+
+    this.os2   = (agt.indexOf("os/2")!=-1) 
+                 || (navigator.appVersion.indexOf("OS/2")!=-1)  
+                 || (agt.indexOf("ibm-webexplorer")!=-1)
+
+    this.mac    = (agt.indexOf("mac")!=-1)
+    this.mac68k = this.mac && ((agt.indexOf("68k")!=-1) || 
+                               (agt.indexOf("68000")!=-1))
+    this.macppc = this.mac && ((agt.indexOf("ppc")!=-1) || 
+                               (agt.indexOf("powerpc")!=-1))
+
+    this.sun   = (agt.indexOf("sunos")!=-1)
+    this.sun4  = (agt.indexOf("sunos 4")!=-1)
+    this.sun5  = (agt.indexOf("sunos 5")!=-1)
+    this.suni86= this.sun && (agt.indexOf("i86")!=-1)
+    this.irix  = (agt.indexOf("irix") !=-1)    // SGI
+    this.irix5 = (agt.indexOf("irix 5") !=-1)
+    this.irix6 = ((agt.indexOf("irix 6") !=-1) || (agt.indexOf("irix6") !=-1))
+    this.hpux  = (agt.indexOf("hp-ux")!=-1)
+    this.hpux9 = this.hpux && (agt.indexOf("09.")!=-1)
+    this.hpux10= this.hpux && (agt.indexOf("10.")!=-1)
+    this.aix   = (agt.indexOf("aix")  !=-1)      // IBM
+    this.aix1  = (agt.indexOf("aix 1")  !=-1)    
+    this.aix2  = (agt.indexOf("aix 2")  !=-1)    
+    this.aix3  = (agt.indexOf("aix 3")  !=-1)    
+    this.aix4  = (agt.indexOf("aix 4")  !=-1)    
+    this.linux = (agt.indexOf("inux")!=-1)
+    this.sco   = (agt.indexOf("sco")!=-1) || (agt.indexOf("unix_sv")!=-1)
+    this.unixware = (agt.indexOf("unix_system_v")!=-1) 
+    this.mpras    = (agt.indexOf("ncr")!=-1) 
+    this.reliant  = (agt.indexOf("reliantunix")!=-1)
+    this.dec   = (agt.indexOf("dec")!=-1) || (agt.indexOf("osf1")!=-1) 
+           || (agt.indexOf("dec_alpha")!=-1) || (agt.indexOf("alphaserver")!=-1) 
+           || (agt.indexOf("ultrix")!=-1) || (agt.indexOf("alphastation")!=-1) 
+    this.sinix = (agt.indexOf("sinix")!=-1)
+    this.freebsd = (agt.indexOf("freebsd")!=-1)
+    this.bsd = (agt.indexOf("bsd")!=-1)
+    this.unix  = (agt.indexOf("x11")!=-1) || this.sun || this.irix || this.hpux || 
+                 this.sco ||this.unixware || this.mpras || this.reliant || 
+                 this.dec || this.sinix || this.aix || this.linux || this.freebsd
+
+    this.vms   = (agt.indexOf("vax")!=-1) || (agt.indexOf("openvms")!=-1)
+}
+
+var is;
+var isIE3Mac = false;
+// this section is designed specifically for IE3 for the Mac 
+
+if ((navigator.appVersion.indexOf("Mac")!=-1) && (navigator.userAgent.indexOf("MSIE")!=-1) && (parseInt(navigator.appVersion)==3))
+
+       isIE3Mac = true;
+
+else 
+
+       is = new Is(); 
+
+
+//--> end hide JavaScript
+</SCRIPT> 
+
+</HEAD> 
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<FONT FACE="Arial, Helvetica" SIZE=-1>
+
+<CENTER>
+<FONT SIZE=+2>
+<B>The Ultimate JavaScript Client Sniffer:</B>
+</FONT>
+<BR>
+<FONT SIZE=+1>
+Determining Browser Vendor, Version, And Operating System With JavaScript
+</FONT>
+</CENTER>
+
+<P>
+When creating a web page, you may wish to account for the possibility that viewers will be using browsers of various versions from various vendors. You may also wish to account for the possibility that certain page elements such as native plug-ins may not be available on all operating systems.
+
+<P>This sample code enables you to detect the browser's vendor, version number, and operating system. It has been tested on Navigator 2, 3, and 4, Internet Explorer 3 and 4, and Opera 3 on Windows 95, Windows NT, the Macintosh, and SunOS5.  It is believed to be compatible with all JavaScript-capable browser versions on all platforms. It creates an object called "is" which has properties indicating the browser's vendor, version number, JavaScript version, and operating system.
+
+<P>After you have checked the browser vendor and version, you can dynamically generate optimized HTML markup, and your JavaScript code can conditionally branch to execute JavaScript code optimized for the dynamically generated page or the current browser's vendor or version number.
+
+ 
+<P>This tip is useful when developing a page with features not supported by all browsers. For example, users who are using Navigator 4 can view content that includes the new LAYER tag.  Other users can view a "non-layers" version of the same file. 
+
+<P>As another example, Navigator 4 and Internet Explorer 4 often implement the same Dynamic HTML functionality with different objects and methods.  After checking the browser vendor, you can conditionally execute the correct JavaScript code fork for the current browser.
+
+<P><FONT SIZE="-1" FACE="Arial, Helvetica">This code has recently
+gone through a minor update, due to some implementation problems on
+Internet Explorer 3.x on the Macintosh. If you create an "is" object
+on IE3 for the Mac, the first time the page is loaded, the code will
+work fine, however any reloads of the page will cause the browser to
+crash. To get around this on IE3 for the Mac, we don't create an "is"
+object; instead, we create a Boolean variable called "isIE3Mac",
+which is set to true when the page is loaded into Internet Explorer 3
+for the Mac OS. One thing to be aware of: when checking the
+"navigator.appVersion" property, you'll notice on the Windows side
+that Internet Explorer 3.0 says it's Navigator 2.0, and thus the
+"navigator.appVersion" property returns a "2." On the Macintosh,
+Internet Explorer 3.0 says it's Navigator 3.0, and
+"navigator.appVersion" will return a "3". </FONT></P>
+<P>
+<HR SIZE=1 NOSHADE>
+<B>DYNAMICALLY GENERATING HTML MARKUP</B>
+
+<P><FONT SIZE="-1" FACE="Arial, Helvetica">When optimizing a page for
+multiple browsers, it is sometimes convenient to check the browser
+vendor and/or version and then use document.write() statements in
+&lt;SCRIPT&gt; elements in the page's BODY to dynamically generate
+HTML markup which is optimized for the current browser. Here is an
+example of the code necessary to dynamically generate vendor- or
+version-specific HTML markup. This code uses the "is" object defined
+by the sample JavaScript code below to check browser vendor and
+version. Don't forget, however, to first check the boolean variable
+"isIE3Mac" to see if that's true or not. The reason we check it first
+is because if "isIE3Mac" is true, then the "is" object doesn't
+actually exist, and we don't want to script to error out.</FONT></P>
+</FONT><TT>
+<PRE><TT>&lt;SCRIPT&gt;
+&lt;!--
+if (!isIE3Mac &amp;&amp; is.nav4up) {
+  {
+   // document.write() statements to create markup for Navigator 4 and later versions
+  }
+  else if (!isIE3Mac &amp;&amp; is.ie4up)
+  {
+   // document.write() statements to create markup for IE 4 and later versions
+  }
+  else
+  {
+   // document.write() statements to create static HTML markup for earlier versions
+  }
+}
+// --&gt;
+&lt;/SCRIPT&gt;
+</TT></PRE>
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1>
+
+<P>
+<HR SIZE=1 NOSHADE>
+<B>BROWSER-SPECIFIC JAVASCRIPT CODE FORKS</B>
+
+<P>In your page's core JavaScript functions, you can then have vendor-
+and version-specific code forks where necessary. These code forks reference
+objects, properties, methods, and functions which are only available in 
+specific browser versions.  The code forks may also reference HTML 
+page elements whose HTML markup is dynamically generated only for
+certain browser versions.
+
+<P><FONT SIZE="-1" FACE="Arial,Helvetica">This code fragment also
+uses the "is" object, and the "isIE3Mac" boolean defined by the
+sample JavaScript code below to check browser vendor and version.
+</FONT></FONT></P>
+
+<TT><PRE><TT>if (!isIE3Mac &amp;&amp; is.nav4up)
+{
+   // JavaScript here for Navigator 4 and later 
+}
+else if (!isIE3Mac &amp;&amp; is.ie4up)
+{
+   // JavaScript here for IE 4 and later
+}
+else if (!isIE3Mac &amp;&amp; (is.nav3 || is.opera))
+{
+   // JavaScript here for Nav3 and Opera 
+}
+else 
+{
+   // JavaScript here for Nav2 and IE 3 
+}
+</TT></PRE>
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1>
+
+<P>
+<HR SIZE=1 NOSHADE>
+<B>JAVASCRIPT CODE TO DETECT BROWSER VENDOR, VERSION, AND OPERATING SYSTEM</B>
+
+<P>Here is the JavaScript code necessary to detect browser vendor,
+version number, and operating system. This code creates an object
+called "is" which has properties indicating the browser's vendor,
+version number, JavaScript version, and operating system.</P>
+
+<P>This code is believed to be
+compatible with all versions of all JavaScript-capable browsers on all
+platforms. It has been tested on
+the following operating systems and browser versions:</P>
+
+<UL>
+   <LI><FONT SIZE="-1" FACE="Arial,Helvetica">Windows NT: Navigator
+   4, Navigator 3, and Navigator 2; Internet Explorer 3; Opera
+   3</FONT></LI>
+   
+   <LI><FONT SIZE="-1" FACE="Arial,Helvetica">Windows 95: Navigator
+   4; Internet Explorer 4</FONT></LI>
+   
+   <LI><FONT SIZE="-1" FACE="Arial,Helvetica">Macintosh: Navigator 4,
+   Internet Explorer 3.01, Internet Explorer 4.02</FONT></LI>
+   
+   <LI><FONT SIZE="-1" FACE="Arial,Helvetica">SunOS5: Navigator
+   3</FONT></LI>
+</UL>
+
+</FONT><TT>
+<PRE>// Ultimate client-side JavaScript client sniff.
+// (C) Netscape Communications 1998.  Permission granted to reuse and distribute.
+// Revised 20 April 98 to add is.nav4up and is.ie4up (see below).
+
+// Everything you always wanted to know about your JavaScript client
+// but were afraid to ask ... "Is" is the constructor function for "is" object, 
+// which has properties indicating:
+// (1) browser vendor:
+//     is.nav, is.ie, is.opera
+// (2) browser version number:
+//     is.major (integer indicating major version number: 2, 3, 4 ...)
+//     is.minor (float   indicating full  version number: 2.02, 3.01, 4.04 ...) 
+// (3) browser vendor AND major version number
+//     is.nav2, is.nav3, is.nav4, is.nav4up, is.ie3, is.ie4, is.ie4up
+// (4) JavaScript version number:
+//     is.js (float indicating full JavaScript version number: 1, 1.1, 1.2 ...)
+// (5) OS platform and version:
+//     is.win, is.win16, is.win32, is.win31, is.win95, is.winnt, is.win98
+//     is.os2
+//     is.mac, is.mac68k, is.macppc
+//     is.unix
+//        is.sun, is.sun4, is.sun5, is.suni86
+//        is.irix, is.irix5, is.irix6 
+//        is.hpux, is.hpux9, is.hpux10
+//        is.aix, is.aix1, is.aix2, is.aix3, is.aix4  
+//        is.linux, is.sco, is.unixware, is.mpras, is.reliant  
+//        is.dec, is.sinix, is.freebsd, is.bsd 
+//     is.vms
+//
+// See http://www.it97.de/JavaScript/JS_tutorial/obj_hierarchy/navobjFr.html
+// for a detailed list of userAgent strings.
+//
+// Note: you don't want your Nav4 or IE4 code to "turn off" or
+// stop working when Nav5 and IE5 (or later) are released, so
+// in conditional code forks, use is.nav4up ("Nav4 or greater")
+// and is.ie4up ("IE4 or greater") instead of is.nav4 or is.ie4
+// to check version in code which you want to work on future 
+// versions.
+
+
+function Is ()
+{   // convert all characters to lowercase to simplify testing
+    var agt=navigator.userAgent.toLowerCase()
+
+    // *** BROWSER VERSION ***
+    this.major = parseInt(navigator.appVersion)
+    this.minor = parseFloat(navigator.appVersion)
+
+    this.nav  = ((agt.indexOf('mozilla')!=-1) && ((agt.indexOf('spoofer')==-1)
+                && (agt.indexOf('compatible') == -1)))
+    this.nav2 = (this.nav && (this.major == 2))
+    this.nav3 = (this.nav && (this.major == 3))
+    this.nav4 = (this.nav && (this.major == 4))
+    this.nav4up = this.nav && (this.major >= 4)
+    this.navonly      = (this.nav && (agt.indexOf(";nav") != -1))
+
+    this.ie   = (agt.indexOf("msie") != -1)
+    this.ie3  = (this.ie && (this.major == 2))
+    this.ie4  = (this.ie && (this.major == 4))
+    this.ie4up  = this.ie  && (this.major >= 4)
+
+    this.opera = (agt.indexOf("opera") != -1)
+     
+    // *** JAVASCRIPT VERSION CHECK *** 
+    // Useful to workaround Nav3 bug in which Nav3 
+    // loads &lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;.
+    if (this.nav2 || this.ie3) this.js = 1.0
+    else if (this.nav3 || this.opera) this.js = 1.1
+    else if (this.nav4 || this.ie4) this.js = 1.2
+    // NOTE: In the future, update this code when newer versions of JS 
+    // are released. For now, we try to provide some upward compatibility 
+    // so that future versions of Nav and IE will show they are at 
+    // *least* JS 1.2 capable. Always check for JS version compatibility 
+    // with > or >=.
+    else if ((this.nav && (this.minor > 4.05)) || (this.ie && (this.major > 4))) 
+         this.js = 1.2
+    else this.js = 0.0 // HACK: always check for JS version with > or >=
+
+    // *** PLATFORM ***
+    this.win   = ( (agt.indexOf("win")!=-1) || (agt.indexOf("16bit")!=-1) )
+    // NOTE: On Opera 3.0, the userAgent string includes "Windows 95/NT4" on all
+    //        Win32, so you can't distinguish between Win95 and WinNT.
+    this.win95 = ((agt.indexOf("win95")!=-1) || (agt.indexOf("windows 95")!=-1))
+
+    // is this a 16 bit compiled version?
+    this.win16 = ((agt.indexOf("win16")!=-1)
+               || (agt.indexOf("16bit")!=-1) || (agt.indexOf("windows 3.1")!=-1)
+               || (agt.indexOf("windows 16-bit")!=-1) )  
+
+    this.win31 = (agt.indexOf("windows 3.1")!=-1) || (agt.indexOf("win16")!=-1) ||
+                 (agt.indexOf("windows 16-bit")!=-1)
+
+    // NOTE: Reliable detection of Win98 may not be possible. It appears that:
+    //       - On Nav 4.x and before you'll get plain "Windows" in userAgent.
+    //       - On Mercury client, the 32-bit version will return "Win98", but
+    //         the 16-bit version running on Win98 will still return "Win95".
+    this.win98 = ((agt.indexOf("win98")!=-1)||(agt.indexOf("windows 98")!=-1))
+    this.winnt = ((agt.indexOf("winnt")!=-1)||(agt.indexOf("windows nt")!=-1))
+    this.win32 = this.win95 || this.winnt || this.win98 || 
+                 ((this.major >= 4) && (navigator.platform == "Win32")) ||
+                 (agt.indexOf("win32")!=-1) || (agt.indexOf("32bit")!=-1)
+
+    this.os2   = (agt.indexOf("os/2")!=-1) 
+                 || (navigator.appVersion.indexOf("OS/2")!=-1)  
+                 || (agt.indexOf("ibm-webexplorer")!=-1)
+
+    this.mac    = (agt.indexOf("mac")!=-1)
+    this.mac68k = this.mac && ((agt.indexOf("68k")!=-1) || 
+                               (agt.indexOf("68000")!=-1))
+    this.macppc = this.mac && ((agt.indexOf("ppc")!=-1) || 
+                               (agt.indexOf("powerpc")!=-1))
+
+    this.sun   = (agt.indexOf("sunos")!=-1)
+    this.sun4  = (agt.indexOf("sunos 4")!=-1)
+    this.sun5  = (agt.indexOf("sunos 5")!=-1)
+    this.suni86= this.sun && (agt.indexOf("i86")!=-1)
+    this.irix  = (agt.indexOf("irix") !=-1)    // SGI
+    this.irix5 = (agt.indexOf("irix 5") !=-1)
+    this.irix6 = ((agt.indexOf("irix 6") !=-1) || (agt.indexOf("irix6") !=-1))
+    this.hpux  = (agt.indexOf("hp-ux")!=-1)
+    this.hpux9 = this.hpux && (agt.indexOf("09.")!=-1)
+    this.hpux10= this.hpux && (agt.indexOf("10.")!=-1)
+    this.aix   = (agt.indexOf("aix")  !=-1)      // IBM
+    this.aix1  = (agt.indexOf("aix 1")  !=-1)    
+    this.aix2  = (agt.indexOf("aix 2")  !=-1)    
+    this.aix3  = (agt.indexOf("aix 3")  !=-1)    
+    this.aix4  = (agt.indexOf("aix 4")  !=-1)    
+    this.linux = (agt.indexOf("inux")!=-1)
+    this.sco   = (agt.indexOf("sco")!=-1) || (agt.indexOf("unix_sv")!=-1)
+    this.unixware = (agt.indexOf("unix_system_v")!=-1) 
+    this.mpras    = (agt.indexOf("ncr")!=-1) 
+    this.reliant  = (agt.indexOf("reliantunix")!=-1)
+    this.dec   = (agt.indexOf("dec")!=-1) || (agt.indexOf("osf1")!=-1) 
+           || (agt.indexOf("dec_alpha")!=-1) || (agt.indexOf("alphaserver")!=-1) 
+           || (agt.indexOf("ultrix")!=-1) || (agt.indexOf("alphastation")!=-1) 
+    this.sinix = (agt.indexOf("sinix")!=-1)
+    this.freebsd = (agt.indexOf("freebsd")!=-1)
+    this.bsd = (agt.indexOf("bsd")!=-1)
+    this.unix  = (agt.indexOf("x11")!=-1) || this.sun || this.irix || this.hpux || 
+                 this.sco ||this.unixware || this.mpras || this.reliant || 
+                 this.dec || this.sinix || this.aix || this.linux || this.freebsd
+
+    this.vms   = (agt.indexOf("vax")!=-1) || (agt.indexOf("openvms")!=-1)
+}
+
+var is;
+var isIE3Mac = false;
+// this section is designed specifically for IE3 for the Mac 
+
+if ((navigator.appVersion.indexOf("Mac")!=-1) && (navigator.userAgent.indexOf("MSIE")!=-1) && (parseInt(navigator.appVersion)==3))
+       isIE3Mac = true;
+
+else 
+
+       is = new Is(); 
+</PRE>
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1>
+<P>
+<HR SIZE=1 NOSHADE>
+<B>PROFILE OF YOUR BROWSER</B>
+
+<P>Here are the results of running that JavaScript code on the browser you are 
+using. The below text has been dynamically generated after checking your
+browser vendor, version, and operating system from JavaScript.</P>
+
+<B>Basic Data</B>
+<BR>
+</FONT><TT>
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- 
+
+document.write("navigator.appName " + navigator.appName + "<BR>")
+document.write("navigator.userAgent" + navigator.userAgent + "<BR>")
+document.write("navigator.appVersion" + navigator.appVersion + "<BR>")
+//-->
+</SCRIPT> 
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1>
+
+<P>
+<B>Version Number</B>
+<BR>
+</FONT><TT>
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- 
+if (isIE3Mac)
+	document.write ("You are using Internet Explorer 3 for the Mac<BR>")
+else {
+	document.write("<TT>major:" + is.major + "</TT><BR>")
+	document.write("<TT>minor:" + is.minor + "</TT><BR>")
+}
+//-->
+</SCRIPT> 
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1>
+
+<P>
+<B>Browser Version</B>
+<BR>
+</FONT><TT>
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- 
+if (isIE3Mac)
+	document.write ("You are using Internet Explorer 3 for the Mac<BR>")
+else {
+	document.write("nav:" + is.nav + "<BR>")
+	document.write("nav2:" + is.nav2 + "<BR>")
+	document.write("nav3:" + is.nav3 + "<BR>")
+	document.write("nav4:" + is.nav4 + "<BR>")
+	document.write("nav4up:" + is.nav4up + "<BR>")
+	document.write("navonly:" + is.navonly + "<BR>")
+	document.write("<P>" + "ie:" + is.ie + "<BR>")
+	document.write("ie3:" + is.ie3 + "<BR>")
+	document.write("ie4:" + is.ie4 + "<BR>")
+	document.write("ie4up:" + is.ie4up + "<BR>")
+	document.write("isIE3Mac:" +isIE3Mac+ "<BR>")
+	document.write("<P>" + "opera:" + is.opera + "<BR>")
+}
+
+//-->
+</SCRIPT> 
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1>
+
+<P>
+<B>JavaScript Version</B>
+<BR>
+</FONT><TT>
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- 
+if (isIE3Mac)
+	document.write ("You are using JavaScript version 1.0<BR>")
+else
+	document.write("js:" + is.js + "<BR>")
+//-->
+</SCRIPT> 
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1>
+
+<P>
+<B>OS</B>
+<BR>
+</FONT><TT>
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- 
+if (isIE3Mac)
+	document.write ("You are using a Mac<BR>")
+else {
+	document.write("win:" + is.win + "<BR>")
+	document.write("win16:" + is.win16 + "<BR>")
+	document.write("win31:" + is.win31 + "<BR>")
+	document.write("win32:" + is.win32 + "<BR>")
+	document.write("win95:" + is.win95 + "<BR>")
+	document.write("win98:" + is.win98 + "<BR>")
+	document.write("winnt:" + is.winnt + "<BR>")
+
+	document.write("<P>" + "os2:" + is.os2 + "<BR>")
+
+	document.write("<P>" + "mac:" + is.mac + "<BR>")
+	document.write("mac68k:" + is.mac68k + "<BR>")
+	document.write("macppc:" + is.macppc + "<BR>")
+
+	document.write("<P>" + "unix:" + is.unix + "<BR>")
+	document.write("sun:" + is.sun + "<BR>")
+	document.write("sun4:" + is.sun4 + "<BR>")
+	document.write("sun5:" + is.sun5 + "<BR>")
+	document.write("suni86:" + is.suni86 + "<BR>")
+	document.write("irix:" + is.irix + "<BR>")
+	document.write("irix5:" + is.irix5 + "<BR>")
+	document.write("irix6:" + is.irix6 + "<BR>")
+	document.write("hpux:" + is.hpux + "<BR>")
+	document.write("hpux9:" + is.hpux9 + "<BR>")
+	document.write("hpux10:" + is.hpux10 + "<BR>")
+	document.write("aix:" + is.aix + "<BR>")
+	document.write("aix1:" + is.aix1 + "<BR>")
+	document.write("aix2:" + is.aix2 + "<BR>")
+	document.write("aix3:" + is.aix3 + "<BR>")
+	document.write("aix4:" + is.aix4 + "<BR>")
+	document.write("linux:" + is.linux + "<BR>")
+	document.write("sco:" + is.sco + "<BR>")
+	document.write("unixware:" + is.unixware + "<BR>")
+	document.write("mpras:" + is.mpras + "<BR>")
+	document.write("reliant:" + is.reliant + "<BR>")
+	document.write("dec:" + is.dec + "<BR>")
+	document.write("sinix:" + is.sinix + "<BR>")
+	document.write("bsd:" + is.bsd + "<BR>")
+	document.write("freebsd:" + is.freebsd + "<BR>")
+
+	document.write("<P>" + "vms:" + is.vms + "<BR>")
+}
+//-->
+</SCRIPT>
+</TT><FONT FACE="Arial,Helvetica" SIZE=-1> 
+
+<P>
+<HR SIZE=1 NOSHADE>
+<DL>
+<DT><B>ADDITIONAL READING</B></DT>
+
+<DD>
+<A HREF="/support/bugs/index.html?content=known/javascript.html" TARGET="_top">JavaScript Known Bug List</A>
+<BR><A HREF="/docs/examples/index.html?content=javascript.html" TARGET="_top">Sample Code Area</A>
+<BR><A HREF="/docs/books/index.html" TARGET="_top">Books</A>
+<BR><A HREF="/docs/articles/index.html?content=javascript.html" TARGET="_top">Articles</A>
+<BR><A HREF="/support/courses/index.html?content=courses.html" TARGET="_top">JavaScript Course</A>
+<!--
+<BR><A HREF="/docs/manuals/communicator/stylesheets/jssindex.htm" TARGET=content>Dynamic Style Sheets</A>
+-->
+<BR><A HREF="/tech/javascript/index.html?content=/docs/manuals/jsresource.html" TARGET="_top">Other JavaScript Resources</A>
+<BR><A HREF="http://home.netscape.com/eng/javascript/index.html" TARGET="_top">JavaScript Language Spec</A>
+<BR><A HREF="http://home.netscape.com/eng/mozilla/3.0/handbook/javascript/index.html" TARGET="_top">JavaScript Guide</A>
+<BR><A HREF="/docs/manuals/communicator/jsguide/js1_2.htm" TARGET="_top">What's New in JavaScript for Navigator 4.0</A>
+<BR><A HREF="/software/tools/index.html?content=listing/application/javascript/javascript.html" TARGET="_top">JavaScript Scripting Tools</A>
+</DD>
+</DL>
+<DL>
+<P>
+<HR SIZE=1 NOSHADE>
+<DT><B>VIEW SOURCE ARTICLES</B></DT>
+
+<DD>
+<A HREF="/viewsource/kuslich_javascript.html" TARGET=content>Beyond Data Basics: Writing JavaScript Database Applications, Part 1</A>
+<BR><A HREF="/viewsource/jjfinal.html" TARGET=content>Beyond Data Basics: Writing JavaScript Database Applications, Part 2</A>
+<BR><A HREF="/viewsource/goodman_dateobject.html" TARGET=content>JavaScript Date Object Techniques</A>
+<BR><A HREF="/viewsource/angus_layers.html" TARGET=content>Scripting Layer Effects and Transitions</A>
+<BR><A HREF="/viewsource/goodman_javascript.html" TARGET=content>Detecting a JavaScript Client</A>
+<BR><A HREF="/viewsource/angus.html" TARGET=content>Bringing Images to Life with JavaScript</A>
+</DD>
+</DL>
+
+<DL>
+<P>
+<HR SIZE=1 NOSHADE>
+<DT><B>MEMBERS RESOURCES</B></DT>
+
+<DD>
+<A HREF="/members/doc/subscriber/doc/newsgroups/newsgrp.html#javascript">JavaScript
+Newsgroup</A>
+<BR><A HREF="/support/faqs/champions/javascript.html" TARGET=content>JavaScript FAQ</A>
+</DD>
+</DL>
+
+<SCRIPT LANGUAGE="JavaScript"><!--
+// Try to be sneaky and prevent spam-bots from seeing this email address.
+// If they're smart enough to include a JavaScript interpreter which
+// parses the page before they scan it, this won't help.
+var atSign="@"
+var mailProtocol="mailto:"
+
+document.write('<P><HR SIZE=1 NOSHADE><B>COMMENTS ABOUT THIS CODE SAMPLE? </B>')
+document.write('<P>If you would like technical support or other assistance regarding JavaScript, Dynamic HTML, or other Netscape technologies and products, please visit the <A HREF="/support/index.html" TARGET="_top">support area</A>. ')
+document.write('Email comments and suggestions about this code sample to <A HREF="' + mailProtocol + 'xbrowser' + atSign + 
+'netscape.com?SUBJECT=client sniffer comments (DON&#039;T CHANGE THIS SUBJECT!)">' +
+'xbrowser' + atSign + 'netscape.com</A>. ')
+document.write('Because of the volume of submissions, we usually can&#039;t respond personally, but we will take your comments into consideration when planning future content for the site.')
+//--></SCRIPT>
+
+</FONT>
+
+<P><HR SIZE=1><CENTER>
+<TABLE WIDTH=460 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR><TD WIDTH=15></TD><TD WIDTH=165 VALIGN=TOP ALIGN=LEFT><FONT FACE="Arial, Helvetica" SIZE=-2><A HREF="/support/faqs/index.html?content=deofaq.html" TARGET="_top">DevEdge Online FAQ</A><BR><A HREF="/program/index_frame.html?content=contact.html" TARGET="_top">Developer Response Center</A><BR><A HREF="/program/index.html" TARGET="_top">Join DevEdge Program</A></FONT></TD>
+<TD WIDTH=5></TD><TD WIDTH=280 VALIGN=TOP ALIGN=LEFT><FONT FACE="Arial, Helvetica" SIZE=-2><NOBR>Copyright &copy; 1998 <A HREF="http://home.netscape.com/misc/trademarks.html" TARGET="_top">Netscape Communications Corporation</A></NOBR>.<BR>This site powered by: <A HREF="http://home.netscape.com/servers/index.html" TARGET="_top">Netscape Enterprise Server</A> and <A HREF="http://home.netscape.com/compass/v3.0/index.html" TARGET="_top">Netscape Compass Server</A>.</FONT><BR><BR></TD><TD WIDTH=25></TD></TR>
+</TABLE></CENTER>
+
+
+
+
+</BODY> 
+</HTML> 

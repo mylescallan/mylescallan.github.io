@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel='stylesheet' type='text/css' href='css/JSFunctions.css'>
+		<!-- 				<link rel='stylesheet' type='text/css' href='onMouseoverAnimate.css'/>
+
+		-->
+		<link href="/codePrettify/src/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="/codePrettify/src/prettify.js"></script>
+		<title>Objects in Javascript</title>
+	</head>
+	<body onload="prettyPrint();">
+		<!-- Left Column -->
+		<!-- Objects Pulldown Menu -->
+		<section id="function1" class="container">
+			<section class="aside1">
+				<form id="myForm">
+					<select id="mySelect" onChange="formChanged();">
+						<option value="">Select Object</option>
+						<option value="window">Window</option>
+						<option value="myForm">Form</option>
+						<option value="divBack">Div</option>
+						<option value="document">Document</option>
+						<option value="clear">Clear List</option>
+					</select>
+				</form>
+				<p id="objectsHere"></p>
+
+				<script>
+                    function formChanged() {
+                        var selectBox = document.getElementById("mySelect");
+                        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                        var obj = document.getElementById("objectsHere");
+                        if (selectedValue === "clear") {
+                            obj.innerHTML = " ";
+
+                        } else {
+                            var objValue = window[selectedValue];
+
+                            obj.innerHTML = getAllPropertiesToHTML(objValue);
+                        }
+                    }
+				</script>
+				<div class="expand">
+					Reveal Code
+					<details open class="reveal">
+						<pre class='prettyprint' class="small">
+   &lt;form id="myForm"&gt;
+      &lt;select id="mySelect" onChange="formChanged();"&gt;
+      	&lt;option value=""&gt;Select Object&lt;/option&gt;
+      	&lt;option value="window"&gt;Window&lt;/option&gt;
+      	&lt;option value="myForm"&gt;Form&lt;/option&gt;
+      	&lt;option value="function1"&gt;Div&lt;/option&gt;
+      	&lt;option value="document"&gt;Document&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/form&gt;
+   &lt;p id="demo"&gt;&lt;/p&gt;
+
+   &lt;script&gt;
+       function formChanged() {
+           var selectBox = document.getElementById("mySelect");
+           var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+           var objValue = window[selectedValue];
+           var demo = document.getElementById("demo");
+
+           demo.innerHTML = getAllPropertiesToHTML(objValue);
+       }
+   &lt;/script&gt;
+				</pre>
+					</details>
+				</div>
+			</section>
+			<!-- Center Column -->
+			<!-- Main Text -->
+
+			<section class="main">
+				<h2>Objects in Javascript</h2>
+				<a name="overview"><h3>Overview</h3></a>
+				<p>
+					In most programming languages, an Object is a container. They typically contain "Name:Value" pairs grouped together, called <em>properties</em>. In JavaScript,
+					almost everything is an object. All primitive types except <em>null</em> and <em>undefined</em> are treated as objects.
+				</p>
+				<p>
+					In Javascript, you can create your own Objects using the "Object Literal" or "Object Constructor" approach (where Object Contructors construct
+					a <em>Class</em> of Objects that you can created your Objects from. Note: In this case, the Objects are not created directly - although you can
+					use the Constructor structure to create Objects directly<sup><a href="#fn1" id="r1">[1]</a></sup>). The "Name:Value" pair can be a "Name" and
+					a "Function", where functions in Objects are called Methods.<sup><a href="#fn2" id="r2">[2]</a></sup></span>.
+				</p>
+				<div id="divBack" class="highlight">
+					<pre class='prettyprint'>
+						<code>
+   myObjectLiteral = {                                        function MyObjectConstructor(firstName, familyName, age){
+   	FirstName: Myles,                                          this.firstName = firstName;
+   	familyName: Callan,                                        this.familyName = familyName;
+   	age: 47,                                                   this.age = age;
+<span class="c1">     ... more Name:Value pairs ...,                            ... more Name:Value pairs ...;  </span>
+   	ageIn5Years = function(age){return age + 5;},              this.ageIn5Years = function(age){return age + 5;};
+<span class="c1">     ... more Methods ...,                                     ... more Methods ...; </span>
+   }                                                          }
+					</code></pre>
+				</div>
+				<p>
+					Convention dictates that Object constructor names begin with an uppercase letter (there is no reason to follow this convention, but it makes it easier to
+					read your code, and acts as a reminder).
+				</p>
+				<p>
+					The Object Literal above is complete (i.e. ready to use). The Object Constructor merely contains placeholders for data to be added later. An Object is
+					created from the Object Constructor <span class="code">var myObj1 = new MyObjectConstructor(Bartholomew, Guttersnipe, 112);</span>.
+				</p>
+				<p>
+					In Javascript, the Object Values are retrieved using either "dot" notation or brackets ([ ]): <span class="code"> Object.name<span class="c1"> or </span>Object["name"].</span></span>
+					Methods are called by myObject.method().
+				</p>
+				<p>
+					Just like functions, Objects are used to organize code - typically to group Name:Value pair into conceptual pieces (and, as with functions, they are
+					also used to manage <em>scope</em> &amp; <em>closure</em> (two related but	separate concepts)).
+				</p>
+
+				<a name="edit"><h3>Editing Objects</h3></a>
+				<p>
+					<div id="divBack" class="highlight">
+						<pre class='prettyprint'>
+						<code>
+   myObjectLiteral.height =  61;                              MyObjectConstructor.prototype.height = height;
+   myObjectLiteral.weight = 180;                              MyObjectConstructor.prototype.weight = weight;
+<span class="c1">         ... done ...                                        ... added properties to the Constructor, which adds those properties</span>
+<span class="c1">                                                                 to Objects created from that Constructor ...</span>
+                                                              myObj1.height =  42;
+                                                              myObj1.weight = 302;
+<span class="c1">                                                             ... even if created before the change ...</span>
+					</code></pre>
+					</div>
+
+				</p>
+				<a name="enumerate"><h3>Enumerating All Properties Of An Object</h3></a>
+				<p>
+					There are three native ways to list/traverse object properties:
+					<ol>
+
+						<li><em>for...in loops</em>
+							<br>
+							This method traverses all enumerable properties of an object and its prototype chain</li>
+						<li><em>Object.keys(o)</em>
+							<br>
+							This method returns an array with all the own (not in the prototype chain) enumerable properties' names ("keys") of an object o.</li>
+						<li><em>Object.getOwnPropertyNames(o)</em>
+							<br>
+							This method returns an array containing all own properties' names (enumerable or not) of an object o.</li>
+					</ol>
+				</p>
+				<p>
+					The following example of a simple program highlights this process of using <em>"for ... in loops"</em> (and also highlights an important caveat). The <em>for ... in loops</em>
+					for Objects works in the same way as it does for Arrays. That is, the combination of the keywords <em>for</em> and <em>in</em> tells the interpretor to enumerate the
+					contents of the Object.	However, as Objects don't have a natural index (unlike Arrays), the index relates to the names of each property. The caveat relates to
+					<span class="code"> obj.hasOwnProperty(i) </span>,
+				</p>
+				<div class="highlight">
+					<pre class='prettyprint'>
+						<code>
+   function showProps(obj, objName) {
+   	var result = "";
+   	for (var i in obj) {                               <span class="c1">... so "i" are the names (as strings) of the properties in the Object obj ... </span>
+   	   if (obj.hasOwnProperty(i)) { <span class="c1">(this is the important caveat)</span>
+   	      result += objName + "." + i + " = " + obj[i] + "\n";<span class="c1"> ... &amp; "obj[i]" are the values of the properties in the Object obj ... </span>
+   	      }
+   	   }
+   	   return result;
+   	}
+<span class="c1">   ... other statements ... </span>
+					</code></pre>
+				</div>
+
+				<p></p>
+				<p></p>
+				<a name="scope"><h3>Objects and Scope</h3></a>
+				<p></p>
+				<p></p>
+				<a name="private"><h3>Public and Private Properties Of Objects</h3></a>
+				<p></p>
+				<p>
+					<div id="divBack" class="highlight">
+						<pre class='prettyprint'>
+						<code>
+   function MyObjectConstructor(firstName, familyName, age){
+<span class="c1">     ... Public Properties ...</span>
+   	this.firstName = firstName;
+   	this.familyName = familyName;
+   	this.age = age;
+<span class="c1">     ... more Name:Value pairs ...</span>
+   	this.ageIn5Years = function(age){return age + 5;};
+<span class="c1">     ... more Methods ...; </span>
+<span class="c1">     ... Private Properties ...</span>
+   	var weight = weight;
+   	this.familyName = familyName;
+   	this.age = age;
+<span class="c1">     ... Public Properties ...</span>
+
+   }
+					</code></pre>
+					</div>
+
+				</p>
+
+				<p>
+					Since JavaScript functions are objects, they can have properties. A particularly important property that each function has is called prototype.
+					prototype, which is itself an object, inherits from its parent’s prototype, which inherits from its parent’s prototype, and and so on. This is
+					often referred to as the prototype chain. Object.prototype, which is always at the end of the prototype chain (i.e., at the top of the prototypal
+					inheritance tree), contains methods like toString(), hasProperty(), isPrototypeOf(), and so on.
+				</p>
+				<p>
+					property lookups through the JavaScript prototype chain work as follows:
+					<ol>
+						<li>If the object has a property with the given name, that value is returned. (The hasOwnProperty method can be used to check if an object has a particular named property.)</li>
+						<li>If the object does not have the named property, the object’s prototype is checked</li>
+						<li>Since the prototype is an object as well, if it does not contain the property either, its parent’s prototype is checked.</li>
+						This process continues up the prototype chain until the property is found.
+						<li>If Object.prototype is reached and it does not have the property either, the property is considered undefined.</li>
+					</ol>
+					Each property access therefore requires a dynamic look-up in that data structure to resolve the property. This approach makes accessing properties in JavaScript typically much slower
+				</p>
+				<p>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+					<span class="code"></span>
+
+				</p>
+				<a name="footnotes"><h3>Footnotes</h3></a>
+				<section id = footnotes>
+					<p id="fn1">
+						<a href="#r1" title="Jump back to the main text.">[1]</a> Using the Object Constructor structure to create an Object directly (as compared to
+						creating a Class of Objects, which we did above):
+						<div id="divBack" class="highlight">
+							<pre class='prettyprint'>
+						<code>
+   function MyObject() = {
+   	firstName = Myles;
+   	familyName = Callan;
+   	age = 47;
+<span class="c1">     ... more Name:Value pairs ...;  </span>
+   	ageIn5Years = function(age){return age + 5;};
+<span class="c1">     ... more Methods ...;           </span>
+   }
+					</code></pre>
+						</div>
+
+						<br>
+					</p>
+					<p id="fn2">
+						<a href="#r2" title="Jump back to the main text.">[2]</a> In Javascript, all functions become methods of the window-object (the global namespace).
+						<br>
+					</p>
+					<!--				<p id="fn3">
+					<a href="#r3" title="Jump back to the main text.">[3]</a> “TIP: The permissions
+					matrix is one of the busiest settings pages in Drupal, but fortunately, each
+					permission is more or less
+					self-explanatory. Since new modules often add new permissions, it is common to
+					wait until a project is nearly finished before setting all permissions.”
+					<br>
+					</p>
+					<p id="fn4">
+					<a href="#r4" title="Jump back to the main text.">[4]</a> “Videos for these
+					exercises can be found <a href="http://nodeone.se/en/the-boss-exercise-suite"
+					target="_blank"> here </a>
+					<br>
+					</p>
+					<p id="fn5">
+					<a href="#r5" title="Jump back to the main text.">[5]</a> “TIP: The theme your
+					site uses will dictate which regions are available. (Themes dictate the
+					presentation of Drupal sites –
+					see Appendix 1 for more details.)”
+					<br>
+					</p>
+					<p id="fn6">
+					<a href="#r6" title="Jump back to the main text.">[6]</a> Panels and Page manager
+					are described in a little more detail in Chapter 13.
+					<br>
+					</p>
+					<p id="fn7">
+					<a href="#r7" title="Jump back to the main text.">[7]</a> “TIP: The modules
+					Administration menu and Admin are popular complements to Drupal's built-in tools
+					for administrators.
+					They both provide alternative, and in some aspects more user-friendly,
+					administration menus.”
+					<br>
+					</p>
+					<p id="fn8">
+					<a href="#r8" title="Jump back to the main text.">[8]</a> “TIP: Image styles
+					create image derivatives that are stored in the file system – but will never
+					change the original images.”
+					<br>
+					</p>
+					<p id="fn9">
+					<a href="#r9" title="Jump back to the main text.">[9]</a> “TIP: Views has
+					excellent support for the Advanced help module, providing help links in different
+					parts of the graphical interface.”
+					<br>
+					</p>
+					<p id="fn10">
+					<a href="#r10" title="Jump back to the main text.">[10]</a>
+					<br></p> -->
+				</section>
+				<!-- Right Column -->
+				<!-- Code onMouseClicks -->
+
+			</section>
+		</section>
+
+		<script src="../game/js/jquery-2.1.3.min.js"></script>
+
+		<script src="js/getAllPropertiesToHTML.js"></script>
+
+		<script src="js/addSideBarJSFunctions.js"></script>
+		<script src="js/functionsReveal.js"></script>
+		<script src="js/getAllProperties.js"></script>
+	</body>
+</html>
+

@@ -1,0 +1,31 @@
+body {
+	background-color: white;
+	color: #DAA520;
+	margin: auto;
+	padding: 1em;
+	font-size: 1.5em;
+	margin-left: auto;
+	margin-right: auto;
+	overflow-x: hidden;
+}
+
+h1 {
+	margin-left: auto;
+	margin-right: auto;
+}
+#demo {
+	position: relative;
+	left: 15%;
+	top: 15%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#box1 {
+	display: inline;
+	position: absolute;
+	border: 5px inset #C0A76E;
+	color: #DAA520;
+	margin-left: auto;
+	margin-right: auto;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<!--     <script src="js/d3_play.js"></script></head> -->
+
+<body>
+<!-- 
+	<script >
+        var dataset = d3.range(0, 5, 0.75);
+
+        console.log(dataset)
+
+        const categorical = [{
+                "name": "interpolateViridis"
+            },
+            {
+                "name": "interpolateInferno"
+            },
+            {
+                "name": "interpolateMagma"
+            },
+            {
+                "name": "interpolatePlasma"
+            },
+            {
+                "name": "interpolateWarm"
+            },
+            {
+                "name": "interpolateCool"
+            },
+            {
+                "name": "interpolateCubehelixDefault"
+            },
+            {
+                "name": "interpolateRainbow"
+            },
+            {
+                "name": "interpolateSinebow"
+            }
+        ]
+
+        const width = 600,
+            height = 80,
+            height1 = 400;
+
+
+        // Continuous Color (for bars)
+        const unit = (s) => width / s.n;
+        const state = {
+            n: 12,
+            colorScale: d3.scaleSequential(d3[categorical[8].name])
+        };
+
+
+        console.log(state.colorScale);
+        var color_data = d3.range(dataset.length);
+
+        var colors = d3.scaleQuantize()
+            .domain([Math.min(...color_data), Math.max(...color_data)])
+            .range(["#5E4FA2", "#3288BD", "#66C2A5", "#ABDDA4", "#E6F598",
+                "#FFFFBF", "#FEE08B", "#FDAE61", "#F46D43", "#D53E4F", "#9E0142"
+            ]);
+
+        console.log(dataset.length);
+        console.log(color_data);
+        console.log([Math.min(...color_data), Math.max(...color_data)]);
+        console.log(colors);
+        console.log(colors(0.5));
+
+        d3.select('body')
+            .append('h1')
+            .text('My d3.js Playground');
+
+        // div for buttons
+        d3.selectAll('div')
+            .data(dataset)
+            .enter()
+            .append('div')
+            .attr("class", "categoricalButtons");
+
+        // svg
+        const svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+
+        const svg1 = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height1)
+            .append("g")
+
+        // div for bars
+        d3.select('svg')
+            .append('div')
+            .attr("class", "bars");
+
+
+        d3.selectAll('p')
+            .data(dataset)
+            .enter()
+            .append('p')
+            .text('Hello There New')
+            .style("color", (d, i) => colors(i));
+
+
+
+
+        // Create Colored Circles
+        const update_circles = () => {
+
+            circles.data(dataset)
+                .enter().append("circle").attr("r", (d, i) => i * 10)
+                .attr("cx", (d, i) => d * 50)
+                .attr("cy", (d, i) => i * 50)
+                .style("fill", (d, i) => colors(i))
+                .merge(circles);
+
+            circles.exit().remove();
+
+        }
+
+        console.log(d3.range(0, 1, 1 / state.n))
+        const circles = svg1.selectAll("circle")
+
+        update_circles()
+
+        // Create Colored Bars
+        const update = () => {
+
+            bars.data(d3.range(0, 1, 1 / state.n))
+                .enter().append("rect")
+                .attr("class", "bars")
+                .attr("y", 0)
+                .attr("height", height)
+                .attr("width", unit(state))
+                .attr("x", (d, i) => i * unit(state))
+                .style("fill", state.colorScale)
+                .merge(bars);
+
+            bars.exit().remove();
+
+        }
+
+        const bars = svg.selectAll(".bars");
+
+        update()
+
+        // Create Colore Buttons
+        const sequentialButtons = d3.select(".categoricalButtons")
+            .selectAll("button")
+            .data(categorical)
+            .enter().append("button")
+            .text(d => d.name)
+            .on("click", (buttonValue) => {
+                state.colorScale = d3.scaleSequential(d3[buttonValue.name]);
+                update();
+            });
+
+        const itemsInput = d3.select('#items')
+            .on('change', (d, i, arr) => {
+                state.n = arr[i].value;
+                update();
+            });
+
+</script>
+ -->
+
+    <script src="js/d3_play.js"></script></head>
+
+</body>
+</html>

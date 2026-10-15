@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; Expandable Sections - Example</title>
+    <script language="Javascript" src="js/expandableSections3.js" type=
+    "text/javascript"></script>
+    <link href="css/expandableSections3.css" rel="stylesheet">
+</head>
+
+<body>
+    <center>
+    <p class="header"><a href="http://www.htmlandcssbook.com/" target=
+    "_blank"><img alt="HTML and CSS Design and Build Websites" class=
+    "dropshadow" src=
+    "http://01eba9f59936628a9c10-a672e330d72d3d2e689cb64015c1f8c5.r97.cf2.rackcdn.com/html-and-css-book-thumb.jpg"
+    style="vertical-align:middle"></a> <span style=
+    "font-size:250%; font-variant: small-caps">JavaScript & jQuery</span></p>
+    <!-- ################################################### -->
+    <!-- ##################Chapter Divider################## -->
+    <!-- ################################################### -->
+<!--#config timefmt="%A" --> <!--#echo var="DATE_LOCAL" -->
+    <h1>Chapter 1</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!! The page is simply a background image
+            with a "box" overlayed using "float: left;" CSS code, like this:
+            <pre>
+    
+    h1, p {
+    float: left;
+    clear: left;
+    width: 320px;
+    background-color: #fff;
+    color: #5a514c;
+    text-align: center;}
+    
+</pre>
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 1</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();         &lt;- Uses Global Object "Date"
+var hourNow = today.getHours(); &lt;- "today" inherits the properties of "Date"
+var greeting;
+
+if (hourNow &gt; 18) {             &lt;- Conditional Statement
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;');  &lt;- Uses Global Object
+                                                        "document" and its
+                                                        "write" method
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 2</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c02/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the values of "Custom Sign, etc". Again, the page
+            is simply a background image with a "box" overlayed using "float:
+            left;" CSS code.<br>
+            <br>
+            In this case, the substitution of the values is done by using the
+            "document" object and its method "getElementByID", like this:
+            <pre>
+    
+// Get the element that has an id of greeting
+var el = document.getElementById('greeting');
+// Replace the content of that element with the 
+// personalized welcome message
+el.textContent = welcome;
+    
+</pre>
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 2</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+// Create variables for the welcome message
+var greeting = 'Howdy ';
+var name = 'Molly';
+var message = ', please check your order:';
+// Concatenate the three variables above to create the welcome message
+var welcome = greeting + name + message;
+
+// Create variables to hold details about the sign
+var sign = 'Montague House';
+var tiles = sign.length;
+var subTotal = tiles * 5;
+var shipping = 7;
+var grandTotal = subTotal + shipping;
+
+// Get the element that has an id of greeting
+var el = document.getElementById('greeting');
+// Replace the content of that element with the personalized welcome message
+el.textContent = welcome;
+
+// Get the element that has an id of userSign then update its contents
+var elSign = document.getElementById('userSign');
+elSign.textContent = sign;
+
+// Get the element that has an id of tiles then update its contents
+var elTiles = document.getElementById('tiles');
+elTiles.textContent = tiles;
+
+// Get the element that has an id of subTotal then update its contents
+var elSubTotal = document.getElementById('subTotal');
+elSubTotal.textContent = '$' + subTotal;
+
+// Get the element that has an id of shipping then update its contents
+var elShipping = document.getElementById('shipping');
+elShipping.textContent = '$' + shipping;
+
+// Get the element that has an id of grandTotal then update its contents
+var elGrandTotal = document.getElementById('grandTotal');
+elGrandTotal.textContent = '$' + grandTotal;
+
+// Note: textContent does not work in IE8 or earlier - see explanation on website
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c02, filename: <b style=
+            "font-style: italic">example.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 3</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c03/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the values of "Hotel Name", etc". Again, the page
+            is simply a background image with a "box" overlayed using "float:
+            right;" CSS code.<br>
+            <br>
+            In this chapter, three methods of creating objects (with properties
+            and methods) are covered: Object Literal Syntax, New Object Syntax,
+            and Function Syntax. Using the Function Syntax makes the most sense
+            as it allows you to create a 'shell' object and then fill in the
+            values later.
+            <pre>
+    
+// 3. Create a hotel object using "function" syntax
+    function Hotel(name, roomRate, discount) {
+// name, roomRate, and discount are properties of the "Hotel" object:
+    this.name = name;
+    this.roomRate = roomRate; // Amount in dollars
+    this.discount = discount;  // Percentage discount
+// offerPrice is a method, created by defining an object function:
+    this.offerPrice = function() {
+    var offerRate = this.roomRate * ((100 - this.discount) / 100);
+    return offerRate;
+    };
+  }
+  var hotel = new Hotel('Blarty', 240, 50);
+    
+</pre>
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 3</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+  // A. All Three Methods of Creating Objects
+  
+  // 1. Create a hotel object using object literal syntax
+  var hotel = {
+    name: 'Park',
+    roomRate: 240, // Amount in dollars
+    discount: 15,  // Percentage discount
+    offerPrice: function() {
+      var offerRate = this.roomRate * ((100 - this.discount) / 100);
+      return offerRate;
+    }
+  }
+
+  // 2. Create a hotel object using "New Object" syntax
+  var hotel = new Object();
+    hotel.name = 'Quay';
+    hotel.roomRate = 240; // Amount in dollars
+    hotel.discount = 25;  // Percentage discount
+    hotel.offerPrice = function() {
+      var offerRate = this.roomRate * ((100 - this.discount) / 100);
+      return offerRate;
+    }
+
+    // 3. Create a hotel object using "function" syntax
+  function Hotel(name, roomRate, discount) {
+    this.name = name;
+    this.roomRate = roomRate; // Amount in dollars
+    this.discount = discount;  // Percentage discount
+    this.offerPrice = function() {
+      var offerRate = this.roomRate * ((100 - this.discount) / 100);
+      return offerRate;
+    };
+  }
+  var hotel = new Hotel('Blarty', 240, 50);
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c03, filename: <b style=
+            "font-style: italic">example.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 4</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c04/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            This chapter introduces loops, and global objects. In this page,
+            the code generates an addition table (and again, using CSS, places
+            it over a background image).
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 4</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var table = 3;             // Unit of table
+var operator = 'other';    // Type of calculation (if 'addition' then addition,
+                           //    else, multiplication)
+var i = 1;                 // Set counter to 1
+var msg = '';              // Message (which is the array created below
+                           // adding a new row each loop (using the shorthand "+=")
+
+if (operator === 'addition') {
+  // Do addition
+  while (i &lt; 11) {
+    msg += i + ' + ' + table + ' = ' + (i + table) + '
+                        <br>';
+    i++;
+  }
+} else {
+  // Do multiplication
+  while (i &lt; 11) {
+    msg += i + ' x ' + table + ' = ' + (i * table) + '
+                        <br>';
+    i++;
+  }
+}
+
+// Write the message into the page
+var el = document.getElementById('blackboard');
+el.innerHTML = msg;
+
+                    
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c04, filename: <b style=
+            "font-style: italic">example.js</b><br>
+            <br>
+            By changing the var "operator" to anything other than 'addition'
+            you get the multiplication table (as I did here).
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 5</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c05/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code uses the DOM ('Document Object Model') to edit a shopping list. Show how to both: 1) Add or Remove items from the list; and 2) Change the 'attribute' or 'class' of items.
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 5</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+// ADDING ITEMS TO START AND END OF LIST
+var list = document.getElementsByTagName('ul')[0];     // Get the &lt;ul&gt; element
+
+// ADD NEW ITEM TO END OF LIST
+var newItemLast = document.createElement('li');        // Create element
+var newTextLast = document.createTextNode('cream');    // Create text node
+newItemLast.appendChild(newTextLast);                  // Add text node to element
+list.appendChild(newItemLast);                         // Add element end of list
+
+// ADD NEW ITEM START OF LIST
+var newItemFirst = document.createElement('li');       // Create element
+var newTextFirst = document.createTextNode('kale');    // Create text node
+newItemFirst.appendChild(newTextFirst);                // Add text node to element
+list.insertBefore(newItemFirst, list.firstChild);      // Add element to list
+
+
+
+var listItems = document.querySelectorAll('li');       // All &lt;li&gt; elements
+
+// ADD A CLASS OF COOL TO ALL LIST ITEMS
+var i;                                                 // Counter variable
+for (i = 0; i &lt; listItems.length; i++) {               // Loop through elements
+  listItems[i].className = 'cool';                     // Change class to cool
+}
+
+// ADD NUMBER OF ITEMS IN THE LIST TO THE HEADING
+var heading = document.querySelector('h2');            // h2 element
+var headingText = heading.firstChild.nodeValue;        // h2 text
+var totalItems = listItems.length;                     // No. of &lt;li&gt; elements
+var newHeading =  headingText + '&lt;span&gt;' + totalItems + '&lt;/span&gt;'; // Content
+heading.innerHTML = newHeading;                        // Update h2 using innerHTML 
+                                                       // (not textContent) 
+                                                       // because it contains markup
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 6</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 6</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 7</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 7</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 8</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 8</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 9</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 9</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 10</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 10</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 11</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 11</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 12</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 12</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+    <h1>Chapter 13</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c01/add-content.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the Greeting in <span style=
+            "color: #ff0000">Red</span>. But there is a whole heap of css that
+            gets it to look so good!!
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 13</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+
+if (hourNow &gt; 18) {
+    greeting = 'Good evening!';
+} else if (hourNow &gt; 12) {
+    greeting = 'Good afternoon!';
+} else if (hourNow &gt; 0) {
+    greeting = 'Good morning!';
+} else {
+    greeting = 'Welcome!';
+}
+
+document.write('&lt;h3&gt;' + greeting + '&lt;/h3&gt;'); 
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h4>Goodbye</h4><br>
+    <!--     <script src="js/example.js"></script> -->
+    </center>
+</body>
+</html>

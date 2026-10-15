@@ -1,0 +1,28 @@
+# macOS clutter
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that may be created at an Archive Utility path root
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+
+# Large folders
+udacity/
+game/
+early_speech_video/
+Football/
+Deirdre/
+wordpress/
+Honda/
+Xmas/

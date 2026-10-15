@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>Gate Keeper</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--- Hide from tired old browsers that should be put to pasture.
+
+////////////////////////////////////////////////////////////////////
+///  Get your very own Gate Keeper from Professional Web Design  ///
+///  http://junior.apk.net/~jbarta/weblinks/gate_keeper/         ///
+////////////////////////////////////////////////////////////////////
+
+function goForit() {
+  var location;
+  var username;
+  var password;
+  username=this.document.testform.user.value
+  password=this.document.testform.pass.value
+  location= username + password 
+  alert(location)
+  theKeeper=window.close()
+}
+
+
+// End hiding --->
+</SCRIPT>
+
+</HEAD>
+<center>
+<br><br><br><br><br><br><br><br><br>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=25%>
+<TR>
+<TD ROWSPAN=2 WIDTH=100%>
+&nbsp;&nbsp;
+
+<TD WIDTH=100% ALIGN=CENTER VALIGN=MIDDLE>
+<FONT FACE="ARIAL" SIZE=2><B>Please enter your username and password.</B></FONT><BR>
+&nbsp;
+
+<TR>
+<TD WIDTH=50% ALIGN=CENTER VALIGN=BOTTOM>
+<CENTER>
+<FORM NAME="testform">
+Username: <br>
+<input type="text" name="user">
+<br>
+Password: <br>
+<input type="password" name="pass">
+<INPUT TYPE="button" NAME="button" Value="Submit Username and Password" onClick="goForit(this.form)">
+</form>
+
+</CENTER>
+
+
+</TABLE>
+
+</BODY>
+
+</HTML>

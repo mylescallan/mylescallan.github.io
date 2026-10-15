@@ -1,0 +1,53 @@
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*                      Default CSS
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+@import url(http://fonts.googleapis.com/css?family=Jacques+Francois);
+@import url(http://fonts.googleapis.com/css?family=Quattrocento+Sans);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+
+body {
+    font-family: 'Jacques Francois', serif;
+    background-color: white;
+    color: black;
+    margin: 5em 10em 5em 10em;
+    padding: 0em;
+    overflow-x: hidden;
+    text-align: center;
+}
+h1 {
+    text-transform: uppercase;
+}
+
+h3 {
+    color: #00ab95;
+}
+
+a {
+    color: #00ab95;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ed6c7b;
+}
+
+table {
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 3px;
+    text-align: left;
+}
+
+.blank {
+    background: #f7f7f7;
+}

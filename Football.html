@@ -1,0 +1,350 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Football Highlights</TITLE>
+        <META NAME="Author" CONTENT="Myles J. Callan">
+        <META NAME="Classification" CONTENT="Econometrics">
+        <META NAME="Description" CONTENT="Myles J. Callan &amp; Econometrics">
+        <META NAME="Keywords" CONTENT="Myles J. Callan &amp; Econometrics, Macroeconomics, Real Time Data, Deirdre Ni Chonnaill, Sharon Callan">
+
+<META http-equiv="Page-Enter" CONTENT="RevealTrans(Duration=4,Transition=3)">
+
+
+<style type="text/css">
+
+/**************************************************
+
+style to create bg image "#bg_image" and to overlay
+content on bg image, "#contents"
+
+***************************************************/
+{margin:0px;}
+#bg_image {
+width: 100%;
+height: 100%;
+left: 0px;
+top: 0px;
+position: absolute;
+z-index: 0;
+}
+#contents {
+z-index: 1;
+position: relative;
+}
+
+/**************************************************
+
+style to create container for buttons, "#container", 
+and to create and hide and show buttons, "#buttons"
+
+***************************************************/
+
+#container {
+width:750px;
+padding:5px;
+border:3px double #999;
+background-color:#eff;
+margin:auto;
+overflow:auto;
+}
+.container_height{
+height:266px;
+}
+#buttons {
+float:left;
+width:250px;
+margin:0;
+padding:0;
+list-style-type:none;
+}
+#buttons li {
+margin:4px;
+color:#333;
+}
+#buttons .hs {
+display:block;
+width:100px;
+line-height:22px;
+border:2px inset #999;
+color:#333;
+text-decoration:none;
+text-align:center;
+background-color:#ccc;
+}
+.show {
+float:left;
+width:478px;
+height:244px;
+overflow:auto;
+padding:10px;
+border:1px solid #999;
+background-color:#fff;
+}
+.show p {
+margin:0;
+padding-bottom:10px;
+text-align:justify;
+}
+.hide {
+width:0;
+height:0;
+font-size:0;
+margin:0;
+overflow:hidden;
+}
+#d0,#d4 {
+color:#999;
+}
+#d1,#d2,#d3 {
+color:#333;
+}
+.show p {
+text-indent:30px;
+}
+.show p:first-letter {
+font-family:times,serif;
+font-size:150%;
+font-weight:bold;
+color:#333;
+}
+
+
+
+</style>
+
+<script type="text/javascript">
+
+var c;
+var k=0;
+var j=0;
+var ary=[];
+var divs=document.getElementsByTagName('div');
+var lnks=document.getElementsByTagName('a');
+var splt;
+
+/**************************************************
+
+function init is provided for those who have javascript disabled
+and would, otherwise, not be able to view any of the divs at all.
+They would also I presume not need the links that control the divs
+so that will not show up.
+
+***************************************************/
+function init() {
+for(c=0;c<divs.length;c++) {
+if(divs[c].className=='show') {
+divs[c].className='hide';
+divs[c].id='d'+k++;
+}
+document.getElementsByTagName('container').className='container_height';
+}
+for(c=0;c<lnks.length;c++) {
+if(lnks[c].className=='hide') {
+lnks[c].firstChild.nodeValue='show';
+ary[c]=true;
+lnks[c].className='hs';
+lnks[c].id='a'+j++;
+lnks[c].onclick=function() {
+splt=this.id.split('a')[1];
+if(ary[splt]==true) {
+this.firstChild.nodeValue='hide';
+ary[splt]=false;
+showDiv(splt);
+return false;
+}
+else {
+this.firstChild.nodeValue='show';
+ary[splt]=true;
+
+document.getElementById('d'+splt).className='hide';
+return false;
+}
+}
+}
+}
+}
+
+function showDiv(num) {
+for(c=0;c<j;c++){
+document.getElementById('a'+c).firstChild.nodeValue='show';
+document.getElementById('a'+num).firstChild.nodeValue='hide';
+ary[c]=true;
+ary[num]=false;
+}
+for(c=0;c<divs.length;c++) {
+if(divs[c].className=='show') {
+divs[c].className='hide';
+}
+}
+document.getElementById('d'+num).className='show';
+}
+
+window.onload=function() {
+init();
+}
+
+</script>
+
+<script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-25699247-1']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+
+</HEAD>
+
+<body  bgcolor="black" text="red" link="red" alink="red" vlink="black" face=times>
+
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+<!--                       CREATE BG IMAGE                        -->
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+
+<div id="bg_image">
+<img src="Football/kop.jpg" style="width: 100%; height: 100%;">
+</div>
+
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+<!--               PUT CONTENTS ON TOP OF BG IMAGE                        -->
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+
+<div id="contents"> 
+
+<br><br><br><br><br><br>
+
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+<!--              CONTAINER FOR BUTTONS BEGINS HERE                        -->
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+
+
+<center>
+
+ 
+<div id="container">
+
+
+<div align="center">
+<font face=Times size=4><b>Football</b></font><br>
+<font face=Times size=3>
+<hr width=80% size=2 color="red">
+ </div>
+ 
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+<!--                    DEFINE BUTTONS HERE                        -->
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+
+<ul id="buttons">
+<li>Manchester United</li>
+<li><a class="hide" href="#">&nbsp;</a></li>
+<li>Match of the Day 1</li>
+<li><a class="hide" href="#">&nbsp;</a></li>
+<li>Match of the Day 2</li>
+<li><a class="hide" href="#">&nbsp;</a></li>
+<li>FA Cup</li>
+<li><a class="hide" href="#">&nbsp;</a></li>
+<li>Deirdre</li>
+<li><a class="hide" href="#">&nbsp;</a></li>
+</ul>
+
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+<!--                   CONTENT OF BUTTONS HERE                        -->
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+
+<div class="show">
+<p>
+<center>
+<br><b>Low Quality (Football)</b>
+<hr width=20% size=2 color="red">
+</center>
+<ol>
+<li><a href="Football/MU_Season_Review_09_10.avi">MU Season Review 2009-10 [Up]</a>
+<li><a href="Football/FACup_Liverpool_v_ManU_01282011_1st_half.mp4">FA Cup - Liverpool v Manchester United - First Half - 28th of January 2011 [Up]</a>
+<li><a href="Football/FACup_Liverpool_v_ManU_01282011_2nd_half.mp4">FA Cup - Liverpool v Manchester United - Second Half - 28th of January 2011 [Up]</a>
+</ol>
+
+
+</p>
+</div>
+
+<div class="show"><p>
+<center>
+<br><font face=times size=3><b>Match of the Day</b></font>
+<hr width=20% size=2 color="red">
+</center>
+<ol>
+<li><a href="Football/MOTD_0104.avi">Match of the Day, Wednesday January 4th [Up]</a><br><br>
+<li><a href="Football/MOTD_0114.avi">Match of the Day, Saturday January 14th [Up]</a><br><br>
+<li><a href="Football/MOTD_0121.avi">Match of the Day, Saturday January 21st [Up]</a><br><br>
+</ol>
+
+</div>
+</p>
+
+<div class="show"><p>
+<center>
+<br><font face=times size=3><b>Match of the Day 2</b></font>
+<hr width=20% size=2 color="red">
+</center>
+<ol>
+<li><a href="Football/MOTD2_0115.avi">Match of the Day, Sunday January 15th [Up]</a><br><br>
+<li><a href="Football/MOTD2_0122.avi">Match of the Day, Sunday January 22nd [Up]</a><br><br>
+<li><a href="Football/MOTD2_0205.avi">Match of the Day, Sunday February 5th [Up]</a><br><br>
+</ol>
+
+</div>
+</p>
+
+<div class="show"><p>
+<center>
+<br><font face=times size=3><b>FA Cup</b></font>
+<hr width=20% size=2 color="red">
+</center>
+<ol>
+<li><a href="Football/Viewing_Apt.mp4">Viewing Apartment [Up]</a><br>
+<li><a href="Football/FA1_2.wmv">FA Cup, Saturday January 24th part 2 [Up]</a><br><br>
+</ol>
+
+</div>
+</p>
+
+<div class="show"><p>
+<center>
+<br><font face=times size=3><b>Deirdre</b></font>
+<hr width=20% size=2 color="red">
+</center>
+<li><a href="Football/12-> 10.16.12 - Marriage Guidance.mp3">3rd Last [Up]</a><br>
+<li><a href="Football/13-> 11.28.12 - Marriage Guidance.mp3">2nd Last [Up]</a><br>
+<li><a href="Football/14-> 1.2.13 - Marriage Guidance.mp3">Latest [Up]</a><br><br>
+</div>
+</p>
+
+
+
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+<!--                     END OF BUTTONS HERE                         -->
+<!--                  %%%%%%%%%%%%%%%%%%%%%%%%%                     -->
+
+</center>
+</div>
+</div>
+<script type="text/javascript">
+<!--
+	document.write('<img src="/axs/ax.pl?mode=img&ref=');
+	document.write( escape( document.referrer ) );
+	document.write('" height="1" width="1" style="display:none" alt="" />');
+// -->
+</script><noscript>
+	<img src="/axs/ax.pl?mode=img" height="1" width="1" style="display:none" alt="" />
+</noscript>
+</BODY>
+</HTML>
+
+

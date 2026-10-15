@@ -1,0 +1,32 @@
+<!doctype html>
+<title>Absolute positioning</title>
+
+<style>
+
+#stage
+{
+  position: relative;
+  display: block;
+  width: 400px;
+  height: 300px;
+  border: 1px dashed black;
+  margin: auto;
+}
+
+#square
+{
+  position: absolute;
+  top: 120px;
+  left: 200px;
+  display: block;
+  width: 100px;
+  height: 100px;
+/*  background-color: blue;*/
+  background-image: url("cat.png");
+}
+
+</style>
+
+<div id="stage">
+  <div id="square"></div>
+</div>

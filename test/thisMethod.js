@@ -1,0 +1,17 @@
+// here we define our method using "this", before we even introduce an object
+var setAge = function (newAge) {
+  this.age = newAge;
+};
+// now we make bob
+var bob = new Object();
+bob.age = 30;
+bob.setAge = setAge; // here we set the function setAge as a method of the object "bob"
+  
+// make susan here, and first give her an age of 25
+
+var susan = new Object();
+susan.age = 30;
+susan.setAge = setAge;
+
+// here, update Susan's age to 35 using the method
+susan.setAge(35);

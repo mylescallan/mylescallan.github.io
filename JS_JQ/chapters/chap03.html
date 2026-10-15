@@ -1,0 +1,89 @@
+    <h1>Chapter 3</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c03/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code changes the values of "Hotel Name", etc". Again, the page
+            is simply a background image with a "box" overlayed using "float:
+            right;" CSS code.<br>
+            <br>
+            In this chapter, three methods of creating objects (with properties
+            and methods) are covered: Object Literal Syntax, New Object Syntax,
+            and Function Syntax. Using the Function Syntax makes the most sense
+            as it allows you to create a 'shell' object and then fill in the
+            values later.
+            <pre>
+    
+// 3. Create a hotel object using "function" syntax
+    function Hotel(name, roomRate, discount) {
+// name, roomRate, and discount are properties of the "Hotel" object:
+    this.name = name;
+    this.roomRate = roomRate; // Amount in dollars
+    this.discount = discount;  // Percentage discount
+// offerPrice is a method, created by defining an object function:
+    this.offerPrice = function() {
+    var offerRate = this.roomRate * ((100 - this.discount) / 100);
+    return offerRate;
+    };
+  }
+  var hotel = new Hotel('Blarty', 240, 50);
+    
+</pre>
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 3</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+  // A. All Three Methods of Creating Objects
+  
+  // 1. Create a hotel object using object literal syntax
+  var hotel = {
+    name: 'Park',
+    roomRate: 240, // Amount in dollars
+    discount: 15,  // Percentage discount
+    offerPrice: function() {
+      var offerRate = this.roomRate * ((100 - this.discount) / 100);
+      return offerRate;
+    }
+  }
+
+  // 2. Create a hotel object using "New Object" syntax
+  var hotel = new Object();
+    hotel.name = 'Quay';
+    hotel.roomRate = 240; // Amount in dollars
+    hotel.discount = 25;  // Percentage discount
+    hotel.offerPrice = function() {
+      var offerRate = this.roomRate * ((100 - this.discount) / 100);
+      return offerRate;
+    }
+
+    // 3. Create a hotel object using "function" syntax
+  function Hotel(name, roomRate, discount) {
+    this.name = name;
+    this.roomRate = roomRate; // Amount in dollars
+    this.discount = discount;  // Percentage discount
+    this.offerPrice = function() {
+      var offerRate = this.roomRate * ((100 - this.discount) / 100);
+      return offerRate;
+    };
+  }
+  var hotel = new Hotel('Blarty', 240, 50);
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c03, filename: <b style=
+            "font-style: italic">example.js</b>
+        </div>
+    </div><br class="clear">
+    

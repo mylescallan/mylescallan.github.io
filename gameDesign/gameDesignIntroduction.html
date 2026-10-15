@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel='stylesheet' type='text/css' href='css/gameDesignIntroduction.css'>
+		<!-- 				<link rel='stylesheet' type='text/css' href='onMouseoverAnimate.css'/>
+		-->
+		<link href="/codePrettify/src/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="/codePrettify/src/prettify.js"></script>
+
+		<title>HTML, CSS &amp; Javascript: Introduction</title>
+	</head>
+	<body onload="prettyPrint();">
+
+		<header>
+			<!--              Web Page Begins                -->
+			<h1>HTML, CSS &amp; Javascript: Introduction</h1>
+
+		</header>
+		<section id="reveal">
+			<br>
+			<p>
+				This web<em>site</em> gives an introduction to Game Design. This web<em>page</em> forms the 2nd introductory page in the series - providing a more detailed overview of some
+				basic HTML, Javascript and CSS techniques that will be used throughout this website. The other pages on this website cover: HTML5 Canvas, an object
+				of the HTML5 DOM that forms the stage for games on the web; Javascript, the language best suited for creating games on the HTML5 Canvas;
+				and developing CSS techniques (which is a minor feature of game development).
+			</p>
+			<h2>Introduction</h2>
+			<a name="Introduction"><h3>1. Introduction To This Webpage</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						This webpage explains how to write code to do this:
+					</p>
+					<button id="button0" class="expand">
+						<em>Click Here:</em> To Expand The Source Code For This Section
+					</button>
+					<details open id="pt0" class="reveal">
+						<pre class='prettyprint'>
+ /* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*   Code Here
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+In the actual examples, this area will have relevant code.
+</pre>
+					</details>
+					<p>
+						That is, the sole aim of this webpage is to explain how to combine HTML, Javascript, &amp;/or CSS to create and style a button and then associate an action with
+						the resulting button.
+					</p>
+					<p>
+						Each section of this page introduces a new technique. I start each section with an example of the output of the technique, followed by a brief explanation,
+						then I finish by providing the source code (HTML, Javascript, &amp;/or CSS).
+					</p>
+					<p>
+						As the above example show, the source code will be hidden initially, to be revealed by you when you click on a button. And so, it is that technique - of hiding,
+						then revealing, a section of a webpage - that I am going to use to explain some of the basics of HTML, Javascript and CSS. While not very interesting,
+						it does use Javascript and CSS in a way that is applicable to a wide range of web events (most of them more interesting than hiding/revealing sections of a webpage).
+					</p>
+				</div>
+			</article>
+			<a name="steps"><h3>2. A Step-By-Step Overview</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						The first part of hiding/revealing a section of a webpage is to simply put the parts of the page to be hidden inside appropriate tags,
+						give the tags a class name, and give each tag an individual id. I have chosen the <span class="code">&lt;details&gt;</span> tag (As, in HTML5, this tag "Defines
+						additional details that the	user can view or hide"). So that the text to be hidden is enclosed in <span class="code">&lt;details open class="reveal" id=pt#&gt; ...
+							some text ... &lt;/details&gt;</span> (where the class name is "reveal" and pt# will be pt1, pt2, ... etc, i.e. the individual ids in each
+						case). <sup><a href="#fn1" id="r1">[1]</a></sup>
+					</p>
+					<p>
+						When the text to be hidden is inside tags with a class name, you can use CSS to hide the contained text by using the "display: none;"
+						style.<sup><a href="#fn2" id="r2">[2]</a></sup> That is, your CSS code will contain:
+						<br>
+						<span class="code">details .reveal{</span>
+						<br>
+						<span class="code"> display = 'none';</span>
+						<br>
+						<span class="code">}</span>
+						<br>
+						which hides the text contained in all of the 'details' tags that have the classname 'reveal'.
+					</p>
+					<p>
+						The final step is to change the CSS style from "display: none;" to "display:block;", which is done with Javascript (in response to you clicking a button).
+						By writing the appropriate Javascript code, you can create an "event listener" and "event handler" (these always come in pairs, one to "listen" for the event,
+						the other to "handle"/respond to the event) to respond to the click of a particular button. The response that we want is simply to change the display
+						style (in our CSS code) for the relevant details tag (and, as we shall see, we can also  get the "handler" to perform a range of other tasks).
+					</p>
+					<p>
+						The process outlined above is relatively straightforward to accomplish. To introduce a feature that will be useful later on, I am going to
+						over-complicate this process by adding a <em>transition</em>. Transitions are CSS code that, as its name suggests, transitions from one style to another.
+						In this case we are going to create two styles of buttons, and we are going to add a simple transition between the two states "unclicked" and "clicked"".
+					</p>
+					<p>
+						So, that is the overview, which has revealed the steps that we need to complete:
+						<ol>
+							<li>Create an appropriate button (CSS)</li>
+							<li>Create an "event listener" for that event (Javascript)</li>
+							<li>Use the "event listener" to change the CSS style for the appropriate tags (Javascript)</li>
+							<li>Transition between the two CSS styles (Javascript &amp; CSS)</li>
+						</ol>
+
+					</p>
+				</div>
+			</article>
+			<h2></h2>
+			<h2>The Steps</h2>
+			<a name="button"><h3>2: Create A Styled Button (CSS)</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						Here is a button:
+						<button class="noCSS">
+							Basic!!
+						</button>
+						and it is useless!!<sup><a href="#fn3" id="r3">[3]</a></sup>
+					</p>
+					<p>
+						This is what a button looks like simply using the HTML button tag with no CSS styling (in this case<span class="code"> &lt;button class="noCSS"&gt;Basic?&lt;/button&gt;</span>,
+						where the class attribute was neccessary to distinguish it from the buttons with CSS styling, which I have set as the default buttons).
+					</p>
+					<p>
+						Here is our button:
+						<button>
+							Nice?
+						</button>
+						and it is still useless!! (because clicking on it does nothing).
+					</p>
+					<p>
+						This button was created using HTML, in the same way as the button above (<span class="code">&lt;button &gt;Nice?&lt;/button&gt;</span>) but it is styled using
+						CSS.<sup><a href="#fn4" id="r4">[4]</a></sup> You can make the styling as simple as you wish, or as fancy as you wish. This one is about
+						half way. (There are "button generator" webpages that will create the CSS for you, which you can then simply download:
+						<a href="http://www.bestcssbuttongenerator.com/" target="_blank">Here is an example</a>). The CSS used to create this button,
+						will be revealed by clicking the button at the end of this section. <em>By clicking on the button, to reveal
+						the source code, you get your first chance to see the completed task that this page explains: A styled button; A button that responds to being
+						clicked (an "event"); The revealing of the code relevant to the discussion; and The "transition" of the button to a different style.</em>
+					</p>
+					<p>
+						At this point, we have completed the first step, we have a styled button. However, as there is no event associated with the "Nice?" button, it is useless (no
+						matter how many times we click it, nothing will happen). Associating a response to the event, the click, is the next step.
+					</p>
+					<button id="button1" class="expand">
+						<em>Click Here:</em> To Expand The Source Code For This Section
+					</button>
+					<details open id="pt1" class="reveal">
+						<pre class='prettyprint'>
+ /* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*   Style the HTML button using CSS
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+/* This style will apply to all buttons, I remove these styles from specific buttons later */
+
+button {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    cursor: pointer;
+
+/* The groups of three below will, in years to come, be replaced by a single statement (the final statement, in each case).*\
+\* Currently, they are necessary because each browser has its own name for these styles.                                   */    
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    
+    background: -webkit-linear-gradient(top, #a3a3a3, #000);
+    background: -moz-linear-gradient(top, #a3a3a3, #000);
+    background: linear-gradient(top, #a3a3a3, #000);
+    
+    -webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/*  For when the mouse "hovers" over the button */
+button:hover {
+    background: -webkit-linear-gradient(top, #acc7a3, #506651);
+    background: -moz-linear-gradient(top, #acc7a3, #506651);
+    background: linear-gradient(top, #acc7a3, #506651);
+}
+
+/* For when the mouse "clicks" the button */
+button:active {
+    background: -webkit-linear-gradient(top, #858565, #c5c9a9);
+    background: -moz-linear-gradient(top, #858565, #c5c9a9);
+    background: linear-gradient(top, #858565, #c5c9a9);
+}
+
+/* By using the class attribute "noCSS", this style will apply only to buttons with that attribute  *\
+\* That is, this is where I remove the styles from buttons with the "noCSS" class attribute */
+button.noCSS { /* options to remove styling, not interesting */
+}
+</pre>
+					</details>
+				</div>
+			</article>
+			<a name="event"><h3>3. Create An "Event Listener" For An Event (Javascript)</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						The simplest way to get a button to respond to being clicked is to include an "event listener" directly in the button
+						tag:
+						<br>
+						<span class="code">&lt;button onClick="myFunction()"&gt;Click me&lt;/button&gt;</span>.
+						<br>
+						In this case, "onClick" is the event listener and "myFunction()" is the event handler (where
+						"myFunction()" would be a list of Javascript commands/statements written somewhere else on the page, in 'script' tags, or in an external file). To see how this works,
+						we can replace "myFunction()" with a function that comes "built-in" to Javascript, called "alert()". So by including the code:
+						<br>
+						<span class="code">&lt;button onClick="alert('You Clicked Me!!')"&gt;Click me&lt;/button&gt;</span>,
+						<br>
+						we get this:
+						<br>
+						<button onClick="alert('You Clicked Me!!')">
+							Click me
+						</button>
+						<br>
+					</p>
+					<p>
+						However, this "inline" method is not very flexible. As we shall see, connecting an "event listerer" indirectly gives us more options, especially when there
+						is more than one button, as is the case here (having multiple buttons means that an event listener has to be associated with each button, which is easier to do
+						using the indirect method - as it avoids having to repeat the same code for each individual button).
+					</p>
+					<p>
+						For the moment, lets just concentrate on how to attach an event listener to one button using the indirect method, and then extend that approach to all
+						buttons at once. We begin by declaring a variable, myButton1, that is, to all intents and purposes, equivalent to the button we want.
+						We do this by utilizing the id that we gave the button in question, which in this case is "button1":
+						<br>
+						<span class="code"> myButton1 = document.getElementByID("button1");</span>
+						<br>
+						<span class="code">document.getElementByID("button1")</span> is the Javascript short hand for the Object "button1", which we name <span class="code">myButton1</span>
+						(Naming the Object that we are interested in is just a way of creating a shorthand, so that we don't have to keep writing out <span class="code">document.getElementByID("button1")</span>
+						everytime that we want to refer to it. It is important to note, therefore, that the name is equivalent to the Object).
+					</p>
+					<p>
+						The next step is to attach an event listener and an event handler to <span class="code">myButton1</span>:
+						<br>
+						<span class="code">myButton1.addEventListener("click", makeClickHandler, false);</span>
+						<br>
+						Where makeClickHandler is the name that I chose for the event handler, the function that will perform the actions that I require when the button is clicked
+						(to be discussed in the next section). And that is that.
+					</p>
+					<p>
+						All that remains now is to extend this to all of the buttons. We do this by declaring an array, containing all of the relevant buttons. To do this, we
+						use the class attribute that we defined for these buttons, (in this case I chose "expand" as the class attribute). To derive the array containing all of the
+						buttons with that class attribute we use:
+						<br>
+						<span class="code">var buttons = document.getElementsByClassName("expand");</span>
+						<br>
+						To derive the array containing all of the sections that we want to reveal, we use their class attribute (for which I chose 'reveal'):
+						<br>
+						<span class="code">var details = document.getElementsByClassName("reveal");</span>
+						<br>
+						Again, we are simply naming these arrays - so that we have a shorthand to refer to in later steps. We then loop through all of the buttons in this array,
+						associating each with the corresponding area that we want to reveal, adding an event listener to each:
+						<br>
+						<br>
+						<span class="code">for ( i = 0; i &lt; buttons.length; i++) {</span>
+						<br>
+						<span class="code">addClickHandler(buttons[i], details[i]);</span>
+						<br>
+						<span class="code">}</span>
+						<br>
+						Where "addClickHandler()" is the function that: a) contains the event handler (with the list of instructions that we want followed when the button is clicked)
+						and b) attaches this event handler to the appropriate button.
+						<br>
+
+					</p>
+					<button id="button2" class="expand">
+						<em>Click Here:</em> To Expand The Source Code For This Section
+					</button>
+					<details open id="pt2" class="reveal">
+						<pre class='prettyprint'>
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*   The Button Event Handler
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+var buttons = document.getElementsByClassName("expand"),
+    details = document.getElementsByClassName("reveal"),
+    i;
+
+function addClickHandler(buttons, details) {   // outer function, to ensure that, while looping, 
+	                                        // the buttons are "attached" to the appropriate sections of the webpage (scope issue while looping)
+    function myHandler(event) {                // event handler
+        if (details.style.display === 'block') {
+            details.style.display = 'none';
+         } else {
+            details.style.display = 'block';
+         }
+    }
+    buttons.addEventListener("click", myHandler, false); // event listener
+ 
+
+for ( i = 0; i < buttons.length; i++) {
+    addClickHandler(buttons[i], details[i]);
+}
+</pre>
+					</details>
+				</div>
+			</article>
+			<a name="eventListener"><h3>4: Use The "Event Listener" To Change The CSS Style (Javascript)</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p>
+						Our basic event handler does only one thing, it changes the CSS associated with the tags "details" from <span class="code">display = 'none'</span> to <span class="code">display = 'block'</span>.
+
+					</p>
+					<p>
+						We have to tell Javascript that we want to change the CSS associated with the details tag. We do this by using <span class="code">details.style.display = 'block';</span>
+						So, to create our "event handler" function, we simply wrap that statement in a function:
+						<br>
+						<br>
+						<span class="code">function myHandler(event) {                // event handler </span>
+						<br>
+						<span class="code"> details.style.display = 'block';</span>
+						<br>
+						}</span>
+						<br>
+						<span class="code">buttons.addEventListener("click", myHandler, false); // event listener </span>
+						<br>
+						<br>
+						Where "click" is a specific command to the event listener (i.e. 'listen for the button to be clicked') and 'myHandler' is the name that I chose for the function that
+						is the 'event handler' (which contains the commands to be followed when the button is clicked).
+					</p>
+					<p></p>
+					<p></p>
+					<button id="button3" class="expand">
+						<em>Click Here:</em> To Expand The Source Code For This Section
+					</button>
+					<details open id="pt3" class="reveal">
+						<pre class='prettyprint'>
+							
+							
+						</pre>
+					</details>
+				</div>
+			</article>
+			<a name="transition"><h3>5: Transition Between The Two CSS styles (CSS)</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+					<button id="button4" class="expand">
+						<em>Click Here:</em> To Expand The Source Code For This Section
+					</button>
+					<details open id="pt4" class="reveal">
+						<pre class='prettyprint'>
+							
+							
+						</pre>
+					</details>
+				</div>
+			</article>
+			<a name="conclusion"><h3>6: Conclusion</h3></a>
+			<article class="hiddenDiv">
+				<div class="hidden">
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+					<button id="button5" class="expand">
+						<em>Click Here:</em> To Expand The Source Code For This Section
+					</button>
+					<details open id="pt5" class="reveal">
+						<pre class='prettyprint'>
+							
+							
+						</pre>
+					</details>
+				</div>
+			</article>
+
+		</section>
+		<section id = footnotes>
+			<a name="footnotes"><h3>7: Footnotes</h3></a><em>
+			<p id="fn1">
+				<a href="#r1" title="Jump back to the main text.">[1]</a> "open" in the details tag is required as some browsers have already added the "hide/reveal" functionality. That is, in the coming years,
+				the "hide/reveal" functionality that I am adding will be a default function of the detail tag.
+				<br>
+			</p>
+			<p id="fn2">
+				<a href="#r2" title="Jump back to the main text.">[2]</a> That is, you write the text as you normally would - i.e. the text is always there on the webpage - but the "display:none" CSS style
+				ensures that it is hidden from view. The CSS for these tags would simply read "details{ display:none; }" (or "details.reveal{ display:none; }" for "details" tags
+				with the class "reveal" - if you needed to be more specific, i.e. were using the details tag for other sections of that you did not want to hide/reveal (and so would
+				give them a different class name)).
+				<br>
+			</p>
+			<p id="fn3">
+				<a href="#r3" title="Jump back to the main text.">[3]</a> Buttons are Objects in HTML - that is, they are containers that have a range of pre-specified "properties". A little
+				later, we will be using these pre-specified properties to allow our buttons to perform actions. To allow us to see the properties an Object has, there is a Javascript
+				function <span class="code">getAllProperties()</span> that I have running on this page. It returns a list of any Objects' properties. So, for example, we will, later, give
+				one of these button Objects an id <span class="code">button0</span>. Using "command+option+i" (for a mac) or "F12" (for windows) we can bring up the console window.
+				If you copy and paste <span class="code">getAllProperties(button0)</span> into the command line on the console, you will see what properties a generic button Object
+				contains. Impressive, no? (You can see that one of the properties available to us is "addEventListener", which we will use in the next section). This is an example
+				of the aspects of a web browser as an interpreter that runs "behind the scenes", and which gives webpage creators an enormous range of features to control.
+
+			</p>
+			<p id="fn4">
+				<a href="#r4" title="Jump back to the main text.">[4]</a> The CSS code can be included directly in the HTML page (by placing it between &lt;style&gt; <em>css code here</em> &lt;/style&gt; tags) but
+				it is customary to write it in a separate file, getting the HTML page to read it by including a link to the file in the head of the HTML page (for example,
+				I have this statement in the head of this page that you are reading: &lt;link rel='stylesheet' type='text/css' href='css/gameDesignIntroduction.css'&gt;).
+				The same is true of Javascript code - except that Javascript code written directly in a HTML page is placed in "script" tags, like
+				this: &lt;script&gt; <em>javascript code here</em> &lt;/script&gt;, and, if written in a separate file, is usually linked at the bottom of the HTML page,
+				just before the closing "body" tag, as I have done on this page, like so: &lt;script src="js/gameDesignIntroduction.js"&gt;&lt;/script&gt;
+				<br>
+				<!--    		</p>
+				<p id="fn4"><a href="#r1" title="Jump back to the main text.">[4]</a>
+				<br>
+				</p>
+				<p id="fn5"><a href="#r1" title="Jump back to the main text.">[5]</a>
+				<br>
+				</p>
+				<p id="fn6"><a href="#r1" title="Jump back to the main text.">[6]</a>
+				<br>
+				</p>
+				<p id="fn7"><a href="#r1" title="Jump back to the main text.">[7]</a>
+				<br>
+				</p>
+				<p id="fn8"><a href="#r1" title="Jump back to the main text.">[8]</a>
+				<br>
+				</p>
+				<p id="fn9"><a href="#r1" title="Jump back to the main text.">[9]</a>
+				<br>
+				</p>
+				<p id="fn10"><a href="#r10" title="Jump back to the main text.">[10]</a>
+				<br>
+				</p>
+				<p id="fn11"><a href="#r11" title="Jump back to the main text.">[11]</a>
+				<br>
+				</p>
+				<p id="fn12"><a href="#r12" title="Jump back to the main text.">[12]</a>
+				<br>
+				</p>
+				<p id="fn13"><a href="#r13" title="Jump back to the main text.">[13]</a>
+				<br>
+				</p>
+				<p id="fn14"><a href="#r14" title="Jump back to the main text.">[14]</a>
+				<br>
+				</p>
+				<p id="fn15"><a href="#r15" title="Jump back to the main text.">[15]</a>
+				<br>
+				</p>
+				<p id="fn16"><a href="#r16" title="Jump back to the main text.">[16]</a>
+				<br>
+				</p>
+				<p id="fn17"><a href="#r17" title="Jump back to the main text.">[17]</a>
+				<br>
+				</p>
+				<p id="fn18"><a href="#r18" title="Jump back to the main text.">[18]</a>
+				<br>
+				</p>
+				<p id="fn19"><a href="#r19" title="Jump back to the main text.">[19]</a>
+				<br>
+				</p>
+				<p id="fn20"><a href="#r20" title="Jump back to the main text.">[20]</a>
+				<br>
+				</p>
+				<p id="fn21"><a href="#r21" title="Jump back to the main text.">[21]</a>
+				<br>
+				</p>
+				<p id="fn22"><a href="#r22" title="Jump back to the main text.">[22]</a>
+				<br>
+				</p>
+				<p id="fn23"><a href="#r23" title="Jump back to the main text.">[23]</a>
+				<br>
+				</p>
+				<p id="fn24"><a href="#r24" title="Jump back to the main text.">[24]</a>
+				<br>
+				</p>
+				<p id="fn25"><a href="#r25" title="Jump back to the main text.">[25]</a>
+				<br>
+				</p>
+				<p id="fn26"><a href="#r26" title="Jump back to the main text.">[26]</a>
+				-->
+			</p>
+		</section>
+
+		<script src="../game/js/jquery-2.1.3.min.js"></script>
+
+		<script src="js/gameDesignIntroduction.js"></script>
+
+		<script src="js/addSideBarGames.js"></script>
+		<script src="js/getAllProperties.js"></script>
+		<script src="../game/js/fadeInAndOut.js"></script>
+		<!-- fades in and out the h1 tag -->
+	</body>
+</html>
+

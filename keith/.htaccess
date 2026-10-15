@@ -1,0 +1,7 @@
+# Begin password protection #
+AuthName "protect"
+Require valid-user
+AuthUserFile "/home/users/web/b381/ipw.nichondc/public_html/mylescallan/keith/.htpasswd"
+AuthType basic
+# End password protection #
+

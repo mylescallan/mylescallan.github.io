@@ -1,0 +1,66 @@
+    <h1>Chapter 5</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c05/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            The code uses the DOM ('Document Object Model') to edit a shopping list. Show how to both: 1) Add or Remove items from the list; and 2) Change the 'attribute' or 'class' of items.
+            <img src="http://www.mylescallan.com/JS_JQ/images/Dom_Tree.jpg" alt="Dom Tree" style="width:304px;height:228px">
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 5</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+// ADDING ITEMS TO START AND END OF LIST
+var list = document.getElementsByTagName('ul')[0];     // Get the &lt;ul&gt; element
+
+// ADD NEW ITEM TO END OF LIST
+var newItemLast = document.createElement('li');        // Create element
+var newTextLast = document.createTextNode('cream');    // Create text node
+newItemLast.appendChild(newTextLast);                  // Add text node to element
+list.appendChild(newItemLast);                         // Add element end of list
+
+// ADD NEW ITEM START OF LIST
+var newItemFirst = document.createElement('li');       // Create element
+var newTextFirst = document.createTextNode('kale');    // Create text node
+newItemFirst.appendChild(newTextFirst);                // Add text node to element
+list.insertBefore(newItemFirst, list.firstChild);      // Add element to list
+
+
+
+var listItems = document.querySelectorAll('li');       // All &lt;li&gt; elements
+
+// ADD A CLASS OF COOL TO ALL LIST ITEMS
+var i;                                                 // Counter variable
+for (i = 0; i &lt; listItems.length; i++) {               // Loop through elements
+  listItems[i].className = 'cool';                     // Change class to cool
+}
+
+// ADD NUMBER OF ITEMS IN THE LIST TO THE HEADING
+var heading = document.querySelector('h2');            // h2 element
+var headingText = heading.firstChild.nodeValue;        // h2 text
+var totalItems = listItems.length;                     // No. of &lt;li&gt; elements
+var newHeading =  headingText + '&lt;span&gt;' + totalItems + '&lt;/span&gt;'; // Content
+heading.innerHTML = newHeading;                        // Update h2 using innerHTML 
+                                                       // (not textContent) 
+                                                       // because it contains markup
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c01, filename: <b style=
+            "font-style: italic">add-content.js</b>
+                        <img src="images/Dom_Tree.jpg" alt="Dom Tree" style="width:304px;height:228px">
+
+        </div>
+    </div><br class="clear">
+ 

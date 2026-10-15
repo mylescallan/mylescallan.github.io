@@ -1,0 +1,310 @@
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*                ********** Base CSS **********            *|
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+@import url(http://fonts.googleapis.com/css?family=Jacques+Francois);
+@import url(http://fonts.googleapis.com/css?family=Quattrocento+Sans);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    background-color: #DAA520;
+    color: black;
+    margin: 2em 5em 2em 1em;
+    padding: 0em;
+    overflow-x: hidden;
+    font: 400 15px/1.5 'Quattrocento Sans', sans-serif;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #666;
+    text-align: center;
+    /*  width: 100px;
+     height: 50px;
+     margin: 10px auto 10px auto;
+     text-indent: 0%;
+     white-space: nowrap; */
+    overflow: visible;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    margin: 0em;
+    padding: 10px 0px 0px 0px;
+    font-family: 'Jacques Francois';
+}
+h2 {
+    text-align: center;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 130%;
+    line-height: 1em;
+}
+h3 {
+    text-align: center;
+    color: #666;
+    font-size: 110%;
+    letter-spacing: 0.2em;
+}
+
+p {
+    font: 400 16px/1.5 'Quattrocento Sans', sans-serif;
+    line-height: 1.4em;
+    text-align: justify;
+}
+
+ul {
+    padding: 0em 1em 0em 1em;
+    margin: 0em 0em 0em 0em;
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*                ********** Columns CSS **********            *|
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+.container {
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (doesn't work very well) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.main {
+    -webkit-box-ordinal-group: 2; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-ordinal-group: 2; /* OLD - Firefox 19- */
+    -ms-flex-order: 2; /* TWEENER - IE 10 */
+    -webkit-order: 2; /* NEW - Chrome */
+    order: 2; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    width: 85%; /* No flex here, other cols take up remaining space */
+    -moz-box-flex: 1; /* Without this, Firefox 19- expands to widest paragraph, overrides width */
+    background: white;
+    padding: 2em;
+}
+
+.aside1 {
+    -webkit-box-ordinal-group: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-ordinal-group: 1; /* OLD - Firefox 19- */
+    -ms-flex-order: 1; /* TWEENER - IE 10 */
+    -webkit-order: 1; /* NEW - Chrome */
+    order: 1; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1; /* OLD - Firefox 19- */
+    width: 15%; /* For old syntax, otherwise collapses. */
+    -webkit-flex: 1; /* Chrome */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    background: #FFDA7A;
+    margin: 0px auto 0px auto;
+    white-space: pre-wrap; /* CSS 3 */
+    overflow: auto;
+}
+/*
+ .aside2 {
+ -webkit-box-ordinal-group: 3;
+ -moz-box-ordinal-group: 3;
+ -ms-flex-order: 3;
+ -webkit-order: 3;
+ order: 3;
+ -webkit-box-flex: 1;
+ -moz-box-flex: 1;
+ width: 25%;
+ -ms-flex: 1;
+ -webkit-flex: 1;
+ flex: 1;
+ background: #FFDA7A;
+ }
+ */
+.main, .aside1, .aside2 {
+    padding: 3em;
+    -webkit-border-radius: 10px 10px 10px 10px; /* rounded corners */
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |*                ********** MY ADDITIONS **********            *|
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+
+/* Code  */
+span.code {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #445588;
+    background: #f5f6f5;
+}
+
+span.red1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: red;
+    background: #f5f6f5;
+}
+
+details {
+    display: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: pre-wrap; /* CSS 3 */
+    overflow: auto;
+    background-color: #f5f6f5;
+    color: #445588;
+    -webkit-border-radius: 10px 10px 10px 10px; /* rounded corners */
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+p > code {
+    background-color: #f5f6f5;
+    padding: 1px 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px
+}
+
+.highlight pre, .hll {
+    overflow-x: auto;
+    white-space: pre;
+    color: #445588;
+    background: #f5f6f5;
+    padding: 1px 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px
+}
+.highlight .kt {
+    color: #445588;
+    font-weight: bold
+}
+
+.highlight .c1 {
+    color: #999988;
+    font-style: italic
+}
+
+pre .small {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: pre-wrap; /* CSS 3 */
+    overflow: auto;
+    background-color: #f5f6f5;
+    color: #445588;
+    -webkit-border-radius: 10px 10px 10px 10px; /* rounded corners */
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* ------------------------------------------------------------ *\
+ |* ------------------------------------------------------------ *|
+ |* sliding Side Bar
+ |* ------------------------------------------------------------ *|
+ \* ------------------------------------------------------------ */
+.rotate270 {
+    text-align: center;
+    /* this is for shity "non IE" browsers
+     that dosn't support writing-mode */
+    -webkit-transform: rotate(-90deg) translateX(-250%);
+    -moz-transform: rotate(-90deg) translateX(-250%);
+    -o-transform: rotate(-90deg) translateX(-250%);
+    transform: rotate(-90deg) translateX(-250%);
+    -webkit-transform-origin: left top;
+    -moz-transform-origin: left top;
+    -o-transform-origin: left top;
+    transform-origin: left top;
+}
+
+#menuout {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    width: 30px;
+    height: 100px;
+    padding: 12px 0;
+    text-align: center;
+    color: white;
+    background: #DAA520;
+    z-index: 20;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    background: -webkit-linear-gradient(top, #DAA520, #FF8E25); /* gradient moves from bottom to top, between the two colors listed */
+    background: -moz-linear-gradient(top, #DAA520, #FF8E25);
+    background: linear-gradient(top, #DAA520, #FF8E25);
+    -webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+}
+/* "link area" */
+#menuout_inner {
+    position: fixed;
+    top: 0px;
+    right: -270px; /* Off screen */
+    color: white;
+    background: #DAA520;
+    width: 250px;
+    padding: 125px 5px 25px 15px; /* Top padding matches the height of the tab */
+    height: 100%; /* Full Length of Screen when out */
+    z-index: 20;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    text-align: left;
+    -webkit-border-radius: 10px 0 0 10px; /* rounded corners */
+    -moz-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+    background: -webkit-linear-gradient(top, #DAA520, #FF8E25);
+    background: -moz-linear-gradient(top, #DAA520, #FF8E25);
+    background: linear-gradient(top, #DAA520, #FF8E25);
+    -webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
+}
+
+#menuout_inner a {
+    color: white;
+    -webkit-transition: 0.1s linear 0s;
+    -moz-transition: 0.1s linear 0s;
+    -o-transition: 0.1s linear 0s;
+    transition: 0.1s linear 0s;
+}
+#menuout_inner a:hover {
+    color: #fff;
+    text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff; /* Glowing effect */
+}
+/* No Text Area
+ #menuout_inner textarea {
+ width: 200px;
+ height: 150px;
+ color: white;
+ margin-bottom: 6px;
+ }
+ */
+#menuout:hover {
+    right: 250px;
+}
+#menuout:hover #menuout_inner {
+    right: 0; /* move from off screen -250 to on screen 0 */
+}

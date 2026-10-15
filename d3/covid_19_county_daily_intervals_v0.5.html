@@ -1,0 +1,708 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,600italic,700italic,200,300,400,600,700,900">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+            padding: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1em;
+            color: #333;
+            font-weight: 400;
+        }
+        
+        #content {
+            margin: 5px;
+            padding: 20px;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        
+        #map {
+            margin: 10px 0px 0px 0px;
+            padding: 0px;
+        }
+        
+        h1,
+        h2 {
+            line-height: 1em;
+            font-size: 1.75em;
+            font-weight: 900;
+            color: #000;
+        }
+        
+        h2.year {
+            margin: 10px 0px 0px 0px;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        
+        p {
+            margin: 10px 0px 0px 0px;
+        }
+        
+        .county {
+            fill: #fff;
+        }
+        
+        .states {
+            fill: none;
+            stroke: #fff;
+            stroke-linejoin: round;
+        }
+        
+        input {
+            display: block;
+            width: 200px;
+            margin: 10px 0px 0px 0px;
+        }
+        
+        #legend text {
+            font-size: 0.9em;
+            color: #333;
+            font-weight: 400;
+        }
+        
+        .tooltip {
+            position: absolute;
+            padding: 7px;
+            font-size: 0.9em;
+            pointer-events: none;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -moz-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+            -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+            box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tooltip p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .tooltip table {
+            margin: 0;
+            padding: 0;
+            border-collapse: collapse;
+        }
+        
+        .wide {
+            width: 140px;
+        }
+        
+        a#main {
+            background-color: blue;
+            color: white;
+            padding: 1em 1.5em;
+            text-decoration: none;
+            text-transform: uppercase;
+            float: right;
+        }
+        
+        a#main:hover {
+            background-color: #555;
+        }
+        
+        a#main:active {
+            background-color: black;
+        }
+        
+        a#main:visited {
+            background-color: #ccc;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="content">
+        <h1>U.S. Covid-19 Cases </h1> <a id="main" href="http://www.mylescallan.com/d3/covid_19_county_weekly_final.html">Weekly Data</a>
+        <div id="dates"> </div>
+        <h5>(mouseover for details, double-click (or mouse wheel) to zoom, click and drag)</h5>
+        <h2 class="year"></h2>
+        <div class="slider"></div>
+        <div id="map"></div>
+        <p><a href="https://github.com/nytimes/covid-19-data">Data Source: New York Times (GitHub)<a/></p>
+<p>Graphic: Myles Callan (based on <a href="http://bl.ocks.org/dougdowson/9832019">Doug Dowson’s Block 9832019</a>)</p>
+    </div>
+
+    <script>
+        /*********************************************************************************/
+        /*                        Mar 28, 2020 Added All Country and State Names         */
+        /*********************************************************************************/
+        var width = window.innerWidth / 1.25,
+            height = window.innerHeight / 1.25;
+
+        var fill = d3.scaleLog()
+            .domain([10, 500])
+            .range(["brown", "steelblue"]);
+
+        var path = d3.geoPath();
+
+        var margin = {
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20
+        };
+        var formatPercent = d3.format(".1%");
+
+        const zoom = d3.zoom()
+            .scaleExtent([1, 8])
+            .on('zoom', zoomed);
+
+        var svg = d3.select("#map").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        const g = svg.append('g');
+
+        svg.call(zoom);
+
+        tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        var legendText = ["0", "1", "5", "10", "25", "50", "100", "500", ">500"];
+        var RdYlBu = ["#d73027", "#f46d43", "#fdae61", "#fee090", "#ffffbf", "#e0f3f8", "#abd9e9", "#74add1", "#4575b4"].reverse()
+        var legendColorScale = d3.scaleOrdinal()
+            .domain(legendText)
+            .range(RdYlBu)
+
+        //         legendText.forEach( d => console.log(legendColorScale(d)) )     
+
+        //         console.log("legendText", legendText)
+        const NYT_data = "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv";
+
+        d3.json("us.txt").then(us => {
+            d3.csv(NYT_data).then(data => {
+                d3.csv("FIPs_TopoJSON.txt").then(fipsData => {
+
+                    // extract counties from us.json
+                    var counties = topojson.feature(us, us.objects.counties);
+
+                    // dates
+
+                    // This script is released to the public domain and may be used, modified and
+                    // distributed without restrictions. Attribution not necessary but appreciated.
+                    // Source: https://weeknumber.net/how-to/javascript
+
+                    // Returns the ISO week of the date.
+                    Date.prototype.getWeek = function() {
+                        var date = new Date(this.getTime());
+                        date.setHours(0, 0, 0, 0);
+                        // Thursday in current week decides the year.
+                        date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+                        // January 4 is always in week 1.
+                        var week1 = new Date(date.getFullYear(), 0, 4);
+                        // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+                        return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+                    }
+
+                    var parser = d3.timeParse("%Y-%m-%d");
+                    var formatDate = d3.timeFormat("%Y-%m-%d");
+                    var formatDayWeek = d3.timeFormat("%A, %d of %B, %Y");
+                    var formatWeekDict = d3.timeFormat("Week of %A, %d of %B, %Y");
+                    var formatWeek = d3.timeFormat("%W");
+                    var formatDayOfWeek = d3.timeFormat("%w");
+
+                    data.forEach(function(d) {
+                        d.date = parser(d['date']);
+                        d.day = formatDate(d.date);
+                        d.fips = String(d.fips);
+                        d.deaths = +d.deaths;
+                        d.cases = +d.cases;
+                        d.casesScale = d.cases < 1 ? 0 : d.cases <= 1 ? 1 : d.cases <= 5 ? 5 : d.cases <= 10 ? 10 : d.cases <= 25 ? 25 : d.cases <= 50 ? 50 : d.cases <= 100 ? 100 : d.cases <= 500 ? 500 : 501;
+                    });
+                    fipsData.forEach(function(d) {
+                        d.FIPS = String(d.FIPS)
+                    });
+
+                    // filter out any FIPS that are not 5 digits
+                    data = data.filter(d => d.fips.length === 5);
+                    // filter out any FIPS that are not 5 digits
+                    fipsData = fipsData.filter(d => d.FIPS.length === 5);
+
+                    console.log("fipsData ", fipsData)
+                    console.log("data ", data)
+
+                    /************************************************************/
+                    /*             Add Date Information to HTML                 */
+                    /************************************************************/
+                    // Get unique dates
+                    var days = [...new Set(data.map(d => d['day']))]
+                    var dates = [...new Set(data.map(d => d['date']))]
+                        //                    const uniqueDates = dates.filter((date, i, self) => 
+                        //                               self.findIndex(d => d.getTime() === date.getTime()) === i
+                        //                             )
+                        //                     console.log("dates number", days.length)
+                        //                     console.log("dates", days)
+                        //                     
+                        //                     console.log("dates number", uniqueDates.length)
+                        //                     console.log("dates", uniqueDates)
+
+                    // Get earliest and latest dates 
+                    var datesExtant = [{
+                        min: d3.min(dates),
+                        minText: formatDayWeek(d3.min(dates)),
+                        max: d3.max(dates),
+                        maxText: formatDayWeek(d3.max(dates))
+                    }]
+
+  //                  console.log("datesExtant: ", datesExtant)
+
+  
+                    /************************************************************/
+                    /*                         TEST                             */
+                    /************************************************************/
+
+                    /************************************************************/
+                    /*                  Days in the data                       */
+                    /************************************************************/
+
+                    // Create dictionary, to Format the date from the string date
+                    var daysDict = {}
+                    for (day in [...days]) {
+                        placeholder = [...days];
+                        daysDict[placeholder[day]] = formatDayWeek(parser(placeholder[day]))
+                    }
+
+                    console.log("daysDict: ", daysDict)
+
+                    /************************************************************/
+                    /*                  FIPS in fips data nest                   */
+                    /************************************************************/
+
+                    // Create an object: Key = FIPS Values = State and County Name
+                    var countyByFips = d3.nest()
+                        .key(d => d["FIPS"])
+                        .map(fipsData);
+                    console.log("countyByFips: ", countyByFips)
+
+                    // Check that countyByFips has a key for each FIPS
+                    //                     for (ind in fipsData){
+                    //                         if (!countyByFips.get(fipsData[ind].FIPS)){
+                    //                             console.log("This fips is missing: ",fipsData[ind].FIPS )}}
+
+                    /****************************************************************/
+                    /* Step One: Not all FIPS are in the dataset                    */
+                    /*           Add All FIPS to  dataset (key/value pairs)         */
+                    /*                   Add State and County Name (FOR ALL WEEKS)  */
+                    /*           For All FIPS ensure that there is week data        */
+                    /*                   Replicate                                  */
+                    /****************************************************************/
+
+                    // make deep copy of object
+                    const deepCopyFunction = inObject => {
+                            let outObject, value, key
+
+                            if (typeof inObject !== "object" || inObject === null) {
+                                return inObject // Return the value if inObject is not an object
+                            }
+
+                            // Create an array or object to hold the values
+                            outObject = Array.isArray(inObject) ? [] : {}
+
+                            for (key in inObject) {
+                                value = inObject[key]
+
+                                // Recursively (deep) copy for nested objects, including arrays
+                                outObject[key] = (typeof value === "object" && value !== null) ? deepCopyFunction(value) : value
+                            }
+
+                            return outObject
+                        }
+                        // Functions to create empty entries
+
+                    function emptyDaysEntries(fips, d = [...days]) {
+                        //                             console.log(fips);
+                        var base = {
+                            day: d[0],
+                            fips: fips,
+                            cases: "N/A",
+                            deaths: "N/A",
+                            casesScale: "N/A"
+                        };
+                        //                         console.log(base);
+
+                        var entries = [base];
+                        // remove first entry (used for base)
+                        d.shift()
+                            // loop over weeks
+                        if (d.length > 0) {
+                            d.forEach(function(w) {
+                                // create a deep copy of base
+                                var newbase = deepCopyFunction(base);
+                                // change only relevant values
+                                newbase.day = w;
+                                entries.push(newbase);
+                                //                                 console.log(entries);
+                            });
+                        }
+                        return entries;
+                    }
+
+                    /************************************************************/
+                    /*            Add State and County to FEATURES              */
+                    /************************************************************/
+                    // Unique FIPS in data 
+                    var featureFips = [...new Set(counties.features.map(d => d['id']))].sort()
+                    console.log("Number of FIPS in features", featureFips.length)
+                    console.log("FIPS in features", featureFips)
+
+                    // Unique FIPS in fipsData 
+                    var fipsFips = [...new Set(fipsData.map(d => d['FIPS']))].sort()
+                    console.log("Number of FIPS", fipsFips.length)
+                    console.log("FIPS", fipsFips)
+
+                    // Create an object: Key = NUMERIC FIPS Values = State and County Name
+                    var countyByFipsNum = d3.nest()
+                        .key(d => +d["FIPS"])
+                        .map(fipsData);
+                    console.log("countyByFips: ", countyByFipsNum)
+
+                    // Unique Numeric FIPS in fipsData 
+                    var fipsFipsNum = [...new Set(fipsData.map(d => +d['FIPS']))].sort()
+                    console.log("Number of FIPS", fipsFipsNum.length)
+                    console.log("FIPS", fipsFipsNum)
+
+                    //                     By FIPS add State and County Name to counties.features.cases
+                    var partInd = 0,
+                        compInd = 0,
+                        empInd = 0;
+                    counties.features.forEach(function(d) {
+                        if (fipsFipsNum.includes(d.id)) {
+                            d.county = countyByFipsNum.get(d.id)[0].AreaName;
+                            d.state = countyByFipsNum.get(d.id)[0].State;
+                        }
+                    })
+                    console.log("counties.features: ", counties.features)
+
+                    // Remove (Filter) any features that don't have a county
+                    counties.features = counties.features.filter(({
+                        county
+                    }) => county);
+
+                    /************************************************************/
+                    /*            Add empty entries to data                     */
+                    /************************************************************/
+                    // Unique FIPS in data 
+                    //                     var dataFips = [...new Set(data.map(d => d['fips']))]
+                    //                     console.log("Number of FIPS in data", dataFips.length)
+                    // 
+                    //                     // Unique FIPS in fipsData 
+                    //                     var fipsFips = [...new Set(fipsData.map(d => d['FIPS']))]
+                    //                     console.log("Number of FIPS", fipsFips.length)
+                    // 
+                    // 
+                    //                     // By FIPS add weeks objects to counties.features
+                    //                     var partInd=0,
+                    //                         compInd = 0,
+                    //                         empInd = 0;
+                    //                     fipsFips.forEach(function(fips) {
+                    // //                         console.log(fips)
+                    //                         if (dataFips.includes(fips)) {
+                    //                             var data_for_this_fips = data.filter(d => d.fips === fips);
+                    //                             var days_for_this_fips = [...new Set(data_for_this_fips.map(d => d['day']))];
+                    //                             // Check If All Weeks are included
+                    //                             if (days_for_this_fips.length < days.length) {
+                    //                                 var daysToAdd = days.filter(e => !days_for_this_fips.includes(e)) ;
+                    //                                 var comp = emptyDaysEntries(fips, d = [...daysToAdd]);
+                    //                                 data = data.concat(comp)
+                    //                                 partInd++;
+                    //                             }else{
+                    //                             compInd++}
+                    //                         } else {
+                    // //                             console.log("else", fips)
+                    //                             // create empty enteries for each week, for each fips
+                    //                             // move them to data
+                    // //                             moveSelected(emptyWeeksEntries(fips), data)
+                    //                                var empty = emptyDaysEntries(fips);
+                    //                                data = data.concat(empty)
+                    //                                empInd ++
+                    //                         }
+                    //                     })
+                    //                     
+                    //                     // Unique FIPS in data 
+                    //                     var dataFips = [...new Set(data.map(d => d['fips']))]
+                    //                     console.log("AFTER: Number of FIPS in data", dataFips.length)
+                    //                     console.log("AFTER: Number of FIPS in data", dataFips.sort())
+                    // 
+                    //                     // Unique FIPS in fipsData 
+                    //                     var fipsFips = [...new Set(fipsData.map(d => d['FIPS']))]
+                    //                     console.log("Number of FIPS", fipsFips.length)
+                    //                     console.log("Number of FIPS", fipsFips.sort())
+                    // 
+                    //                     console.log("Data for all weeks: ", compInd)
+                    //                     console.log("Data for some weeks: ", partInd)
+                    //                     console.log("No Data: ", empInd)
+                    //                     
+                    //                     console.log("Obs in data (10 x FIPS)", data.length)
+                    // 
+
+                    // fips in counties.features are strings
+                    data.forEach(d => d.fips = +d.fips)
+
+                    /************************************************************/
+                    /* Step Two: Get Weekly Data                                */
+                    /************************************************************/
+
+                    // OLD VERSION: For each fips, only selected the oldest date:
+                    //                     const filteredArray = Object.values(data.reduce((unique, o) => {
+                    //                         if (!unique[o.fips] || +o.date > +unique[o.fips].date) unique[o.fips] = o;
+                    // 
+                    //                         return unique;
+                    //                     }, {}));
+
+                    //                     console.log("fipsData", fipsData)
+                    //                     console.log("countyByFips", countyByFips)
+
+                    var dataByCountyByCasesWeekly = d3.nest()
+                        .key(d => d.fips)
+                        .key(d => d.day)
+                        .map(data);
+
+                    var totalCases = d3.nest()
+                        .key(d => d.day)
+                        .rollup(function(v) { return {
+                            count: v.length,
+                            "totalCases": d3.sum(v, function(d) {return d.cases; }),
+                            "totalDeaths": d3.sum(v, function(d) {return d.deaths; })
+                        }; })
+                        .entries(data);
+                        
+                    // Add weeks object to features for each id
+                    counties.features.forEach(function(county) {
+                        county.properties.days = dataByCountyByCasesWeekly.get(county.id)
+                    });
+                    /************************************************************/
+                    /*      Create The Visualization                            */
+                    /************************************************************/
+                    
+
+                    // Add dates to html
+                    d3.select("#dates")
+                        .data(datesExtant)
+                        .attr("x", width - 240)
+                        .attr("y", -10)
+                        .style("text-anchor", "middle")
+                        .style("color", "black")
+                        .html(d => "Earliest Entry: " + d.minText + ", Most Recent Entry: " + d.maxText +
+                         "<br>(Cases: " + totalCases[totalCases.length-1].value["totalCases"] + ", Deaths: " + totalCases[totalCases.length-1].value["totalDeaths"] + ")")
+
+                    //                     Check that each days has 69 objects
+                    //                     weeksCount = {}
+                    //                     counties.features.forEach(function(d) {
+                    //                             weekLen = Object.keys(d.properties.days).length;
+                    //                             if (weekLen != 69){
+                    //                             weeksCount[d.id] = weekLen;
+                    //                             }
+                    //                     })
+                    // //                     
+                    //                     console.log("weeksCount: ", weeksCount)
+
+                    //                     var dataFeatures = [...new Set(counties.features.map(d => d['id']))]
+                    //                     console.log("Number of FIPS in features", dataFeatures.length)
+                    //                     console.log("FIPS in features", dataFeatures.sort())
+
+                    //                     console.log("data filter for states", finalData.filter(d => d.id === 25027))
+                    // Some Days May Not Have Entries
+                    function tooltipText(d, obj, day) {
+                        if (typeof obj != 'undefined') {
+                            if (obj.has(day)) {
+                                return "<p><strong>" +
+                                    d.county + ", " + d.state +
+                                    "</strong></p><br><p><strong>Cases: " +
+                                    obj.get(day)[0].cases +
+                                    ", Deaths: " +
+                                    obj.get(day)[0].deaths +
+                                    "</strong></p>"
+                            } else {
+                                return "<p><strong>" + d.county + ", " + d.state + "</strong></p><br><p><strong>Cases: N/A, Deaths: N/A </strong></p>"
+                            }
+                        } else {
+                            return "<p><strong>" + d.county + ", " + d.state + "</strong></p><br><p><strong>Cases: N/A, Deaths: N/A </strong></p>"
+                        }
+                    }
+
+                    function colorEncoding(obj, day) {
+                        if (typeof obj != 'undefined') {
+//                             console.log(obj)
+                            if (obj.has(day)) {
+//                                 console.log(obj)
+                                return color(obj.get(day)[0].casesScale)
+                            } else {
+                                return "#f3f3f4"
+                            }
+                        } else {
+                            return "#f3f3f4"
+                        }
+                    }
+
+                    var colorDomain = [...new Set(data.map(d => d['casesScale']))]
+
+                    var color = d3.scaleOrdinal()
+                        .domain(colorDomain)
+                        .range(RdYlBu)
+
+                    console.log("color(5): ", color(5))
+
+                    var projection = d3.geoAlbersUsa()
+                        .translate([width / 2, height / 2]);
+
+                    var path = d3.geoPath()
+                        .projection(projection);
+
+                    const maxDay = days[days.length - 1],
+                        minDay = days[0];
+
+                    var countyShapes = g.selectAll(".county")
+                        .data(counties.features)
+                        .enter()
+                        .append("path")
+                        .attr("class", "county")
+                        .attr("d", path)
+                        .style('stroke', 'black')
+                        .style('stroke-width', 0.1)
+                        .style('fill', d => colorEncoding(d.properties.days, maxDay))
+
+                    countyShapes
+                        .on("mouseover", function(d) {
+                            tooltip.transition()
+                                .duration(250)
+                                .style("opacity", 1);
+                            tooltip.html(tooltipText(d, d.properties.days, maxDay))
+                                .style("left", (d3.event.pageX + 15) + "px")
+                                .style("top", (d3.event.pageY - 28) + "px");
+                        })
+                        .on("mouseout", function(d) {
+                            tooltip.transition()
+                                .duration(250)
+                                .style("opacity", 0);
+                        });
+
+                    g.append("path")
+                        .datum(topojson.feature(us, us.objects.states, function(a, b) {
+                            return a !== b;
+                        }))
+                        .attr("class", "states")
+                        .attr("d", path);
+
+                    // Legend 
+                    var legend = g.append("g")
+                        .attr("id", "legend");
+
+                    var legenditem = g.selectAll(".legenditem")
+                        .data(legendText)
+                        .enter()
+                        .append("g")
+                        .attr("class", "legenditem")
+                        .attr("transform", function(d, i) {
+                            return "translate(" + i * 30 + ",0)";
+                        });
+
+                    legenditem.append("rect")
+                        .attr("x", width - 240)
+                        .attr("y", -7)
+                        .attr("width", 30)
+                        .attr("height", 6)
+                        .attr("class", "rect")
+                        .style("fill", d => legendColorScale(d))
+
+                    legenditem.append("text")
+                        .attr("x", width - 240)
+                        .attr("y", -10)
+                        .style("text-anchor", "middle")
+                        .text(d => d);
+
+                    //                    counties.features.forEach(function(d){
+                    //                             if (d.id === 53007){
+                    //                             console.log("53007", d)
+                    //                             }
+                    //                         })
+                    //                     counties.features.forEach(function(d){
+                    //                         console.log("id", d.id);
+                    //                         console.log("week 9", d.properties.weeks.get(9)[0])})
+
+                    function update(day) {
+                        d3.select(".year").text(formatDayWeek(parser(day), day));
+                        //                         countyShapes.attr('fake', d => console.log(day))
+                        //                         countyShapes.attr('fake', d => console.log(d.properties))
+                        countyShapes.style('fill', d => colorEncoding(d.properties.days, day))
+                        countyShapes
+                            .on("mouseover", function(d) {
+                                tooltip.transition()
+                                    .duration(250)
+                                    .style("opacity", 1);
+                                tooltip.html(tooltipText(d, d.properties.days, day))
+                                    .style("left", (d3.event.pageX + 15) + "px")
+                                    .style("top", (d3.event.pageY - 28) + "px");
+                            })
+                            .on("mouseout", function(d) {
+                                tooltip.transition()
+                                    .duration(250)
+                                    .style("opacity", 0);
+                            });
+                    }
+
+                    // Setup initial selection box for Histograms
+                    var select = d3.select(".slider")
+                        .append("div")
+                        .append("select")
+                        .attr("class", "select")
+                        .attr("id", "select")
+                        .on("change", function() {
+                            var day = this.value;
+                            console.log("slider day", day)
+                            console.log("slider format day", formatDayWeek(parser(day)))
+                            update(day);
+                        })
+                        // Options for Graphs selection menu
+                    var options1 = d3.select("#select")
+                        .selectAll("option")
+                        .data(days)
+                        .enter()
+                        .append('option')
+                        .text(d => d);
+
+                    d3.select(".year").text("Slide To Different Days");
+
+                    var counter = 0;
+                    var i = setInterval(function() {
+                        // do your thing
+                        update(days[counter])
+
+                        counter++;
+                        if (counter === days.length - 1) {
+                            clearInterval(i);
+                        }
+                    }, 250);
+
+                });
+            });
+        });
+
+        function zoomed() {
+            g
+                .selectAll('path') // To prevent stroke width from scaling
+                .attr('transform', d3.event.transform);
+        }
+    </script>
+</body>
+
+</html>

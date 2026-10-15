@@ -1,0 +1,62 @@
+    <h1>Chapter 4</h1>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <iframe frameborder="0" height="400" id="targetframe" name=
+            "targetframe" seamless="" src="JS_JQ/c04/example.html" width=
+            "90%"></iframe><br>
+        </div>
+
+        <div id="rightdiv">
+            This chapter introduces loops, and global objects. In this page,
+            the code generates an addition table (and again, using CSS, places
+            it over a background image).
+        </div>
+    </div><br class="clear">
+    
+
+
+    <h2>Code for Chapter 4</h2>
+
+    <div id="contain">
+        <div id="leftdiv">
+            <pre class="code">
+var table = 3;             // Unit of table
+var operator = 'other';    // Type of calculation (if 'addition' then addition,
+                           //    else, multiplication)
+var i = 1;                 // Set counter to 1
+var msg = '';              // Message (which is the array created below
+                           // adding a new row each loop (using the shorthand "+=")
+
+if (operator === 'addition') {
+  // Do addition
+  while (i &lt; 11) {
+    msg += i + ' + ' + table + ' = ' + (i + table) + '
+                        <br>';
+    i++;
+  }
+} else {
+  // Do multiplication
+  while (i &lt; 11) {
+    msg += i + ' x ' + table + ' = ' + (i * table) + '
+                        <br>';
+    i++;
+  }
+}
+
+// Write the message into the page
+var el = document.getElementById('blackboard');
+el.innerHTML = msg;
+
+                    
+</pre>
+        </div>
+
+        <div id="rightdiv">
+            In folder c04, filename: <b style=
+            "font-style: italic">example.js</b><br>
+            <br>
+            By changing the var "operator" to anything other than 'addition'
+            you get the multiplication table (as I did here).
+        </div>
+    </div><br class="clear">

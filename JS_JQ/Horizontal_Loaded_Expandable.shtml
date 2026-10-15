@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; Expandable Sections - Example</title>
+    <script language="Javascript" src="js/expandableSections_test.js" type="text/javascript"></script>
+    <link href="css/expandableSections.css" rel="stylesheet">
+</head>
+
+<body>
+    <center>
+
+    <p class="header"><a href="http://www.htmlandcssbook.com/" target=
+    "_blank"><img alt="HTML and CSS Design and Build Websites" class=
+    "dropshadow" src=
+    "http://01eba9f59936628a9c10-a672e330d72d3d2e689cb64015c1f8c5.r97.cf2.rackcdn.com/html-and-css-book-thumb.jpg"
+    style="vertical-align:middle"></a> <span style=
+    "font-size:250%; font-variant: small-caps">JavaScript & jQuery</span></p>
+    <!-- ################################################### -->
+    <!-- ##################Chapter Divider################## -->
+    <!-- ################################################### -->
+
+
+<div id="page">
+
+    <h1 id="header">List</h1>
+    <h3>Notes By Chapter</h3>
+<ul id ="horizontalList">
+<li id="one" class="cool">Chapter One</li>
+
+ <!--#include virtual="chapters/chap01.html" -->
+    
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Two</li>
+ <!--#include virtual="chapters/chap02.html" -->
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Three</li>
+
+ <!--#include virtual="chapters/chap03.html" -->
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Four</li>
+
+ <!--#include virtual="chapters/chap04.html" -->    
+</ul>
+<br />
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+<ul id ="horizontalList">
+  <li id="one" class="hot">Chapter Five</li>
+
+ <!--#include virtual="chapters/chap05.html" --> 
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Six</li>
+
+ <!--#include virtual="chapters/chap06.html" -->   
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Seven</li>
+
+ <!--#include virtual="chapters/chap07.html" -->
+    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Eight</li>
+
+ <!--#include virtual="chapters/chap08.html" -->
+ </ul>
+<br />
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+<ul id ="horizontalList">
+<li id="one" class="cool">Chapter Nine</li>
+
+ <!--#include virtual="chapters/chap09.html" -->
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+
+<li id="one" class="cool">Chapter Ten</li>
+
+ <!--#include virtual="chapters/chap10.html" -->    
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Eleven</li>
+
+ <!--#include virtual="chapters/chap11.html" -->
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+<li id="one" class="cool">Chapter Twelve</li>
+
+ <!--#include virtual="chapters/chap12.html" -->
+</ul>
+<br />
+
+    <!-- ################################################### -->
+     <!-- ##################Chapter Divider################## -->
+     <!-- ################################################### -->
+
+ <ul id ="horizontalList">
+<li id="one" class="cool">Chapter Thirteen</li>
+
+ <!--#include virtual="chapters/chap13.html" -->
+</ul>
+<br />
+
+</div>
+
+    <h4>Goodbye</h4><br>
+    <!--     <script src="js/example.js"></script> -->
+    </center>
+</body>
+</html>

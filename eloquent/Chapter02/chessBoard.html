@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='stylesheet' type='text/css' href="chessBoard.css"></link>
+		<script src="chessBoard.js"></script>
+	</head>
+	<body>
+
+		<div = "box">
+			<h1>Create A Chess Board Using Javascript</h1>
+
+			<p id="demo">
+
+				<script>
+					var boardSize = prompt("Please enter the board size");
+					boardSize = parseInt(boardSize);
+					if (!isNaN(boardSize)) {
+						board = chessBoard(boardSize);
+						document.write("<pre id='box1'>" + board + "<\pre>");
+					} else {
+						document.write("You didn't enter a number");
+					}
+				</script>
+			</p>
+		</div>
+	</body>
+</html>
+

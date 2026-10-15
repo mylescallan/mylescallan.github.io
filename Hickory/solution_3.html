@@ -1,0 +1,120 @@
+<html>
+<head>
+	<style>
+
+
+/* Container to hold all rows */
+/* Ensure the body doesn't add extra scroll space */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+/*   overflow: hidden; /* Prevents scrolling if content is slightly too large */ */
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between rows */
+  width: 100%;
+}
+
+/* Base style for every row */
+.row {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center;
+  width: 100%;
+}
+
+/* Optional: Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Specific styling for the third row to space out the 3 images */
+.row-three {
+  justify-content: space-around; /* Distributes the 3 images evenly */
+}
+
+}
+
+figure {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: fit-content; /* Keeps the border tight around the image */
+  margin: auto;       /* Centers the entire figure on the page */
+}
+
+figcaption {
+  background-color: #333;
+  color: white;
+  font-style: italic;
+  padding: 5px;
+  text-align: center;
+}
+
+	
+	</style>
+	<title>MylesCallan.com</title>
+	<link rel="stylesheet" type="text/css" href="CSS/mystyle.css" />
+</head>
+<body bgcolor="#FFFFFF">
+<div id="stylet">
+	<center>
+		<h1>
+			Myles Callan 
+		</h1>
+<!--			The time is <?php echo date('H:i:s');?> <br>
+			and the date is <?php echo date('j F Y');?> <br>
+			<?php echo"Testing my Server for PHP!"; phpinfo(); ?> -->
+	</center>
+</div>
+<br> 
+<div class="gallery-container">
+	<div class="row">
+		<figure>
+			<img src="images/Solve_3.png" alt="Row 1 Image"> 
+			<figcaption>
+				Here is the problem to solve: 
+			</figcaption>
+		</div>
+	</figure>
+</div>
+<div class="gallery-container">
+	<div class="row">
+		<figure>
+			<img src="images/LLMB.png" alt="Row 1 Image"> 
+			<figcaption>
+				LLM B's solution - D 
+			</figcaption>
+		</div>
+	</figure>
+</div>
+<div class="gallery-container">
+	<div class="row row-three">
+		<figure>
+			<img src="images/Solve_3_1st_move.png" alt="Row 3 Image A"> 
+			<figcaption>
+				Left Counterclockwise (L`) 
+			</figcaption>
+		</figure>
+		<figure>
+			<img src="images/Solve_3_2nd_move.png" alt="Row 3 Image B"> 
+			<figcaption>
+				Down Counterclockwise (D') 
+			</figcaption>
+		</figure>
+		<figure>
+			<img src="images/Solve_3_solved.png" alt="Row 3 Image C"> 
+			<figcaption>
+				Solved 
+			</figcaption>
+		</figure>
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans); 
+
+/*Now the CSS*/
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+/*    background-color: #000; */
+	font-family: 'Open+Sans', 'Futura', sans-serif;
+	text-align:center;
+	margin: 5%; 
+	padding: 5%;
+	}
+
+* {margin: 0; padding: 0;}
+
+.tree ul {
+	padding-top: 20px; position: relative;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.tree li {
+	float: left; text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/* ############################################ */
+/*           Use ::before and ::after           */
+/*            to draw the connectors            */
+/* ############################################ */
+
+/* 1. Horizontal Connectors */
+
+.tree li::before, .tree li::after{          /* NOTE: These are borders on 'li' itself!!!!! */
+	content: '';
+	position: absolute; top: 0; right: 50%; /* Note "right: 50%" draws connector 50% to right */ 
+	border-top: 1px solid #ccc;             /* Connectors across the top of children - play with 'px' to see */
+	width: 50%; height: 20px;               /* Connectors down to children - play with 'height' to see */
+}
+.tree  li.branch::after{
+	right: auto; left: 50%;                 /* Note "left: 50%" draws connector 50% to left */ 
+	border-left: 1px solid #ccc;            /* Note This draws the horizontal connector */ 
+}
+
+.tree  li.twig::after{
+		right: auto; left: 50%;             /* Note "left: 50%" draws connector 50% to left               */ 
+}                                           /* We still want the connectors above twigs, just not to twigs */ 
+
+
+
+/* 2. We need to remove left & right connectors from elements without any siblings   */
+/*    i.e. if an element has only one child, then left and right connectors overhang */
+
+.tree li:only-child::after, .tree li:only-child::before {    /* -----|------ */ 
+	display: none;                                           /*      |       */ 
+}                                                            /*      |       */ 
+
+/* 3. Remove space from the top of single children */
+
+.tree li:only-child{ padding-top: 0;        /* NOTE: Turning this off gives a good idea of how connectors are made                     */
+}                                           /*        i.e. in 3 distinct parts: vertical connectors, followed by horizontal "branches" */
+                                            /*        followed by vertical connectors. No need for branches if no siblings             */
+                                            
+/* 4. Remove left connector from first child and right connector from last child */
+/*    and second-last child if there is a 'twig' (corrected below if no twig)    */
+
+.tree li.branch:first-child::before, .tree li:last-child::after, .tree li.branch:nth-last-child(2)::after{
+	border: 0 none;
+}
+
+/* 5. Remove left connector from twig */
+.tree li.twig:last-child::before{
+	border: 0 none;
+}
+
+/* 6. Adding back the vertical connector to the last and second last nodes */
+/*    NOTE: This addition to the original script is due to step 4.         */
+
+.tree  li.branch:last-child::before, .tree  li.branch:nth-last-child(2)::before{
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+
+/* 7. Adding back the horizontal connector to the last and second last nodes */
+/*    NOTE: This addition to the original script is due to step 4.           */
+
+.tree  li.branch:first-child::after, .tree  li.branch:nth-last-child(2)::before{
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+/* ############################################ */
+/*     Add downward connectors from parents     */
+/* ############################################ */
+
+.tree ul ul::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0; height: 20px;
+}
+
+/* ############################################ */
+/*    Border on each 'link' in li, and format   */
+/* ############################################ */
+
+/* 1. Generic Link */
+
+.tree li a{
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: #666;
+	font-family: 'Open+Sans', 'Futura', sans-serif;
+	font-size: 18px;
+	display: inline-block;
+	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/* 1. 'twig' Link */
+
+.tree li.twig a{
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	text-decoration: none;
+	background-color: #880000;
+	color: white;
+	font-family: 'Open+Sans', 'Futura', sans-serif;
+	font-size: 11px;
+	display: inline-block;
+	
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/* ############################################ */
+/*               Hover effects                  */
+/* ############################################ */
+
+/* 1. Apply the hover effect the the lineage of the element */
+
+.tree li a:hover, .tree li a:hover+ul li a {
+	background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+}
+/* 2. Connector styles on hover                             */
+.tree li a:hover+ul li::after, 
+.tree li a:hover+ul li::before, 
+.tree li a:hover+ul::before, 
+.tree li a:hover+ul ul::before{
+	border-color:  #94a0b4;
+}
+
+/*Thats all. I hope you enjoyed it.
+Thanks :)*/

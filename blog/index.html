@@ -1,0 +1,3259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="css/codehilite.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <!-- #################### -->
+        <!--   Navigation Bar     -->
+        <!-- #################### -->
+        <div id="navbar">
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/investigate.html">Investigate</a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/Communicate_Data.html">Communicate</a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/Explore.html">Explore</a> <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/wrangling.html">Data Wrangling</a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/ab_testing.html">AB Testing</a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/perception.html">
+                Test a<br />
+                Perceptual<br />
+                Phenomenon
+            </a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/weather_trends.html">
+                Weather<br />
+                Trends
+            </a>
+            <a class="btnSB" href="file:///">|</a> <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/PACT1.html">PACT I</a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/PACT2.html">PACT II</a> <a class="btnSB" href="file:///">|</a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/cannot_review.html">
+                Can't<br />
+                Review
+            </a>
+            <a class="btnSB" href="file:///">|</a> <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/Plagiarism.html">Plagiarism</a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/slide_show.html">
+                Slide<br />
+                Show
+            </a>
+            <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/Audits.html">Audits</a> <a class="btnSB" href="file:///Volumes/Anfield/Work/Udacity_work_analysis/Review_tips/Review_tips_new/Knowledge.html">Knowledge</a>
+        </div>
+        <!-- #################### -->
+        <!--    Side Bar          -->
+        <!-- #################### -->
+        <div class="sidebar" id="sidebar">
+            <br />
+            <br />
+            <div class="project">Communicate Data</div>
+            <br />
+            <a class="btn" href="#data">Data & NBConvert</a>
+            <hr class="sidehr" />
+            <a class="btn" href="#code">Code</a> 
+            <a class="btn" href="#comments">Code Comments</a> 
+            <a class="btn" href="#plots">Plots</a> 
+            <a class="btn" href="#Commentary">Commentary</a> 
+            <a class="btn" href="#Aesthetics">Aesthetics</a>
+            <a class="btn" href="#readme">readme</a> 
+            <a class="btn" href="#SlideDeck">Slide Deck</a> 
+            <a class="btn" href="#titles">Titles</a> 
+            <a class="btn" href="#Suggestions">Suggestions</a>
+            <hr class="sidehr" />
+            <a class="btn" href="#evaluation">Evaluation</a>
+            <hr class="sidehr" />
+            <a class="btn" href="#codereview">Code Review</a>
+            <a class="btn" href="#concepts">Concepts</a>
+            <hr class="sidehr" />
+            <a class="btn" href="#colorencoding">Color Encoding</a>
+             <a class="btn" href="#ordinal">Ordinal/Tick Labels</a> 
+             <a class="btn" href="#histograms">Histogram/Jitter</a>
+            <a class="btn" href="#vectorized">Vectorized</a>
+            <a class="btn" href="#plagiarized">Most Plagiarized</a>
+            <hr class="sidehr" />
+            <a class="btn" href="#plotoptions">Plot Options</a>
+            <a class="btn" href="#datamanipulation">Data Manipulation </a>
+        </div>
+        <!-- #################### -->
+        <!--   Main/Body Div      -->
+        <!-- #################### -->
+        <div class="main">
+            <div class="mainbar" onclick="myFunction(this)" id="data">
+                <pre><code>
+
+
+<span style="color:red;">### Data Location:</span>
+
+<hr>
+
+from load_data import load_data
+num = 
+myString = ""
+df = load_data(num, string = myString)
+'''{0:"r", 1: "w", 2: "prosper",
+                 3: "pisa", 4: "bike", 5: "citibike",
+                 6: "flights",
+                 9: "old"}
+bike - string is contained in file name
+flights - string is exact file name e.g. 2008.csv
+'''
+
+<hr>
+
+    
+Technical Report: https://www.oecd.org/pisa/pisaproducts/PISA-2012-technical-report-final.pdf
+https://www.oecd.org/pisa/pisaproducts/PISA12_stu_codebook.pdf
+
+<span style="color:red;"># pisa2012</span>
+
+
+### Aggregate Data
+https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp?pn=1
+
+<span style="color:red;"># Flights</span>
+
+string = "/Volumes/Anfield/Work/Reviews/__data/flights/flight/2018_monthly/"
+string = "/Volumes/Anfield/Work/Reviews/__data/flights/flight/2019_monthly/"
+
+
+https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7
+
+<hr>
+
+<span style="color:red;">Old Bike data</span>
+
+import os
+path = "/Volumes/Anfield/Work/Reviews/__data/Bike_Data/Old_Data/"
+
+pd.read_csv(os.path.join(path,  ))
+
+import os
+path = "/Volumes/Anfield/Work/Reviews/__data/Bike_Data/Old_Data/"
+
+
+df = pd.read_csv(os.path.join(path,"201902-fordgobike-tripdata.csv"))
+<hr>
+
+
+<span style="color:red;">Tips</span>
+
+#### _**Given that this was not flagged by the previous reviewer, I can't expect you to have fixed that issue for this submission.**_
+
+<span style="color:red;">###### _**Click On Images To Enlarge Them**_</span>
+
+         <hr>
+
+<span style="color:red;">NBConvert</span>
+
+from IPython.display import display,Javascript 
+display(Javascript('IPython.notebook.save_checkpoint();'))
+
+
+ps -e | grep 'jupyter-nbconvert' | awk kill -9
+
+<span style="color:red;">!jupyter nbconvert Your_Slide_Deck_Name.ipynb --to slides --post serve  --no-input --no-prompt </span>
+
+<span style="color:red;">!jupyter nbconvert Your_Slide_Deck_Name.ipynb --to slides --post serve --template output_toggle </span>
+
+kill $(ps aux | grep 'jupyter-nbconvert' | awk '{print $2}')
+
+
+<span style="color:red;"> Updated version</span>
+## To Use custom.css add to first cell (add opening caret):
+
+%%HTML
+link rel="stylesheet" type="text/css" href="custom.css">
+
+<span style="color:red;">!jupyter nbconvert --to slides slides.ipynb  --reveal-prefix "https://cdn.jsdelivr.net/npm/reveal.js@3.7.0" --post serve --template output_toggle </span>
+
+
+
+<span style="color:red;">!jupyter nbconvert Airlines_Delays_Part2.ipynb --to slides --post serve --SlidesExporter.reveal_scroll=True --TemplateExporter.exclude_input=True --templete output-toggle.tpl </span>
+
+________________
+
+# Windows
+## Open Command Prompt in Administrative Mode
+
+netstat -aon | find /i "listening" | find "8000"
+taskkill /F /PID 1234
+
+where `1234` is replaced by the last number found from the first command
+
+________________
+
+
+ps aux | grep 'python'
+
+
+_________
+
+
+# templates stored here: "/Users/myles/.jupyter/nbconvert_templates/"
+## hidecode - suppress code with --to pdf or --to latex
+## output_toggle - toggle code with slides
+
+jupyter nbconvert --to pdf --template hidecode Example.ipynb
+
+!jupyter nbconvert Your_Slide_Deck_Name.ipynb --to slides --post serve --template output_toggle
+
+
+kill $(ps aux | grep 'TouchBarServer' | awk '{print $2}')
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="evaluation">
+                <pre><code>
+_______
+
+### Overall
+
+This is an excellent first submission for this project. You take a complex dataset and reveal some interesting, and unusual, patterns _(for example: "when the loan amount is small, the estimated loss is high")_. Nice work!
+
+However, _reviewers are ruled by the **Rubric**_ and  there is still a main requirement that has not been met: Creating and Finalizing your slide deck/show _HTML_ file (there are other very minor changes to make, which will take just a few minutes - _(where **"very minor issues"** take about a minute to resolve)_). This is explained in the sections below.
+
+_**Note**_: Given that the structure of your project is sound (there are no major changes required), it will not take long to make the changes required to meet all of the requirements. 
+
+
+Overall, very nice work!! Best wishes for your re-submission!
+
+_p.s if you have any questions about any aspect of this review, you can ask mentors questions on  [**Knowledge**](https://knowledge.udacity.com/)_
+________
+
+##### **_Important_**
+
+* Where changes are required, a simple list of required changes is provided.
+  * ###### _If you feel comfortable making those changes, **all other comments can be ignored**. They are included as guides, to help make the required changes_.
+* Sections marked `Note` are **"for your information"** _(and, if you wish, can be read later, after you have finished your project)._ 
+* Sections marked `Tips` detail ways that you can improve your project _(which you can incorporate into your project but are **optional**)._
+
+___________
+
+<hr>
+
+_## Overall
+
+This is an excellent first submission for this project. You take a complex dataset and reveal some interesting, and unusual, patterns _(for example: "when the loan amount is small, the estimated loss is high")_. Nice work!
+
+However, _reviewers are ruled by the **Rubric**_ and  there are still main requirements that have not been met: 
+- Ensuring that there is sufficient commentary to explain all visualizations in your _data exploration_ to the reader,
+- Ensuring that there are sufficient visualizations to meet the _"many relationships"_ requirement; and 
+- Finalizing your slide deck/show _HTML_ file
+-  (there are other very minor changes to make, which will take just a few minutes - _(where **"very minor issues"** take about a minute to resolve)_). 
+
+These are explained in the sections below.
+
+_**Note**_: Given that the structure of your project is sound (there are no major changes required), it will not take long to make the changes required to meet all of the requirements. 
+
+
+Overall, very nice work!! Best wishes for your re-submission!
+
+_p.s if you have any questions about any aspect of this review, you can ask mentors questions on  [**Knowledge**](https://knowledge.udacity.com/)_
+________
+
+##### **_Important_**
+
+* Where changes are required, a simple list of required changes is provided.
+  * ###### _If you feel comfortable making those changes, **all other comments can be ignored**. They are included as guides, to help make the required changes_.
+* Sections marked `Note` are **"for your information"** _(and, if you wish, can be read later, after you have finished your project)._ 
+* Sections marked `Tips` detail ways that you can improve your project _(which you can incorporate into your project but are **optional**)._
+
+<hr>
+
+________
+
+##### Congratulations
+
+## Congratulations 🎓
+
+You have met all of the requirements for this project! This is an excellent submission. You take a complex dataset and reveal some interesting, and unusual, patterns _(for example: "when the loan amount is small, the estimated loss is high")_. Very nice work!!
+
+For data analysts, one of the most difficult parts of the job is explaining the implications of their studies to non-statisticians. With your choice of visualizations, and your data wrangling to generate those visualizations, you have highlighted that you have the skill to do this with ease. It is a skill that translates to any _data exploration_. You should look forward with confidence to applying what you have learned here, to any of the interesting data analyses that you will face in your career.
+
+_(I have made some suggestions below, if you are going to use this report as evidence of your abilities in **data exploration**, you should make these changes where relevant. These suggestions don't detract from your work, they are just included so that you can add the finishing touches to your excellent report)._
+
+Congrats again and best wishes for your next project (or your next endeavor, if this is your last project)!!
+
+p.s. If you are interested in developing your skills in data analysis, [this free text is a valuable resource (the link is to the authors github version of the text)](https://jakevdp.github.io/PythonDataScienceHandbook/) _(**Note:** The first 4 chapters complement the contents of this course (they begin with concepts that you have learned, and then delve a little deeper to areas that could not be covered in this course). Later chapters involve more advanced areas of analysis - they will give you a good introduction to some of the directions that data analysis/science can take)_
+
+
+_(p.s. I have made some suggestions below, if you are going to use this report as evidence of your abilities in **data exploration**, you should make these changes where relevant.)_
+
+________ 
+ 
+<hr>
+###### Note: When you see the number of requirements that have to be fixed, you may get the sense that there is much work to do. However, many of the changes are minor and others overlap (that is, when you fix one then another requirement will be met).
+
+</code>
+            </pre>
+            </div>
+            \
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="code">
+                <pre><code>
+
+#### CODE QUALITY
+
+Your code runs as expected. Nice work!
+
+Both of your notebooks run as expected. Nice work!
+
+The code in both of your notebooks evaluate as expected (without errors). Nice work!
+
+______
+#### Additional Notes
+________
+
+- [To help develop your skills using python, I highly recommend working through the examples in this free online text](https://automatetheboringstuff.com/chapter3/)
+
+<hr>
+____________
+
+After resolving some minor issues, the code in both of your notebooks evaluate as expected (without errors). Nice work!
+
+________
+#### Changes Required (Very Minor)
+________
+
+- Resolve minor issue in _exploration_ notebook
+
+
+________
+#### Additional Notes
+________
+
+When you run code in _Jupyter Notebooks_, all variables stay in _python's_ memory.
+
+_**This leads to a problem.**_ If you edit a cell, deleting a statement that assigns a value to a variable name, that variable will still be in _python's_ memory. So code that uses that variable will still run (even though the statement creating the variable has been deleted).
+
+The way around this is to _"Restart the Kernel"_ (under `Kernel` in the notebook menu). This clears _python's_ memory. So, when you re-run all of your cells, you can be sure that all of the variables have been created in the statements in the notebook.
+
+In your slide show notebook, the statements loading the dataframe have been removed _(obviously, to create those visualizations, those statements were in that notebook at some point ... and then deleted)_.
+
+<hr>
+________
+#### Changes Required (Very Minor)
+________
+- Include a _HTML_ file of your data exploration
+
+There should be a _HTML_ page of your _data exploration_ notebook included in your submission - it is part of the submission requirements.
+
+To create that file:
+- select `File` in the notebook menu, 
+- then `Download As` and finally 
+- choose `HTML (.html)`, which will save the HTML version of your exploratory notebook)
+
+##### Submission Requirements
+
+![python_submission_requirements.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1564353287/python_submission_requirements.png)
+
+_______
+
+<hr>
+
+The code in both of your notebooks evaluate as expected (without errors). Nice work!
+
+_______
+
+##### Important
+
+Your slide show notebook should **only** contain _"key insights"_ from your data exploration _(it should not be a presentation of your data exploration)_. See later requirement.
+
+#### WHY 2 NOTEBOOKS?
+The aim of having _two parts_ to this project is to replicate a scenario that is common to data analysts: _Presenting work to highlight key features of an analysis._ This is usually time constrained, so every aspect of the _data exploration_ cannot be presented. The slide show presentation, in a real world situation, is an _executive summary_ of the salient features from the data exploration.
+
+The slide show is **not** intended to be a presentation of your data exploration. Instead, it should be a presentation of key insights from your data exploration.
+
+That is, _once you have completed your data exploration,_ you select 3 - 6 of those visualizations that you think represent _"Key Insights"_ of your data exploration. _Those plots you use in your slide show._ This makes _Finalizing_ your slide show much easier
+
+______
+#### Additional Notes
+________
+
+- [To help develop your skills using python, I highly recommend working through the examples in this free online text](https://automatetheboringstuff.com/chapter3/)
+
+<hr>
+_
+## Note
+
+The code that generates the `new_master.csv` data file is included in your _exploratory_ notebook as _Markdown_. This is not acceptable.
+
+You should view the review process as a collaboration between you and your reviewers. The code that you give your reviewer should be viewed as a working version of a project (that you are passing back and forth until the project is complete). So, the reviewer/collaborator should be able to run your code as is and get the same results as you.
+
+Given that the data that you use is derived from data files from the data options, you don't need to upload that that. However, you do need to supply code that allows the reviewer to generate the data that you use from the original files.
+
+That isn't the case here. I had to change your markdown to code, then run that code.
+
+To avoid reloading the original files, you can add a simple condition to check if `new_master.csv` is in your current working directory. `os.listdir()` creates a list of all of the files in your current working directory. So, using:
+
+```
+if "new_master.csv" not in os.listdir():
+```
+
+sets a condition on a block of code that will only run if _`new_master.csv_ is NOT in the current working directory_
+
+
+![Screen Shot 2019-06-20 at 7.45.01 AM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1561031682/Screen_Shot_2019-06-20_at_7.45.01_AM.png)
+
+<hr>
+
+### DATA
+
+The code in both of your notebooks evaluate as expected (without errors). Nice work!
+
+______________
+#### Changes Required (Very Minor)
+________
+
+- Include the data in your submission, otherwise the code cannot be evaluated
+
+Here are the project requirements relating to the data:
+![requirements_Communicate_data.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1607904472/requirements_Communicate_data.png)
+
+______
+#### Additional Notes
+________
+
+- [To help develop your skills using python, I highly recommend working through the examples in this free online text](https://automatetheboringstuff.com/chapter3/)
+
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+            
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="comments">
+                <pre><code>
+
+
+## comments/loops
+
+- pandas is used for most data wrangling tasks, so vectorized operations rather than loops are used. Nice work.
+
+- The comments in your code, and in your Markdown that relate to the code, makes it easy to follow your code. Very nice work!
+
+- Excellent work using a function to avoid repetitive coding
+
+- You don't use a function in your code. However, I don't see any repetitive coding that would benefit from using one .
+
+______
+#### Additional Notes
+________
+- In data analysis, in a work environment, commenting code, so that your colleagues understand the intent of the code that you write, is a basic necessity.
+  -  _([It is always more difficult to read other people's code](https://qr.ae/pNKATz))_.
+  - Commenting code is a good habit to develop, because it communicates to colleagues, or to yourself at some future time, the intent of the code that you have written (in a succinct way that avoids you having to examine the code line by line). It is difficult to overstate the importance of clear code commenting, in a work environment, in data analysis.  
+  - [Here is a summary of good commenting etiquette](https://stackabuse.com/commenting-python-code/#:~:text=A%20comment%20in%20Python%20starts,a%20multi%2Dline%20comment%20block.)
+
+Again, nice work!!
+
+- If you want to explore functions in python:
+  - [This free online text/tutorial will help you to develop this area of your coding skills](https://automatetheboringstuff.com/chapter3/)
+  - [Here is a simple overview of functions](https://www.w3resource.com/python/python-user-defined-functions.php)
+  
+______
+#### Additional Notes
+________
+
+In data analysis, in a work environment, commenting code, so that your colleagues understand the intent of the code that you write, is a basic necessity. _([It is always more difficult to read other people's code](https://qr.ae/pNKATz))_.
+
+Commenting code is a good habit to develop _(nice work with that!!)_, because it communicates to colleagues, or to yourself at some future time, the intent of the code that you have written (in a succinct way that avoids you having to examine the code line by line).
+
+It is difficult to overstate the importance of clear code commenting, in a work environment, in data analysis.
+
+or
+
+pandas is used for most data wrangling tasks, so vectorized operations rather than loops are used. Nice work.
+
+______
+
+- pandas is used for most data wrangling tasks, so vectorized operations rather than loops are used. Nice work.
+
+- You don't use a function in your code. However, I don't see any repetitive coding that would benefit from using one .
+_______
+
+
+
+
+________
+#### Changes Required (Minor)
+________
+
+- Code comments should be added
+
+______
+#### Additional Notes
+________
+
+One of the requirements for this specification is:
+
+> "Comments and docstrings are used as needed to document code functionality."
+
+There is very little commenting of code. It should sufficient for me to follow your code without reading much of it line-by-line _(especially complex code, or code that relates to decisions that you made during wrangling)_.
+
+  - [Here is a summary of good commenting etiquette](https://stackabuse.com/commenting-python-code/#:~:text=A%20comment%20in%20Python%20starts,a%20multi%2Dline%20comment%20block.)
+
+
+In data analysis, in a work environment, commenting code, so that your colleagues understand the intent of the code that you write, is a basic necessity. _([It is always more difficult to read other people's code](https://qr.ae/pNKATz))_.
+
+Commenting code is a requirement for this project, and a good habit to develop, because it communicates to colleagues, or to yourself at some future time, the intent of the code that you have written (in a succinct way that avoids you having to examine the code line by line).
+
+It is difficult to overstate the importance of clear code commenting, in a work environment, in data analysis.
+
+_To fix this, it is best to write brief comments for each chunk of code, and more detailed comments for complex code._
+
+It takes about 5 minutes to comment a script like this, but it saves much more time for a colleague when they are reading your code.
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="plots">
+                <pre><code>
+
+# Uni Bi Multi
+
+Your plot selection is excellent (as are your aesthetic choices for those plots). Also, your data wrangling to generate those plots is exceptional (which helps capture patterns that would otherwise have not been so evident).
+
+You have a wide range of visualizations to choose from for your slide deck/show. Very nice work!
+
+
+________________
+
+You include a nice selection of univariate, bivariate, and multivariate visualizations. Nice work!
+
+______
+#### Additional Notes
+________
+
+
+If you are interested in experimenting with different types of visualization, [this site](https://python-graph-gallery.com/) contains a gallery of most types of visualizations, _each example contains code that you can use as a template for your visualizations._
+
+One gallery that I suggest that you look at is for the [Seaborn module (link)](https://python-graph-gallery.com/category/seaborn/). It is developed with the sole purpose for making aesthetically pleasing visualizations easily.
+
+Also, [here is an overview of a range of other modules for visualizations in _python_](https://towardsdatascience.com/complete-guide-to-data-visualization-with-python-2dd74df12b5e), which highlights the range of professional level graphical analysis you can apply using _python_.
+__________
+
+
+________
+#### Changes Required (Minor)
+________
+
+- univariate, bivariate, and multivariate plots need to be added.
+
+______
+#### Additional Notes
+________
+
+
+Currently, there are 7 visualizations in the _exploratory notebook_ (and the visualizations in the exploratory notebook are the same as in the slide show notebook).
+
+The requirement for the exploratory notebook is:
+
+> "The project appropriately uses univariate, bivariate, and multivariate plots to explore many relationships in the data set. "
+
+The key phrase here is _"many relationships"._
+
+
+Optimally, for your _data exploration_, you should have 3 of each of univariate, bivariate, and multivariate plots (aiming for around 12 - 15, that is ball park [See the Example Project for a typical _data exploration_](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/August/5b7de78c_communicate-data-example-project/communicate-data-example-project.zip)).
+
+[This site provides examples of types of plots, _**with code**_, that you can use as templates for your visualizations](https://python-graph-gallery.com/seaborn/)
+
+______
+
+The idea of a _data exploration_ is that, before you begin, you note down some thoughts that you have about the data that you are going to explore - some immediate questions that pop into your mind. Then you use that as a base for creating visualizations - to answer those questions. Often, those visualizations will lead to other questions. So that the data exploration becomes like a _"stream of consciousness"_ of questions and answers.
+
+Then, once done, you select 3 - 6 of those visualizations that you think represent _"Key Insights"_ of your _data exploration_. Those plots you use in your _slide show_.
+
+
+________________
+
+
+## Short Answer
+
+At the very least, for your _data exploration_, you should have 3 of each of univariate, bivariate, and multivariate plots (however, you should aim for around 15 in total, that is ball park).
+
+Typically, you will have more _Univariate_ visualizations (one for each of the variables that you use in the _Bivariate_ and _Multivariate_ visualizations). _Data explorations_ are hierarchical in that way (variables used in later sections are explored also in earlier sections).
+
+## Longer Answer
+
+The requirement for the exploratory notebook is:
+
+> "The project appropriately uses univariate, bivariate, and multivariate plots to explore many relationships in the data set. "
+
+The key phrase here is _"many relationships"._
+
+The idea of a _data exploration_ is that, before you begin, you note down some thoughts that you have about the data that you are going to explore - some immediate questions that pop into your mind. Then you use that as a base for creating visualizations - to answer those questions. Often, those visualizations will lead to other questions. So that the data exploration becomes like a _"stream of consciousness"_ of questions and answers.
+
+Then, once done, you select 3 - 6 of those visualizations that you think represent _"Key Insights"_ of your _data exploration_. Those plots you use in your _slide show_.
+
+[See the Example Project for a typical _data exploration_](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/August/5b7de78c_communicate-data-example-project/communicate-data-example-project.zip)).
+
+________________
+
+
+The visualizations that you include are excellent. However, the contents of the visualizations should be hierarchal. That is, if you include a variable in a Bivariate or Multivariate visualization then that variable has to be included in an individual Univariate visualization.
+
+Also, the commentary included should inform the reader of your thinking during your data exploration. That is:
+
+- Why (the visualization was created), and
+- What (patterns in the data the visualization revealed)
+
+Currently, the commentary just include one or two facts about the visualization. The commentary doesn't have to be technical (or long) but it has to explain to the reader the role of the visualization in your exploration.
+
+Your plot selection is excellent (as are your aesthetic choices for those plots). Also, your data wrangling to generate those plots is exceptional (which helps capture patterns that would otherwise have not been so evident).
+
+You have a wide range of visualizations to choose from for your slide deck/show. Very nice work!
+
+## Note
+
+It is ok to use the _exploratory notebook_ as your base for your _slide show notebook_. However, the aim of the _slide show notebook_ is to select only the visualizations that _**provide key insights**_ from your data exploration. This is outlined in the [Project Rubric](https://review.udacity.com/#!/rubrics/1795/view) as:
+
+> "A section in the submitted materials includes a summary of main findings that reflects on the steps taken during the data exploration. The section also describes the key insights that are conveyed by the explanatory presentation."
+
+Currently, the slide show is a slide show of your _data exploration_ and not of _**key insights from your data exploration**_.
+
+________________
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank10">
+                <pre><code>
+            
+            
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="Commentary">
+                <pre><code>
+
+### Commentary
+
+Your commentary makes it easy to follow your thought processes as you work through your data exploration. It is clear, concise and engaging. The questions that you answer throughout your report uncovers interesting patterns in the data. Excellent work!
+
+or
+
+________
+#### Changes Required (Main Change)
+________
+Commentary needs to be added for each visualization, or set of related visualizations.
+
+______
+#### Additional Notes
+________
+
+The requirement for this specification is:
+> "Questions and observations are placed regularly throughout the report, after each plot or set of related plots."
+
+There is commentary for **_most_** of your visualizations, _but not all_. 
+
+The commentary included should inform the reader of your thinking during your data exploration. A key part of that process is the _Introduction_, i.e. what interests you about this dataset. Then, each stage of the _exploration_ should be outlined. That is:
+
+- Why (the visualization was created), and
+- What (patterns in the data the visualization revealed)
+
+Currently, the commentary  includes one or two facts about the visualization. The commentary doesn't have to be technical (or long) but it has to explain to the reader the role of the visualization in your exploration.
+
+
+
+
+**FYI**: Typically, when working on data exploration projects, in a work environment, you have more background knowledge of the data - which informs your commentary (i.e. allows you to tell a story about the role of the variables that you are analyzing (instead of just listing their statistical properties)). In cases where you don't have background information, it is best to do some basic research (typically starting by going to the company's website to get an overview of their operations).
+
+____________
+
+## Optimally - Commentary
+
+Your commentary is clear and concise.
+
+_______
+#### Additional Notes
+________
+
+Optimally, the commentary included should inform the reader of your thinking during your data exploration, beginning with an `Introduction` that _"sets the stage"_ for your _data exploration_. A key part of that process is the _Introduction_, i.e. what interests you about this dataset. Then, each stage of the _exploration_ should be outlined. That is:
+
+- Why (the visualization was created), and
+- What (patterns in the data the visualization revealed)
+
+Currently, the commentary  includes one or two facts about the visualization. 
+
+###### The commentary doesn't have to be technical (or long) but it has to explain to the reader the role of the visualization in your exploration.
+
+Also, typically, when working on data exploration projects, in a work environment, you have more background knowledge of the data - which informs your commentary (i.e. allows you to tell a story about the role of the variables that you are analyzing (instead of just listing their statistical properties)). In cases where you don't have background information, it is best to do some basic research. _For example_, with this dataset, you could augment your write-up with some information about the [how the bike rental system works, from its FAQ webpage](https://help.baywheels.com/hc/en-us)
+
+
+______
+
+
+<hr>
+______
+
+**FYI**: This information is not available in the data description:
+
+> "On November 24, 2008, the SEC found Prosper to be in violation of the Securities Act of 1933. As a result of these findings, the SEC imposed a cease and desist order on Prosper ... In July 2009, Prosper reopened their website for lending ("investing") and borrowing after having obtained SEC registration for its loans ("notes"). After the relaunch, bidding on loans was restricted to residents of 28 U.S. states and the District of Columbia. Borrowers may reside in any of 47 states, with residents of three states (Iowa, Maine, and North Dakota) not permitted to borrow through Prosper".
+
+[Source: Wikipedia](https://en.wikipedia.org/wiki/Prosper_Marketplace)
+
+
+______
+
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="Aesthetics">
+                <pre><code>
+
+
+### Aesthetics
+
+As noted above, you include a nice selection of univariate, bivariate, and multivariate plots. Also, your aesthetic choices for those plots make them easy to interpret. Very nice work!
+
+<hr>
+
+As noted above, you include an excellent selection of visualizations. However, there are some issues with plot options that should be addressed.
+
+While the visualizations in the data exploration don't have to be finalized, they still have to _"depict the data in an appropriate manner that allows plots to be readily interpreted."_
+
+______________
+#### Changes Required (Minor)
+________
+
+
+<hr>
+
+As noted above, you include an excellent selection of visualizations. However, there are some issues that, while they don't violate any of the project rubric items, should be addressed.
+
+______
+
+#### Tips
+______
+
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="readme">
+                <pre><code>
+
+#### Readme
+
+You summarize the contents of your project files in your `readme.md` file.
+
+After reading the readme file, the reader should have a clear sense of what to expect in your _data exploration_ and slide deck/show. Your summary is excellent is this regard. Very nice work!
+
+## NOT GOOD 1
+
+The `readme.md` file included appears to be a _Markdown_ version of your notebook. This is not appropriate.
+
+# Minor Change
+
+* The `readme` file has to explain each file in your submission.
+
+_______
+
+After reading the readme file, the reader should have a clear sense of what to expect in the slide deck/show. Currently, the readme file does not contain sufficient detail to do that. You should add a little more detail so that it matches the content of your slide deck.
+
+_____
+
+<h4 style="color:red;">## NOT GOOD - MAIN</h4>
+
+
+You summarize the contents of your project files in your `readme.md` file.
+
+________
+#### Changes Required (Minor Change)
+________
+
+- Add more detail to your summary of your presentation/slide show results
+
+_________
+#### Additional Notes
+________
+
+A readme file is an important document. It will be the first document that a researcher that you are collaborating will look at. After reading the readme file, the reader should have a clear sense of what to expect in the _data exploration_ and slide deck/show, and the data used. That is the requirement is the `readme.md` should:
+
+- include an overview of the data
+- include a summary of main findings that reflects on the steps taken during the data exploration, and 
+- also describe the key insights that are conveyed by the explanatory presentation.
+
+Again, this doesn't have to be technical (or long) but it should let the reader know what to expect from both of your notebooks and a brief description of the data. You should add a little more detail for the last two parts to ensure that they do. 
+
+# Very minor change
+
+A [`readme` file (link)](https://www.makeareadme.com/) is a text file that 
+
+- introduces the data
+- includes a summary of main findings that reflects on the steps taken during the data exploration, and 
+- also describes the key insights that are conveyed by the explanatory presentation.
+
+_(it should not contain any visualizations.)_
+
+
+Currently, your readme file, `ReadMe.pdf`, is created from the `Final (1).ipynb` file.
+
+<h4 style="color:red;">## No Readme file</h4>
+
+
+The requirement for this specification is:
+
+> A section in the submitted materials includes a summary of main findings that reflects on the steps taken during the data exploration. The section also describes the key insights that are conveyed by the explanatory presentation.
+
+_**(See Item 3 in the **Submission Requirements** from an earlier requirement)**_.
+
+___________
+#### Changes Required (Minor Change)
+________
+
+
+- Include a readme file in your submission (it is a submission requirement)
+
+________
+#### Additional Notes
+________
+A `readme` file is just a text, or _Markdown_ file, that describes the data, and your analysis.
+
+A readme file is an important document. It will be the first document that a researcher that you are collaborating will look at. After reading the readme file, the reader should have a clear sense of what to expect in the _data exploration_ and slide deck/show, and the data used. That is the requirement is the `readme.md` should include:
+
+- A brief introduction of the data
+- a summary of main findings that reflects on the steps taken during the data exploration, and 
+- a description of the key insights that are conveyed by the explanatory presentation.
+
+[Here is an overview](https://www.makeareadme.com/)
+
+Again, this doesn't have to be technical (or long) but it should let the reader know what to expect from both of your notebooks. You should add a little more detail for the last two parts to ensure that they do. 
+
+
+So, you don't need to use any external software. Just a text editor. If you are using _Markdown_, you can see the formatted version by using [and online compiler](https://dillinger.io/)
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="SlideDeck">
+                <pre><code>
+
+
+<span style="color:red;">### Slide Deck</span>
+
+## A. Good 
+
+You include a slide show notebook and a slide show _HTML_ file in your submission.
+
+Your plot selection, and commentary, are excellent. Very nice work!
+
+, which contains three visualizations. They convey some of the key insights from your data exploration (although one of the visualizations only appears in a composite plot in your data exploration, typically you would use individual visualizations that you developed, and discussed in detail, in the exploratory part of your analysis).
+
+<hr>
+## A. Not Good
+
+You include a slide show notebook  in your submission. However, the  slide show _HTML_ file is not formatted as a slide show:
+
+![2020-07-29 14.12.49.gif](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1596047575/2020-07-29_14.12.49.gif)
+###### _**Click On Images To Enlarge Them**_
+
+
+Your plot selection, and commentary, in your slide show notebook, are excellent. Very nice work!
+
+________
+#### Changes Required (Very Minor)
+________
+
+
+* A slide show _HTML_ file is a submission requirement _(the file named slide show is not in slide show format)_.
+
+
+* The submission requirements require a slide show notebook to be included in your submission.
+
+<hr>
+
+<span style="color:red;">Key Insights, etc</span>
+
+You include a slide show notebook and a slide show _HTML_ file in your submission.
+
+###### _**Click On Images To Enlarge Them**_
+
+
+However, one of the requirements for this specification is:
+> "... with at least three visualizations used in the presentation to convey **key insights.** "
+
+________
+#### Changes Required (Minor)
+________
+- Include only _"key insights"_ in your slide show HTML file
+
+________
+#### Additional Notes
+________
+The aim of the _explanatory_ section of this project is to select a few of your most interesting visualizations and build a presentation around those visualizations. 
+
+In the slide show submitted, there are sequences of many visualizations that replicate your _data exploration_. You can think of this section as the Executive Summary of your _data exploration_ (the part that you present to people before they read your report). The aim is to present the main results of your data exploration without "the reader having to work too hard" .
+
+#### You will have to restructure this part of your submission to generate a summary of your _data exploration_.
+
+A typical (but not required) structure is:
+
+1. Title Page  (slide)
+2. Introduction - short overview  (slide) 
+3. Commentary on first visualization - including title (slide)
+    - first visualization (sub-slide)
+4. Commentary on second visualization - including title (slide)
+    - second visualization (sub-slide)
+... and so on
+
+For 3 - 6 visualizations. Mark all cells that you don't want in your slide show as `Skip` _(typically, this is the majority of your code cells). _(Note: All code in your notebook will evaluate, `Skipping` code cells just means **they will not be included in your slide show presentation**)_.
+
+<hr>
+
+<span style="color:red;">suppress code, etc</span>
+
+_________
+
+You include a slide show notebook  in your submission. However, code is not suppressed in the  slide show _HTML_ file, so many of the visualizations cannot be seen properly.
+
+![2020-12-12 10.08.11_gifsicle.gif](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1607787039/2020-12-12_10.08.11_gifsicle.gif)
+###### _**Click On Images To Enlarge Them**_
+
+
+Your plot selection, and commentary, in your slide show notebook, are excellent. Very nice work!
+
+________
+#### Changes Required (Very Minor)
+________
+
+
+* Suppress the code in your slide show _HTML_ file.
+
+________
+
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="titles">
+                <pre><code>
+____________
+
+<h2 style="color:red;">Titles, etc</h2>
+
+### Slide Show Visualizations
+
+## A. Good
+
+All plots are titled, and axes are labeled (and units of measurement are included). Nice work!
+
+
+## B. Not Good
+________
+#### Changes Required (Minor)
+________
+
+
+One of the requirements for this specification is:
+
+> "All plots in the presentation have an appropriate title with labeled axes and legends."
+
+
+When communicating information using visualizations, the visualizations have to be _self-contained_. That is, when a reader looks at the visualization:
+1. Do they have all of the information required to interpret the visualization?
+2. Is the visualization the correct type (different plot types are appropriate for different data, allowing the patterns in the data to be easily interpreted)?
+________
+#### Changes Required (Minor)
+________
+
+
+Your visualization in your slide deck/show should be _finalized_, that is:
+
+* Every plot should have a title, 
+  - _**Note:**_ If the visualization has subplots, always include a main title for the visualization - which you do using `plt.suptitle("Title", y = 1.04)`, where `y` is the vertical position of the title (`1` is the top of the visualization).
+* You should use full names for label axes (not names from the data file) and add units of measurements to your axes labels (even if they seem self-evident)
+* Each visualization (and Commentary) has to fit on a single slide (See _Plot Dimensions_ below).
+* There should be no _python_ messages on any of the slides.
+  - This is done by  _ensuring that the final statement in each code cell **finishes** with a `;`_ (that is all that is required).
+  - That is, if the last statement in a cell is `plt.xlabel('Credit')` you change that to `plt.xlabel('Credit');`
+
+* There should be no _warnings_ on any of the slides. To suppress warnings, add:
+  ```
+  import warnings
+  warnings.filterwarnings('ignore')
+  ```
+  to the modules that you import
+
+Nice work resolving the issues raised in the previous review!
+
+## Tips
+- Use the same plot dimensions for each plot (it avoids viewers having to refocus on different positions on each slide)
+- As noted above, avoid angling tick labels
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="Suggestions">
+                <pre><code>
+
+
+
+________
+#### Tips (Not Required)
+________
+
+
+###### As noted, Suggestions are optional. These suggestions relate to:
+1. Using the same plot dimensions for each visualization (important for any presentation)
+2. Tidying up the titles, labels and legends
+
+#### 1. Plot Dimensions
+
+#### a. _matplotlib plots_
+
+The plot dimensions change from plot to plot in your slide show.
+
+Using a fixed plot dimension for all of your visualizations helps (so that the reader doesn't have to re-focus on each slide (and the increased width means that you don't have to angle some of your tick labels)).
+
+An A4 (portrait) page size is:
+
+```
+plt.figure(figsize=[ 11.69, 8.27])
+```
+
+However, the aspect ratio for most computer screens (and projectors) is 16/9. So, to use the A4 (portrait) height with a 16/9 aspect ratio, you would use
+
+```
+plt.figure(figsize=[14.70, 8.27])
+```
+
+
+
+**_Note:_ The statements have to be placed _before_ any other code for your plot**
+
+
+
+
+#### b. _**Some** Seaborn plots_
+
+Some _Seaborn_  plots _(called figure level plots, like `.catplot()`, `.FacetGrid()`, `.PairGrid()`, etc)_ use `height` and `aspect`, so changing the plot dimensions is slightly different. _(That is, for these plots, using `plt.figure()` **does not work** (it only creates a python message with no effect on the visualization))_.
+
+As noted, they use `height` (formerly `size`, which is deprecated - _(If `height` throws an error, either update **Seaborn** or use `size`)_ and `aspect` - which are for _each individual_ facet. That is, the width (`14.70`, for example) and height (`8.27`, for example) has to be divided amongst all of the facets. 
+
+For example, if a plot is 4 x 3 (4 rows, 3 columns), so you would use:
+
+```
+height = 8.27/4,  aspect = (14.70/3)/(8.27/4)
+```
+replace the divisors with the appropriate row and column values for your plot.
+
+
+For `1 x 1` plots, this simplifies to
+
+```
+height = 8.27,  aspect = 14.70/8.27
+```
+
+Here is an example (using a different file):
+![FacetGrid_dimensions.gif](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1588873238/FacetGrid_dimensions.gif)
+###### _**Click On Images To Enlarge Them**_
+
+[_This is explained in more detail in this post_](https://stackoverflow.com/questions/54959764/seaborn-factorplot-generates-extra-empty-plots-below-actual-plot)
+
+
+#### c. _pandas plots_
+
+For pandas plots, you put the figure size in the plot call:
+
+...plot(figsize=[14.70, 8.27])
+
+
+#### d. _visualizations with subplots_
+
+Also, if a plot has subplots, using:
+```
+plt.tight_layout();
+```
+
+optimizes the distances between the visualizations
+
+__________
+
+#### 2. Titles and Labels
+
+Typically, titles and labels in visualizations are in title case. 
+
+
+Also, you can format the titles, labels and legends, to make them more "reader-friendly". For example:
+
+```
+# Add title and format it
+plt.title('Title'.title(),
+               fontsize = 14, weight = "bold")
+# Add x label and format it
+plt.xlabel('X_label'.title(),
+               fontsize = 10, weight = "bold")
+# Add y label and format it
+plt.ylabel('Y_Label'.title(),
+               fontsize = 10, weight = "bold")
+# (If there is a legend, you can use this) Change legend title and format it, move legend
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5),
+           title="Legend_Title", title_fontsize = 12);
+
+# (If using a common legend, for suplots, you can use this) Change legend title and format it, move legend           
+plt.legend(loc='center left', bbox_to_anchor=(0.9, 0.5), bbox_transform = plt.gcf().transFigure,
+               title="Project", title_fontsize = 12);
+               
+               
+               
+# If a visualisation has subplots, add a MAIN title
+plt.suptitle("Distribution of trip duration by User Type".title(), y = 1,
+            fontsize = 14, weight = "bold")
+            
+#Optimize distance between subplots
+plt.tight_layout()
+```
+
+will change the strings to be title case, increase the font size and make it bold (and move the legend, if there is one in the visualization)
+
+_**Note:**_ If the visualization has subplots, always include a main title for the visualization - which you do using `plt.suptitle("Title", y = 1.04)`, where `y` is the vertical position of the title (`1` is the top of the visualization).
+
+_**Note 2:**_ For _Seaborn_ figure level plots, you set the axes labels using, for example:
+```
+g.set_axis_labels(x_var="Percentage Depth", y_var="Number of Defects")
+```
+and set the subplot titles using:
+```
+g.set_titles('{col_name}');
+```
+________
+
+###### Making the required, and suggested, changes only takes a few minutes but they add the final touches to your presentation:
+
+
+_(where the option `edgecolor="white"` is used in the histogram, to put borders around the bars - which make the visualization easier to interpret).__________
+
+
+_p.s. To make the slide show above, I used:_
+```
+!jupyter nbconvert slide_deck_Loan_Data_from_Prosper.ipynb --to slides --post serve  --no-input --no-prompt
+```
+_**from inside the notebook,** which uses the latest version of reveal.js (which is why some of the formatting is different) - It still suppresses the code (but doesn't allow you to toggle the code)). It also avoids a bug in the current version of `nbconvert` that looks for a template directory._
+
+#### LABELS etc
+
+
+import warnings
+warnings.filterwarnings('ignore')
+
+## Seaborn
+
+# Set axes labels and title
+g.set(xlabel='Default Status', ylabel='Prosper Score',
+   title ='Boxplot of Prosper Score by Defaulter Status' );
+   
+_________
+
+#### Discrete Colormap
+```
+color_palette = 'RdYlBu_r'
+
+def cmap_discretize(cmap, N):
+    """Return a discrete colormap from the continuous colormap cmap.
+       Parameters
+         cmap: colormap instance, eg. cm.viridis. 
+         N: number of colors.
+    """
+
+    if type(cmap) == str:
+        cmap = plt.get_cmap(cmap)
+    colors_i = np.concatenate((np.linspace(0., 1., N + 1), (0., 0., 0., 0.)))
+    colors_rgba = cmap(colors_i)
+    indices = np.linspace(0., 1., N + 1)
+    cdict = {}
+    for ki, key in enumerate(('red','green','blue')):
+        cdict[key] = [ (indices[i], colors_rgba[i,ki], colors_rgba[i+1,ki]) for i in range(0, N + 1) ]
+    # Return colormap object.
+    return mcolors.LinearSegmentedColormap(cmap.name + "_%d"%N, cdict, 1024)
+
+def plot_colorbar(cmap, ncolors, label, ax = []):
+    cmap = cmap_discretize(cmap, ncolors)
+    mappable = cm.ScalarMappable(cmap = cmap)
+    mappable.set_array([])
+    mappable.set_clim(-0.5, ncolors + 0.5)
+    if len(ax) == 0:
+        colorbar = plt.colorbar(mappable, label = label)
+    else:
+        colorbar = plt.colorbar(mappable, label = label, ax = ax)
+    colorbar.set_ticks(np.linspace(0, ncolors, ncolors))
+    colorbar.set_ticklabels(range(1, ncolors + 1))
+
+# Call 
+plot_colorbar(cmap = sb.color_palette(color_palette, n_cols, as_cmap = True), ncolors = n_cols, label = hue_var)
+sb.despine();
+````
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="plagiarized">
+                <h2>Most Plagiarized:</h2>
+
+                <span style="color: red;"># Fordgo with heatmaps and line graphs</span>
+                <br />
+                <br />
+                <a href="https://github.com/burakgunbatan/UdacityProject---CommunicateDataFindings/blob/a437091490a1e6401a6f0ff766b5c7f1b2a98862/Exploration_Ford_GoBike_BurakGunbatan.ipynb" target="_blank" rel="noopener noreferrer">
+                    https://github.com/burakgunbatan/UdacityProject---CommunicateDataFindings/blob/a437091490a1e6401a6f0ff766b5c7f1b2a98862/Exploration_Ford_GoBike_BurakGunbatan.ipynb
+                </a>
+                <br />
+                <br />
+                <span style="color: red;"># Chelsey Dolan</span>
+                <br />
+                <br />
+                <a href="https://github.com/chelseymarie6/Communicate-Data-Findings" target="_blank" rel="noopener noreferrer">https://github.com/chelseymarie6/Communicate-Data-Findings</a>
+                <br />
+                <br />
+                <br />
+                <br />
+                copied by: <a href="https://github.com/milindsingh97/DataAnalysis" target="_blank" rel="noopener noreferrer">https://github.com/milindsingh97/DataAnalysis</a>
+                <br />
+                <br />
+                <br />
+                <br />
+                similar to: <a href="https://github.com/mattzajac/DAND-Project_4" target="_blank" rel="noopener noreferrer">https://github.com/mattzajac/DAND-Project_4</a>
+                <br />
+                <br />
+                <br />
+                <span style="color: red;"># Prosper - with donut</span>
+                <br />
+                <br />
+                <a href="https://github.com/shravankoninti/Udacity_DataAnalyst/tree/master/Project_5_Visualization" target="_blank" rel="noopener noreferrer">https://github.com/shravankoninti/Udacity_DataAnalyst/tree/master/Project_5_Visualization</a>
+                <br />
+                <br />
+                <span style="color: red;"># Prosper - with Overplotting</span>
+                <br />
+                <br />
+                <a href="https://github.com/Haobai24/Communicate-Data_Findings--Loan-Data-from-prosper/blob/4ea03206ae8b8b64ac67fbe416c1d7e96c6fb154/exploration_ProsperLoan.ipynb" target="_blank" rel="noopener noreferrer">https://github.com/Haobai24/Communicate-Data_Findings--Loan-Data-from-prosper/blob/4ea03206ae8b8b64ac67fbe416c1d7e96c6fb154/exploration_ProsperLoan.ipynb</a>
+                <br />
+                <br />
+                <br />
+                ## How To Change Image Size (format)
+                <br />
+                <br />
+                ![alt text](http://static1.squarespace.com/static/5330a423e4b07cae635bb95e/53331a82e4b0528862e35ca9/5cfefc118b5f6400015a0f0a/1560800978391/vPrHTOga.png?format=500w "Baywheels")
+                <br />
+                <br />
+                <br />
+                <span style="color: red;">df_subscriber</span>
+                <br />
+                <br />
+                <a href="https://github.com/Nimisha89/Ford-GoBike-System-Bike/blob/c85f9210145998a20d7c37dad4350eb9dcb47e8a/slide_deck_template.ipynb" target="_blank" rel="noopener noreferrer">
+                    https://github.com/Nimisha89/Ford-GoBike-System-Bike/blob/c85f9210145998a20d7c37dad4350eb9dcb47e8a/slide_deck_template.ipynb
+                </a>
+                <br />
+                <br />
+                <br />
+                locally:
+                <br />
+                <br />
+                <a href="/Volumes/Anfield/Work/Reviews/Most_Plagiarized/Project 4 - Communicate Data Findings/" target="_blank" rel="noopener noreferrer">"/Volumes/Anfield/Work/Reviews/Most_Plagiarized/Project 4 - Communicate Data Findings/"</a>
+                <br />
+                <br />
+                <br />
+                <span style="color: red;">plt.title('Subscriber', loc='right');</span>
+                <br />
+                <br />
+                <a href="https://github.com/darrengidado/portfolio/blob/55c33f0abf8bb2da0b5aaa744e32e0433dcfbe67/Project%204%20-%20Communicate%20Data%20Findings/exploration.ipynb" target="_blank" rel="noopener noreferrer">
+                    https://github.com/darrengidado/portfolio/blob/55c33f0abf8bb2da0b5aaa744e32e0433dcfbe67/Project%204%20-%20Communicate%20Data%20Findings/exploration.ipynb
+                </a>
+                <br />
+                <br />
+                or:<br />
+                <br />
+                <a href="https://github.com/kzhang789/Communicate-data-findings" target="_blank" rel="noopener noreferrer">https://github.com/kzhang789/Communicate-data-findings</a>
+                <br />
+                <br />
+                <br />
+                <br />
+                or <a href="https://github.com/NCH1210/Project-Communicate-Data" target="_blank" rel="noopener noreferrer">https://github.com/NCH1210/Project-Communicate-Data</a>
+                <br />
+                <br />
+                <br />
+                <span style="color: red;">
+                    prosper<br />
+                    with pointplots
+                </span>
+                <br />
+                <br />
+                <a href="https://github.com/imsingla/Loan-Data-from-Prosper/blob/master/exploration.ipynb" target="_blank" rel="noopener noreferrer">https://github.com/imsingla/Loan-Data-from-Prosper/blob/master/exploration.ipynb</a>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <span style="color: red;">
+                    gender_mark
+                </span>
+                <br />
+                <br />
+                <a href="https://github.com/nbalotaibi/Communicate-Data-Findings/blob/master/Exploration_Ford_GoBike.ipynb" target="_blank" rel="noopener noreferrer">https://github.com/nbalotaibi/Communicate-Data-Findings/blob/master/Exploration_Ford_GoBike.ipynb</a>
+                <br />
+                <br />
+                <span style="color: red;">
+                    gender_mark AND plt.title('Subscriber', loc='right');
+                </span>
+                <a href="https://github.com/FabData1207/Communicate-data-findings/blob/master/fordgobike_exploration.ipynb">https://github.com/FabData1207/Communicate-data-findings/blob/master/fordgobike_exploration.ipynb</a>
+                <br />
+                <br />
+                
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+
+                _________
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="colorencoding">
+                <pre><code>
+
+
+As noted above, you include an excellent selection of univariate, bivariate, and multivariate plots. However, there is one issue that should be addressed:
+
+## Very Minor Change
+
+#### 2. Color Encoding
+
+_Color Encoding is a helpful, and important, tool for uncovering patterns in data._ Using the correct color encoding for the data type can often help uncover a pattern that would otherwise not be very obvious. 
+
+
+If a variable is ordinal, you have to use _sequential_ or _divergent_ color encoding (this is optimal because it gives a sense of gradation to the different levels in the data) - and not _qualitative_ color encoding (which is for general discrete variables), as is done in your code. 
+
+Where _sequential_ color encoding is used for pure ordinal discrete data and _divergent_ color encoding is used if the data is both ordinal and follows a diverging scale (think _"Good, Ok, Bad"_ ). For example, ![Screen Shot 2020-06-03 at 1.06.46 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1591204826/Screen_Shot_2020-06-03_at_1.06.46_PM.png)
+
+or 
+
+![Screen Shot 2020-06-03 at 1.12.53 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1591204965/Screen_Shot_2020-06-03_at_1.12.53_PM.png)
+
+_(where `"RdYlBu"` is a specific **divergent** color scheme)_
+
+**Which more clearly highlights the difference between high and low ratings/income (because a neutral color is used for the median ratings/income) and the levels in ratings/income are highlighted by the gradation in color.**
+
+[See here for palette options](http://colorbrewer2.org/#type=sequential&scheme=BuPu&n=7) and [a guide for using color in visualizations](http://www.perceptualedge.com/articles/visual_business_intelligence/rules_for_using_color.pdf)
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="ordinal">
+                <pre><code>
+
+
+__________________
+
+#### Ordinal Variables
+
+If a variable follows a natural order, like `days`, then the visualizations should plot the categories for that variable in their natural order _(otherwise, the visualization will be difficult to interpret, because the categories are not in the order that we expect)._
+
+To achieve this, we tell _pandas_ that the variable is an ordered categorical variable. Then _matplotlib_ and _Seaborn_ will respect that order and plot the categories in the order we tell _pandas_.
+
+For example for the `start_dayofweek` variable:
+
+```
+# List of days in order
+import calendar
+
+day_order = [day for day in calendar.day_name]
+month_order = [mon for mon in calendar.month_name][1:]
+day_order = [day for day in calendar.day_abbr]
+month_order = [mon for mon in calendar.month_abbr][1:]
+
+day_order = ['Monday', 'Tuesday','Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday']
+# create ordered categorical variable
+bikedata18['start_dayofweek'] = pd.Categorical(bikedata18['start_dayofweek'],
+                                               categories= day_order,
+                                               ordered = True)
+```
+
+That is,
+1. We create a list with the categories in their natural order, then
+2. We tell _pandas_ to use that list when creating an _ordered categorical variable_.
+
+
+
+![BegumOzturk_slide_show_fix_days.gif](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1578482963/BegumOzturk_slide_show_fix_days.gif)
+
+###### _**Click On Images To Enlarge Them**_
+
+<hr>
+As noted above, you include an excellent selection of visualizations. However, there are some issues with plot options that should be addressed.
+
+While the visualizations in the data exploration don't have to be finalized, they still have to _"depict the data in an appropriate manner that allows plots to be readily interpreted."_
+
+______
+
+#### Tips
+______
+
+#### Ordinal Variables
+
+If a variable follows a natural order, like `days`, then the visualizations should plot the categories for that variable in their natural order _(otherwise, the visualization will be difficult to interpret, because the categories are not in the order that we expect)._
+
+There are two ways to do this.
+
+#### Ordered Categorical Variable
+
+This is the simplest way, as you only have to do it once _(and all visualizations will respect the ordering)_
+For example for the `day_name` variable:
+
+```
+day_order = ['Monday', 'Tuesday','Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday']
+# create ordered categorical variable
+bike_df['day_name'] = pd.Categorical(bike_df['day_name'],
+                                               categories= day_order,
+                                               ordered = True)
+```
+
+That is,
+1. We create a list with the categories in their natural order, then
+2. We tell _pandas_ to use that list when creating an _ordered categorical variable_.
+
+______
+
+#### Adjust Each Visualization
+
+You can apply ordering plot by plot.
+
+This is easy in _Seaborn_ as it has `order` options:
+
+- `order` - for x variables
+- `col_order` - for the column order
+- `hue_order` - for the hue variable order
+
+For _matplotlib_ plots, you will have to impose the ordering by re-indexing the data.
+
+Here are examples of each, using your project:
+
+
+![Screen Shot 2021-03-08 at 7.27.03 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1615249997/Screen_Shot_2021-03-08_at_7.27.03_PM.png)
+
+_(where you can avoid angling tick labels by using appropriate plot dimensions)_
+
+
+![Screen Shot 2021-03-08 at 7.25.49 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1615250023/Screen_Shot_2021-03-08_at_7.25.49_PM.png)
+
+_(where `orient="h"` has to be added, to tell Seaborn that it is a horizontal plot - so that the `order` option is applied to the `y` axis)
+
+
+![Screen Shot 2021-03-08 at 7.25.18 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1615250064/Screen_Shot_2021-03-08_at_7.25.18_PM.png)
+
+and
+
+![Screen Shot 2021-03-08 at 7.24.55 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1615250069/Screen_Shot_2021-03-08_at_7.24.55_PM.png)
+
+**Hopefully, in each case, you can see that the visualizations are easier to interpret when the days are in their natural order.**
+<hr>
+
+<span style="color:blue;">Grid Matplotlib</span>
+
+
+# create, but don't show, plot
+plt.draw()
+# get current xtick info
+pos,lab = plt.xticks()
+# edit labels (replace space with line break)
+new_lab=[x.get_text().replace(" ","
+") for x in lab]
+# use new labels
+plt.xticks(pos,new_lab);
+
+______
+#### Additional Notes
+______
+#### Tick Labels
+
+Avoid angling tick labels. It makes visualizations difficult to interpret _(Imagine the viewer/reader angling their heads at the same time as trying to take in the rest of the information in the visualizations)_. There are two ways to resolve this:
+1. Change the plot dimensions (in many cases, the tick labels in your visualizations did not need to be angled after an appropriate plot size was set),
+2. Change the orientation of the visualization.
+
+
+_(Note: For pandas plots, use the option `rot=0` to avoid the tick labels being rotated)_.
+
+
+In _Seaborn's_ plots, this is easy to do. _For Univariate plots,_ change `x=` to `y=`. _For all other plots,_ swap `x=` and `y=` and add `orient="h"` to tell _Seaborn_ that you are creating a _horizontal_ plot.
+________
+
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="histograms">
+                <pre><code>
+
+
+
+1. Discrete: A bar for every value of the variable. (Seaborn's .countplot() is used here)
+2. Continuous: Generate intervals (bins) and creates a bar for each interval. (For this method, you have to select the bins (i.e. intervals) that you want in the visualizations - see below) (plt.hist() or panda's .hist() is used here)
+
+Histograms are used to approximate the distribution for a particular variable (they are approximations because we, typically, use sample data).
+
+
+Histograms are used to approximate the distribution for a particular variable (they are approximations because we, typically, use sample data).
+
+If the bin widths are too large then the aggregation of values shows too little detail.
+
+If the bin widths are too small then we risk showing too much detail that may only relate to the individual sample that we have.
+
+There are packages in python that help select the optimal bin width, however they are not required for this project ([they use advanced methods (like those discussed in this post)](https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/)). Instead, it is best to simply select the number of bins. Usually, we use 20 to 30 (if the distribution is long-tailed, you should use a larger number - up to 50).
+
+
+
+where the edgecolor option shows the bins in the plot (by putting a border around each bar):
+
+            <hr />
+
+
+__________
+
+## Jitter
+
+
+#### Scatterplot: Discrete Data
+
+
+Typically it is not a good idea to use scatterplots with discrete data. 
+
+![Screen Shot 2020-09-15 at 3.09.23 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1600197230/Screen_Shot_2020-09-15_at_3.09.23_PM.png)
+
+This is because the points on the plot will be _**overplotted**_ (i.e. points in the visualizations plotting on top of each other). That is, because there are only a finite number of values that _X_ can take, all of the points will lie along those lines. _**Which means, that it is not possible to interpret the information in this plot.**_ 
+
+If you do decide to use scatterplot, you should use `jitter`. _
+- **Standard scatterplot:** Seaborn's_ `.stripplot()` allows you to use `jitter`. 
+- **Linear regression:** `.regplot()` does not have a _jitter_ option but `.lmplot()` does. 
+
+![Screen Shot 2020-09-15 at 3.08.53 PM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1600197355/Screen_Shot_2020-09-15_at_3.08.53_PM.png)
+
+_(where the `jitter` value is the maximum value that the points can be jittered around the original position, and the `dodge` option separates the categories. That is, for that plot, add the option `jitter = 0.35` (**Seaborn** allocates a space of `1` for each discrete value, jittering by `0.35` randomly moves the points around their original location **(both sides)**, so that is a space of `0.7` the remaining `0.3` allows enough room between categories so that you have a space between each).)._
+
+
+As you can see, the distribution of the data for loan amount, for each credit rating, can now be clearly seen.
+
+[Here is a discussion of using jitter](http://dataviztalk.blogspot.com/2016/02/how-to-add-jitter-to-plot-using-pythons.html)
+
+
+__________
+
+## or
+
+If you do decide to use scatterplot, you should use jitter. There are two options:
+
+1. Let the plotting functions do the work: Seaborn's .stripplot() allows you to use jitter, or
+2. Manually add jitter. This is the route that I took:
+  ```
+  # add jitter function
+  def rand_jitter(x, jitter = 0.3, random_state = 42):
+      rnd_state = np.random.RandomState(random_state)
+      return x + rnd_state.uniform(-jitter, +jitter, x.shape)
+
+  # add jitter to Prosper Score
+  rawData['ProsperScore_jitter'] = rand_jitter(rawData.ProsperScore)
+  ````
+where I created a new, jittered, variable and used that in the plots:
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+         
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="concepts">
+                <pre><code>
+Now that you have begun your final project, you will have a better sense of the role of a _data analyst_ and the tools that they use to _**extract information from data**_.
+
+
+###### How you "extracted information from data":
+In the first project, you used _Moving Averages_ on both data series. You did this because you were interested in (as the project title suggests) **Weather Trends**. That is, while the short term patterns in weather are interesting in themselves, the goal of this work was to focus on the longer term _**trends**_.
+
+So, the _**information**_ that you were interested in were those _**trends**_, and averaging over a number of periods allowed you to see them more clearly - by averaging out short term _(in that case, year-to-year)_ fluctuations.
+
+You then _"told a story"_ when investigating data, extracted data from three different sources, and, in the last project, tested a hypothesis regarding a change to a web page designed to attract customers _("conversions")_.
+
+In this project, you take this a step forward:
+
+- Cleaning data
+- Providing statistical summaries of data.
+- Communicating information about relationships between different variables.
+
+
+
+###### Moving Forward
+In a work environment, you will typically follow the same pattern that you did here:
+1. A **Research Question** is posed (or, _more likely_, a series of Research Questions are posed).
+2. Some background analysis is performed on the topic, which suggests which data will help in answering that question(s)
+3. The data is gathered
+4. The data is cleaned _(in many cases, there will not be a clean usable dataset available - so the data has to be gathered from a variety of sources and then cleaned)_
+5. Finally, you attempt to extract the information that you want _(answers to your questions)_ from that data.
+6. The whole process may be repeated _(the research questions were not precise, or they led to other questions, or the data wasn't available to directly answer those questions (so the questions need to be reformulated), ... and so on)_
+
+###### Next Steps
+
+The _next steps_ on your journey is to develop an understanding of more of the different tools that a _data analyst_ will use. These new tools will help you to achieve each of the tasks above - tools that relate to:
+- Data Gathering
+- Assessing Data
+- Data Cleaning
+- Extracting Information (for example, _hypothesis testing_)
+
+The important point to remember is that in data analysis: _The question(s) drive the analysis_. So that in each project that you undertake, always ask yourself: What questions can I answer with this approach, or how does this new skill help me to answer questions? This approach:
+1. Is motivating (being curious is the best way to look forward to learning new approaches)
+2. Provides context (when you are learning a new skill, if you have a sense of the direction that you are going in, and how it will add to your knowledge base, it is easier to maintain a big picture (and, thus, easier to acquire the still)).
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+         
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="codereview">
+                <pre><code>
+#### Documentation
+- Your code is cleanly written - with descriptive variable names.
+- For the parts that you included code comments, your script is well commented, so that your colleague _(or yourself at some future time)_ will be able easily scan the code. However, some of the more complex decisions in your code do not include code comments. It would be helpful (even to you at some future time) to add comments for those sections.
+
+#### Readablility
+- You have created clear sections in _Markdown_ for each phase of your analysis.
+- Plain text should be used for the text in the body of your report - for readability purposes.
+
+Apart from that, the overall structure of your markdown and code sections of your notebook is excellent.
+
+#### Vectorization
+
+Kudos for using vectorized methods!
+
+
+It is always more computationally efficient to use numpy built-in operations over explicit for loops. The short reason is that numpy -based operations attack a computational problem based on vectors by computing large chunks simultaneously.                
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="vectorized">
+                <pre><code>
+
+
+__________
+
+## VECTORIZED OPERATIONS
+
+#### Tip
+
+#### Vectorized Operations
+
+
+
+Where possible, use vectorized operations, instead of loops (or .apply() which is equivalent to looping through each row). ([Benefits of vectorization over loops (or .apply())](https://engineering.upside.com/a-beginners-guide-to-optimizing-pandas-code-for-speed-c09ef2c6a4d6))
+
+For example, when calculating distance, looping through each row, for such a large dataframe, is very slow. Instead, you can use this approach: https://stackoverflow.com/questions/29545704/fast-haversine-approximation-python-pandas (where the trig functions are all numpy (or Math) functions, see screenshot below).
+
+
+![Screen Shot 2020-06-26 at 10.52.50 AM.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/10749/1593183184/Screen_Shot_2020-06-26_at_10.52.50_AM.png)
+
+Over 5 minutes versus 0.2 seconds. This time difference increases exponentially as the dataset gets larger.
+
+<h4 style="color:red;">efficiency</h4>
+
+
+The code in both of your notebooks evaluate as expected (without errors). Nice work!
+
+## Note
+The code in both of your notebooks is the same.
+
+That approach is fine. However, it is inefficient. The _slide show_ notebook is intended to create a _presentation_ that focuses on the _key insights_ from your data exploration. Instead, the slide show notebook submitted is a presentation of your data exploration.
+
+The aim of having _two parts_ to this project is to replicate a scenario that is common to data analysts: Presenting work to highlight key features of an analysis. This is usually time constrained, so every aspect of the _data exploration_ cannot be presented. The _slide show_ presentation, in a real world situation, is an _executive summary_ of the salient features from the data exploration.
+
+So, instead of including the same code in both notebooks, you can limit the code in the _slide show notebook_ to the 3 to 6 visualizations that you will typically have time to discuss in a presentation.
+
+## Important
+
+There are a few issues that should be resolved to increase the efficiency of your code:
+1. Copies of the same data
+Throughout your script, different versions of the same dataframe are created. This can be helpful if you want to preserve the original dataframe for use later in an analysis. However, in this analysis the original dataframe is not used later. Given that _pandas_ keeps all dataframes in memory,  creating the different versions of dataframes for the same data just increases the memory usage of pandas (and given that the datasets that you are using are _Huge_, this is a big efficiency loss).
+2. Creating new variables
+This is similar to the point above, for a different reason. Variables are created, like:
+```
+# create dict for future use if needed
+delay = clean_flight_data['TotalDelay']
+```
+and the same for `month`, and `year`, etc, and then they are used in plots. For example:
+```
+sb.scatterplot(data = clean_flight_data, x = 'Date', y = delay, hue = 'DayOfWeek');
+```
+This defeats the purpose of using _pandas_ (which efficiently stores all of the variables in one data object). Instead, the plot code can be written:
+```
+sb.scatterplot(data = clean_flight_data, x = 'Date', y = 'TotalDelay', hue = 'DayOfWeek');
+which gives the same result (as it is the same data) and _Seaborn_ doesn't have to use two different data objects for the data for that plot.
+```
+3.
+Given that the dataframe that you are using is _Huge_ (1.2GB), use a sample to develop your code:
+```
+clean_flight_data = clean_flight_data.sample(20000).reset_index(drop=True).copy()
+````
+_(where you put that line just before you start developing your visualizations)_. You can then remove that when you want to run your code using all of the data.
+
+
+
+___
+
+______________
+
+# Flights
+
+```
+code_dict = {"A":"Carrier","B":"Weather","C":"National Air System","D":"Security"}
+
+df['CancellationCode_new'] = df.CancellationCode.map(code_dict)
+
+df[~df.CancellationCode.isna()][['CancellationCode_new','CancellationCode']]
+``` 
+
+
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="plotoptions">
+                <pre><code>
+[This site projects examples of types of plots, _**with code**_, that you can use as templates for your visualizations](https://python-graph-gallery.com/seaborn/)
+
+## Markdown
+
+## <font color=blue>Investigation Overview</font>
+
+____________
+
+## plot dimensions
+
+import matplotlib
+matplotlib.rcParams['figure.figsize'] = (11.69, 8.27)
+
+## FULL OUTPUT CELL
+from IPython.core.display import display, HTML
+display(HTML("<style>div.output_scroll { height: 44em; }</style>"))
+
+_________
+
+# extract RGB colors
+
+print(sb.color_palette("flag", 10).as_hex())
+
+# plot the palette
+sb.palplot(sb.color_palette("flag", 10))
+
+## Nice Bivariate Color Palette from Seaborn:
+
+pal = ['#000000','#4c72b0']
+
+pal = ['#4c72b0']
+
+color = sb.color_palette()[0]
+___________
+
+## Scientific notation
+
+ax.get_xaxis().get_major_formatter().set_scientific(False)
+
+## Turn off minor tick labels
+
+ax.minorticks_off()
+
+______________
+
+## Pie plot text
+
+textprops={'fontsize': 14, 'weight': "bold"}
+_____________
+
+## FACECOLOR
+
+ax.set_facecolor('xkcd:salmon')
+[Set facecolor](https://stackoverflow.com/questions/14088687/how-to-change-plot-background-color)
+
+_______
+
+
+## Seaborn plots with lines:
+
+line_kws={"color": "red"}
+
+
+fig = sns.pairplot(data=df_sub.sample(1000), kind='reg',
+                   vars=features_return_risk,
+                   plot_kws={'line_kws':{'color':'red'},
+                             'scatter_kws': {'alpha': 0.1}},
+                  diag_kws={'edgecolor':'w'},
+                  height = 8.27/3,  aspect = (14.70/3)/(8.27/3));
+                  
+_______________
+
+## Set Plot Dimensions - FIGURE LEVEL
+g.fig.set_size_inches(14.70, 8.27);
+
+
+## Subplots
+fig, (ax1, ax2) = plt.subplots(2, figsize=(11.69, 8.27), sharex=True);
+
+# title setting initial sizes
+fig.suptitle('Average and Total Ride Duration Per Hour\nby User Type', fontsize=12, weight = "bold", y=1.04)
+
+
+bikes.groupby([pd.Grouper(key='start_time_hr', freq='60T'),
+               'user_type']).mean()['duration_min'].unstack().plot(ax=ax1);
+# labels, setting initial sizes
+ax1.set_ylabel('Mean Ride Duration (min)', fontsize=10)
+# ax1.set_xlabel('xlabel', fontsize='medium')   # relative to plt.rcParams['font.size']
+
+
+bikes.groupby([pd.Grouper(key='start_time_hr', freq='60T'),
+               'user_type']).sum()['duration_min'].unstack().plot(ax=ax2);
+
+# labels, setting initial sizes
+ax2.set_ylabel('Total Ride Duration (min)', fontsize=10)
+ax2.set_xlabel('Start Time (24 hr)', fontsize='medium')   # relative to plt.rcParams['font.size']
+ax2.set_title("Title for second plot")
+
+plt.tight_layout();
+plt.show()
+
+### Change tick labels size
+plt.xticks(fontsize= )
+ax.set_xticklabels(xlabels, fontsize= )
+plt.setp(ax.get_xticklabels(), fontsize=)
+ax.tick_params(axis='x', labelsize= )
+__________
+
+## Set xticklabels facetgrid
+axes = g.axes.flatten()
+titles=df_week_ser['service_area'].unique()
+for i in range(len(axes)):
+    axes[i].set_title(titles[i].title(),size=18)
+    lab = axes[i].get_xticklabels()
+    new_lab = [y.get_text() if len(y.get_text()) <= 4 else y.get_text()[0:3] for y in lab ]
+    axes[i].set_xticklabels(new_lab);
+    
+
+# for .PairGrid(), the subplots contain the same variables, 
+# so only one list is required 
+# (for other .FacetGrid() plots, different labels 
+# are required for rows and columns)
+myLabels  = ['something 1', 'something 2',
+             'something  3', 'something 4']
+# g.axes is an (r x c) array of axes of subplots 
+# (for PairGrid r = c)
+# 1. loop through each row
+for rind , row in enumerate(g.axes):
+    # 2. for each row,
+    #    loop through each column
+    for cind, ax in enumerate(row):
+        # 3. set the y label for each row
+        ax.set_ylabel(myLabels[rind])
+        # 4. set the x label for each column
+        ax.set_xlabel(myLabels[cind])
+plt.tight_layout()
+
+## Seaborn Line plots
+
+legend = ax.legend()
+legend.texts[0].set_text("Whatever else")
+___________
+
+## PANDAS SUBPLOTS TICKLABELS 
+
+# distribution of each genre type
+axes = df.filter(regex=("genre_.*")).hist(figsize=(15, 8.27), bins = 2, edgecolor = 'white', grid = False);
+
+# set x tick labels and positions
+plt.setp(axes, xticks=[0.25, 0.75], xticklabels=[0,1])
+
+# optimize distance between subplots
+plt.tight_layout()
+
+_____
+
+
+## Plot Layout
+
+# for an individual plot
+import matplotlib.pyplot as plt
+ax1 = plt.figure(figsize=[11.69, 8.27]).add_subplot(111)
+
+# for subplots
+import matplotlib.pyplot as plt
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex=True, sharey=True, figsize=(11.69, 8.27))
+
+_______
+
+<span style="color:blue;">Grid Matplotlib</span>
+
+## Uneven subplots
+
+plt.figure(figsize=[14.70, 8.27])
+# 2 x 2
+grid = plt.GridSpec(2, 2)
+
+# Row 1 (2 plots)
+plt.subplot(grid[0, 0])
+
+# Row 1 (2nd plot)
+plt.subplot(grid[0, 1])
+
+# Row 2 (1 plot)
+plt.subplot(grid[1, :])
+
+
+________________
+
+## Edit x ticks - matplotlib
+
+# edit y tick labels
+## get tick position
+a=ax1.get_yticks().tolist()
+## get tick labels
+al = ax1.get_yticklabels()
+## include line breaks in tick labels
+b=[label.get_text().replace(". (",".\n(").replace(". ",".\n") for label in al]
+## set the y tick labels to new labels
+plt.yticks(a, b)
+
+## Edit Labels - Seaborn Grid Plots
+
+g.set_axis_labels(x_var="Percentage Depth", y_var="Number of Defects")
+g.fig.suptitle("Duration and Birth Year\nby Gender and Bike Share For All", fontsize = 14, weight = "bold", y = 1.04);
+____________
+
+plt.suptitle("Duration and Birth Year\nby Gender and Bike Share For All", fontsize = 14, weight = "bold", y = 1.04);
+
+__________
+
+## Dodged plot - pandas
+
+df.groupby(["Age"]).member_gender.value_counts().unstack().plot.bar(figsize = [14.7, 8.27], width = 0.9, rot = 0);
+
+## Percentages
+
+dff.groupby(["Gage","member_gender"]).member_gender.apply(lambda x:
+                                                 100* float(x.count())/ len(dff)).unstack().plot.bar(figsize = [14.7, 8.27], width = 0.9, rot = 0);
+# stacked option
+stacked = True
+__________
+## Jitter - stripplot - FacetGrid
+
+fly = sb.FacetGrid(data = clean_1994, hue = 'UniqueCarrier',
+                   height = 8.27, aspect = 11.7/8.27)
+fly.map(sb.stripplot, 'Month', 'ArrDelay', dodge=True, jitter=0.35, alpha = 1/3)
+fly.add_legend()
+for lh in fly._legend.legendHandles: 
+    lh.set_alpha(1)
+
+# Plot scatterplot
+plt.title('Arrival Delay (min) against Month and Carrier')
+plt.xlabel('Month')
+plt.ylabel('Arrival Delay (min)');
+
+
+## Jitter 2 - order and orientation - Stand alone
+
+# get ratings and order them
+ratings = [ int(x) for x in df_samp["ProsperRating (numeric)"].dropna().unique()]
+orderRatings = sorted(ratings, reverse=True)
+
+plt.figure(figsize=[ 11.69, 8.27])
+sb.stripplot(x="BorrowerAPR", y="ProsperRating (numeric)",
+             data=df_samp, jitter=0.35, color = "darkblue", orient='h',
+             order= orderRatings )
+plt.title('ProsperRating (numeric) vs. Borrower APR');
+plt.xlabel('Borrower APR (bps)');
+plt.ylabel('ProsperRating (numeric)');
+
+________
+
+##### NOTE tick label steps
+
+## Steps in axes tick labels
+
+# get the plot axes information
+ax = plt.gca()
+# get xtick positions
+pos = ax.get_xticks().tolist()
+# get xtick labels
+labs = ax.get_xticklabels()
+# set the xticks for every second (original) xtick
+plt.xticks(pos[::2],labs[::2]);
+
+________
+
+####### LEGEND 
+
+## lower, upper, center, left, right
+
+## remove legend
+ax[0].get_legend().remove()
+
+## position legend
+ax[1].legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+## Single Figure Legend
+handles, labels = ax[1].get_legend_handles_labels()
+fig.legend(handles, labels, loc='lower center', 
+          ncol=7, fancybox=True, shadow=True)
+
+_____________
+
+## Remove seaborn legend
+
+g.legend_.remove()
+
+__________
+
+## single title
+fig.suptitle("Prices and Clarity, by Color", fontsize = 14)
+fig.subplots_adjust(top=0.88)
+__________
+
+
+## Create Ordinal Variable
+
+categories=['AA', 'A', 'B', 'C', 'D', 'E', 'HR', 'NC']
+loanData.CreditGrade_combined = loanData.CreditGrade_combined.astype("category",
+  ordered=True,
+  categories=categories
+)
+
+_______
+
+## Percentage Histogram
+
+CG_count = loanData.CreditGrade_combined.value_counts()
+
+ax = sns.countplot(x="CreditGrade_combined", data = loanData)
+plt.gca().yaxis.set_major_formatter(PercentFormatter(len(loanData)))
+
+## Print percentages on bars
+
+loc,label = plt.xticks()
+print(loc, [x.get_text() for x in label])
+for loc, label in zip(loc,label):
+    count = CG_count[label.get_text()]
+    pct_string = '{:0.1f}%'.format(100*count/(sum(dis)))
+    plt.text(loc,count-(0.1*count),pct_string, ha= "center", color = "white")
+    
+plt.show()
+
+________
+
+## Color by continuous variable and jitter
+
+# plt.scatter(data = loans, x = 'Term', y = 'CreditScoreRangeUpper', c = 'BorrowerRate', jitter=0.35)
+plt.figure(figsize=[11.69, 8.27])
+
+bin = np.arange(0,loans['BorrowerRate'].max() + 0.1, 0.1)
+loans['NewBorrowerRate'] = pd.cut(loans['BorrowerRate'], bin, labels = bin[1:])
+loans['NewBorrowerRate'] = loans['NewBorrowerRate'].astype(float).round(1)
+
+sb.stripplot(data = loans, x = 'Term', y = 'CreditScoreRangeUpper', hue = 'NewBorrowerRate', jitter=0.35, palette="RdYlGn")
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), title="Borrower Rate")
+plt.ylim(bottom=400)
+plt.xlabel('Term (months)')
+plt.ylabel('Credit Score Range Upper');
+plt.title('Credit Score by Term');
+
+___________
+Seaborn documentation: seaborn.lmplot
+Understanding the difference between regplot() and lmplot() can be a bit tricky. In fact, they are closely related, as lmplot() uses regplot() internally and takes most of its parameters. However, regplot() is an axes-level function, so it draws directly onto an axes (either the currently active axes or the one provided by the ax parameter), while lmplot() is a figure-level function and creates its own figure, which is managed through a FacetGrid. This has a few consequences, namely that regplot() can happily coexist in a figure with other kinds of plots and will follow the global matplotlib color cycle. In contrast, lmplot() needs to occupy an entire figure, and the size and color cycle are controlled through function parameters, ignoring the global defaults.
+
+
+___________
+
+## Dodge
+
+months = sb.FacetGrid(data = df_bikes_copy,
+                      height = 8.27,  aspect = 14.70/8.27)
+months.map(sb.stripplot, 'month_start','duration_min', 'user_type', alpha = 1/8,
+           jitter = 0.35, dodge = True)
+months.add_legend()
+plt.xlabel('Months of year'.title(), fontsize = 12, weight = "bold");
+plt.ylabel('Duration (mins)'.title(), fontsize = 12, weight = "bold");
+plt.title('Monthly Trip Duration by User Type'.title(), fontsize = 14, weight = "bold");
+
+
+____________
+## FacetGrid labels
+
+a = sb.FacetGrid(data =  df_bikes_copy, col = 'user_type', 
+                 height = 8.27,  aspect = (14.70/2)/8.27, col_wrap = 2)
+a.map(sb.regplot, 'month_start', 'duration_min', x_jitter = 0.35,
+      fit_reg = False,scatter_kws = {'alpha' : 1/6});
+plt.suptitle('Monthly Trip Duration by User Type'.title(), fontsize = 14, weight = "bold",
+            y = 1.04);
+a.set_axis_labels('Month', 'Duration (secs)');
+
+_________
+
+## FacetGrid set axes properties
+
+a.set(xlim=(0, 100))
+__________
+
+## Create Categorical Variable
+
+```
+# create categories for hours
+bins = [0,1,2,3,4,5,10,20,30,40]
+pisa.loc[:,'Study Time - With Parent'] = pd.cut(pisa['Out-of-School Study Time - With Parent'],
+                                         bins, labels = bin[:-1],
+                                         right=False)
+```
+
+bin_width = 10
+bins = np.arange(int(genre_df.Metascore.min()/bin_width)*bin_width,
+                 int(genre_df.Metascore.max()/bin_width)*bin_width + 2*bin_width, bin_width)
+
+# Create a new credit score variable, assign values to the intervals created above
+genre_df["Metascore_cat"] = pd.cut(genre_df.Metascore, bins,
+                                labels = [x for x in bins[:-1]],
+                                right = False)
+                                
+
+## Function for Histogram with optimal binwidths  
+
+def hist_opt_bins(df, var, sig_digits = 1):
+    # inverse of cubed-root of number of obs, times st dev times 3.49
+    binwidth = (1/np.cbrt(len(df[var]))) * df[var].std() * 3.49
+    binwidth = round(binwidth, sig_digits)
+    # create bin edges 
+    bins_edges = np.arange(round(df[var].min(), sig_digits), round(df[var].max() + binwidth, sig_digits ), binwidth)
+    
+    plt.hist(data = df, x = var, bins = bins_edges, edgecolor = "white");
+    plt.xlabel(var.title())
+    
+_________
+
+<span style="color:red;">Turn Off Scientific Notation</span>
+
+
+
+ax = plt.gca()
+ax.yaxis.get_major_formatter().set_scientific(False)
+
+https://stackoverflow.com/questions/34552770/getting-a-legend-in-a-seaborn-facetgrid-heatmap-plot
+
+
+_______
+
+ax.xaxis.set_tick_params(rotation=45)
+
+# In a visualization with subplots, use the pyplot interface to change just one subplot...
+plt.sca(ax1)
+locs, labels = plt.xticks() # get the current tick locations and labels
+
+## and so on 
+
+# loop through each pair of locations and labels
+for loc, label in zip(locs, labels):
+    # get the text property for the label to get the correct count
+    count = cat_counts[label.get_text()]
+    pct_string = '{:0.1f}%'.format(100*count/n_points)
+    # print the annotation just below the top of the bar
+    #plt.text(loc, count-10, pct_string, ha = 'center', color = 'black')
+    plt.text(loc, count-offset, pct_string, ha = 'center', color = "white", weight = "bold", fontsize = 14)
+    
+## Fancy bbox formatting
+bbox=dict(facecolor='white', alpha=0.5, boxstyle="round")
+
+plt.xticks(rotation = 0)    
+
+....
+
+# In a visualization with subplots, use the pyplot interface to change just one subplot...
+plt.sca(ax2)
+locs, labels = plt.xticks() # get the current tick locations and labels
+
+____________
+
+## <font color=blue>Basemap</font>
+
+
+## Basemap
+
+import os
+os.environ["PROJ_LIB"] = "/Users/myles/anaconda3/pkgs/proj4-5.2.0-h0a44026_1/share/proj"
+from mpl_toolkits.basemap import Basemap
+
+___________
+
+## Modular approach to setting plot options
+
+def setPlot(figsize=[14.70, 8.27],title="", xlabel="", ylabel="",
+    axis_font=14, title_font=16, tick_font=14):
+    '''
+    Sets up matplotlib axis according to params. Returns None.
+    '''
+    _, ax = plt.subplots(figsize=figsize);
+    ax.set_title(title, fontsize=title_font);
+    ax.set_xlabel(xlabel, fontsize=axis_font);
+    ax.set_ylabel(ylabel, fontsize=axis_font);
+    plt.xticks(fontsize=tick_font);
+    plt.yticks(fontsize=tick_font);
+
+def setSeabornFigPlot(plot, w = 14.70, h = 8.27, title="", xlabel="", ylabel="",
+    axis_font=14, title_font=16, title_pos = 1.04, tick_font=14):
+    '''
+    Sets up seaborn figure-level axis according to params. Returns None.
+    '''
+#     plot.set_height = h/rows
+#     plot.set_aspect = (w/cols)/(h/rows)
+    plot.fig.set_figheight(h)
+    plot.fig.set_figwidth(w)
+    plot.set_xlabels(xlabel, fontsize = axis_font)
+    plot.set_ylabels(ylabel, fontsize = axis_font)
+    plot.fig.suptitle(title, fontsize = title_font, weight = "bold", y = title_pos);
+
+__________
+
+## Subplots, loop
+
+fig, ax = plt.subplots(ncols = 5, nrows=int(airport_delays.shape[0]/5), figsize=[14.70, 10.27])
+r = -1
+for i in range(len(delayed)):
+    c = i % 5
+    if c == 0: r +=1
+    plot_data = airport_delays[airport_delays.Origin==delayed[i]].iloc[0].drop('Origin')
+    ax[r,c].barh(y=plot_data.index,width=plot_data.values,color=sb.color_palette()[0:5])
+    ...
+
+_________
+
+# function for creating histograms with x intervals
+
+
+def pdHist_w_xticks(var, intervals = 10):
+
+    data_range = (var.max()  - var.min())
+    order = len(str(data_range))
+    
+    min_order = len(str(var.min()))
+    min_rounded = int(var.min()/10**(min_order-1))*10**(min_order-1)
+    
+    bin_interval = (int(data_range/10**(order-len(str(intervals))))*10**(order-len(str(intervals))))/intervals
+    
+#     print(min_order, order, min_rounded,data_range,bin_interval )
+    bins = np.arange(min_rounded, var.max() + bin_interval, bin_interval)
+
+
+
+    df.duration_sec.hist(bins = bins,figsize=[14.70, 8.27])
+    plt.xticks(bins);
+    plt.title("Distribution of {}".format(str(var.name).replace("_"," ").title()))
+    plt.xlabel("{}".format(str(var.name).replace("_"," ").title()))
+    
+pdHist_w_xticks(df.duration_sec)
+
+
+_______
+
+## <font color=blue>Folium</font>
+
+# FOLIUM MAP
+
+#We are using Folium to map the locations which uses Open Street Map as base. 
+m = folium.Map(location=[37.8272, -122.2913], tiles='Stamen Terrain', zoom_start=10)
+test = df_map[df_map.user_type == 'Customer']
+c = test.start_station_latitude.value_counts()[:40]
+d = c.index
+
+test = df_map[df_map.user_type == 'Customer']
+c = test.start_station_longitude.value_counts()[:40]
+e = c.index
+
+for a, b in zip(d, e):
+    
+    pop = df_map[df_map.start_station_latitude==a].start_station_name.unique()[0]
+    
+    tooltip = 'Click me!'
+    icon=folium.Icon(color='black', icon='bicycle', icon_color="red", prefix='fa', icon_size=(0, 0))
+    folium.Marker(location = [float(a), float(b)], popup=pop, tooltip=tooltip, icon=icon).add_to(m)
+    
+m.save("my_map.html") 
+
+# NEXT CELL - load html in iframe
+
+from IPython.display import IFrame
+IFrame(src="my_map.html", width=1080, height=600)
+
+
+______
+
+# Set color by subplot Seaborn 
+
+# Use a list (not a set, for colors)
+colors = ['#ee99ac', '#7038f8']
+
+g = sb.catplot(data=fordgobike_clean, x='start_time_weekday',
+               col="user_type", kind='count', sharey = False,
+               palette = colors, order = weekday,
+               height = 8.27/1,  aspect = (14.70/2)/(8.27/1))
+
+g.set_axis_labels("Day of the Week", "Bike Rides")
+g.set_titles("{col_name}")
+g.fig.suptitle('Weekly Usage Trends by User Type', y=1.03, fontsize=14, fontweight='semibold');
+
+# access each plots axes
+## ind is a counter (0,1 in this case, for each plot)
+for ind, ax in enumerate(g.axes.flatten()):
+    # patches are the graphics (.patches is a keyword)
+    for patch in ax.patches:
+        # patch is each bar (you can use any name)
+        patch.set_color(colors[ind])
+        patch.set_edgecolor("black")
+        patch.set_facecolor(colors[ind])
+        
+print([x for x in dir(ax.patches) if 'color' in x])
+
+______
+
+## Nice bar plot function
+
+# plot to display a single bar graph
+def showsinglebarplot(data, title, xlabel, ylabel, horizontal=False):
+    w = 0.5
+    a = 0.5
+    ticks = np.arange(len(data))
+    setplotsize()
+    if horizontal:
+        plt.barh(ticks,data,  alpha=a)
+        plt.yticks(ticks, data.keys())
+    else:
+        plt.bar(ticks,data, width=w, alpha=a)
+        plt.xticks(ticks, data.keys(), rotation='vertical')
+    
+    plt.ylabel(ylabel)
+    plt.xlabel(xlabel)
+    plt.title(title)
+
+    plt.grid(True, which='major', color='#666666')
+    plt.minorticks_on()
+    plt.grid(True, which='minor', color='#999999', alpha=0.2)
+    
+    plt.show()
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+         
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+         
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+         
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <div class="mainbar" onclick="myFunction(this)" id="blank">
+                <pre><code>
+
+</code>
+            </pre>
+            </div>
+            <hr />
+            <div class="mainbar" onclick="myFunction(this)" id="datamanipulation">
+                <pre><code>
+import os
+from IPython.core.display import display
+
+_______________
+
+## <span style="color:red";>Use numeric tick labels</span>
+
+
+
+ax = plt.gca()
+ax.yaxis.get_major_formatter().set_scientific(False)
+
+https://stackoverflow.com/questions/34552770/getting-a-legend-in-a-seaborn-facetgrid-heatmap-plot
+
+_______
+
+<span style="color:red;">Better</span>
+
+
+ax.get_xaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: "{:,}".format(int(x))))
+
+_________________
+
+<span style="color:red";># turn off scientific notation in pandas</span>
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
+
+# turn off for plots
+plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)
+
+# show full column text
+pd.set_option('display.max_colwidth', -1)
+
+# extend output
+pd.set_option('display.max_rows', 100000)
+
+
+pd.options.display.max_rows = 4000
+____________
+
+# Install modules inside notebook
+!conda install -y -c anaconda seaborn
+
+# The ! tells the notebook that that is a shell command (a command that normally runs on the command line).
+# The -y avoids you having to accept the changes.
+
+!conda update -y -c anaconda pandas
+
+________
+
+
+# PICKLE
+df.to_pickle("Your_file_name.pkl")
+
+
+df = pd.read_pickle("Your_file_name.pkl")
+________
+
+FLIGHTS DATA
+
+```
+with open('column_list.txt', 'r') as f:
+    lines = f.readlines()
+print(lines)
+
+columns_data = [x.replace("int64","").replace(r"object","").replace(r'float64','').strip() for x in lines]
+columns_data
+```
+
+# Flights
+
+import os
+import glob
+d = "/Volumes/Anfield/Work/Reviews/__data/Bike_Data/New_Data/"
+
+<span style="color":"blue";>Glob</span>
+
+# months 
+data_months = [str(i).replace("-", "") for i in pd.period_range(start='2018-01-01', end='2019-04-30', freq='M')]
+# extract month from file name
+def split_dates(f):
+    return f.split('/')[-1][:6]
+
+all_files = glob.glob(os.path.join(d , "*.csv") )
+df = pd.concat((pd.read_csv(f, low_memory=False) for f in all_files if "csv" in f), ignore_index = True, sort=True)
+
+## Examples
+http://jonathansoma.com/lede/foundations-2017/classes/working-with-many-files/class/
+
+all_files = glob.glob(os.path.join(d , "*.csv") )
+df = pd.concat((pd.read_csv(f, low_memory=False) for f in all_files if split_dates(f) in data_months), ignore_index = True, sort=True)
+__________
+
+#### MARKDOWN 
+
+```
+# BLUE
+<div class="alert alert-block alert-info"><h2>MatPlotLib and Seaborn</h2></div>
+# ORANGE
+<div class="alert alert-block alert-warning"><h4>A closer look at DaysBetweenScheduledandAppointment</h4></div>
+```
+
+
+___________
+
+#### RESHAPING DATA 
+
+https://pandas.pydata.org/docs/user_guide/reshaping.html
+_________________
+
+# the data folder:
+path = "/Volumes/mystuff/Reviews/__data/Bike_Data/"
+
+# initialize the list that you can to contain the dataframes
+dfs = []
+# loop over every file in the data file directory:
+for file in os.listdir(path):
+    # add condition, just to be safe
+    if "-fordgobike-tripdata.csv" in file:
+        # use the full path to the file
+        file = os.path.join(path,file)
+        # Load the 'file' dataset into a pandas dataframe.
+        df = pd.read_csv(file)
+        dfs.append(df)
+        
+        # display information about each dataframe
+        print(file)
+        print('Shape: ', df.shape)
+        display(df.head(1))
+
+column_headers = [x.columns for x in dfs]
+print('All Column headings match?')
+print([all(x == column_headers[0]) for x in column_headers])
+
+________
+
+_
+## <font color=blue>Changing Values</font>
+
+
+
+## CREATING OR CHANGING VARIABLE ENTRIES
+
+## Use .assign() instead of np.where ?
+
+```
+df1 = pd.DataFrame(df.query('disadvantaged == 1'),
+                   columns=['overall_literacy']).assign(opp='Disadvantaged')
+                   
+```
+
+## Use .replace() to replace string entries
+
+
+__________
+
+
+from time import time
+
+# staert time
+t0 = time()
+
+# dictionary of listing categories
+listing_cat_dict = {0:'Not Available',
+    1:'Debt Consolidation',
+    2:'Home Improvement',
+    3:'Business',
+    4:'Personal Loan',
+    5:'Student Use',
+    6:'Auto',
+    7:'Other',
+    8:'Baby&Adoption',
+    9:'Boat',
+    10:'Cosmetic Procedure',
+    11:'Engagement Ring',
+    12:'Green Loans',
+    13:'Household Expenses',
+    14:'Large Purchases',
+    15:'Medical/Dental',
+    16:'Motorcycle',
+    17:'RV',
+    18:'Taxes',
+    19:'Vacation',
+    20:'Wedding Loans'}
+# use dictionary of listing categories to replace original (in new variable)
+df['ListingCategory_new'] = df['ListingCategory (numeric)'].replace(listing_cat_dict)
+
+# preint time taken
+print("time taken for .replace(): {} seconds".format(time()-t0))
+
+__________
+
+## Change Time String (with missing leading 0, to Hour)
+
+time_df["time_dt"] = pd.to_datetime(time_df["time"].astype(str).apply(lambda x: '{0:0>4}'.format(x)), format = "%H%M.0")
+
+df["DepTime"] = pd.to_datetime(df["DepTime"].astype(str).apply(lambda x: '{0:0>6}'.format(x)), format = "%H%M.0", errors='coerce')
+df["DepTime"] = df["time_dt"].dt.strftime('%H:%M')
+df["CRSDepTime"] = pd.to_datetime(df["CRSDepTime"].astype(str).apply(lambda x: '{0:0>4}'.format(x)), format = "%H%M", errors='coerce')
+df["CRSDepTime"] = df["time_dt"].dt.strftime('%H:%M')
+
+# Count NaT obs
+NaTValues = df.query('DepTime == "NaT"')
+len(NaTValues)
+
+# create years and Months
+
+#201808 - 201907
+months = ["2018{0:0>2}".format(x) for x in range(8,13)] + ["2019{0:0>2}".format(x) for x in range(1,8)]
+
+
+_________
+_
+# Sort by part of substring (in this case, second part)
+print(sorted(df_new.LoanOriginationQuarter, key=lambda x: x.split(' ')[-1]))
+
+# split strings based on Capitalization
+df['LoanStatus'] = df['LoanStatus'].apply(lambda x:" ".join(re.sub( r"([A-Z])", r" \1", x).split()))
+df['LoanStatus'] = np.where(df['LoanStatus'] == "Chargedoff", "Charged Off",df['LoanStatus'] )
+df.LoanStatus.unique()
+
+__________
+
+__________
+
+## <font color=blue>CATEGORICAL VARIABLES</font>
+
+
+## CATEGORICAL VARIABLES
+
+import calendar
+day_order = [day for day in calendar.day_name]
+month_order = [mon for mon in calendar.month_name][1:]
+day_order = [day for day in calendar.day_abbr]
+month_order = [mon for mon in calendar.month_abbr][1:]
+
+day_order
+
+day_order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+df['starting_WeekDay'] = pd.Categorical(df['starting_WeekDay'],
+                                      categories= day_order, # use order list
+                                      ordered = True)
+
+
+## Or
+
+#Create month class for proper sorting
+month_class=['January','February','March','April','May','June','July','August','September','October','November','December']
+m_class=pd.api.types.CategoricalDtype(categories=month_class,ordered=True)
+df['month']=df['month'].astype(m_class)
+
+
+__________
+
+## ORDER USING TWO KEYS
+
+# quarters order
+quarters_order = sorted(loan_data.LoanOriginationQuarter.unique(), key=lambda x: (x[-2:], x[1]))
+
+# create ordered categorical variable using quarter_order
+loan_data['LoanOriginationQuarter'] = pd.Categorical(loan_data['LoanOriginationQuarter'], 
+                                                     categories=quarters_order,
+                                                     ordered = True)
+
+
+___________________
+
+## List of Months
+
+import calendar
+[mon for mon in calendar.month_name[1:]]
+
+
+___________
+
+Rounded intervals
+
+
+df.CreditScoreMean.unique()
+
+bins = np.arange(int(df.CreditScoreMean.min()/100)*100,
+                 int(df.CreditScoreMean.max()/100)*100 + 200, 100)
+
+df["CreditScoreMean_new"] = pd.cut(df.CreditScoreMean, bins,
+                                labels = [x for x in bins[:-1]],
+                                right = False)
+df[["CreditScoreMean_new", "CreditScoreMean"]].head(30)
+
+
+____________
+
+
+## Merge 
+
+df_desc = pd.merge(df, df1,  how='left', left_on=["UniqueCarrier"], right_on = ["Code"])
+
+
+________
+
+## Combine string columns
+
+
+df['YearQuarter'] = df[['Year','Quarter']].apply(lambda x : '{}q{}'.format(x[0],x[1]), axis=1)
+
+## Combine string index
+
+grp_sum = loans_data.groupby(['ProsperRating (Alpha)', 'Term'])['OriginationFee',
+                                                                'LoanOriginalAmount',
+                                                               'EstimatedReturn'].sum()
+grp_sum['new'] = ['{} - Term: {} mths'.format(i,j) for i, j in grp_sum.index]
+grp_sum.set_index('new',inplace=True)
+
+
+___________
+
+
+## files in loop
+import os
+path = "/Volumes/Anfield/Work/Reviews/__data/Bike_Data/"
+
+dfs = []
+for i in range(1,8):
+    datafile = os.path.join(path,'2019{0:0>2}-baywheels-tripdata.csv'.format(str(i)))   
+    dfs.append(pd.read_csv(datafile,
+                           low_memory= False))
+ford_raw = pd.concat(dfs, ignore_index = True, sort = True);
+
+_________
+
+# count the number of words in strings using vectorized operations
+reviews['review_body_len_new'] = reviews['review_body'].str.split().str.len()____________
+
+
+## pandas_profiling
+
+import sys
+!{sys.executable} -m pip install pandas-profiling
+
+
+import pandas_profiling
+df_sample = df.sample(n=5000, random_state = 42)
+
+pandas_profiling.ProfileReport(df_sample)
+
+_________
+
+# REPLACE CATEGORIES (using external source)
+
+# method for displaying dataframes
+from IPython.display import display
+
+## Prosper
+
+# Load Definitions
+definitions_file = "Prosper Loan Data - Variable Definitions.xlsx"
+definitions = pd.read_excel(definitions_file, sheet_name='Sheet1')
+# view definitions dataframe head
+display(definitions.head())
+
+# Extract Listing Category
+listings = definitions[definitions.Variable.str.contains('ListingCategory')].Description.values[0]
+print("\nUncleaned listings: \n", listings)
+
+listings = listings.split(":")[1:][0]
+print("\nCleaned listings: \n", listings)
+
+listings_dict = dict([x.strip() for x in item.split("-")] for item in listings.split(","))
+print("\nlistings_dict: \n", listings_dict)
+
+# Display before cleaning
+display(df['ListingCategory (numeric)'].head())
+# change to string type
+df['ListingCategory (numeric)'] = df['ListingCategory (numeric)'].astype(str)
+# replace sting integer values with equivalent names
+df.replace({'ListingCategory (numeric)': listings_dict}, inplace = True)
+# Display after cleaning
+display(df['ListingCategory (numeric)'].head())
+
+__________
+
+# REPLACE USING DICTIONARY
+
+## Dictionary of cancelation codes
+
+CancellationCode_dict = {"A" : "Carrier", "B" : "Weather", "C" : "NAS", "D" : "Security"}
+# Replace Cancelation codes
+df.replace({'CancellationCode': CancellationCode_dict}, inplace = True)
+
+
+df.replace({'member_gender' : { 'F' : "Female", 'M' : "Male", 'O' : "Other", "?" : "Other" }}, inplace = True)
+__________
+
+## Extract Seasons
+
+from IPython.display import display
+
+# Itialize Timer
+start = time.time() 
+
+# create datetime variable from starttime
+df_original['starttime'] = pd.to_datetime(df_original['starttime'])
+
+# extract year from starttime
+df_original['year'] = df_original['starttime'].dt.year
+# create beginning of year datetime object
+df_original['start_of_year'] = pd.to_datetime(df_original['year'], format = "%Y")
+# extract day from beginning of year
+df_original['day_of_year'] = (df_original['starttime'] - df_original['start_of_year']).dt.days + 1
+
+
+# "day of year" ranges for the northern hemisphere for seasons - taken from his calculations
+spring = range(79, 172)
+summer = range(172, 265)
+fall = range(265, 355)
+# winter = everything else
+
+
+df_original['season_3'] = np.where(df_original['day_of_year'].isin(spring), # If day of the year in
+        'Spring' ,
+    np.where(df_original['day_of_year'].isin(summer),
+         'Summer' ,
+    np.where(df_original['day_of_year'].isin(fall),
+         'Fall' , 'Winter')))
+
+# end timer
+end = time.time() 
+print('Using np.where() on full dataframe - Time: ',(end - start)/60)
+print('number of observations: ', len(df_original))
+
+
+_____
+
+# Where day ranges are extracted from:
+
+# December 22. Winter: June 21. 
+# SEPTEMBER 22 (the Sun crosses the Equator moving southward). In the southern hemisphere: 
+# MARCH 20 (the Sun crosses the Equator moving northward).
+
+season_dates = {'season': seasons, 
+                'start_date': ['2018-03-20', '2018-06-21','2018-09-22','2018-12-21']} #start dates of each season
+df_seasons = pd.DataFrame(data=season_dates)
+
+df_seasons['datetime'] = pd.to_datetime(df_seasons['start_date'])
+
+# extract year from starttime
+df_seasons['year'] = df_seasons['start_date'].dt.year
+# create beginning of year datetime object
+df_seasons['start_of_year'] = pd.to_datetime(df_seasons['year'], format = "%Y")
+# extract day from beginning of year
+df_seasons['day_of_year'] = (df_seasons['start_date'] - df_seasons['start_of_year']).dt.days + 1
+
+
+
+_____________
+
+## GET DATA AUTOMATICALLY
+
+# Create list of urls to download the data
+list_urls = []
+
+for year in np.arange(2017,2021,1):
+    for month in np.arange(1,13,1):
+        if str(year) == '2017':
+            date = year
+            list_urls.append("https://s3.amazonaws.com/baywheels-data/{}-fordgobike-tripdata.csv.zip".format(date))
+            continue
+        else:
+            date = "{}{:0>2}".format(year,month)
+            list_urls.append("https://s3.amazonaws.com/baywheels-data/{}-fordgobike-tripdata.csv.zip".format(date))
+
+
+# Create a function to download, extract and read the data
+def get_data(url):
+    # Import the data programmatically using 'requests'
+    r = requests.get(url)
+    # Name of the zip file
+    name_zip_file = url.split('/')[-1]
+    # Save the data in the current directory
+    with open (name_zip_file, 'wb') as file:
+        # Save the ZIP file
+        file.write(r.content)
+
+for url in list_urls:
+    get_data(url)
+    
+    
+________
+
+#### Max Count (if multiple max)
+
+```
+# unstack the genre index (the second index above) to create a table with rows as years
+movie_counts = df2.groupby(["release_year", "genres"]).size().unstack(level=1)
+
+
+# across columns (axis = 1), get the max value
+# use .where() and .eq() in case of multiple max values across rows (axis = 0)
+movie_counts.where(movie_counts.eq(movie_counts.max(axis = 1), axis=0)).stack().to_frame().head(20)
+```
+
+
+_____
+
+#### Max value (using idmax)
+```
+# first get the id of the row with the max popularity for each group
+id_max_pop = df2.groupby(["release_year", "genres"]).popularity.max().reset_index().groupby("release_year").popularity.idxmax()
+# use the id to get the relevant values
+df2.groupby(["release_year", "genres"]).popularity.max().reset_index().loc[id_max_pop].head()
+```
+
+_
+
+______
+
+</code>
+            </pre>
+            </div>
+
+            <script>
+                // function myFunction(divObj) {
+                //     divObj.style.background="#000000";
+                // }
+                //
+                // function myFunctionSidebar(divObj) {
+                //     divObj.style.background="#FFA500";
+                // }
+                // Get the container element
+                var btnContainer = document.getElementById("sidebar");
+                // Get all buttons with class="btn" inside the container
+                var btns = btnContainer.getElementsByClassName("btn");
+                // Loop through the buttons and add the active class to the current/clicked button
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener("click", function () {
+                        var current = document.getElementsByClassName(" active");
+                        // If there's no active class
+                        if (current.length > 0) {
+                            current[0].className = current[0].className.replace(" active", "");
+                        }
+                        // Add the active class to the current/clicked button
+                        this.className += " active";
+                    });
+                }
+                //          function include_header() {
+                //             document.getElementById("navbar").innerHTML='<object type="text/html" data="js/links.html" ></object>';
+                //             }
+                //
+                //          document.addEventListener("DOMContentLoaded", function(event) {
+                //                 console.log("call your functions here");
+                //                   include_header();
+                //                 });
+                //
+            </script>
+            <script>
+                var btnContainerSB = document.getElementById("navbar");
+                // Get all buttons with class="btn" inside the container
+                var btnsSB = btnContainerSB.getElementsByClassName("btnSB");
+                // Loop through the buttons and add the active class to the current/clicked button
+                for (var i = 0; i < btnsSB.length; i++) {
+                    btns[i].addEventListener("click", function () {
+                        var currentSB = document.getElementsByClassName(" activeSB");
+                        // If there's no active class
+                        if (currentSB.length > 0) {
+                            currentSB[0].className = currentSB[0].className.replace(" activeSB", "");
+                        }
+                        // Add the active class to the current/clicked button
+                        this.className += " activeSB";
+                    });
+                }
+            </script>
+        </div>
+    </body>
+</html>
+

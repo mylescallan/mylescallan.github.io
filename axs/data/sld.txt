@@ -1,0 +1,76 @@
+ab:Alberta
+ac:Academic
+aero:Travel
+ah:Anhu
+arts:Artistic
+asso:Asso
+bc:Brittish Columbia
+biz:Business
+bj:Beijing
+co:Commercial
+com:Commercial
+coop:Cooperative
+cq.Chongqing
+edu:Educational
+ernet:ERNET
+fin:Financial
+firm:Firm
+gd:Guangdong
+go:Government
+gov:Government
+gs:Gansu
+gx:Guabgxi
+gz:Guizhou
+hb:Hebei
+he:Henan
+hi:Hubei
+hk:Hongkong
+hl:Heilgiiang
+hn:Hunan
+info:Informational
+jl:Jilin
+js:Jaingsu
+k12:k12
+ln:Liaoning
+mb:Manatoba
+med:Medical
+mil:Military
+mo:Macau
+muni:Municipality
+museum:Museum
+name:Personal
+nb:New Brunswick
+ne:Network
+net:Network Infrastructure
+nf:Newfoundland
+ngo:Non Govt Org
+nm:Neimengu
+nom:Personal
+ns:Nova Scotia
+nt:NW Territories
+nt:Nt
+nx:Ningxai
+on:Ontario
+or:Nonprofit
+org:Nonprofit
+pe:Prince Edward Island
+presse:Presse
+pro:Professional
+qc:Quebec
+qh:Ginghai
+re:Research
+res:Research
+sc:Sichuan
+sh:Shanghai
+sk:Saskatchewan
+sn:Shaanxi
+store:Store
+tj:Tianjin
+tm:TradeMark
+tw:Taiwan
+web:Web
+xj:Xinjiang
+xz:Xizang
+yk:Yukon
+yn:Yunnan
+zj:Zhejiang

@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>prompt test</title>
+
+<script type="text/javascript" src="/Javascript/aeprompt.js"></script>
+<script type="text/javascript">
+
+function hw1()
+{
+    ae_prompt( hw2, 'Username', 'Anonymous');
+    ae_prompt( hw3, 'Password', 'Anonymous');
+}
+
+function hw2(n)
+{
+    var hello = document.getElementById('hello');
+    hello.innerHTML = '<h1>Hello, ' + n + '!</h1>';
+}
+
+
+
+
+</script>
+
+<!-- CSS styles for ae_prompt function -->
+<style type="text/css">
+#aep_ovrl { 
+background-color: black; 
+-moz-opacity: 0.7; opacity: 0.7;
+top: 0; left: 0; position: fixed;
+width: 100%; height:100%; z-index: 99; 
+}
+#aep_ww { position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 100%; text-align: center;} 
+#aep_win { margin: 20% auto 0 auto; width: 400px; text-align: left;}
+#aep_w {background-color: white; padding: 3px; border: 1px solid black; background-color: #EEE;}
+#aep_t {color: white; margin: 0 0 2px 3px; font-family: Arial, sans-serif; font-size: 10pt;}
+#aep_text {width: 100%;}
+#aep_w span {font-family: Arial, sans-serif; font-size: 10pt;}
+#aep_w div {text-align: right; margin-top: 5px;}
+</style>
+<!-- IE specific code: -->
+<!--[if lte IE 7]>
+<style type="text/css">
+#aep_ovrl {
+position: absolute;
+filter:alpha(opacity=70);
+top: expression(eval(document.body.scrollTop));
+width: expression(eval(document.body.clientWidth));
+}
+#aep_ww { 
+position: absolute; 
+top: expression(eval(document.body.scrollTop)); 
+}
+</style>
+<![endif]-->
+
+<!-- CSS styles for ae_prompt function -->
+
+
+</head>
+
+
+<body bgcolor="#FFFFFF">
+<!-- ae_prompt HTML code -->
+<div id="aep_ovrl" style="display: none;">&nbsp;</div>
+<div id="aep_ww" style="display: none;">
+<div id="aep_win">
+<div id="aep_t"></div>
+<div id="aep_w"><span id="aep_prompt"></span>
+<br /><input type="text" id="aep_text" onKeyPress="if((event.keyCode==10)||(event.keyCode==13)) ae_clk(1); if (event.keyCode==27) ae_clk(0);"><br>
+<div><input type="button" id="aep_ok" onclick="ae_clk(1);" value="OK">
+<input type="button" id="aep_cancel" onclick="ae_clk(0);" value="Cancel">
+</div></div>
+</div>
+</div>
+<!-- ae_prompt HTML code -->
+
+<div id="hello">
+Hi! <span style="text-decoration: underline; color: blue; cursor: pointer;" onClick="hw1();">Click</span> to set your name. 
+</div>
+
+</body></html>
