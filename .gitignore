@@ -16,6 +16,8 @@ Icon
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
+# Other Files
+/game/video_text.html
 
 # Large folders
 udacity/
